@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: DraftEdwardsWoods.aux
+The style file: plain.bst
+Database file #1: FullBib.bib
+Warning--entry type for "RECSSurvey" isn't style-file defined
+--line 16 of file FullBib.bib
+Too many commas in name 1 of "U.S. Energy Information Administration,, Washington, DC" for entry RECSSurvey
+while executing---line 1049 of file plain.bst
+Warning--there's a number but no volume in burgett2015using
+Warning--empty journal in miller2014empirical
+Too many commas in name 1 of "U.S. Energy Information Administration,, Washington, DC" for entry RECSSurvey
+while executing---line 1090 of file plain.bst
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            568 strings with 6557 characters,
+and the built_in function-call counts, 3605 in all, are:
+= -- 363
+> -- 140
+< -- 1
++ -- 59
+- -- 44
+* -- 215
+:= -- 623
+add.period$ -- 38
+call.type$ -- 13
+change.case$ -- 59
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 141
+empty$ -- 298
+format.name$ -- 44
+if$ -- 742
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 9
+newline$ -- 66
+num.names$ -- 26
+pop$ -- 66
+preamble$ -- 1
+purify$ -- 48
+quote$ -- 0
+skip$ -- 99
+stack$ -- 0
+substring$ -- 215
+swap$ -- 22
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 2
+while$ -- 39
+width$ -- 15
+write$ -- 136
+(There were 2 error messages)

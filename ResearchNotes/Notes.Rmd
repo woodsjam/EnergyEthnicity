@@ -1,17 +1,11 @@
 Research Notes for Housing Market Institutions Drive Race and Ethnicity Differences in Energy Consumption
 ========================================================
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
-
-When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
+Load in the raw data.
 ```{r}
-summary(cars)
-```
+RECS <- read.csv("~/Research/EnergyEthnicity/Data/recs2009_public.csv")
 
-You can also embed plots, for example:
+summary(RECS)
 
-```{r fig.width=7, fig.height=6}
-plot(cars)
 ```
 
