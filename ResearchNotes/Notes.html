@@ -2198,6 +2198,166 @@ summary(RECS)
 ## 
 </code></pre>
 
+<p>Lots of recodes in there.</p>
+
+<pre><code class="r">library(plyr)
+#ID
+RECS$DOEID&lt;-as.factor(RECS$DOEID)  
+
+#Region
+RECS$REGIONC&lt;-revalue(as.factor(RECS$REGIONC),c(&quot;1&quot;=&quot;NE&quot;, &quot;2&quot;=&quot;MidWest&quot;,&quot;3&quot;=&quot;South&quot;,&quot;4&quot;=&quot;West&quot;))
+
+#Type of Structure
+RECS$TYPEHUQ&lt;-revalue(as.factor(RECS$TYPEHUQ), c(&quot;1&quot;=&quot;Mobile&quot;, &quot;2&quot;=&quot;SFDetached&quot;, &quot;3&quot;=&quot;SFAttached&quot;, &quot;4&quot;=&quot;SmApartment&quot;, &quot;5&quot;=&quot;LgApartment&quot;))
+
+#Climate zone
+RECS$Climate_Region_Pub&lt;-revalue(as.factor(RECS$Climate_Region_Pub),c(&quot;1&quot;=&quot;VColdCold&quot;,&quot;2&quot;=&quot;HotDryMixedDry&quot;,&quot;3&quot;=&quot;HotHumid&quot;,&quot;4&quot;=&quot;MixedHumid&quot;,&quot;5&quot;=&quot;Marine&quot;))
+
+#Urban vs Rural
+RECS$UR&lt;-revalue(as.factor(RECS$UR), c(&quot;U&quot;=&quot;Urban&quot;,&quot;R&quot;=&quot;Rural&quot;))
+
+RECS$KOWNRENT&lt;-revalue(as.factor(RECS$KOWNRENT),c(&quot;1&quot;=&quot;Own&quot;,&quot;2&quot;=&quot;Rent&quot;,&quot;3&quot;=&quot;Free&quot;))
+
+#Year Built
+summary(RECS$YEARMADE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1920    1955    1975    1971    1991    2009
+</code></pre>
+
+<pre><code class="r">#Moved in
+RECS$OCCUPYYRANGE&lt;-revalue(as.factor(RECS$OCCUPYYRANGE),c(&quot;1&quot;=&quot;Pre50&quot;, &quot;2&quot;=&quot;5059&quot;,&quot;3&quot;=&quot;6069&quot;,&quot;4&quot;=&quot;7079&quot;,&quot;5&quot;=&quot;8089&quot;,&quot;6&quot;=&quot;9099&quot;, &quot;7&quot;=&quot;0004&quot;,&quot;8&quot;=&quot;0509&quot;))
+
+#Bedrooms
+RECS$BEDROOMS[RECS$BEDROOMS==-2]&lt;-NA
+summary(RECS$BEDROOMS)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    0.00    2.00    3.00    2.86    3.00   13.00     215
+</code></pre>
+
+<pre><code class="r">#Working with cooking end use
+summary(RECS$STOVEN)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.9112  1.0000  3.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$STOVE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1233  0.0000  2.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$OVEN)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1567  0.0000  3.0000
+</code></pre>
+
+<pre><code class="r">#Stove and oven fuel are only reported if separate
+
+RECS$CookTopElectric&lt;-FALSE
+RECS$CookTopElectric[RECS$STOVENFUEL==&#39;5&#39; | RECS$STOVEFUEL==&#39;5&#39; ]&lt;-TRUE
+
+RECS$OvenElectric&lt;-FALSE
+RECS$OvenElectric[RECS$STOVENFUEL==&#39;5&#39; | RECS$OVENFUEL==&#39;5&#39; ]&lt;-TRUE
+
+#Just indicating that that cook with electricity
+summary(RECS$CookTopElectric)
+</code></pre>
+
+<pre><code>##    Mode   FALSE    TRUE    NA&#39;s 
+## logical    4750    7333       0
+</code></pre>
+
+<pre><code class="r">summary(RECS$OvenElectric)
+</code></pre>
+
+<pre><code>##    Mode   FALSE    TRUE    NA&#39;s 
+## logical    4395    7688       0
+</code></pre>
+
+<pre><code class="r">#How much they use it
+RECS$NUMMEAL&lt;-revalue(as.factor(RECS$NUMMEAL),c(&quot;0&quot;=&quot;Never&quot;,&quot;1&quot;=&quot;ThreeDay&quot;,&quot;2&quot;=&quot;TwoDay&quot;, &quot;3&quot;=&quot;OneDay&quot;, &quot;4&quot;=&quot;FewWeek&quot;,&quot;5&quot;=&quot;OneWeek&quot;,&quot;6&quot;=&quot;LessWeek&quot;))
+
+#this is better on cooking fuel.  Don&#39;t use the separate oven and cook top from above
+RECS$ELectricCook&lt;-FALSE
+RECS$ELectricCook[RECS$FUELFOOD==&quot;5&quot;]&lt;-TRUE
+
+#Number of fridges.  Watch out for those with more than 4.
+table(RECS$NUMFRIG)
+</code></pre>
+
+<pre><code>## 
+##    0    1    2    3    4    5    6    7 
+##   19 9167 2626  226   34    9    1    1
+</code></pre>
+
+<pre><code class="r">#age of fridge
+RECS$AgeFridge&lt;-revalue(as.factor(RECS$AGERFRI1), c(&quot;1&quot;=&quot;Less2&quot;, &quot;2&quot;=&quot;2to4Years&quot;, &quot;3&quot;=&quot;5to9Years&quot;,&quot;41&quot;=&quot;10to14Years&quot;,&quot;42&quot;=&quot;15to19Years&quot;,&quot;5&quot;=&quot;20PlusYears&quot;,&quot;-2&quot;=NA))
+
+summary(RECS$AgeFridge)
+</code></pre>
+
+<pre><code>##       Less2   2to4Years   5to9Years 20PlusYears 10to14Years 15to19Years 
+##        1523        2886        4212         546        2163         734 
+##        NA&#39;s 
+##          19
+</code></pre>
+
+<pre><code class="r">#Has Dishwasher
+RECS$DishwaherTrue&lt;-revalue(as.factor(RECS$DISHWASH),c(&quot;0&quot;=TRUE, &quot;1&quot;=FALSE))
+
+RECS$WASHLOAD&lt;-revalue(as.factor(RECS$WASHLOAD),c(&quot;1&quot;=&quot;1Less&quot;,&quot;2&quot;=&quot;2to4Loads&quot;,&quot;3&quot;=&quot;5to9Loads&quot;,&quot;4&quot;=&quot;10to15Loads&quot;,&quot;5&quot;=&quot;15PlusLoads&quot;,&quot;-2&quot;=NA))
+
+RECS$DRYER&lt;-revalue(as.factor(RECS$DRYER), c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+
+RECS$DRYRFUEL&lt;-revalue(as.factor(RECS$DRYRFUEL), c(&quot;1&quot;=&quot;NG&quot;,&quot;2&quot;=&quot;LPG&quot;,&quot;5&quot;=&quot;Elec&quot;,&quot;-2&quot;=NA))
+
+#END on LINE 240
+
+#Need state ie REPORTABLE_DOMAIN
+
+
+
+# Restrict to primary and not seasonal 
+</code></pre>
+
+<p>Checkign out the weight variable</p>
+
+<pre><code class="r">summary(RECS$NWEIGHT)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   476.1  6297.0  7971.0  9403.0 11330.0 95780.0
+</code></pre>
+
+<p>Looks like it is the number of equivelent HH in population style.</p>
+
+<p>Looking at weather</p>
+
+<pre><code class="r">summary(RECS$HDD65)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    2198    4483    4141    5913   12520
+</code></pre>
+
+<pre><code class="r">summary(RECS$CDD65)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0     561    1045    1415    1897    5480
+</code></pre>
+
+<p>Nothing odd.</p>
+
 </body>
 
 </html>

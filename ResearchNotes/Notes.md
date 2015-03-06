@@ -2020,3 +2020,186 @@ summary(RECS)
 ## 
 ```
 
+Lots of recodes in there.
+
+
+```r
+library(plyr)
+#ID
+RECS$DOEID<-as.factor(RECS$DOEID)  
+
+#Region
+RECS$REGIONC<-revalue(as.factor(RECS$REGIONC),c("1"="NE", "2"="MidWest","3"="South","4"="West"))
+
+#Type of Structure
+RECS$TYPEHUQ<-revalue(as.factor(RECS$TYPEHUQ), c("1"="Mobile", "2"="SFDetached", "3"="SFAttached", "4"="SmApartment", "5"="LgApartment"))
+
+#Climate zone
+RECS$Climate_Region_Pub<-revalue(as.factor(RECS$Climate_Region_Pub),c("1"="VColdCold","2"="HotDryMixedDry","3"="HotHumid","4"="MixedHumid","5"="Marine"))
+
+#Urban vs Rural
+RECS$UR<-revalue(as.factor(RECS$UR), c("U"="Urban","R"="Rural"))
+
+RECS$KOWNRENT<-revalue(as.factor(RECS$KOWNRENT),c("1"="Own","2"="Rent","3"="Free"))
+
+#Year Built
+summary(RECS$YEARMADE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1920    1955    1975    1971    1991    2009
+```
+
+```r
+#Moved in
+RECS$OCCUPYYRANGE<-revalue(as.factor(RECS$OCCUPYYRANGE),c("1"="Pre50", "2"="5059","3"="6069","4"="7079","5"="8089","6"="9099", "7"="0004","8"="0509"))
+
+#Bedrooms
+RECS$BEDROOMS[RECS$BEDROOMS==-2]<-NA
+summary(RECS$BEDROOMS)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    0.00    2.00    3.00    2.86    3.00   13.00     215
+```
+
+```r
+#Working with cooking end use
+summary(RECS$STOVEN)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.9112  1.0000  3.0000
+```
+
+```r
+summary(RECS$STOVE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1233  0.0000  2.0000
+```
+
+```r
+summary(RECS$OVEN)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1567  0.0000  3.0000
+```
+
+```r
+#Stove and oven fuel are only reported if separate
+
+RECS$CookTopElectric<-FALSE
+RECS$CookTopElectric[RECS$STOVENFUEL=='5' | RECS$STOVEFUEL=='5' ]<-TRUE
+
+RECS$OvenElectric<-FALSE
+RECS$OvenElectric[RECS$STOVENFUEL=='5' | RECS$OVENFUEL=='5' ]<-TRUE
+
+#Just indicating that that cook with electricity
+summary(RECS$CookTopElectric)
+```
+
+```
+##    Mode   FALSE    TRUE    NA's 
+## logical    4750    7333       0
+```
+
+```r
+summary(RECS$OvenElectric)
+```
+
+```
+##    Mode   FALSE    TRUE    NA's 
+## logical    4395    7688       0
+```
+
+```r
+#How much they use it
+RECS$NUMMEAL<-revalue(as.factor(RECS$NUMMEAL),c("0"="Never","1"="ThreeDay","2"="TwoDay", "3"="OneDay", "4"="FewWeek","5"="OneWeek","6"="LessWeek"))
+
+#this is better on cooking fuel.  Don't use the separate oven and cook top from above
+RECS$ELectricCook<-FALSE
+RECS$ELectricCook[RECS$FUELFOOD=="5"]<-TRUE
+
+#Number of fridges.  Watch out for those with more than 4.
+table(RECS$NUMFRIG)
+```
+
+```
+## 
+##    0    1    2    3    4    5    6    7 
+##   19 9167 2626  226   34    9    1    1
+```
+
+```r
+#age of fridge
+RECS$AgeFridge<-revalue(as.factor(RECS$AGERFRI1), c("1"="Less2", "2"="2to4Years", "3"="5to9Years","41"="10to14Years","42"="15to19Years","5"="20PlusYears","-2"=NA))
+
+summary(RECS$AgeFridge)
+```
+
+```
+##       Less2   2to4Years   5to9Years 20PlusYears 10to14Years 15to19Years 
+##        1523        2886        4212         546        2163         734 
+##        NA's 
+##          19
+```
+
+```r
+#Has Dishwasher
+RECS$DishwaherTrue<-revalue(as.factor(RECS$DISHWASH),c("0"=TRUE, "1"=FALSE))
+
+RECS$WASHLOAD<-revalue(as.factor(RECS$WASHLOAD),c("1"="1Less","2"="2to4Loads","3"="5to9Loads","4"="10to15Loads","5"="15PlusLoads","-2"=NA))
+
+RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
+
+RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
+
+#END on LINE 240
+
+#Need state ie REPORTABLE_DOMAIN
+
+
+
+# Restrict to primary and not seasonal 
+```
+Checkign out the weight variable
+
+```r
+summary(RECS$NWEIGHT)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   476.1  6297.0  7971.0  9403.0 11330.0 95780.0
+```
+Looks like it is the number of equivelent HH in population style.
+
+Looking at weather
+
+```r
+summary(RECS$HDD65)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    2198    4483    4141    5913   12520
+```
+
+```r
+summary(RECS$CDD65)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0     561    1045    1415    1897    5480
+```
+Nothing odd.
+
