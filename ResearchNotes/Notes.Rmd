@@ -82,6 +82,20 @@ RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec"
 
 #END on LINE 240
 
+#Starting again from the bottom
+#May need to do some editing on this.  Low values are too low
+summary(RECS$KWH)/12
+
+#This is the sqft variable to use
+summary(RECS$TOTSQFT_EN)
+
+#Get income working two ways
+#MONEYPY row 789 in category then make cont.
+
+# End row 764
+
+
+
 #Need state ie REPORTABLE_DOMAIN
 
 
