@@ -146,3 +146,21 @@ summary(RECS$CDD65)
 ```
 Nothing odd.
 
+
+This is the data ME created from the HUD report on the number of complaints per 100K population
+
+```{r}
+HUD <- read.csv("~/Research/EnergyEthnicity/Data/HUD.csv")
+
+#And the clean up from importing from excell
+HUD$Pop<-as.numeric(gsub(",","",HUD$Pop))
+summary(HUD)
+```
+
+
+
+```{r}
+as.numeric(HUD$Pop)
+```
+
+

@@ -2311,3 +2311,53 @@ summary(RECS$CDD65)
 ```
 Nothing odd.
 
+
+This is the data ME created from the HUD report on the number of complaints per 100K population
+
+
+```r
+HUD <- read.csv("~/Research/EnergyEthnicity/Data/HUD.csv")
+
+#And the clean up from importing from excell
+HUD$Pop<-as.numeric(gsub(",","",HUD$Pop))
+summary(HUD)
+```
+
+```
+##         State      Complaints          Pop           ComplaintRate   
+##  Alabama   : 1   Min.   :   4.0   Min.   :  532981   Min.   :0.4132  
+##  Alaska    : 1   1st Qu.:  63.5   1st Qu.: 1654728   1st Qu.:2.1526  
+##  Arizona   : 1   Median : 107.0   Median : 4287931   Median :2.8810  
+##  Arkansas  : 1   Mean   : 200.2   Mean   : 5968134   Mean   :3.4185  
+##  California: 1   3rd Qu.: 202.0   3rd Qu.: 6554834   3rd Qu.:4.3463  
+##  Colorado  : 1   Max.   :1108.0   Max.   :36580371   Max.   :8.7306  
+##  (Other)   :45                                                       
+##   reportablen   
+##  Min.   : 1.00  
+##  1st Qu.: 8.50  
+##  Median :14.00  
+##  Mean   :14.47  
+##  3rd Qu.:21.00  
+##  Max.   :27.00  
+## 
+```
+
+
+
+
+```r
+as.numeric(HUD$Pop)
+```
+
+```
+##  [1]  4677464   688125  6499377  2867764 36580371  4935213  3502932
+##  [8]   876211   590074 18423878  9697838  1287481  1527506 12842954
+## [15]  6388309  2993987  2797375  4287931  4451513  1319691  5658655
+## [22]  6543595 10002486  5230567  2940212  5956335   968035  1781949
+## [29]  2615772  1321872  8663398  1986763 19467789  9247134   641421
+## [36] 11528072  3644025  3782991 12566368  1053502  4503280   804532
+## [43]  6240456 24304290  2727343   621049  7795424  6566073  1814873
+## [50]  5627610   532981
+```
+
+
