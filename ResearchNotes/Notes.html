@@ -2322,6 +2322,14 @@ RECS$DRYRFUEL&lt;-revalue(as.factor(RECS$DRYRFUEL), c(&quot;1&quot;=&quot;NG&quo
 
 #END on LINE 240
 
+
+
+
+
+
+
+
+
 #Starting again from the bottom
 #May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
@@ -2341,12 +2349,70 @@ summary(RECS$TOTSQFT_EN)
 
 <pre><code class="r">#Get income working two ways
 #MONEYPY row 789 in category then make cont.
+RECS$MONEYPY&lt;-revalue(as.factor(RECS$MONEYPY),c(&quot;1&quot;=&quot;Less2500&quot;, &quot;2&quot;=&quot;Less5K&quot;, &quot;3&quot;=&quot;Less7500&quot;,&quot;4&quot;=&quot;Less10K&quot;,&quot;5&quot;=&quot;Less15K&quot;,&quot;6&quot;=&quot;Less20K&quot;,&quot;7&quot;=&quot;Less25K&quot;,&quot;8&quot;=&quot;Less30K&quot;, &quot;9&quot;=&quot;Less35K&quot;,&quot;10&quot;=&quot;Less40K&quot;,&quot;11&quot;=&quot;Less45K&quot;,&quot;12&quot;=&quot;Less50K&quot;,&quot;13&quot;=&quot;Less55K&quot;,&quot;14&quot;=&quot;Less60&quot;,&quot;15&quot;=&quot;Less65&quot;,&quot;16&quot;=&quot;Less70&quot;,&quot;17&quot;=&quot;Less75&quot;,&quot;18&quot;=&quot;Less80&quot;, &quot;19&quot;=&quot;Less85&quot;, &quot;20&quot;=&quot;Less90&quot;,&quot;21&quot;=&quot;Less95&quot;,&quot;22&quot;=&quot;Less100K&quot;,&quot;23&quot;=&quot;Less120K&quot;,&quot;24&quot;=&quot;Gr120K&quot;))
+summary(RECS$MONEYPY)
+</code></pre>
 
-# End row 764
+<pre><code>## Less2500   Less5K Less7500  Less10K  Less15K  Less20K  Less25K  Less30K 
+##      310      152      176      328      686      602      746      755 
+##  Less35K  Less40K  Less45K  Less50K  Less55K   Less60   Less65   Less70 
+##      698      671      622      787      526      374      450      406 
+##   Less75   Less80   Less85   Less90   Less95 Less100K Less120K   Gr120K 
+##      393      302      289      287      231      250      653     1389
+</code></pre>
 
+<pre><code class="r">#RENTHELP
+FOODASST
+</code></pre>
 
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;FOODASST&#39; not found
+</code></pre>
 
-#Need state ie REPORTABLE_DOMAIN
+<pre><code class="r">#Age of HH looks ok
+summary(RECS$HHAGE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.00   37.00   49.00   49.74   62.00   85.00
+</code></pre>
+
+<pre><code class="r">#number of people
+summary(RECS$NHSLDMEM)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.000   2.000   2.000   2.666   4.000  14.000
+</code></pre>
+
+<pre><code class="r">#Ed level of HH
+RECS$EDUCATION&lt;-revalue(as.factor(RECS$EDUCATION),c(&quot;0&quot;=&quot;None&quot;,&quot;1&quot;=&quot;NoHS&quot;,&quot;2&quot;=&quot;HS&quot;,&quot;3&quot;=&quot;SomeCol&quot;,&quot;4&quot;=&quot;AA&quot;,&quot;5&quot;=&quot;BA&quot;, &quot;6&quot;=&quot;MA&quot;, &quot;7&quot;=&quot;Prof&quot;, &quot;8&quot;=&quot;PHD&quot;))
+summary(RECS$EDUCATION)
+</code></pre>
+
+<pre><code>##    None    NoHS      HS SomeCol      AA      BA      MA    Prof     PHD 
+##     200    1033    3193    2701    1193    2428     957     221     157
+</code></pre>
+
+<pre><code class="r">#HH Race
+RECS$Householder_Race&lt;-revalue(as.factor(RECS$Householder_Race),c(&quot;1&quot;=&quot;Wt&quot;,&quot;2&quot;=&quot;AfAm&quot;,&quot;3&quot;=&quot;NativeAm&quot;,&quot;4&quot;=&quot;Asian&quot;,&quot;5&quot;=&quot;Pacific&quot;, &quot;6&quot;=&quot;Other&quot;, &quot;7&quot;=&quot;Multi&quot;))
+summary(RECS$Householder_Race)
+</code></pre>
+
+<pre><code>##       Wt     AfAm NativeAm    Asian  Pacific    Other    Multi 
+##     9578     1517      110      457       40      211      170
+</code></pre>
+
+<pre><code class="r">#Hispanic
+RECS$Hispanic&lt;-FALSE
+RECS$Hispanic[RECS$SDESCENT==&quot;1&quot;]&lt;-TRUE
+summary(RECS$Hispanic)
+</code></pre>
+
+<pre><code>##    Mode   FALSE    TRUE    NA&#39;s 
+## logical   10409    1674       0
+</code></pre>
+
+<pre><code class="r">#Need state ie REPORTABLE_DOMAIN
 
 
 

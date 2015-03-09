@@ -2164,6 +2164,14 @@ RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec"
 
 #END on LINE 240
 
+
+
+
+
+
+
+
+
 #Starting again from the bottom
 #May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
@@ -2187,11 +2195,83 @@ summary(RECS$TOTSQFT_EN)
 ```r
 #Get income working two ways
 #MONEYPY row 789 in category then make cont.
+RECS$MONEYPY<-revalue(as.factor(RECS$MONEYPY),c("1"="Less2500", "2"="Less5K", "3"="Less7500","4"="Less10K","5"="Less15K","6"="Less20K","7"="Less25K","8"="Less30K", "9"="Less35K","10"="Less40K","11"="Less45K","12"="Less50K","13"="Less55K","14"="Less60","15"="Less65","16"="Less70","17"="Less75","18"="Less80", "19"="Less85", "20"="Less90","21"="Less95","22"="Less100K","23"="Less120K","24"="Gr120K"))
+summary(RECS$MONEYPY)
+```
 
-# End row 764
+```
+## Less2500   Less5K Less7500  Less10K  Less15K  Less20K  Less25K  Less30K 
+##      310      152      176      328      686      602      746      755 
+##  Less35K  Less40K  Less45K  Less50K  Less55K   Less60   Less65   Less70 
+##      698      671      622      787      526      374      450      406 
+##   Less75   Less80   Less85   Less90   Less95 Less100K Less120K   Gr120K 
+##      393      302      289      287      231      250      653     1389
+```
 
+```r
+#RENTHELP
+FOODASST
+```
 
+```
+## Error in eval(expr, envir, enclos): object 'FOODASST' not found
+```
 
+```r
+#Age of HH looks ok
+summary(RECS$HHAGE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.00   37.00   49.00   49.74   62.00   85.00
+```
+
+```r
+#number of people
+summary(RECS$NHSLDMEM)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.000   2.000   2.000   2.666   4.000  14.000
+```
+
+```r
+#Ed level of HH
+RECS$EDUCATION<-revalue(as.factor(RECS$EDUCATION),c("0"="None","1"="NoHS","2"="HS","3"="SomeCol","4"="AA","5"="BA", "6"="MA", "7"="Prof", "8"="PHD"))
+summary(RECS$EDUCATION)
+```
+
+```
+##    None    NoHS      HS SomeCol      AA      BA      MA    Prof     PHD 
+##     200    1033    3193    2701    1193    2428     957     221     157
+```
+
+```r
+#HH Race
+RECS$Householder_Race<-revalue(as.factor(RECS$Householder_Race),c("1"="Wt","2"="AfAm","3"="NativeAm","4"="Asian","5"="Pacific", "6"="Other", "7"="Multi"))
+summary(RECS$Householder_Race)
+```
+
+```
+##       Wt     AfAm NativeAm    Asian  Pacific    Other    Multi 
+##     9578     1517      110      457       40      211      170
+```
+
+```r
+#Hispanic
+RECS$Hispanic<-FALSE
+RECS$Hispanic[RECS$SDESCENT=="1"]<-TRUE
+summary(RECS$Hispanic)
+```
+
+```
+##    Mode   FALSE    TRUE    NA's 
+## logical   10409    1674       0
+```
+
+```r
 #Need state ie REPORTABLE_DOMAIN
 
 

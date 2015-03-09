@@ -82,6 +82,14 @@ RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec"
 
 #END on LINE 240
 
+
+
+
+
+
+
+
+
 #Starting again from the bottom
 #May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
@@ -91,10 +99,31 @@ summary(RECS$TOTSQFT_EN)
 
 #Get income working two ways
 #MONEYPY row 789 in category then make cont.
+RECS$MONEYPY<-revalue(as.factor(RECS$MONEYPY),c("1"="Less2500", "2"="Less5K", "3"="Less7500","4"="Less10K","5"="Less15K","6"="Less20K","7"="Less25K","8"="Less30K", "9"="Less35K","10"="Less40K","11"="Less45K","12"="Less50K","13"="Less55K","14"="Less60","15"="Less65","16"="Less70","17"="Less75","18"="Less80", "19"="Less85", "20"="Less90","21"="Less95","22"="Less100K","23"="Less120K","24"="Gr120K"))
+summary(RECS$MONEYPY)
 
-# End row 764
+#RENTHELP
+FOODASST
+
+#Age of HH looks ok
+summary(RECS$HHAGE)
+
+#number of people
+summary(RECS$NHSLDMEM)
+
+#Ed level of HH
+RECS$EDUCATION<-revalue(as.factor(RECS$EDUCATION),c("0"="None","1"="NoHS","2"="HS","3"="SomeCol","4"="AA","5"="BA", "6"="MA", "7"="Prof", "8"="PHD"))
+summary(RECS$EDUCATION)
 
 
+#HH Race
+RECS$Householder_Race<-revalue(as.factor(RECS$Householder_Race),c("1"="Wt","2"="AfAm","3"="NativeAm","4"="Asian","5"="Pacific", "6"="Other", "7"="Multi"))
+summary(RECS$Householder_Race)
+
+#Hispanic
+RECS$Hispanic<-FALSE
+RECS$Hispanic[RECS$SDESCENT=="1"]<-TRUE
+summary(RECS$Hispanic)
 
 #Need state ie REPORTABLE_DOMAIN
 
