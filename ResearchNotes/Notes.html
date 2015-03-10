@@ -2320,18 +2320,281 @@ RECS$DRYER&lt;-revalue(as.factor(RECS$DRYER), c(&quot;0&quot;=FALSE,&quot;1&quot
 
 RECS$DRYRFUEL&lt;-revalue(as.factor(RECS$DRYRFUEL), c(&quot;1&quot;=&quot;NG&quot;,&quot;2&quot;=&quot;LPG&quot;,&quot;5&quot;=&quot;Elec&quot;,&quot;-2&quot;=NA))
 
-#END on LINE 240
+##Start Recoding HERE
+summary(RECS$AGECDRYER)
+</code></pre>
 
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    1.00    3.00    9.24    3.00   42.00
+</code></pre>
 
+<pre><code class="r">summary(RECS$TVCOLOR)
+</code></pre>
 
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   2.000   2.000   2.588   3.000  14.000
+</code></pre>
 
+<pre><code class="r">summary(RECS$TVTYPE1)
+</code></pre>
 
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    1.00    2.00    1.73    2.00    5.00
+</code></pre>
 
+<pre><code class="r">summary(RECS$TVONWD1)
+</code></pre>
 
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   2.000   3.000   3.017   4.000   5.000
+</code></pre>
 
+<pre><code class="r">summary(RECS$NUMPC)
+</code></pre>
 
-#Starting again from the bottom
-#May need to do some editing on this.  Low values are too low
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.000   1.000   1.387   2.000  15.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$TIMEON1)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   2.000   1.643   3.000   5.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$WELLPUMP)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000  0.0000  0.0000 -0.3561  0.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$EQUIPM)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   3.000   3.000   3.446   3.000  21.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$FUELHEAT)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   2.612   5.000  21.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$EQUIPAGE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    2.00    5.00   13.65   41.00   42.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPHOME)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   68.00   70.00   67.03   72.00   90.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPGONE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   62.00   68.00   63.85   70.00   90.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPNITE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   65.00   68.00   65.12   70.00   91.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$H2OTYPE1)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   1.018   1.000   2.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$FUELH2O)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   2.711   5.000  21.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$WHEATSIZ)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   2.000   2.000   2.081   3.000   3.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$WHEATAGE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    2.00    3.00   13.23   41.00   42.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$AIRCOND)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$COOLTYPE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000  1.0000  1.0000  0.7005  1.0000  3.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$CENACHP)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  0.0000 -0.6588  0.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$AGECENAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00    2.00    8.46    5.00   42.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$USECENAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  1.0000  0.6051  3.0000  3.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPHOMEAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    -2.0    -2.0    -2.0    31.2    72.0    88.0
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPGONEAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00   -2.00   32.05   75.00   96.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$TEMPNITEAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00   -2.00   31.11   72.00   96.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$NUMBERAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.162  -2.000   9.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$WWACAGE)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000 -2.0000  0.3709 -2.0000 42.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$ESWWAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -9.00   -2.00   -2.00   -1.71   -2.00    1.00
+</code></pre>
+
+<pre><code class="r">summary(RECS$USEWWAC)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.195  -2.000   3.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$SWIMPOOL)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  0.0000 -0.4869  0.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$POOL)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.832  -2.000   1.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$FUELPOOL)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.899  -2.000  21.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$RECBATH)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05744 0.00000 1.00000
+</code></pre>
+
+<pre><code class="r">summary(RECS$FUELTUB)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.654  -2.000  21.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$TYPEGLASS)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   2.000   1.572   2.000   3.000
+</code></pre>
+
+<pre><code class="r">summary(RECS$ELCOOL)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$ELWARM)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  1.0000  0.5093  1.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$ELWATER)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3983  1.0000  1.0000
+</code></pre>
+
+<pre><code class="r">summary(RECS$ELFOOD)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  1.0000  0.6369  1.0000  1.0000
+</code></pre>
+
+<pre><code class="r">#May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
 </code></pre>
 
@@ -2348,7 +2611,7 @@ summary(RECS$TOTSQFT_EN)
 </code></pre>
 
 <pre><code class="r">#Get income working two ways
-#MONEYPY row 789 in category then make cont.
+#MONEYPY 
 RECS$MONEYPY&lt;-revalue(as.factor(RECS$MONEYPY),c(&quot;1&quot;=&quot;Less2500&quot;, &quot;2&quot;=&quot;Less5K&quot;, &quot;3&quot;=&quot;Less7500&quot;,&quot;4&quot;=&quot;Less10K&quot;,&quot;5&quot;=&quot;Less15K&quot;,&quot;6&quot;=&quot;Less20K&quot;,&quot;7&quot;=&quot;Less25K&quot;,&quot;8&quot;=&quot;Less30K&quot;, &quot;9&quot;=&quot;Less35K&quot;,&quot;10&quot;=&quot;Less40K&quot;,&quot;11&quot;=&quot;Less45K&quot;,&quot;12&quot;=&quot;Less50K&quot;,&quot;13&quot;=&quot;Less55K&quot;,&quot;14&quot;=&quot;Less60&quot;,&quot;15&quot;=&quot;Less65&quot;,&quot;16&quot;=&quot;Less70&quot;,&quot;17&quot;=&quot;Less75&quot;,&quot;18&quot;=&quot;Less80&quot;, &quot;19&quot;=&quot;Less85&quot;, &quot;20&quot;=&quot;Less90&quot;,&quot;21&quot;=&quot;Less95&quot;,&quot;22&quot;=&quot;Less100K&quot;,&quot;23&quot;=&quot;Less120K&quot;,&quot;24&quot;=&quot;Gr120K&quot;))
 summary(RECS$MONEYPY)
 </code></pre>
@@ -2361,11 +2624,20 @@ summary(RECS$MONEYPY)
 ##      393      302      289      287      231      250      653     1389
 </code></pre>
 
-<pre><code class="r">#RENTHELP
-FOODASST
+<pre><code class="r">RECS$RENTHELP&lt;-revalue(as.factor(RECS$RENTHELP),c(&quot;0&quot;=FALSE, &quot;1&quot;=TRUE, &quot;-2&quot;=FALSE))
+summary(RECS$RENTHELP)
 </code></pre>
 
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;FOODASST&#39; not found
+<pre><code>## FALSE  TRUE 
+## 11913   170
+</code></pre>
+
+<pre><code class="r">RECS$FOODASST&lt;-revalue(as.factor(RECS$FOODASST),c(&quot;0&quot;=FALSE, &quot;1&quot;=TRUE))
+summary(RECS$FOODASST)
+</code></pre>
+
+<pre><code>## FALSE  TRUE 
+## 10795  1288
 </code></pre>
 
 <pre><code class="r">#Age of HH looks ok
@@ -2413,10 +2685,6 @@ summary(RECS$Hispanic)
 </code></pre>
 
 <pre><code class="r">#Need state ie REPORTABLE_DOMAIN
-
-
-
-# Restrict to primary and not seasonal 
 </code></pre>
 
 <p>Checkign out the weight variable</p>
@@ -2453,11 +2721,11 @@ summary(RECS$Hispanic)
 <pre><code class="r">HUD &lt;- read.csv(&quot;~/Research/EnergyEthnicity/Data/HUD.csv&quot;)
 
 #And the clean up from importing from excell
-HUD$Pop&lt;-as.numeric(gsub(&quot;,&quot;,&quot;&quot;,HUD$Pop))
+HUD$pop&lt;-as.numeric(gsub(&quot;,&quot;,&quot;&quot;,HUD$pop))
 summary(HUD)
 </code></pre>
 
-<pre><code>##         State      Complaints          Pop           ComplaintRate   
+<pre><code>##         state    compltothudfhap       pop              comppop      
 ##  Alabama   : 1   Min.   :   4.0   Min.   :  532981   Min.   :0.4132  
 ##  Alaska    : 1   1st Qu.:  63.5   1st Qu.: 1654728   1st Qu.:2.1526  
 ##  Arizona   : 1   Median : 107.0   Median : 4287931   Median :2.8810  
@@ -2465,27 +2733,20 @@ summary(HUD)
 ##  California: 1   3rd Qu.: 202.0   3rd Qu.: 6554834   3rd Qu.:4.3463  
 ##  Colorado  : 1   Max.   :1108.0   Max.   :36580371   Max.   :8.7306  
 ##  (Other)   :45                                                       
-##   reportablen   
-##  Min.   : 1.00  
-##  1st Qu.: 8.50  
-##  Median :14.00  
-##  Mean   :14.47  
-##  3rd Qu.:21.00  
-##  Max.   :27.00  
+##   reportablen      reporttot     
+##  Min.   : 1.00   Min.   : 1.812  
+##  1st Qu.: 8.50   1st Qu.: 4.222  
+##  Median :14.00   Median : 9.258  
+##  Mean   :14.49   Mean   : 9.592  
+##  3rd Qu.:21.50   3rd Qu.:13.504  
+##  Max.   :27.00   Max.   :20.496  
 ## 
 </code></pre>
 
 <pre><code class="r">as.numeric(HUD$Pop)
 </code></pre>
 
-<pre><code>##  [1]  4677464   688125  6499377  2867764 36580371  4935213  3502932
-##  [8]   876211   590074 18423878  9697838  1287481  1527506 12842954
-## [15]  6388309  2993987  2797375  4287931  4451513  1319691  5658655
-## [22]  6543595 10002486  5230567  2940212  5956335   968035  1781949
-## [29]  2615772  1321872  8663398  1986763 19467789  9247134   641421
-## [36] 11528072  3644025  3782991 12566368  1053502  4503280   804532
-## [43]  6240456 24304290  2727343   621049  7795424  6566073  1814873
-## [50]  5627610   532981
+<pre><code>## numeric(0)
 </code></pre>
 
 </body>

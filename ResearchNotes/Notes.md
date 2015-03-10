@@ -2162,17 +2162,358 @@ RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
 
 RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
 
-#END on LINE 240
+##Start Recoding HERE
+summary(RECS$AGECDRYER)
+```
 
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    1.00    3.00    9.24    3.00   42.00
+```
 
+```r
+summary(RECS$TVCOLOR)
+```
 
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   2.000   2.000   2.588   3.000  14.000
+```
 
+```r
+summary(RECS$TVTYPE1)
+```
 
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    1.00    2.00    1.73    2.00    5.00
+```
 
+```r
+summary(RECS$TVONWD1)
+```
 
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   2.000   3.000   3.017   4.000   5.000
+```
 
+```r
+summary(RECS$NUMPC)
+```
 
-#Starting again from the bottom
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.000   1.000   1.387   2.000  15.000
+```
+
+```r
+summary(RECS$TIMEON1)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   2.000   1.643   3.000   5.000
+```
+
+```r
+summary(RECS$WELLPUMP)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000  0.0000  0.0000 -0.3561  0.0000  1.0000
+```
+
+```r
+summary(RECS$EQUIPM)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   3.000   3.000   3.446   3.000  21.000
+```
+
+```r
+summary(RECS$FUELHEAT)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   2.612   5.000  21.000
+```
+
+```r
+summary(RECS$EQUIPAGE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    2.00    5.00   13.65   41.00   42.00
+```
+
+```r
+summary(RECS$TEMPHOME)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   68.00   70.00   67.03   72.00   90.00
+```
+
+```r
+summary(RECS$TEMPGONE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   62.00   68.00   63.85   70.00   90.00
+```
+
+```r
+summary(RECS$TEMPNITE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   65.00   68.00   65.12   70.00   91.00
+```
+
+```r
+summary(RECS$H2OTYPE1)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   1.018   1.000   2.000
+```
+
+```r
+summary(RECS$FUELH2O)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   1.000   2.711   5.000  21.000
+```
+
+```r
+summary(RECS$WHEATSIZ)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   2.000   2.000   2.081   3.000   3.000
+```
+
+```r
+summary(RECS$WHEATAGE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00    2.00    3.00   13.23   41.00   42.00
+```
+
+```r
+summary(RECS$AIRCOND)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+```
+
+```r
+summary(RECS$COOLTYPE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000  1.0000  1.0000  0.7005  1.0000  3.0000
+```
+
+```r
+summary(RECS$CENACHP)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  0.0000 -0.6588  0.0000  1.0000
+```
+
+```r
+summary(RECS$AGECENAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00    2.00    8.46    5.00   42.00
+```
+
+```r
+summary(RECS$USECENAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  1.0000  0.6051  3.0000  3.0000
+```
+
+```r
+summary(RECS$TEMPHOMEAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    -2.0    -2.0    -2.0    31.2    72.0    88.0
+```
+
+```r
+summary(RECS$TEMPGONEAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00   -2.00   32.05   75.00   96.00
+```
+
+```r
+summary(RECS$TEMPNITEAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -2.00   -2.00   -2.00   31.11   72.00   96.00
+```
+
+```r
+summary(RECS$NUMBERAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.162  -2.000   9.000
+```
+
+```r
+summary(RECS$WWACAGE)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000 -2.0000  0.3709 -2.0000 42.0000
+```
+
+```r
+summary(RECS$ESWWAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   -9.00   -2.00   -2.00   -1.71   -2.00    1.00
+```
+
+```r
+summary(RECS$USEWWAC)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.195  -2.000   3.000
+```
+
+```r
+summary(RECS$SWIMPOOL)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.0000 -2.0000  0.0000 -0.4869  0.0000  1.0000
+```
+
+```r
+summary(RECS$POOL)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.832  -2.000   1.000
+```
+
+```r
+summary(RECS$FUELPOOL)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.899  -2.000  21.000
+```
+
+```r
+summary(RECS$RECBATH)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05744 0.00000 1.00000
+```
+
+```r
+summary(RECS$FUELTUB)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000  -2.000  -2.000  -1.654  -2.000  21.000
+```
+
+```r
+summary(RECS$TYPEGLASS)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -2.000   1.000   2.000   1.572   2.000   3.000
+```
+
+```r
+summary(RECS$ELCOOL)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+```
+
+```r
+summary(RECS$ELWARM)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  1.0000  0.5093  1.0000  1.0000
+```
+
+```r
+summary(RECS$ELWATER)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3983  1.0000  1.0000
+```
+
+```r
+summary(RECS$ELFOOD)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  1.0000  0.6369  1.0000  1.0000
+```
+
+```r
 #May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
 ```
@@ -2194,7 +2535,7 @@ summary(RECS$TOTSQFT_EN)
 
 ```r
 #Get income working two ways
-#MONEYPY row 789 in category then make cont.
+#MONEYPY 
 RECS$MONEYPY<-revalue(as.factor(RECS$MONEYPY),c("1"="Less2500", "2"="Less5K", "3"="Less7500","4"="Less10K","5"="Less15K","6"="Less20K","7"="Less25K","8"="Less30K", "9"="Less35K","10"="Less40K","11"="Less45K","12"="Less50K","13"="Less55K","14"="Less60","15"="Less65","16"="Less70","17"="Less75","18"="Less80", "19"="Less85", "20"="Less90","21"="Less95","22"="Less100K","23"="Less120K","24"="Gr120K"))
 summary(RECS$MONEYPY)
 ```
@@ -2209,12 +2550,23 @@ summary(RECS$MONEYPY)
 ```
 
 ```r
-#RENTHELP
-FOODASST
+RECS$RENTHELP<-revalue(as.factor(RECS$RENTHELP),c("0"=FALSE, "1"=TRUE, "-2"=FALSE))
+summary(RECS$RENTHELP)
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'FOODASST' not found
+## FALSE  TRUE 
+## 11913   170
+```
+
+```r
+RECS$FOODASST<-revalue(as.factor(RECS$FOODASST),c("0"=FALSE, "1"=TRUE))
+summary(RECS$FOODASST)
+```
+
+```
+## FALSE  TRUE 
+## 10795  1288
 ```
 
 ```r
@@ -2273,10 +2625,6 @@ summary(RECS$Hispanic)
 
 ```r
 #Need state ie REPORTABLE_DOMAIN
-
-
-
-# Restrict to primary and not seasonal 
 ```
 Checkign out the weight variable
 
@@ -2319,12 +2667,12 @@ This is the data ME created from the HUD report on the number of complaints per 
 HUD <- read.csv("~/Research/EnergyEthnicity/Data/HUD.csv")
 
 #And the clean up from importing from excell
-HUD$Pop<-as.numeric(gsub(",","",HUD$Pop))
+HUD$pop<-as.numeric(gsub(",","",HUD$pop))
 summary(HUD)
 ```
 
 ```
-##         State      Complaints          Pop           ComplaintRate   
+##         state    compltothudfhap       pop              comppop      
 ##  Alabama   : 1   Min.   :   4.0   Min.   :  532981   Min.   :0.4132  
 ##  Alaska    : 1   1st Qu.:  63.5   1st Qu.: 1654728   1st Qu.:2.1526  
 ##  Arizona   : 1   Median : 107.0   Median : 4287931   Median :2.8810  
@@ -2332,13 +2680,13 @@ summary(HUD)
 ##  California: 1   3rd Qu.: 202.0   3rd Qu.: 6554834   3rd Qu.:4.3463  
 ##  Colorado  : 1   Max.   :1108.0   Max.   :36580371   Max.   :8.7306  
 ##  (Other)   :45                                                       
-##   reportablen   
-##  Min.   : 1.00  
-##  1st Qu.: 8.50  
-##  Median :14.00  
-##  Mean   :14.47  
-##  3rd Qu.:21.00  
-##  Max.   :27.00  
+##   reportablen      reporttot     
+##  Min.   : 1.00   Min.   : 1.812  
+##  1st Qu.: 8.50   1st Qu.: 4.222  
+##  Median :14.00   Median : 9.258  
+##  Mean   :14.49   Mean   : 9.592  
+##  3rd Qu.:21.50   3rd Qu.:13.504  
+##  Max.   :27.00   Max.   :20.496  
 ## 
 ```
 
@@ -2350,14 +2698,7 @@ as.numeric(HUD$Pop)
 ```
 
 ```
-##  [1]  4677464   688125  6499377  2867764 36580371  4935213  3502932
-##  [8]   876211   590074 18423878  9697838  1287481  1527506 12842954
-## [15]  6388309  2993987  2797375  4287931  4451513  1319691  5658655
-## [22]  6543595 10002486  5230567  2940212  5956335   968035  1781949
-## [29]  2615772  1321872  8663398  1986763 19467789  9247134   641421
-## [36] 11528072  3644025  3782991 12566368  1053502  4503280   804532
-## [43]  6240456 24304290  2727343   621049  7795424  6566073  1814873
-## [50]  5627610   532981
+## numeric(0)
 ```
 
 

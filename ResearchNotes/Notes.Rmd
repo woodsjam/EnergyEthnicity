@@ -80,17 +80,49 @@ RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
 
 RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
 
-#END on LINE 240
+##Start Recoding HERE
+summary(RECS$AGECDRYER)
+summary(RECS$TVCOLOR)
+summary(RECS$TVTYPE1)
+summary(RECS$TVONWD1)
+summary(RECS$NUMPC)
+summary(RECS$TIMEON1)
+summary(RECS$WELLPUMP)
+summary(RECS$EQUIPM)
+summary(RECS$FUELHEAT)
+summary(RECS$EQUIPAGE)
+summary(RECS$TEMPHOME)
+summary(RECS$TEMPGONE)
+summary(RECS$TEMPNITE)
+summary(RECS$H2OTYPE1)
+summary(RECS$FUELH2O)
+summary(RECS$WHEATSIZ)
+summary(RECS$WHEATAGE)
+summary(RECS$AIRCOND)
+summary(RECS$COOLTYPE)
+summary(RECS$CENACHP)
+summary(RECS$AGECENAC)
+summary(RECS$USECENAC)
+summary(RECS$TEMPHOMEAC)
+summary(RECS$TEMPGONEAC)
+summary(RECS$TEMPNITEAC)
+summary(RECS$NUMBERAC)
+summary(RECS$WWACAGE)
+summary(RECS$ESWWAC)
+summary(RECS$USEWWAC)
+summary(RECS$SWIMPOOL)
+summary(RECS$POOL)
+summary(RECS$FUELPOOL)
+summary(RECS$RECBATH)
+summary(RECS$FUELTUB)
+summary(RECS$TYPEGLASS)
+summary(RECS$ELCOOL)
+summary(RECS$ELWARM)
+summary(RECS$ELWATER)
 
 
+summary(RECS$ELFOOD)
 
-
-
-
-
-
-
-#Starting again from the bottom
 #May need to do some editing on this.  Low values are too low
 summary(RECS$KWH)/12
 
@@ -98,12 +130,16 @@ summary(RECS$KWH)/12
 summary(RECS$TOTSQFT_EN)
 
 #Get income working two ways
-#MONEYPY row 789 in category then make cont.
+#MONEYPY 
 RECS$MONEYPY<-revalue(as.factor(RECS$MONEYPY),c("1"="Less2500", "2"="Less5K", "3"="Less7500","4"="Less10K","5"="Less15K","6"="Less20K","7"="Less25K","8"="Less30K", "9"="Less35K","10"="Less40K","11"="Less45K","12"="Less50K","13"="Less55K","14"="Less60","15"="Less65","16"="Less70","17"="Less75","18"="Less80", "19"="Less85", "20"="Less90","21"="Less95","22"="Less100K","23"="Less120K","24"="Gr120K"))
 summary(RECS$MONEYPY)
 
-#RENTHELP
-FOODASST
+
+RECS$RENTHELP<-revalue(as.factor(RECS$RENTHELP),c("0"=FALSE, "1"=TRUE, "-2"=FALSE))
+summary(RECS$RENTHELP)
+
+RECS$FOODASST<-revalue(as.factor(RECS$FOODASST),c("0"=FALSE, "1"=TRUE))
+summary(RECS$FOODASST)
 
 #Age of HH looks ok
 summary(RECS$HHAGE)
@@ -128,8 +164,6 @@ summary(RECS$Hispanic)
 #Need state ie REPORTABLE_DOMAIN
 
 
-
-# Restrict to primary and not seasonal 
 ```
 Checkign out the weight variable
 ```{r}
@@ -153,7 +187,7 @@ This is the data ME created from the HUD report on the number of complaints per 
 HUD <- read.csv("~/Research/EnergyEthnicity/Data/HUD.csv")
 
 #And the clean up from importing from excell
-HUD$Pop<-as.numeric(gsub(",","",HUD$Pop))
+HUD$pop<-as.numeric(gsub(",","",HUD$pop))
 summary(HUD)
 ```
 
