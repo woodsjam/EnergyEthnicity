@@ -2538,60 +2538,85 @@ summary(RECS$AGECDRYER)
 ##  -2.000  -2.000  -2.000  -1.832  -2.000   1.000
 </code></pre>
 
+<pre><code class="r">#Fuel used for pool
+RECS$FUELPOOL&lt;-revalue(as.factor(RECS$FUELPOOL),c(&quot;1&quot;=&quot;NG&quot;,&quot;2&quot;=&quot;LPG&quot;, &quot;3&quot;=&quot;FuelOil&quot;,&quot;4&quot;=&quot;Kerosene&quot;, &quot;5&quot;=&quot;Elec&quot;,&quot;8&quot;=&quot;Solar&quot;,&quot;21&quot;=&quot;Other&quot;, &quot;-2&quot;=NA))
+</code></pre>
+
+<pre><code>## The following `from` values were not present in `x`: 4
+</code></pre>
+
 <pre><code class="r">summary(RECS$FUELPOOL)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000  -2.000  -2.000  -1.899  -2.000  21.000
+<pre><code>##      NG     LPG FuelOil    Elec   Solar   Other    NA&#39;s 
+##     118      24       2      60      32       1   11846
 </code></pre>
 
-<pre><code class="r">summary(RECS$RECBATH)
+<pre><code class="r">#Hot Tub used
+RECS$RECBATH&lt;-revalue(as.factor(RECS$RECBATH),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+summary(RECS$RECBATH)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## 0.00000 0.00000 0.00000 0.05744 0.00000 1.00000
+<pre><code>## FALSE  TRUE 
+## 11389   694
+</code></pre>
+
+<pre><code class="r">#Hot tub fuel
+RECS$FUELTUB&lt;-revalue(as.factor(RECS$FUELTUB),c(&quot;1&quot;=&quot;NG&quot;,&quot;2&quot;=&quot;LPG&quot;, &quot;3&quot;=&quot;FuelOil&quot;,&quot;4&quot;=&quot;Kerosene&quot;, &quot;5&quot;=&quot;Elec&quot;,&quot;8&quot;=&quot;Solar&quot;,&quot;21&quot;=&quot;Other&quot;, &quot;-2&quot;=NA))
+</code></pre>
+
+<pre><code>## The following `from` values were not present in `x`: 4
 </code></pre>
 
 <pre><code class="r">summary(RECS$FUELTUB)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000  -2.000  -2.000  -1.654  -2.000  21.000
+<pre><code>##      NG     LPG FuelOil    Elec   Solar   Other    NA&#39;s 
+##     168      18       7     493       5       3   11389
 </code></pre>
 
-<pre><code class="r">summary(RECS$TYPEGLASS)
+<pre><code class="r">RECS$TYPEGLASS&lt;-revalue(as.factor(RECS$TYPEGLASS),c(&quot;1&quot;=&quot;SinglePane&quot;,&quot;2&quot;=&quot;DoublePane&quot;, &quot;3&quot;=&quot;TriplePane&quot;, &quot;-2&quot;=NA))
+summary(RECS$TYPEGLASS)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   1.000   2.000   1.572   2.000   3.000
+<pre><code>## SinglePane DoublePane TriplePane       NA&#39;s 
+##       5071       6766        177         69
 </code></pre>
 
-<pre><code class="r">summary(RECS$ELCOOL)
+<pre><code class="r">#Electricity used for cooling
+RECS$ELCOOL&lt;-revalue(as.factor(RECS$ELCOOL),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+summary(RECS$ELCOOL)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+<pre><code>## FALSE  TRUE 
+##  2143  9940
 </code></pre>
 
-<pre><code class="r">summary(RECS$ELWARM)
+<pre><code class="r">#Electricity used for space heating
+RECS$ELWARM&lt;-revalue(as.factor(RECS$ELWARM),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+summary(RECS$ELWARM)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  0.0000  1.0000  0.5093  1.0000  1.0000
+<pre><code>## FALSE  TRUE 
+##  5929  6154
 </code></pre>
 
-<pre><code class="r">summary(RECS$ELWATER)
+<pre><code class="r">#Electricity used for water heating
+RECS$ELWATER&lt;-revalue(as.factor(RECS$ELWATER),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+summary(RECS$ELWATER)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  0.0000  0.0000  0.3983  1.0000  1.0000
+<pre><code>## FALSE  TRUE 
+##  7270  4813
 </code></pre>
 
-<pre><code class="r">summary(RECS$ELFOOD)
+<pre><code class="r">#Electricity used for cooking
+RECS$ELFOOD&lt;-revalue(as.factor(RECS$ELFOOD),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE))
+summary(RECS$ELFOOD)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  0.0000  1.0000  0.6369  1.0000  1.0000
+<pre><code>## FALSE  TRUE 
+##  4387  7696
 </code></pre>
 
 <pre><code class="r">#May need to do some editing on this.  Low values are too low
@@ -2696,7 +2721,1604 @@ summary(RECS$Hispanic)
 ##   476.1  6297.0  7971.0  9403.0 11330.0 95780.0
 </code></pre>
 
-<p>Looks like it is the number of equivelent HH in population style.</p>
+<pre><code class="r">plot(hist(RECS$NWEIGHT))
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/> <img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/> 
+Looks like it is the number of equivelent HH in population style.</p>
+
+<p>the weights are a little odd, too large differences.  Investigate the top end to find.</p>
+
+<pre><code class="r">summary(RECS[RECS$NWEIGHT&gt;40000,])
+</code></pre>
+
+<pre><code>##      DOEID       REGIONC      DIVISION    REPORTABLE_DOMAIN
+##  184    : 1   NE     : 3   Min.   :2.00   Min.   : 4.00    
+##  1246   : 1   MidWest:11   1st Qu.:3.00   1st Qu.: 7.00    
+##  1611   : 1   South  :10   Median :3.00   Median : 7.00    
+##  2008   : 1   West   : 1   Mean   :4.24   Mean   :11.08    
+##  2355   : 1                3rd Qu.:5.00   3rd Qu.:14.00    
+##  2477   : 1                Max.   :8.00   Max.   :22.00    
+##  (Other):19                                                
+##         TYPEHUQ     NWEIGHT          HDD65          CDD65     
+##  Mobile     :9   Min.   :40963   Min.   :2075   Min.   :  58  
+##  SFDetached :9   1st Qu.:43671   1st Qu.:4483   1st Qu.: 603  
+##  SFAttached :0   Median :46747   Median :5244   Median : 872  
+##  SmApartment:7   Mean   :50783   Mean   :5091   Mean   : 901  
+##  LgApartment:0   3rd Qu.:51285   3rd Qu.:5754   3rd Qu.: 954  
+##                  Max.   :95779   Max.   :8312   Max.   :2194  
+##                                                               
+##     HDD30YR        CDD30YR          Climate_Region_Pub    AIA_Zone  
+##  Min.   :2139   Min.   : 153   VColdCold     :12       Min.   :1.0  
+##  1st Qu.:4450   1st Qu.: 794   HotDryMixedDry: 0       1st Qu.:2.0  
+##  Median :5496   Median : 998   HotHumid      : 2       Median :3.0  
+##  Mean   :5102   Mean   :1071   MixedHumid    :11       Mean   :2.8  
+##  3rd Qu.:5890   3rd Qu.:1112   Marine        : 0       3rd Qu.:3.0  
+##  Max.   :7674   Max.   :2165                           Max.   :5.0  
+##                                                                     
+##  METROMICRO     UR     KOWNRENT     CONDCOOP     YEARMADE   
+##  METRO:14   Rural:15   Own :17   Min.   :-2   Min.   :1920  
+##  MICRO: 7   Urban:10   Rent: 8   1st Qu.:-2   1st Qu.:1958  
+##  NONE : 4              Free: 0   Median :-2   Median :1973  
+##                                  Mean   :-2   Mean   :1969  
+##                                  3rd Qu.:-2   3rd Qu.:1990  
+##                                  Max.   :-2   Max.   :2006  
+##                                                             
+##  YEARMADERANGE   OCCUPYYRANGE   CONVERSION       ORIG1FAM    
+##  Min.   :1.00   0509   :10    Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:2.00   0004   : 6    1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :4.00   9099   : 4    Median :-2.00   Median :-2.00  
+##  Mean   :3.88   6069   : 3    Mean   :-1.04   Mean   :-1.64  
+##  3rd Qu.:6.00   Pre50  : 1    3rd Qu.: 1.00   3rd Qu.:-2.00  
+##  Max.   :8.00   8089   : 1    Max.   : 2.00   Max.   : 1.00  
+##                 (Other): 0                                   
+##     LOOKLIKE       NUMFLRS      NUMAPTS      WALLTYPE       ROOFTYPE   
+##  Min.   :-2.0   Min.   :-2   Min.   :-2   Min.   :1.00   Min.   :2.00  
+##  1st Qu.:-2.0   1st Qu.:-2   1st Qu.:-2   1st Qu.:2.00   1st Qu.:3.00  
+##  Median :-2.0   Median :-2   Median :-2   Median :3.00   Median :5.00  
+##  Mean   :-1.6   Mean   :-2   Mean   :-2   Mean   :3.04   Mean   :4.24  
+##  3rd Qu.:-2.0   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:5.00  
+##  Max.   : 2.0   Max.   :-2   Max.   :-2   Max.   :7.00   Max.   :7.00  
+##                                                                        
+##      STUDIO        NAPTFLRS        STORIES         TYPEHUQ4   
+##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median :-2.0   Median :-2.00   Median :10.00   Median :-2.0  
+##  Mean   :-1.4   Mean   :-1.16   Mean   : 8.24   Mean   :-1.2  
+##  3rd Qu.: 0.0   3rd Qu.: 1.00   3rd Qu.:10.00   3rd Qu.: 0.0  
+##  Max.   : 1.0   Max.   : 1.00   Max.   :20.00   Max.   : 1.0  
+##                                                               
+##     BEDROOMS        NCOMBATH       NHAFBATH       OTHROOMS  
+##  Min.   :1.000   Min.   :1.00   Min.   :0.00   Min.   :1.0  
+##  1st Qu.:2.000   1st Qu.:1.00   1st Qu.:0.00   1st Qu.:2.0  
+##  Median :2.500   Median :1.00   Median :0.00   Median :2.0  
+##  Mean   :2.417   Mean   :1.28   Mean   :0.12   Mean   :2.6  
+##  3rd Qu.:3.000   3rd Qu.:2.00   3rd Qu.:0.00   3rd Qu.:3.0  
+##  Max.   :4.000   Max.   :2.00   Max.   :1.00   Max.   :5.0  
+##  NA&#39;s   :1                                                  
+##     TOTROOMS        CELLAR          CRAWL          CONCRETE    
+##  Min.   :1.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:4.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :5.00   Median : 0.00   Median : 0.00   Median : 0.00  
+##  Mean   :4.92   Mean   :-0.36   Mean   :-0.44   Mean   :-0.52  
+##  3rd Qu.:6.00   3rd Qu.: 1.00   3rd Qu.: 1.00   3rd Qu.: 0.00  
+##  Max.   :9.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.00  
+##                                                                
+##     BASEFIN        FINBASERMS       BASEHEAT       BASEHT2     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2.00  
+##  Mean   :-1.24   Mean   :-1.88   Mean   :-1.2   Mean   :-1.76  
+##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.: 0.0   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.0   Max.   : 1.00  
+##                                                                
+##     PCTBSTHT     BASECOOL        BASECL2      PCTBSTCL     BASEUSE     
+##  Min.   :-2   Min.   :-2.00   Min.   :-2   Min.   :-2   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2.00  
+##  Median :-2   Median :-2.00   Median :-2   Median :-2   Median :-2.00  
+##  Mean   :-2   Mean   :-1.28   Mean   :-2   Mean   :-2   Mean   :-0.96  
+##  3rd Qu.:-2   3rd Qu.: 0.00   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.: 1.00  
+##  Max.   :-2   Max.   : 0.00   Max.   :-2   Max.   :-2   Max.   : 2.00  
+##                                                                        
+##      ATTIC          ATTICFIN       FINATTRMS     ATTCHEAT        ATTCHT2  
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2   Min.   :-2.00   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2  
+##  Median : 0.00   Median :-2.00   Median :-2   Median :-2.00   Median :-2  
+##  Mean   :-0.68   Mean   :-1.92   Mean   :-2   Mean   :-1.92   Mean   :-2  
+##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2.00   3rd Qu.:-2  
+##  Max.   : 1.00   Max.   : 0.00   Max.   :-2   Max.   : 0.00   Max.   :-2  
+##                                                                           
+##     PCTATTHT     ATTCCOOL        ATTCCL2      PCTATTCL     ATTICUSE    
+##  Min.   :-2   Min.   :-2.00   Min.   :-2   Min.   :-2   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2.00  
+##  Median :-2   Median :-2.00   Median :-2   Median :-2   Median :-2.00  
+##  Mean   :-2   Mean   :-1.92   Mean   :-2   Mean   :-2   Mean   :-1.88  
+##  3rd Qu.:-2   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2.00  
+##  Max.   :-2   Max.   : 0.00   Max.   :-2   Max.   :-2   Max.   : 1.00  
+##                                                                        
+##     PRKGPLC1      SIZEOFGARAGE     GARGLOC         GARGHEAT    
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 0.00   Median :-2.0   Median :-2.00   Median :-2.00  
+##  Mean   :-0.32   Mean   :-1.2   Mean   :-1.08   Mean   :-1.52  
+##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 2.0   Max.   : 2.00   Max.   : 0.00  
+##                                                                
+##     GARGCOOL        PRKGPLC2     SIZEOFDETACH      OUTLET     
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.0   1st Qu.: 0.00  
+##  Median :-2.00   Median :-2.0   Median :-2.0   Median : 1.00  
+##  Mean   :-1.52   Mean   :-0.8   Mean   :-0.6   Mean   : 0.36  
+##  3rd Qu.:-2.00   3rd Qu.: 0.0   3rd Qu.:-2.0   3rd Qu.: 1.00  
+##  Max.   : 0.00   Max.   : 1.0   Max.   : 4.0   Max.   : 1.00  
+##                                                               
+##    ZKOWNRENT      ZCONDCOOP   ZYEARMADE   ZYEARMADERANGE ZOCCUPYYRANGE
+##  Min.   :0.00   Min.   :0   Min.   :0.0   Min.   :0.00   Min.   :0    
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0    
+##  Median :0.00   Median :0   Median :0.0   Median :0.00   Median :0    
+##  Mean   :0.04   Mean   :0   Mean   :0.2   Mean   :0.08   Mean   :0    
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0.0   3rd Qu.:0.00   3rd Qu.:0    
+##  Max.   :1.00   Max.   :0   Max.   :1.0   Max.   :1.00   Max.   :0    
+##                                                                       
+##   ZCONVERSION     ZORIG1FAM   ZLOOKLIKE    ZNUMFLRS    ZNUMAPTS
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##    ZWALLTYPE   ZROOFTYPE       ZSTUDIO    ZNAPTFLRS    ZSTORIES
+##  Min.   :0   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0.00   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0.04   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :1.00   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##    ZTYPEHUQ4      ZBEDROOMS   ZNCOMBATH   ZNHAFBATH   ZOTHROOMS
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##     ZCELLAR      ZCRAWL    ZCONCRETE    ZBASEFIN  ZFINBASERMS  
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0   Median :0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :1.00  
+##                                                                
+##    ZBASEHEAT    ZBASEHT2   ZPCTBSTHT   ZBASECOOL    ZBASECL2   ZPCTBSTCL
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZBASEUSE     ZATTIC    ZATTICFIN   ZFINATTRMS   ZATTCHEAT    ZATTCHT2
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0    Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :0   Max.   :0  
+##                                                                          
+##    ZPCTATTHT   ZATTCCOOL   ZPCTATTCL    ZATTCCL2   ZATTICUSE   ZPRKGPLC1
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##  ZSIZEOFGARAGE    ZGARGLOC   ZGARGHEAT   ZGARGCOOL   ZPRKGPLC2
+##  Min.   :0     Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0     Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0     Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0     Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                               
+##  ZSIZEOFDETACH     STOVEN       STOVENFUEL        STOVE     
+##  Min.   :0     Min.   :0.00   Min.   :-2.00   Min.   :0.00  
+##  1st Qu.:0     1st Qu.:1.00   1st Qu.: 2.00   1st Qu.:0.00  
+##  Median :0     Median :1.00   Median : 2.00   Median :0.00  
+##  Mean   :0     Mean   :0.92   Mean   : 2.96   Mean   :0.04  
+##  3rd Qu.:0     3rd Qu.:1.00   3rd Qu.: 5.00   3rd Qu.:0.00  
+##  Max.   :0     Max.   :1.00   Max.   : 5.00   Max.   :1.00  
+##                                                             
+##    STOVEFUEL          OVEN         OVENFUEL        OVENUSE     
+##  Min.   :-2.00   Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.: 3.00  
+##  Median :-2.00   Median :0.00   Median :-2.00   Median : 4.00  
+##  Mean   :-1.88   Mean   :0.04   Mean   :-1.88   Mean   : 3.36  
+##  3rd Qu.:-2.00   3rd Qu.:0.00   3rd Qu.:-2.00   3rd Qu.: 5.00  
+##  Max.   : 1.00   Max.   :1.00   Max.   : 1.00   Max.   : 6.00  
+##                                                                
+##     OVENCLN         TYPECLN          MICRO         AMTMICRO    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :0.00   Min.   :-2.00  
+##  1st Qu.: 0.00   1st Qu.:-2.00   1st Qu.:1.00   1st Qu.: 1.00  
+##  Median : 0.00   Median :-2.00   Median :1.00   Median : 2.00  
+##  Mean   : 0.24   Mean   :-0.72   Mean   :0.96   Mean   : 2.16  
+##  3rd Qu.: 1.00   3rd Qu.: 2.00   3rd Qu.:1.00   3rd Qu.: 3.00  
+##  Max.   : 1.00   Max.   : 2.00   Max.   :1.00   Max.   : 4.00  
+##                                                                
+##     DEFROST         OUTGRILL     OUTGRILLFUEL      TOPGRILL    STGRILA  
+##  Min.   :-2.00   Min.   :0.00   Min.   :-2.00   Min.   :0   Min.   :-2  
+##  1st Qu.: 0.00   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:0   1st Qu.:-2  
+##  Median : 1.00   Median :1.00   Median : 2.00   Median :0   Median :-2  
+##  Mean   : 0.44   Mean   :0.52   Mean   : 3.12   Mean   :0   Mean   :-2  
+##  3rd Qu.: 1.00   3rd Qu.:1.00   3rd Qu.: 2.00   3rd Qu.:0   3rd Qu.:-2  
+##  Max.   : 1.00   Max.   :1.00   Max.   :21.00   Max.   :0   Max.   :-2  
+##                                                                         
+##     TOASTER        NUMMEAL      FUELFOOD         COFFEE       NUMFRIG    
+##  Min.   :0.0   Never   : 0   Min.   :-2.00   Min.   :0.0   Min.   :1.00  
+##  1st Qu.:0.0   ThreeDay: 1   1st Qu.: 2.00   1st Qu.:1.0   1st Qu.:1.00  
+##  Median :0.0   TwoDay  : 9   Median : 2.00   Median :1.0   Median :1.00  
+##  Mean   :0.4   OneDay  :10   Mean   : 3.08   Mean   :0.8   Mean   :1.08  
+##  3rd Qu.:1.0   FewWeek : 5   3rd Qu.: 5.00   3rd Qu.:1.0   3rd Qu.:1.00  
+##  Max.   :1.0   OneWeek : 0   Max.   : 5.00   Max.   :1.0   Max.   :2.00  
+##                LessWeek: 0                                               
+##     TYPERFR1        SIZRFRI1       REFRIGT1         ICE      
+##  Min.   : 1.00   Min.   :2.00   Min.   :1.00   Min.   :0.00  
+##  1st Qu.:21.00   1st Qu.:3.00   1st Qu.:2.00   1st Qu.:0.00  
+##  Median :22.00   Median :3.00   Median :2.00   Median :0.00  
+##  Mean   :18.56   Mean   :3.36   Mean   :1.84   Mean   :0.16  
+##  3rd Qu.:22.00   3rd Qu.:4.00   3rd Qu.:2.00   3rd Qu.:0.00  
+##  Max.   :23.00   Max.   :4.00   Max.   :2.00   Max.   :1.00  
+##                                                              
+##     AGERFRI1         ESFRIG         REPLCFRI        HELPFRI     
+##  Min.   : 1.00   Min.   :-9.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 3.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 3.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :21.12   Mean   :-1.44   Mean   :-1.52   Mean   :-1.64  
+##  3rd Qu.:41.00   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :42.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.00  
+##                                                                 
+##     HELPFRIY        TYPERFR2        SIZRFRI2       REFRIGT2    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2.00  
+##  Mean   :-1.84   Mean   :-0.12   Mean   :-1.6   Mean   :-1.68  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.0   3rd Qu.:-2.00  
+##  Max.   : 2.00   Max.   :22.00   Max.   : 3.0   Max.   : 2.00  
+##                                                                
+##     MONRFRI2        AGERFRI2        ESFRIG2         TYPERFR3     SIZRFRI3 
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2   Median :-2  
+##  Mean   :-1.68   Mean   :-0.08   Mean   :-1.88   Mean   :-2   Mean   :-2  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   : 3.00   Max.   :41.00   Max.   : 1.00   Max.   :-2   Max.   :-2  
+##                                                                           
+##     REFRIGT3     MONRFRI3     AGERFRI3     ESFRIG3      SEPFREEZ  
+##  Min.   :-2   Min.   :-2   Min.   :-2   Min.   :-2   Min.   :0.0  
+##  1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   1st Qu.:0.0  
+##  Median :-2   Median :-2   Median :-2   Median :-2   Median :0.0  
+##  Mean   :-2   Mean   :-2   Mean   :-2   Mean   :-2   Mean   :0.4  
+##  3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:1.0  
+##  Max.   :-2   Max.   :-2   Max.   :-2   Max.   :-2   Max.   :1.0  
+##                                                                   
+##     NUMFREEZ       UPRTFRZR        SIZFREEZ        FREEZER    
+##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median :-2.0   Median :-2.00   Median :-2.00   Median :-2.0  
+##  Mean   :-0.8   Mean   :-0.52   Mean   :-0.52   Mean   :-0.6  
+##  3rd Qu.: 1.0   3rd Qu.: 2.00   3rd Qu.: 1.00   3rd Qu.: 1.0  
+##  Max.   : 1.0   Max.   : 2.00   Max.   : 3.00   Max.   : 2.0  
+##                                                               
+##     AGEFRZR         REPLCFRZ        HELPFRZ         HELPFRZY    UPRTFRZR2 
+##  Min.   :-2.00   Min.   :-9.00   Min.   :-2.00   Min.   :-2   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2   Median :-2  
+##  Mean   : 6.08   Mean   :-2.08   Mean   :-1.92   Mean   :-2   Mean   :-2  
+##  3rd Qu.: 3.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   :42.00   Max.   : 1.00   Max.   : 0.00   Max.   :-2   Max.   :-2  
+##                                                                           
+##    SIZFREEZ2     FREEZER2     AGEFRZR2     DISHWASH       DWASHUSE    
+##  Min.   :-2   Min.   :-2   Min.   :-2   Min.   :0.00   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   1st Qu.:0.00   1st Qu.:-2.00  
+##  Median :-2   Median :-2   Median :-2   Median :0.00   Median :-2.00  
+##  Mean   :-2   Mean   :-2   Mean   :-2   Mean   :0.48   Mean   : 6.84  
+##  3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:1.00   3rd Qu.:13.00  
+##  Max.   :-2   Max.   :-2   Max.   :-2   Max.   :1.00   Max.   :30.00  
+##                                                                       
+##      AGEDW          ESDISHW        REPLCDW          HELPDW     
+##  Min.   :-2.00   Min.   :-9.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.0   Median :-2.00   Median :-2.00  
+##  Mean   : 4.64   Mean   :-1.8   Mean   :-1.44   Mean   :-1.68  
+##  3rd Qu.: 3.00   3rd Qu.: 0.0   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :41.00   Max.   : 1.0   Max.   : 1.00   Max.   : 0.00  
+##                                                                
+##     HELPDWY      ZSTOVEN   ZSTOVENFUEL     ZSTOVE    ZSTOVEFUEL
+##  Min.   :-2   Min.   :0   Min.   :0    Min.   :0   Min.   :0   
+##  1st Qu.:-2   1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0   
+##  Median :-2   Median :0   Median :0    Median :0   Median :0   
+##  Mean   :-2   Mean   :0   Mean   :0    Mean   :0   Mean   :0   
+##  3rd Qu.:-2   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   
+##  Max.   :-2   Max.   :0   Max.   :0    Max.   :0   Max.   :0   
+##                                                                
+##      ZOVEN     ZOVENFUEL    ZOVENUSE    ZOVENCLN       ZTYPECLN
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0.00   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0.00   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0.04   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :1.00   Max.   :0  
+##                                                                
+##      ZMICRO    ZAMTMICRO    ZDEFROST   ZOUTGRILL ZOUTGRILLFUEL   ZTOPGRILL
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0     Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0     Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0     Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0     Max.   :0  
+##                                                                           
+##     ZSTGRILA    ZTOASTER    ZNUMMEAL   ZFUELFOOD    ZCOFFEE     ZNUMFRIG
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZTYPERFR1   ZSIZRFRI1   ZREFRIGT1      ZICE     ZAGERFRI1   
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0   Median :0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :1.00  
+##                                                                
+##    ZTYPERFR2   ZSIZRFRI2   ZREFRIGT2   ZMONRFRI2   ZAGERFRI2   ZTYPERFR3
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZSIZRFRI3   ZREFRIGT3   ZMONRFRI3   ZAGERFRI3   ZSEPFREEZ   ZNUMFREEZ
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZUPRTFRZR   ZSIZFREEZ    ZFREEZER       ZAGEFRZR      ZUPRTFRZR2
+##  Min.   :0   Min.   :0   Min.   :0.00   Min.   :0.00   Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   
+##  Median :0   Median :0   Median :0.00   Median :0.00   Median :0   
+##  Mean   :0   Mean   :0   Mean   :0.04   Mean   :0.04   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   
+##  Max.   :0   Max.   :0   Max.   :1.00   Max.   :1.00   Max.   :0   
+##                                                                    
+##    ZSIZFREEZ2   ZFREEZER2   ZAGEFRZR2   ZDISHWASH   ZDWASHUSE     ZAGEDW 
+##  Min.   :0    Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0    1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0    Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0    Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0    Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                          
+##     CWASHER        TOPFRONT           WASHLOAD    WASHTEMP    
+##  Min.   :0.00   Min.   :-2.0   1Less      :1   Min.   :-2.00  
+##  1st Qu.:1.00   1st Qu.: 1.0   2to4Loads  :9   1st Qu.: 1.00  
+##  Median :1.00   Median : 1.0   5to9Loads  :7   Median : 2.00  
+##  Mean   :0.76   Mean   : 0.4   10to15Loads:2   Mean   : 1.28  
+##  3rd Qu.:1.00   3rd Qu.: 1.0   15PlusLoads:0   3rd Qu.: 3.00  
+##  Max.   :1.00   Max.   : 2.0   NA&#39;s       :6   Max.   : 3.00  
+##                                                               
+##     RNSETEMP        AGECWASH        ESCWASH         REPLCCW     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-9.00   Min.   :-2.00  
+##  1st Qu.: 1.00   1st Qu.: 1.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 2.00   Median : 2.00   Median :-2.00   Median :-2.00  
+##  Mean   : 1.48   Mean   :12.16   Mean   :-1.08   Mean   :-1.16  
+##  3rd Qu.: 3.00   3rd Qu.:41.00   3rd Qu.: 1.00   3rd Qu.: 1.00  
+##  Max.   : 3.00   Max.   :42.00   Max.   : 1.00   Max.   : 1.00  
+##                                                                 
+##      HELPCW         HELPCWY     DRYER    DRYRFUEL     DRYRUSE     
+##  Min.   :-2.00   Min.   :-2   FALSE: 7   NG  : 2   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2   TRUE :18   LPG : 0   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2              Elec:16   Median : 1.00  
+##  Mean   :-1.44   Mean   :-2              NA&#39;s: 7   Mean   : 0.24  
+##  3rd Qu.: 0.00   3rd Qu.:-2                        3rd Qu.: 1.00  
+##  Max.   : 0.00   Max.   :-2                        Max.   : 2.00  
+##                                                                   
+##    AGECDRYER        TVCOLOR        TVSIZE1         TVTYPE1     
+##  Min.   :-2.00   Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:1.00   1st Qu.: 2.00   1st Qu.: 1.00  
+##  Median : 2.00   Median :2.00   Median : 2.00   Median : 2.00  
+##  Mean   : 8.92   Mean   :2.08   Mean   : 2.12   Mean   : 1.48  
+##  3rd Qu.: 3.00   3rd Qu.:3.00   3rd Qu.: 3.00   3rd Qu.: 2.00  
+##  Max.   :42.00   Max.   :4.00   Max.   : 3.00   Max.   : 3.00  
+##                                                                
+##    CABLESAT1       COMBODVR1         DVR1         DIGITSTB1    
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 0.00   1st Qu.:-2.0   1st Qu.: 0.00   1st Qu.: 0.00  
+##  Median : 1.00   Median : 0.0   Median : 0.00   Median : 0.00  
+##  Mean   : 0.76   Mean   :-0.8   Mean   :-0.24   Mean   : 0.12  
+##  3rd Qu.: 2.00   3rd Qu.: 0.0   3rd Qu.: 0.00   3rd Qu.: 0.00  
+##  Max.   : 2.00   Max.   : 1.0   Max.   : 1.00   Max.   : 1.00  
+##                                                                
+##     PLAYSTA1      COMBOVCRDVD1        VCR1            DVD1     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.: 0.00   1st Qu.: 0.00   1st Qu.: 0.00   1st Qu.: 0.0  
+##  Median : 0.00   Median : 0.00   Median : 0.00   Median : 1.0  
+##  Mean   : 0.16   Mean   : 0.12   Mean   : 0.04   Mean   : 0.6  
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 1.0  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.0  
+##                                                                
+##   TVAUDIOSYS1   OTHERSTB1        TVONWD1       TVONWDWATCH1  
+##  Min.   :-2   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 0   1st Qu.: 0.00   1st Qu.: 2.00   1st Qu.:-2.00  
+##  Median : 0   Median : 0.00   Median : 3.00   Median :-2.00  
+##  Mean   : 0   Mean   :-0.04   Mean   : 2.72   Mean   :-0.84  
+##  3rd Qu.: 0   3rd Qu.: 0.00   3rd Qu.: 4.00   3rd Qu.:-2.00  
+##  Max.   : 1   Max.   : 1.00   Max.   : 5.00   Max.   : 4.00  
+##                                                              
+##     TVONWE1       TVONWEWATCH1      TVSIZE2         TVTYPE2     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 3.00   Median :-2.00   Median : 1.00   Median : 1.00  
+##  Mean   : 2.88   Mean   :-1.04   Mean   : 0.52   Mean   : 0.32  
+##  3rd Qu.: 4.00   3rd Qu.:-2.00   3rd Qu.: 2.00   3rd Qu.: 1.00  
+##  Max.   : 5.00   Max.   : 4.00   Max.   : 3.00   Max.   : 2.00  
+##                                                                 
+##    CABLESAT2      COMBODVR2       DVR2         DIGITSTB2   
+##  Min.   :-2.0   Min.   :-2   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.0   1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median : 0.0   Median :-2   Median : 0.00   Median : 0.0  
+##  Mean   : 0.2   Mean   :-1   Mean   :-0.76   Mean   :-0.4  
+##  3rd Qu.: 2.0   3rd Qu.: 0   3rd Qu.: 0.00   3rd Qu.: 0.0  
+##  Max.   : 2.0   Max.   : 1   Max.   : 1.00   Max.   : 1.0  
+##                                                            
+##     PLAYSTA2      COMBOVCRDVD2        VCR2            DVD2      
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 0.00   Median : 0.00   Median : 0.00   Median : 0.00  
+##  Mean   :-0.44   Mean   :-0.52   Mean   :-0.56   Mean   :-0.52  
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 0.00  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 0.00   Max.   : 1.00  
+##                                                                 
+##   TVAUDIOSYS2      OTHERSTB2        TVONWD2       TVONWDWATCH2  
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 0.00   Median : 0.00   Median : 1.00   Median :-2.00  
+##  Mean   :-0.52   Mean   :-0.56   Mean   : 0.92   Mean   :-1.56  
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 2.00   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 0.00   Max.   : 5.00   Max.   : 4.00  
+##                                                                 
+##     TVONWE2       TVONWEWATCH2      TVSIZE3         TVTYPE3     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 1.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   : 0.84   Mean   :-1.56   Mean   :-0.96   Mean   :-0.96  
+##  3rd Qu.: 2.00   3rd Qu.:-2.00   3rd Qu.: 1.00   3rd Qu.: 1.00  
+##  Max.   : 5.00   Max.   : 4.00   Max.   : 3.00   Max.   : 4.00  
+##                                                                 
+##    CABLESAT3       COMBODVR3         DVR3         DIGITSTB3    
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.0   Median :-2.00   Median :-2.00  
+##  Mean   :-1.32   Mean   :-1.8   Mean   :-1.52   Mean   :-1.36  
+##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:-2.00   3rd Qu.: 0.00  
+##  Max.   : 2.00   Max.   : 1.0   Max.   : 0.00   Max.   : 1.00  
+##                                                                
+##     PLAYSTA3      COMBOVCRDVD3        VCR3           DVD3     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2.0  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.0  
+##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2.0  
+##  Mean   :-1.44   Mean   :-1.44   Mean   :-1.4   Mean   :-1.4  
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 0.0   3rd Qu.: 0.0  
+##  Max.   : 0.00   Max.   : 0.00   Max.   : 1.0   Max.   : 1.0  
+##                                                               
+##   TVAUDIOSYS3      OTHERSTB3        TVONWD3      TVONWDWATCH3
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2   
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2   
+##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2   
+##  Mean   :-1.44   Mean   :-1.44   Mean   :-0.8   Mean   :-2   
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 1.0   3rd Qu.:-2   
+##  Max.   : 0.00   Max.   : 0.00   Max.   : 5.0   Max.   :-2   
+##                                                              
+##     TVONWE3       TVONWEWATCH3    COMPUTER       NUMPC     
+##  Min.   :-2.00   Min.   :-2    Min.   :0.0   Min.   :0.00  
+##  1st Qu.:-2.00   1st Qu.:-2    1st Qu.:0.0   1st Qu.:0.00  
+##  Median :-2.00   Median :-2    Median :0.0   Median :0.00  
+##  Mean   :-0.72   Mean   :-2    Mean   :0.4   Mean   :0.48  
+##  3rd Qu.: 1.00   3rd Qu.:-2    3rd Qu.:1.0   3rd Qu.:1.00  
+##  Max.   : 5.00   Max.   :-2    Max.   :1.0   Max.   :2.00  
+##                                                            
+##     PCTYPE1         MONITOR1        TIMEON1         PCONOFF1    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-0.64   Mean   :-1.32   Mean   :-0.08   Mean   :-0.96  
+##  3rd Qu.: 1.00   3rd Qu.:-2.00   3rd Qu.: 2.00   3rd Qu.: 0.00  
+##  Max.   : 2.00   Max.   : 1.00   Max.   : 5.00   Max.   : 1.00  
+##                                                                 
+##     PCSLEEP1        PCTYPE2         MONITOR2        TIMEON2     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-1.56   Mean   :-1.72   Mean   :-1.88   Mean   :-1.76  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 2.00   Max.   : 1.00   Max.   : 1.00  
+##                                                                 
+##     PCONOFF2        PCSLEEP2     PCTYPE3      MONITOR3     TIMEON3  
+##  Min.   :-2.00   Min.   :-2   Min.   :-2   Min.   :-2   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2  
+##  Median :-2.00   Median :-2   Median :-2   Median :-2   Median :-2  
+##  Mean   :-1.76   Mean   :-2   Mean   :-2   Mean   :-2   Mean   :-2  
+##  3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   : 1.00   Max.   :-2   Max.   :-2   Max.   :-2   Max.   :-2  
+##                                                                     
+##     PCONOFF3     PCSLEEP3     INTERNET       INDIALUP         INDSL      
+##  Min.   :-2   Min.   :-2   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:-2   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2   Median :-2   Median :-2.0   Median :-2.00   Median :-2.00  
+##  Mean   :-2   Mean   :-2   Mean   :-0.8   Mean   :-1.16   Mean   :-1.12  
+##  3rd Qu.:-2   3rd Qu.:-2   3rd Qu.: 1.0   3rd Qu.: 0.00   3rd Qu.: 0.00  
+##  Max.   :-2   Max.   :-2   Max.   : 1.0   Max.   : 1.00   Max.   : 1.00  
+##                                                                          
+##     INCABLE         INSATEL        INWIRELESS       PCPRINT     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-1.04   Mean   :-1.12   Mean   :-0.88   Mean   :-0.84  
+##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 1.00   3rd Qu.: 1.00  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.00  
+##                                                                 
+##       FAX           COPIER        WELLPUMP        DIPSTICK    
+##  Min.   :0.00   Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :0.00   Median :0.00   Median : 0.00   Median :-2.00  
+##  Mean   :0.04   Mean   :0.08   Mean   :-0.32   Mean   :-1.68  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.: 0.00   3rd Qu.:-2.00  
+##  Max.   :1.00   Max.   :1.00   Max.   : 1.00   Max.   : 0.00  
+##                                                               
+##     SWAMPCOL        AQUARIUM        STEREO        NOCORD       ANSMACH    
+##  Min.   :-2.00   Min.   :0.00   Min.   :0.0   Min.   :0.0   Min.   :0.00  
+##  1st Qu.:-2.00   1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.0   1st Qu.:0.00  
+##  Median :-2.00   Median :0.00   Median :0.0   Median :1.0   Median :0.00  
+##  Mean   :-1.52   Mean   :0.12   Mean   :0.4   Mean   :0.6   Mean   :0.48  
+##  3rd Qu.:-2.00   3rd Qu.:0.00   3rd Qu.:1.0   3rd Qu.:1.0   3rd Qu.:1.00  
+##  Max.   : 0.00   Max.   :1.00   Max.   :1.0   Max.   :1.0   Max.   :1.00  
+##                                                                           
+##     BATTOOLS       BATCHRG      CHRGPLGT       ELECDEV        ELECCHRG    
+##  Min.   :0.00   Min.   :-2   Min.   :-2.0   Min.   :0.00   Min.   :-2.00  
+##  1st Qu.:0.00   1st Qu.:-2   1st Qu.:-2.0   1st Qu.:1.00   1st Qu.: 1.00  
+##  Median :1.00   Median : 1   Median :-2.0   Median :1.00   Median : 2.00  
+##  Mean   :0.68   Mean   : 0   Mean   :-1.2   Mean   :0.96   Mean   : 1.28  
+##  3rd Qu.:1.00   3rd Qu.: 2   3rd Qu.: 0.0   3rd Qu.:1.00   3rd Qu.: 2.00  
+##  Max.   :2.00   Max.   : 3   Max.   : 0.0   Max.   :2.00   Max.   : 3.00  
+##                                                                           
+##     CHRGPLGE       ZCWASHER   ZTOPFRONT   ZWASHLOAD   ZWASHTEMP
+##  Min.   :-2.0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:-2.0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median : 0.0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :-0.2   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.: 1.0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   : 2.0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##    ZRNSETEMP      ZAGECWASH        ZDRYER    ZDRYRFUEL    ZDRYRUSE
+##  Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0.00   Median :0   Median :0   Median :0  
+##  Mean   :0.04   Mean   :0.04   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0   Max.   :0  
+##                                                                   
+##    ZAGECDRYER      ZTVCOLOR    ZTVSIZE1    ZTVTYPE1      ZCABLESAT1
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0.00   Min.   :0   
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0   
+##  Median :0.00   Median :0   Median :0   Median :0.00   Median :0   
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0.04   Mean   :0   
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :1.00   Max.   :0   
+##                                                                    
+##    ZCOMBODVR1     ZDVR1     ZDIGITSTB1   ZPLAYSTA1 ZCOMBOVCRDVD1
+##  Min.   :0    Min.   :0   Min.   :0    Min.   :0   Min.   :0    
+##  1st Qu.:0    1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0    
+##  Median :0    Median :0   Median :0    Median :0   Median :0    
+##  Mean   :0    Mean   :0   Mean   :0    Mean   :0   Mean   :0    
+##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    
+##  Max.   :0    Max.   :0   Max.   :0    Max.   :0   Max.   :0    
+##                                                                 
+##      ZVCR1       ZDVD1    ZTVAUDIOSYS1   ZOTHERSTB1    ZTVONWD1
+##  Min.   :0   Min.   :0   Min.   :0     Min.   :0    Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0    1st Qu.:0  
+##  Median :0   Median :0   Median :0     Median :0    Median :0  
+##  Mean   :0   Mean   :0   Mean   :0     Mean   :0    Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0     Max.   :0    Max.   :0  
+##                                                                
+##  ZTVONWDWATCH1    ZTVONWE1 ZTVONWEWATCH1    ZTVSIZE2    ZTVTYPE2
+##  Min.   :0     Min.   :0   Min.   :0     Min.   :0   Min.   :0  
+##  1st Qu.:0     1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0  
+##  Median :0     Median :0   Median :0     Median :0   Median :0  
+##  Mean   :0     Mean   :0   Mean   :0     Mean   :0   Mean   :0  
+##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0     Max.   :0   Max.   :0     Max.   :0   Max.   :0  
+##                                                                 
+##    ZCABLESAT2   ZCOMBODVR2     ZDVR2     ZDIGITSTB2   ZPLAYSTA2
+##  Min.   :0    Min.   :0    Min.   :0   Min.   :0    Min.   :0  
+##  1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0    1st Qu.:0  
+##  Median :0    Median :0    Median :0   Median :0    Median :0  
+##  Mean   :0    Mean   :0    Mean   :0   Mean   :0    Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    3rd Qu.:0  
+##  Max.   :0    Max.   :0    Max.   :0   Max.   :0    Max.   :0  
+##                                                                
+##  ZCOMBOVCRDVD2     ZVCR2       ZDVD2    ZTVAUDIOSYS2   ZOTHERSTB2
+##  Min.   :0     Min.   :0   Min.   :0   Min.   :0     Min.   :0   
+##  1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0   
+##  Median :0     Median :0   Median :0   Median :0     Median :0   
+##  Mean   :0     Mean   :0   Mean   :0   Mean   :0     Mean   :0   
+##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   
+##  Max.   :0     Max.   :0   Max.   :0   Max.   :0     Max.   :0   
+##                                                                  
+##     ZTVONWD2 ZTVONWDWATCH2    ZTVONWE2 ZTVONWEWATCH2    ZTVSIZE3
+##  Min.   :0   Min.   :0     Min.   :0   Min.   :0     Min.   :0  
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0     1st Qu.:0  
+##  Median :0   Median :0     Median :0   Median :0     Median :0  
+##  Mean   :0   Mean   :0     Mean   :0   Mean   :0     Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
+##  Max.   :0   Max.   :0     Max.   :0   Max.   :0     Max.   :0  
+##                                                                 
+##     ZTVTYPE3   ZCABLESAT3   ZCOMBODVR3     ZDVR3     ZDIGITSTB3
+##  Min.   :0   Min.   :0    Min.   :0    Min.   :0   Min.   :0   
+##  1st Qu.:0   1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0   
+##  Median :0   Median :0    Median :0    Median :0   Median :0   
+##  Mean   :0   Mean   :0    Mean   :0    Mean   :0   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0   Max.   :0    Max.   :0    Max.   :0   Max.   :0   
+##                                                                
+##    ZPLAYSTA3 ZCOMBOVCRDVD3     ZVCR3       ZDVD3    ZTVAUDIOSYS3
+##  Min.   :0   Min.   :0     Min.   :0   Min.   :0   Min.   :0    
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0    
+##  Median :0   Median :0     Median :0   Median :0   Median :0    
+##  Mean   :0   Mean   :0     Mean   :0   Mean   :0   Mean   :0    
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    
+##  Max.   :0   Max.   :0     Max.   :0   Max.   :0   Max.   :0    
+##                                                                 
+##    ZOTHERSTB3    ZTVONWD3 ZTVONWDWATCH3    ZTVONWE3 ZTVONWEWATCH3
+##  Min.   :0    Min.   :0   Min.   :0     Min.   :0   Min.   :0    
+##  1st Qu.:0    1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0    
+##  Median :0    Median :0   Median :0     Median :0   Median :0    
+##  Mean   :0    Mean   :0   Mean   :0     Mean   :0   Mean   :0    
+##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0    
+##  Max.   :0    Max.   :0   Max.   :0     Max.   :0   Max.   :0    
+##                                                                  
+##    ZCOMPUTER     ZNUMPC     ZPCTYPE1   ZMONITOR1    ZTIMEON1   ZPCONOFF1
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZPCSLEEP1    ZPCTYPE2   ZMONITOR2    ZTIMEON2   ZPCONOFF2   ZPCSLEEP2
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZPCTYPE3   ZMONITOR3    ZTIMEON3   ZPCONOFF3   ZPCSLEEP3   ZINTERNET
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZINDIALUP     ZINDSL     ZINCABLE    ZINSATEL  ZINWIRELESS    ZPCPRINT
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0    Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :0  
+##                                                                          
+##       ZFAX      ZCOPIER    ZWELLPUMP   ZDIPSTICK   ZSWAMPCOL   ZAQUARIUM
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZSTEREO     ZNOCORD     ZANSMACH   ZBATTOOLS    ZBATCHRG   ZCHRGPLGT
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZELECDEV   ZELECCHRG   ZCHRGPLGE    HEATHOME    DNTHEAT    EQUIPNOHEAT
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :1   Min.   :-2   Min.   :-2  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:1   1st Qu.:-2   1st Qu.:-2  
+##  Median :0   Median :0   Median :0   Median :1   Median :-2   Median :-2  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :1   Mean   :-2   Mean   :-2  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:1   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :1   Max.   :-2   Max.   :-2  
+##                                                                           
+##    FUELNOHEAT     EQUIPM        FUELHEAT      MAINTHT        EQUIPAGE    
+##  Min.   :-2   Min.   :2.00   Min.   :1.0   Min.   :0.00   Min.   : 1.00  
+##  1st Qu.:-2   1st Qu.:3.00   1st Qu.:1.0   1st Qu.:0.00   1st Qu.: 2.00  
+##  Median :-2   Median :3.00   Median :2.0   Median :0.00   Median : 3.00  
+##  Mean   :-2   Mean   :3.44   Mean   :2.4   Mean   :0.48   Mean   :15.12  
+##  3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:2.0   3rd Qu.:1.00   3rd Qu.:41.00  
+##  Max.   :-2   Max.   :8.00   Max.   :7.0   Max.   :1.00   Max.   :42.00  
+##                                                                          
+##     REPLCHT         HELPHT         HELPHTY         HEATOTH    
+##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :0.00  
+##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:0.00  
+##  Median :-2.0   Median : 0.00   Median :-2.00   Median :0.00  
+##  Mean   :-1.2   Mean   :-0.76   Mean   :-1.72   Mean   :0.12  
+##  3rd Qu.: 0.0   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:0.00  
+##  Max.   : 1.0   Max.   : 5.00   Max.   : 5.00   Max.   :1.00  
+##                                                               
+##     EQUIPAUX      REVERSE        WARMAIR     FURNFUEL      STEAMR 
+##  Min.   :0.0   Min.   :0.00   Min.   :0   Min.   :-2   Min.   :0  
+##  1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0   1st Qu.:-2   1st Qu.:0  
+##  Median :0.0   Median :0.00   Median :0   Median :-2   Median :0  
+##  Mean   :0.4   Mean   :0.04   Mean   :0   Mean   :-2   Mean   :0  
+##  3rd Qu.:1.0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:-2   3rd Qu.:0  
+##  Max.   :1.0   Max.   :1.00   Max.   :0   Max.   :-2   Max.   :0  
+##                                                                   
+##     RADFUEL      PERMELEC       PIPELESS    PIPEFUEL     ROOMHEAT
+##  Min.   :-2   Min.   :0.00   Min.   :0   Min.   :-2   Min.   :0  
+##  1st Qu.:-2   1st Qu.:0.00   1st Qu.:0   1st Qu.:-2   1st Qu.:0  
+##  Median :-2   Median :0.00   Median :0   Median :-2   Median :0  
+##  Mean   :-2   Mean   :0.08   Mean   :0   Mean   :-2   Mean   :0  
+##  3rd Qu.:-2   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:-2   3rd Qu.:0  
+##  Max.   :-2   Max.   :1.00   Max.   :0   Max.   :-2   Max.   :0  
+##                                                                  
+##     RMHTFUEL     WOODKILN        HSFUEL         CARRYEL        CARRYKER
+##  Min.   :-2   Min.   :0.00   Min.   :-2.00   Min.   :0.00   Min.   :0  
+##  1st Qu.:-2   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:0.00   1st Qu.:0  
+##  Median :-2   Median :0.00   Median :-2.00   Median :0.00   Median :0  
+##  Mean   :-2   Mean   :0.08   Mean   :-1.28   Mean   :0.16   Mean   :0  
+##  3rd Qu.:-2   3rd Qu.:0.00   3rd Qu.:-2.00   3rd Qu.:0.00   3rd Qu.:0  
+##  Max.   :-2   Max.   :1.00   Max.   : 7.00   Max.   :1.00   Max.   :0  
+##                                                                        
+##     CHIMNEY         FPFUEL         NGFPFLUE        USENGFP     
+##  Min.   :0.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :0.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :0.12   Mean   :-1.16   Mean   :-1.84   Mean   :-1.88  
+##  3rd Qu.:0.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :1.00   Max.   : 7.00   Max.   : 2.00   Max.   : 1.00  
+##                                                                
+##      RANGE         RNGFUEL         DIFEQUIP       DIFFUEL    
+##  Min.   :0.00   Min.   :-2.00   Min.   :0.00   Min.   :-2.0  
+##  1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:0.00   1st Qu.:-2.0  
+##  Median :0.00   Median :-2.00   Median :0.00   Median :-2.0  
+##  Mean   :0.04   Mean   :-1.88   Mean   :0.04   Mean   :-1.6  
+##  3rd Qu.:0.00   3rd Qu.:-2.00   3rd Qu.:0.00   3rd Qu.:-2.0  
+##  Max.   :1.00   Max.   : 1.00   Max.   :1.00   Max.   : 8.0  
+##                                                              
+##      EQMAMT         HEATROOM       THERMAIN       NUMTHERM    
+##  Min.   :-2.00   Min.   :1.00   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:4.00   1st Qu.: 1.0   1st Qu.: 1.00  
+##  Median :-2.00   Median :4.00   Median : 1.0   Median : 1.00  
+##  Mean   :-0.52   Mean   :4.48   Mean   : 0.8   Mean   : 0.84  
+##  3rd Qu.: 1.00   3rd Qu.:5.00   3rd Qu.: 1.0   3rd Qu.: 1.00  
+##  Max.   : 3.00   Max.   :9.00   Max.   : 1.0   Max.   : 2.00  
+##                                                               
+##     PROTHERM      AUTOHEATNITE    AUTOHEATDAY       TEMPHOME   
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :65.0  
+##  1st Qu.: 0.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:69.0  
+##  Median : 0.00   Median :-2.00   Median :-2.00   Median :71.0  
+##  Mean   :-0.04   Mean   :-1.44   Mean   :-1.52   Mean   :71.6  
+##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:73.0  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.00   Max.   :85.0  
+##                                                                
+##     TEMPGONE        TEMPNITE        MOISTURE    USEMOISTURE      ZHEATHOME
+##  Min.   :40.00   Min.   :46.00   Min.   :0.0   Min.   :-2.00   Min.   :0  
+##  1st Qu.:65.00   1st Qu.:66.00   1st Qu.:0.0   1st Qu.:-2.00   1st Qu.:0  
+##  Median :70.00   Median :70.00   Median :0.0   Median :-2.00   Median :0  
+##  Mean   :66.28   Mean   :68.88   Mean   :0.2   Mean   :-1.16   Mean   :0  
+##  3rd Qu.:72.00   3rd Qu.:72.00   3rd Qu.:0.0   3rd Qu.:-2.00   3rd Qu.:0  
+##  Max.   :78.00   Max.   :85.00   Max.   :1.0   Max.   : 3.00   Max.   :0  
+##                                                                           
+##     ZDNTHEAT  ZEQUIPNOHEAT  ZFUELNOHEAT    ZEQUIPM    ZFUELHEAT
+##  Min.   :0   Min.   :0     Min.   :0    Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0    1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0     Median :0    Median :0   Median :0  
+##  Mean   :0   Mean   :0     Mean   :0    Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0     Max.   :0    Max.   :0   Max.   :0  
+##                                                                
+##     ZMAINTHT   ZEQUIPAGE       ZHEATOTH   ZFURNFUEL    ZRADFUEL
+##  Min.   :0   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0.00   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0.16   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :1.00   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##    ZPIPEFUEL   ZRMHTFUEL    ZHSFUEL     ZFPFUEL    ZNGFPFLUE    ZUSENGFP
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZRNGFUEL    ZDIFFUEL    ZEQMAMT    ZHEATROOM   ZTHERMAIN   ZNUMTHERM
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##    ZPROTHERM ZAUTOHEATNITE  ZAUTOHEATDAY   ZTEMPHOME   ZTEMPGONE
+##  Min.   :0   Min.   :0     Min.   :0     Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0     1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0     Median :0     Median :0   Median :0  
+##  Mean   :0   Mean   :0     Mean   :0     Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0     3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0     Max.   :0     Max.   :0   Max.   :0  
+##                                                                 
+##    ZTEMPNITE   ZMOISTURE  ZUSEMOISTURE  NUMH2ONOTNK   NUMH2OHTRS
+##  Min.   :0   Min.   :0   Min.   :0     Min.   :0    Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0    1st Qu.:1   
+##  Median :0   Median :0   Median :0     Median :0    Median :1   
+##  Mean   :0   Mean   :0   Mean   :0     Mean   :0    Mean   :1   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:1   
+##  Max.   :0   Max.   :0   Max.   :0     Max.   :0    Max.   :2   
+##                                                                 
+##     H2OTYPE1        FUELH2O        WHEATOTH        WHEATSIZ    
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 1.00   1st Qu.: 1.0   1st Qu.: 0.00   1st Qu.: 2.00  
+##  Median : 1.00   Median : 5.0   Median : 0.00   Median : 2.00  
+##  Mean   : 0.88   Mean   : 3.2   Mean   : 0.08   Mean   : 1.88  
+##  3rd Qu.: 1.00   3rd Qu.: 5.0   3rd Qu.: 0.00   3rd Qu.: 2.00  
+##  Max.   : 1.00   Max.   : 5.0   Max.   : 1.00   Max.   : 3.00  
+##                                                                
+##     WHEATAGE        WHEATBKT         HELPWH         HELPWHY  
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
+##  1st Qu.: 2.00   1st Qu.: 0.00   1st Qu.:-2.00   1st Qu.:-2  
+##  Median : 3.00   Median : 0.00   Median :-2.00   Median :-2  
+##  Mean   :13.24   Mean   : 0.04   Mean   :-1.76   Mean   :-2  
+##  3rd Qu.:41.00   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2  
+##  Max.   :42.00   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
+##                                                              
+##     H2OTYPE2        FUELH2O2       WHEATSIZ2      WHEATAGE2    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2.00  
+##  Mean   :-1.88   Mean   :-1.84   Mean   :-1.8   Mean   :-0.28  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.0   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 2.00   Max.   : 3.0   Max.   :41.00  
+##                                                                
+##   ZNUMH2OHTRS  ZNUMH2ONOTNK   ZH2OTYPE1    ZFUELH2O      ZWHEATOTH
+##  Min.   :0    Min.   :0     Min.   :0   Min.   :0.00   Min.   :0  
+##  1st Qu.:0    1st Qu.:0     1st Qu.:0   1st Qu.:0.00   1st Qu.:0  
+##  Median :0    Median :0     Median :0   Median :0.00   Median :0  
+##  Mean   :0    Mean   :0     Mean   :0   Mean   :0.04   Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0     3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0  
+##  Max.   :0    Max.   :0     Max.   :0   Max.   :1.00   Max.   :0  
+##                                                                   
+##    ZWHEATSIZ      ZWHEATAGE      ZWHEATBKT      ZH2OTYPE2   ZFUELH2O2
+##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0.00   Median :0.00   Median :0   Median :0  
+##  Mean   :0.08   Mean   :0.24   Mean   :0.04   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0  
+##                                                                      
+##    ZWHEATSIZ2   ZWHEATAGE2    AIRCOND         DNTAC        COOLTYPENOAC  
+##  Min.   :0    Min.   :0    Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:0    1st Qu.:0    1st Qu.:1.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :0    Median :0    Median :1.00   Median :-2.00   Median :-2.00  
+##  Mean   :0    Mean   :0    Mean   :0.76   Mean   :-1.12   Mean   :-1.76  
+##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:1.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :0    Max.   :0    Max.   :1.00   Max.   : 2.00   Max.   : 1.00  
+##                                                                          
+##     COOLTYPE         DUCTS       CENACHP         ACOTHERS    
+##  Min.   :-2.00   Min.   :-2   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.: 1.00   1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 1.00   Median :-2   Median :-2.00   Median :-2.00  
+##  Mean   : 0.64   Mean   :-2   Mean   :-1.16   Mean   :-1.16  
+##  3rd Qu.: 2.00   3rd Qu.:-2   3rd Qu.: 0.00   3rd Qu.: 0.00  
+##  Max.   : 2.00   Max.   :-2   Max.   : 1.00   Max.   : 1.00  
+##                                                              
+##     MAINTAC         AGECENAC        REPLCCAC        HELPCAC     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-0.92   Mean   : 5.76   Mean   :-1.44   Mean   :-1.32  
+##  3rd Qu.: 1.00   3rd Qu.: 1.00   3rd Qu.:-2.00   3rd Qu.: 0.00  
+##  Max.   : 1.00   Max.   :42.00   Max.   : 1.00   Max.   : 3.00  
+##                                                                 
+##     HELPCACY        ACROOMS        USECENAC       THERMAINAC  
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median :-2.00   Median :-2.0   Median :-2.00   Median :-2.0  
+##  Mean   :-1.72   Mean   : 0.8   Mean   :-0.12   Mean   :-0.8  
+##  3rd Qu.:-2.00   3rd Qu.: 4.0   3rd Qu.: 3.00   3rd Qu.: 1.0  
+##  Max.   : 5.00   Max.   : 8.0   Max.   : 3.00   Max.   : 1.0  
+##                                                               
+##    PROTHERMAC     AUTOCOOLNITE   AUTOCOOLDAY     TEMPHOMEAC   
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.0   Median :-2.0   Median :-2.00  
+##  Mean   :-1.12   Mean   :-1.8   Mean   :-1.8   Mean   :25.08  
+##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:-2.0   3rd Qu.:71.00  
+##  Max.   : 1.00   Max.   : 1.0   Max.   : 1.0   Max.   :78.00  
+##                                                               
+##    TEMPGONEAC      TEMPNITEAC       NUMBERAC        WWACAGE     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :25.56   Mean   :25.08   Mean   :-0.52   Mean   : 2.72  
+##  3rd Qu.:72.00   3rd Qu.:71.00   3rd Qu.: 1.00   3rd Qu.: 2.00  
+##  Max.   :78.00   Max.   :78.00   Max.   : 5.00   Max.   :42.00  
+##                                                                 
+##      ESWWAC        REPLCWWAC        HELPWWAC       HELPWWACY 
+##  Min.   :-9.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2  
+##  Mean   :-1.64   Mean   :-1.64   Mean   :-1.76   Mean   :-2  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
+##                                                              
+##     USEWWAC        NUMCFAN       USECFAN      TREESHAD       NOTMOIST   
+##  Min.   :-2.0   Min.   :0.0   Min.   :-2   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:-2.0   1st Qu.:0.0   1st Qu.:-2   1st Qu.:0.00   1st Qu.:0.00  
+##  Median :-2.0   Median :1.0   Median : 1   Median :1.00   Median :0.00  
+##  Mean   :-0.6   Mean   :1.8   Mean   : 1   Mean   :0.56   Mean   :0.16  
+##  3rd Qu.: 1.0   3rd Qu.:3.0   3rd Qu.: 3   3rd Qu.:1.00   3rd Qu.:0.00  
+##  Max.   : 3.0   Max.   :6.0   Max.   : 4   Max.   :1.00   Max.   :1.00  
+##                                                                         
+##   USENOTMOIST       ZAIRCOND     ZDNTAC  ZCOOLTYPENOAC   ZCOOLTYPE
+##  Min.   :-2.00   Min.   :0   Min.   :0   Min.   :0     Min.   :0  
+##  1st Qu.:-2.00   1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0  
+##  Median :-2.00   Median :0   Median :0   Median :0     Median :0  
+##  Mean   :-1.48   Mean   :0   Mean   :0   Mean   :0     Mean   :0  
+##  3rd Qu.:-2.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
+##  Max.   : 2.00   Max.   :0   Max.   :0   Max.   :0     Max.   :0  
+##                                                                   
+##      ZDUCTS     ZCENACHP   ZACOTHERS    ZMAINTAC   ZAGECENAC   ZUSECENAC
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZACROOMS  ZTHERMAINAC  ZPROTHERMAC ZAUTOCOOLNITE  ZAUTOCOOLDAY
+##  Min.   :0   Min.   :0    Min.   :0    Min.   :0     Min.   :0    
+##  1st Qu.:0   1st Qu.:0    1st Qu.:0    1st Qu.:0     1st Qu.:0    
+##  Median :0   Median :0    Median :0    Median :0     Median :0    
+##  Mean   :0   Mean   :0    Mean   :0    Mean   :0     Mean   :0    
+##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0    3rd Qu.:0     3rd Qu.:0    
+##  Max.   :0   Max.   :0    Max.   :0    Max.   :0     Max.   :0    
+##                                                                   
+##   ZTEMPHOMEAC  ZTEMPGONEAC  ZTEMPNITEAC   ZNUMBERAC    ZWWACAGE
+##  Min.   :0    Min.   :0    Min.   :0    Min.   :0   Min.   :0  
+##  1st Qu.:0    1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0  
+##  Median :0    Median :0    Median :0    Median :0   Median :0  
+##  Mean   :0    Mean   :0    Mean   :0    Mean   :0   Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0    Max.   :0    Max.   :0    Max.   :0   Max.   :0  
+##                                                                
+##     ZUSEWWAC    ZNUMCFAN    ZUSECFAN      ZTREESHAD   ZNOTMOIST   
+##  Min.   :0   Min.   :0   Min.   :0.00   Min.   :0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0.00   Median :0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0.04   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :1.00   Max.   :0   Max.   :1.00  
+##                                                                   
+##   ZUSENOTMOIST    HIGHCEIL       CATHCEIL        SWIMPOOL          POOL   
+##  Min.   :0     Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
+##  1st Qu.:0     1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2  
+##  Median :0     Median : 0.0   Median :-2.00   Median :-2.00   Median :-2  
+##  Mean   :0     Mean   :-0.6   Mean   :-1.64   Mean   :-1.28   Mean   :-2  
+##  3rd Qu.:0     3rd Qu.: 0.0   3rd Qu.:-2.00   3rd Qu.: 0.00   3rd Qu.:-2  
+##  Max.   :0     Max.   : 1.0   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
+##                                                                           
+##     FUELPOOL   RECBATH      FUELTUB       LGT12         LGT12EE    
+##  NG     : 0   FALSE:24   NG     : 0   Min.   :0.00   Min.   :-2.0  
+##  LPG    : 0   TRUE : 1   LPG    : 1   1st Qu.:0.00   1st Qu.:-2.0  
+##  FuelOil: 0              FuelOil: 0   Median :0.00   Median :-2.0  
+##  Elec   : 0              Elec   : 0   Mean   :0.56   Mean   :-1.4  
+##  Solar  : 0              Solar  : 0   3rd Qu.:0.00   3rd Qu.:-2.0  
+##  Other  : 0              Other  : 0   Max.   :9.00   Max.   : 9.0  
+##  NA&#39;s   :25              NA&#39;s   :24                                
+##       LGT4          LGT4EE          LGT1          LGT1EE    
+##  Min.   :0.00   Min.   :-2.0   Min.   :0.00   Min.   :-2.0  
+##  1st Qu.:0.00   1st Qu.:-2.0   1st Qu.:0.00   1st Qu.:-2.0  
+##  Median :1.00   Median : 0.0   Median :1.00   Median : 0.0  
+##  Mean   :1.28   Mean   :-0.2   Mean   :1.56   Mean   : 0.2  
+##  3rd Qu.:2.00   3rd Qu.: 1.0   3rd Qu.:2.00   3rd Qu.: 1.0  
+##  Max.   :5.00   Max.   : 5.0   Max.   :5.00   Max.   : 5.0  
+##                                                             
+##    NOUTLGTNT         LGTOEE        NGASLIGHT        INSTLCFL   
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.0  
+##  Mean   :-1.08   Mean   :-1.56   Mean   :-1.68   Mean   :-0.6  
+##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.: 1.0  
+##  Max.   : 2.00   Max.   : 1.00   Max.   : 0.00   Max.   : 1.0  
+##                                                                
+##     HELPCFL         HELPCFLY        SLDDRS        DOOR1SUM   
+##  Min.   :-2.00   Min.   :-2.0   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:0.00   1st Qu.:0.00  
+##  Median :-2.00   Median :-2.0   Median :0.00   Median :0.00  
+##  Mean   :-0.92   Mean   :-1.8   Mean   :0.04   Mean   :0.04  
+##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:0.00   3rd Qu.:0.00  
+##  Max.   : 5.00   Max.   : 3.0   Max.   :1.00   Max.   :1.00  
+##                                                              
+##     WINDOWS           TYPEGLASS     NEWGLASS       HELPWIN    
+##  Min.   :20.00   SinglePane:10   Min.   :1.00   Min.   :-9.0  
+##  1st Qu.:30.00   DoublePane:15   1st Qu.:1.00   1st Qu.:-2.0  
+##  Median :41.00   TriplePane: 0   Median :3.00   Median :-2.0  
+##  Mean   :36.96                   Mean   :2.24   Mean   :-1.4  
+##  3rd Qu.:41.00                   3rd Qu.:3.00   3rd Qu.: 0.0  
+##  Max.   :60.00                   Max.   :3.00   Max.   : 0.0  
+##                                                               
+##     HELPWINY     ADQINSUL       INSTLINS        AGEINS        HELPINS     
+##  Min.   :-2   Min.   :1.00   Min.   :0.00   Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:1.00   1st Qu.:0.00   1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :-2   Median :2.00   Median :0.00   Median :-2.0   Median :-2.00  
+##  Mean   :-2   Mean   :1.84   Mean   :0.24   Mean   : 2.2   Mean   :-1.92  
+##  3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:0.00   3rd Qu.:-2.0   3rd Qu.:-2.00  
+##  Max.   :-2   Max.   :3.00   Max.   :1.00   Max.   :42.0   Max.   : 0.00  
+##                                                                           
+##     HELPINSY      DRAFTY        INSTLWS         AGEWS      
+##  Min.   :-2   Min.   :2.00   Min.   :0.00   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:3.00   1st Qu.:0.00   1st Qu.:-2.00  
+##  Median :-2   Median :4.00   Median :0.00   Median :-2.00  
+##  Mean   :-2   Mean   :3.44   Mean   :0.32   Mean   :-0.72  
+##  3rd Qu.:-2   3rd Qu.:4.00   3rd Qu.:1.00   3rd Qu.: 1.00  
+##  Max.   :-2   Max.   :4.00   Max.   :1.00   Max.   : 3.00  
+##                                                            
+##      HELPWS         HELPWSY       AUDIT       AGEAUD      HELPAUD  
+##  Min.   :-2.00   Min.   :-2   Min.   :0   Min.   :-2   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2   1st Qu.:0   1st Qu.:-2   1st Qu.:-2  
+##  Median :-2.00   Median :-2   Median :0   Median :-2   Median :-2  
+##  Mean   :-1.68   Mean   :-2   Mean   :0   Mean   :-2   Mean   :-2  
+##  3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:0   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   : 0.00   Max.   :-2   Max.   :0   Max.   :-2   Max.   :-2  
+##                                                                    
+##     HELPAUDY    ZHIGHCEIL   ZCATHCEIL   ZSWIMPOOL     ZPOOL     ZFUELPOOL
+##  Min.   :-2   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:-2   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :-2   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :-2   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:-2   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :-2   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                          
+##     ZRECBATH    ZFUELTUB     ZLGT12      ZLGT4       ZLGT1     ZNOUTLGTNT
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0   
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   
+##                                                                          
+##    ZNGASLIGHT    ZSLDDRS    ZDOOR1SUM    ZWINDOWS   ZTYPEGLASS
+##  Min.   :0    Min.   :0   Min.   :0   Min.   :0   Min.   :0   
+##  1st Qu.:0    1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   
+##  Median :0    Median :0   Median :0   Median :0   Median :0   
+##  Mean   :0    Mean   :0   Mean   :0   Mean   :0   Mean   :0   
+##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0    Max.   :0   Max.   :0   Max.   :0   Max.   :0   
+##                                                               
+##    ZNEWGLASS      ZADQINSUL   ZINSTLINS    ZAGEINS     ZDRAFTY 
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##     ZINSTLWS        ZAGEWS         ZAUDIT     ZAGEAUD      USEEL  
+##  Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0   Min.   :1  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:1  
+##  Median :0.00   Median :0.00   Median :0   Median :0   Median :1  
+##  Mean   :0.04   Mean   :0.04   Mean   :0   Mean   :0   Mean   :1  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:1  
+##  Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0   Max.   :1  
+##                                                                   
+##      USENG          USELP         USEFO      USEKERO     USEWOOD    
+##  Min.   :0.00   Min.   :0.0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0.00   Median :1.0   Median :0   Median :0   Median :0.00  
+##  Mean   :0.44   Mean   :0.6   Mean   :0   Mean   :0   Mean   :0.16  
+##  3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :1.00   Max.   :1.0   Max.   :0   Max.   :0   Max.   :1.00  
+##                                                                     
+##     USESOLAR        USEOTH       ELWARM      ELECAUX       ELCOOL  
+##  Min.   :0.00   Min.   :0.00   FALSE:14   Min.   :0.00   FALSE: 6  
+##  1st Qu.:0.00   1st Qu.:0.00   TRUE :11   1st Qu.:0.00   TRUE :19  
+##  Median :0.00   Median :0.00              Median :0.00             
+##  Mean   :0.04   Mean   :0.16              Mean   :0.24             
+##  3rd Qu.:0.00   3rd Qu.:0.00              3rd Qu.:0.00             
+##  Max.   :1.00   Max.   :1.00              Max.   :1.00             
+##                                                                    
+##   ELWATER     ELFOOD      ELOTHER      UGWARM       UGASAUX    
+##  FALSE:11   FALSE:13   Min.   :1   Min.   :0.0   Min.   :0.00  
+##  TRUE :14   TRUE :12   1st Qu.:1   1st Qu.:0.0   1st Qu.:0.00  
+##                        Median :1   Median :0.0   Median :0.00  
+##                        Mean   :1   Mean   :0.4   Mean   :0.08  
+##                        3rd Qu.:1   3rd Qu.:1.0   3rd Qu.:0.00  
+##                        Max.   :1   Max.   :1.0   Max.   :1.00  
+##                                                                
+##     UGWATER         UGCOOK        UGOTH          LPWARM         LPGAUX 
+##  Min.   :0.00   Min.   :0.0   Min.   :0.00   Min.   :0.00   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0  
+##  Median :0.00   Median :0.0   Median :0.00   Median :0.00   Median :0  
+##  Mean   :0.32   Mean   :0.2   Mean   :0.08   Mean   :0.36   Mean   :0  
+##  3rd Qu.:1.00   3rd Qu.:0.0   3rd Qu.:0.00   3rd Qu.:1.00   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.0   Max.   :1.00   Max.   :1.00   Max.   :0  
+##                                                                        
+##     LPWATER         LPCOOK        LPOTHER        FOWARM     FOILAUX 
+##  Min.   :0.00   Min.   :0.00   Min.   :0.0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0.00   Median :0.0   Median :0   Median :0  
+##  Mean   :0.08   Mean   :0.28   Mean   :0.4   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.00   Max.   :1.0   Max.   :0   Max.   :0  
+##                                                                     
+##     FOWATER     FOOTHER      KRWARM     KEROAUX     KRWATER     KROTHER 
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##      WDWARM        WOODAUX        WDWATER     WDOTHUSE    SOLWARM    
+##  Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0.00   Median :0.00   Median :0   Median :0   Median :0.00  
+##  Mean   :0.16   Mean   :0.12   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0   Max.   :1.00  
+##                                                                      
+##     SOLARAUX       SOLWATER    SOLOTHER    OTHWARM     OTHERAUX
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0.00   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                
+##     OTHWATER    OTHCOOK      ONSITE    ONSITEGRID    PELHEAT     
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :-2   Min.   :-2.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:-2   1st Qu.:-2.00  
+##  Median :0   Median :0   Median :0   Median :-2   Median :-2.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :-2   Mean   :-0.68  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:-2   3rd Qu.: 1.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :-2   Max.   : 1.00  
+##                                                                  
+##     PELHOTWA        PELCOOK          PELAC          PELLIGHT  
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :1.0  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:1.0  
+##  Median : 1.00   Median :-2.00   Median :-2.00   Median :1.0  
+##  Mean   :-0.32   Mean   :-0.56   Mean   :-0.64   Mean   :1.2  
+##  3rd Qu.: 1.00   3rd Qu.: 1.00   3rd Qu.: 1.00   3rd Qu.:1.0  
+##  Max.   : 1.00   Max.   : 1.00   Max.   : 3.00   Max.   :3.0  
+##                                                               
+##    OTHERWAYEL       PGASHEAT       PGASHTWA        PUGCOOK     
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.0   Median :-2.00   Median :-2.00  
+##  Mean   :-1.68   Mean   :-0.6   Mean   :-0.84   Mean   :-1.32  
+##  3rd Qu.:-2.00   3rd Qu.: 1.0   3rd Qu.: 1.00   3rd Qu.:-2.00  
+##  Max.   : 3.00   Max.   : 3.0   Max.   : 3.00   Max.   : 3.00  
+##                                                                
+##      PUGOTH        OTHERWAYNG        FOPAY      OTHERWAYFO     LPGPAY     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2   Min.   :-2   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2   Median :-2   Median :-2.00  
+##  Mean   :-1.68   Mean   :-1.68   Mean   :-2   Mean   :-2   Mean   :-0.88  
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.: 1.00  
+##  Max.   : 3.00   Max.   : 3.00   Max.   :-2   Max.   :-2   Max.   : 2.00  
+##                                                                           
+##   OTHERWAYLPG    LPGDELV         KERODEL      KEROCASH     NOCRCASH 
+##  Min.   :-2   Min.   :-2.00   Min.   :-2   Min.   :-2   Min.   :-2  
+##  1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2  
+##  Median :-2   Median :-2.00   Median :-2   Median :-2   Median :-2  
+##  Mean   :-2   Mean   :-1.08   Mean   :-2   Mean   :-2   Mean   :-2  
+##  3rd Qu.:-2   3rd Qu.: 1.00   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   :-2   Max.   : 1.00   Max.   :-2   Max.   :-2   Max.   :-2  
+##                                                                     
+##     NKRGALNC     WOODLOGS        WDSCRAP         WDPELLET    
+##  Min.   :-2   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-2   Mean   :-1.52   Mean   :-1.68   Mean   :-1.68  
+##  3rd Qu.:-2   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :-2   Max.   : 1.00   Max.   : 0.00   Max.   : 0.00  
+##                                                              
+##     WDOTHER         WOODAMT         NUMCORDS        ZONSITE   ZONSITEGRID
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :0   Min.   :0   
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:0   1st Qu.:0   
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :0   Median :0   
+##  Mean   :-1.68   Mean   :-1.28   Mean   :-1.56   Mean   :0   Mean   :0   
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:0   3rd Qu.:0   
+##  Max.   : 0.00   Max.   : 5.00   Max.   : 9.00   Max.   :0   Max.   :0   
+##                                                                          
+##     ZPELHEAT   ZPELHOTWA    ZPELCOOK     ZPELAC    ZPELLIGHT  ZOTHERWAYEL
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0   
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   
+##                                                                          
+##    ZPGASHEAT   ZPGASHTWA       ZPUGCOOK    ZPUGOTH   ZOTHERWAYNG
+##  Min.   :0   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   
+##  Median :0   Median :0.00   Median :0   Median :0   Median :0   
+##  Mean   :0   Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0   Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   
+##                                                                 
+##      ZFOPAY   ZOTHERWAYFO    ZLPGPAY   ZOTHERWAYLPG    ZKERODEL
+##  Min.   :0   Min.   :0    Min.   :0   Min.   :0     Min.   :0  
+##  1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0     1st Qu.:0  
+##  Median :0   Median :0    Median :0   Median :0     Median :0  
+##  Mean   :0   Mean   :0    Mean   :0   Mean   :0     Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
+##  Max.   :0   Max.   :0    Max.   :0   Max.   :0     Max.   :0  
+##                                                                
+##    ZKEROCASH   ZNOCRCASH   ZNKRGALNC   ZWOODLOGS    ZWDSCRAP   ZWDPELLET
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZWDOTHER    ZWOODAMT   ZNUMCORDS    KFUELOT         HHSEX     
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0.00   Min.   :1.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:1.00  
+##  Median :0   Median :0   Median :0   Median :0.00   Median :2.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0.04   Mean   :1.52  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:2.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :1.00   Max.   :2.00  
+##                                                                   
+##     EMPLOYHH        SPOUSE       SDESCENT    Householder_Race   EDUCATION
+##  Min.   :0.00   Min.   :0.0   Min.   :0.00   Wt      :21      HS     :8  
+##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.00   AfAm    : 2      NoHS   :7  
+##  Median :0.00   Median :0.0   Median :0.00   NativeAm: 0      SomeCol:5  
+##  Mean   :0.48   Mean   :0.4   Mean   :0.08   Asian   : 0      BA     :2  
+##  3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0.00   Pacific : 0      MA     :2  
+##  Max.   :2.00   Max.   :1.0   Max.   :1.00   Other   : 0      AA     :1  
+##                                              Multi   : 2      (Other):0  
+##     NHSLDMEM       HHAGE        AGEHHMEMCAT2    AGEHHMEMCAT3  
+##  Min.   :1.0   Min.   :22.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:1.0   1st Qu.:41.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :1.0   Median :54.00   Median :-2.00   Median :-2.00  
+##  Mean   :1.8   Mean   :55.24   Mean   : 3.08   Mean   :-0.72  
+##  3rd Qu.:2.0   3rd Qu.:68.00   3rd Qu.: 9.00   3rd Qu.:-2.00  
+##  Max.   :5.0   Max.   :85.00   Max.   :14.00   Max.   : 5.00  
+##                                                               
+##   AGEHHMEMCAT4    AGEHHMEMCAT5    AGEHHMEMCAT6  AGEHHMEMCAT7  AGEHHMEMCAT8
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2    Min.   :-2    Min.   :-2   
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2    1st Qu.:-2    1st Qu.:-2   
+##  Median :-2.00   Median :-2.00   Median :-2    Median :-2    Median :-2   
+##  Mean   :-1.64   Mean   :-1.88   Mean   :-2    Mean   :-2    Mean   :-2   
+##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2    3rd Qu.:-2    3rd Qu.:-2   
+##  Max.   : 3.00   Max.   : 1.00   Max.   :-2    Max.   :-2    Max.   :-2   
+##                                                                           
+##   AGEHHMEMCAT9 AGEHHMEMCAT10 AGEHHMEMCAT11 AGEHHMEMCAT12 AGEHHMEMCAT13
+##  Min.   :-2    Min.   :-2    Min.   :-2    Min.   :-2    Min.   :-2   
+##  1st Qu.:-2    1st Qu.:-2    1st Qu.:-2    1st Qu.:-2    1st Qu.:-2   
+##  Median :-2    Median :-2    Median :-2    Median :-2    Median :-2   
+##  Mean   :-2    Mean   :-2    Mean   :-2    Mean   :-2    Mean   :-2   
+##  3rd Qu.:-2    3rd Qu.:-2    3rd Qu.:-2    3rd Qu.:-2    3rd Qu.:-2   
+##  Max.   :-2    Max.   :-2    Max.   :-2    Max.   :-2    Max.   :-2   
+##                                                                       
+##  AGEHHMEMCAT14    HBUSNESS     ATHOME        TELLWORK    TELLDAYS 
+##  Min.   :-2    Min.   :0   Min.   :0.00   Min.   :0   Min.   :-2  
+##  1st Qu.:-2    1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:-2  
+##  Median :-2    Median :0   Median :1.00   Median :0   Median :-2  
+##  Mean   :-2    Mean   :0   Mean   :0.56   Mean   :0   Mean   :-2  
+##  3rd Qu.:-2    3rd Qu.:0   3rd Qu.:1.00   3rd Qu.:0   3rd Qu.:-2  
+##  Max.   :-2    Max.   :0   Max.   :1.00   Max.   :0   Max.   :-2  
+##                                                                   
+##     OTHWORK        WORKPAY        RETIREPY       SSINCOME       CASHBEN 
+##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0  
+##  Median :0.00   Median :1.00   Median :0.00   Median :0.00   Median :0  
+##  Mean   :0.04   Mean   :0.64   Mean   :0.36   Mean   :0.08   Mean   :0  
+##  3rd Qu.:0.00   3rd Qu.:1.00   3rd Qu.:1.00   3rd Qu.:0.00   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :0  
+##                                                                         
+##     INVESTMT      RGLRPAY         MONEYPY    POVERTY100    POVERTY150  
+##  Min.   :0.0   Min.   :0.00   Less15K :7   Min.   :0.0   Min.   :0.00  
+##  1st Qu.:0.0   1st Qu.:0.00   Less25K :3   1st Qu.:0.0   1st Qu.:0.00  
+##  Median :0.0   Median :0.00   Less65  :3   Median :0.0   Median :0.00  
+##  Mean   :0.2   Mean   :0.28   Less2500:2   Mean   :0.2   Mean   :0.44  
+##  3rd Qu.:0.0   3rd Qu.:1.00   Less35K :2   3rd Qu.:0.0   3rd Qu.:1.00  
+##  Max.   :1.0   Max.   :1.00   Less5K  :1   Max.   :1.0   Max.   :1.00  
+##                               (Other) :7                               
+##      HUPROJ       RENTHELP   FOODASST      ZHHSEX      ZHHAGE    ZEMPLOYHH
+##  Min.   :-2.00   FALSE:25   FALSE:23   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:-2.00   TRUE : 0   TRUE : 2   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :-2.00                         Median :0   Median :0   Median :0  
+##  Mean   :-1.36                         Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.: 0.00                         3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   : 0.00                         Max.   :0   Max.   :0   Max.   :0  
+##                                                                           
+##     ZSPOUSE    ZSDESCENT ZHouseholder_Race   ZEDUCATION   ZNHSLDMEM
+##  Min.   :0   Min.   :0   Min.   :0.00      Min.   :0    Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0.00      1st Qu.:0    1st Qu.:0  
+##  Median :0   Median :0   Median :0.00      Median :0    Median :0  
+##  Mean   :0   Mean   :0   Mean   :0.04      Mean   :0    Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00      3rd Qu.:0    3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :1.00      Max.   :0    Max.   :0  
+##                                                                    
+##  ZAGEHHMEMCAT2 ZAGEHHMEMCAT3 ZAGEHHMEMCAT4 ZAGEHHMEMCAT5 ZAGEHHMEMCAT6
+##  Min.   :0     Min.   :0     Min.   :0     Min.   :0     Min.   :0    
+##  1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0    
+##  Median :0     Median :0     Median :0     Median :0     Median :0    
+##  Mean   :0     Mean   :0     Mean   :0     Mean   :0     Mean   :0    
+##  3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0    
+##  Max.   :0     Max.   :0     Max.   :0     Max.   :0     Max.   :0    
+##                                                                       
+##  ZAGEHHMEMCAT7 ZAGEHHMEMCAT8 ZAGEHHMEMCAT9 ZAGEHHMEMCAT10 ZAGEHHMEMCAT11
+##  Min.   :0     Min.   :0     Min.   :0     Min.   :0      Min.   :0     
+##  1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0      1st Qu.:0     
+##  Median :0     Median :0     Median :0     Median :0      Median :0     
+##  Mean   :0     Mean   :0     Mean   :0     Mean   :0      Mean   :0     
+##  3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0      3rd Qu.:0     
+##  Max.   :0     Max.   :0     Max.   :0     Max.   :0      Max.   :0     
+##                                                                         
+##  ZAGEHHMEMCAT12 ZAGEHHMEMCAT13 ZAGEHHMEMCAT14   ZHBUSNESS    ZATHOME 
+##  Min.   :0      Min.   :0      Min.   :0      Min.   :0   Min.   :0  
+##  1st Qu.:0      1st Qu.:0      1st Qu.:0      1st Qu.:0   1st Qu.:0  
+##  Median :0      Median :0      Median :0      Median :0   Median :0  
+##  Mean   :0      Mean   :0      Mean   :0      Mean   :0   Mean   :0  
+##  3rd Qu.:0      3rd Qu.:0      3rd Qu.:0      3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0      Max.   :0      Max.   :0      Max.   :0   Max.   :0  
+##                                                                      
+##    ZTELLWORK   ZTELLDAYS    ZOTHWORK    ZWORKPAY   ZRETIREPY   ZSSINCOME
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     ZCASHBEN   ZINVESTMT       ZRGLRPAY    ZMONEYPY       ZHUPROJ 
+##  Min.   :0   Min.   :0.00   Min.   :0   Min.   :0.00   Min.   :0  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0.00   1st Qu.:0  
+##  Median :0   Median :0.00   Median :0   Median :0.00   Median :0  
+##  Mean   :0   Mean   :0.04   Mean   :0   Mean   :0.16   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0  
+##  Max.   :0   Max.   :1.00   Max.   :0   Max.   :1.00   Max.   :0  
+##                                                                   
+##    ZRENTHELP   ZFOODASST    TOTSQFT       TOTSQFT_EN      TOTHSQFT   
+##  Min.   :0   Min.   :0   Min.   : 240   Min.   : 240   Min.   : 240  
+##  1st Qu.:0   1st Qu.:0   1st Qu.: 870   1st Qu.: 870   1st Qu.: 840  
+##  Median :0   Median :0   Median :1233   Median :1233   Median :1066  
+##  Mean   :0   Mean   :0   Mean   :1916   Mean   :1844   Mean   :1304  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:1927   3rd Qu.:1927   3rd Qu.:1568  
+##  Max.   :0   Max.   :0   Max.   :6902   Max.   :6652   Max.   :4510  
+##                                                                      
+##     TOTUSQFT         TOTCSQFT        TOTUCSQFT       ZTOTSQFT  ZTOTSQFT_EN
+##  Min.   :   0.0   Min.   :   0.0   Min.   :   0   Min.   :0   Min.   :0   
+##  1st Qu.:   0.0   1st Qu.: 120.0   1st Qu.: 210   1st Qu.:0   1st Qu.:0   
+##  Median :   0.0   Median : 566.0   Median : 423   Median :0   Median :0   
+##  Mean   : 612.4   Mean   : 894.5   Mean   :1022   Mean   :0   Mean   :0   
+##  3rd Qu.: 250.0   3rd Qu.:1250.0   3rd Qu.:1381   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :5733.0   Max.   :4156.0   Max.   :6401   Max.   :0   Max.   :0   
+##                                                                           
+##    ZTOTHSQFT   ZTOTUSQFT   ZTOTCSQFT   ZTOTUCSQFT      KWH       
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   : 2783  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.: 6844  
+##  Median :0   Median :0   Median :0   Median :0    Median : 9130  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :11706  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:17520  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :27417  
+##                                                                  
+##      KWHSPH         KWHCOL            KWHWTH         KWHRFG      
+##  Min.   :   0   Min.   :   0.00   Min.   :   0   Min.   : 435.7  
+##  1st Qu.:   0   1st Qu.:  99.25   1st Qu.:   0   1st Qu.: 942.6  
+##  Median :   0   Median : 515.52   Median :1229   Median :1197.1  
+##  Mean   :1142   Mean   :1035.19   Mean   :1450   Mean   :1327.9  
+##  3rd Qu.:1742   3rd Qu.:1321.58   3rd Qu.:2522   3rd Qu.:1504.5  
+##  Max.   :6344   Max.   :3961.05   Max.   :4914   Max.   :3168.4  
+##                                                                  
+##      KWHOTH          BTUEL          BTUELSPH        BTUELCOL      
+##  Min.   : 1786   Min.   : 9496   Min.   :    0   Min.   :    0.0  
+##  1st Qu.: 3623   1st Qu.:23352   1st Qu.:    0   1st Qu.:  338.7  
+##  Median : 4830   Median :31152   Median :    0   Median : 1758.9  
+##  Mean   : 6752   Mean   :39942   Mean   : 3895   Mean   : 3532.1  
+##  3rd Qu.: 8651   3rd Qu.:59778   3rd Qu.: 5942   3rd Qu.: 4509.2  
+##  Max.   :18541   Max.   :93547   Max.   :21646   Max.   :13515.1  
+##                                                                   
+##     BTUELWTH        BTUELRFG        BTUELOTH        DOLLAREL   
+##  Min.   :    0   Min.   : 1487   Min.   : 6094   Min.   : 278  
+##  1st Qu.:    0   1st Qu.: 3216   1st Qu.:12360   1st Qu.: 775  
+##  Median : 4193   Median : 4084   Median :16480   Median : 935  
+##  Mean   : 4946   Mean   : 4531   Mean   :23038   Mean   :1174  
+##  3rd Qu.: 8607   3rd Qu.: 5133   3rd Qu.:29518   3rd Qu.:1551  
+##  Max.   :16768   Max.   :10810   Max.   :63261   Max.   :2596  
+##                                                                
+##     DOLELSPH         DOLELCOL          DOLELWTH        DOLELRFG     
+##  Min.   :  0.00   Min.   :  0.000   Min.   :  0.0   Min.   : 46.43  
+##  1st Qu.:  0.00   1st Qu.:  8.314   1st Qu.:  0.0   1st Qu.:101.00  
+##  Median :  0.00   Median : 61.767   Median :116.8   Median :117.27  
+##  Mean   : 98.67   Mean   :106.366   Mean   :135.1   Mean   :138.57  
+##  3rd Qu.:166.50   3rd Qu.:117.615   3rd Qu.:254.7   3rd Qu.:162.16  
+##  Max.   :521.53   Max.   :426.869   Max.   :339.8   Max.   :338.04  
+##                                                                     
+##     DOLELOTH         CUFEETNG       CUFEETNGSPH    CUFEETNGWTH    
+##  Min.   : 178.6   Min.   :   0.0   Min.   :   0   Min.   :  0.00  
+##  1st Qu.: 386.0   1st Qu.:   0.0   1st Qu.:   0   1st Qu.:  0.00  
+##  Median : 576.2   Median :   0.0   Median :   0   Median :  0.00  
+##  Mean   : 695.7   Mean   : 354.2   Mean   : 250   Mean   : 77.77  
+##  3rd Qu.: 786.6   3rd Qu.: 502.0   3rd Qu.: 327   3rd Qu.: 77.51  
+##  Max.   :1905.0   Max.   :2131.0   Max.   :1439   Max.   :561.08  
+##                                                                   
+##   CUFEETNGOTH         BTUNG           BTUNGSPH         BTUNGWTH    
+##  Min.   :  0.00   Min.   :     0   Min.   :     0   Min.   :    0  
+##  1st Qu.:  0.00   1st Qu.:     0   1st Qu.:     0   1st Qu.:    0  
+##  Median :  0.00   Median :     0   Median :     0   Median :    0  
+##  Mean   : 26.43   Mean   : 36310   Mean   : 25630   Mean   : 7971  
+##  3rd Qu.:  0.00   3rd Qu.: 51455   3rd Qu.: 33518   3rd Qu.: 7945  
+##  Max.   :193.71   Max.   :218428   Max.   :147477   Max.   :57511  
+##                                                                    
+##     BTUNGOTH        DOLLARNG         DOLNGSPH         DOLNGWTH     
+##  Min.   :    0   Min.   :   0.0   Min.   :   0.0   Min.   :  0.00  
+##  1st Qu.:    0   1st Qu.:   0.0   1st Qu.:   0.0   1st Qu.:  0.00  
+##  Median :    0   Median :   0.0   Median :   0.0   Median :  0.00  
+##  Mean   : 2709   Mean   : 423.1   Mean   : 300.1   Mean   : 90.71  
+##  3rd Qu.:    0   3rd Qu.: 719.0   3rd Qu.: 507.3   3rd Qu.:111.02  
+##  Max.   :19856   Max.   :2152.0   Max.   :1453.0   Max.   :566.61  
+##                                                                    
+##     DOLNGOTH         GALLONLP      GALLONLPSPH     GALLONLPWTH    
+##  Min.   :  0.00   Min.   :  0.0   Min.   :  0.0   Min.   :  0.00  
+##  1st Qu.:  0.00   1st Qu.:  0.0   1st Qu.:  0.0   1st Qu.:  0.00  
+##  Median :  0.00   Median :  0.0   Median :  0.0   Median :  0.00  
+##  Mean   : 32.27   Mean   :206.8   Mean   :170.9   Mean   : 17.56  
+##  3rd Qu.:  0.00   3rd Qu.:404.0   3rd Qu.:275.0   3rd Qu.:  0.00  
+##  Max.   :208.88   Max.   :941.0   Max.   :872.1   Max.   :344.00  
+##                                                                   
+##   GALLONLPOTH         BTULP          BTULPSPH        BTULPWTH    
+##  Min.   :  0.00   Min.   :    0   Min.   :    0   Min.   :    0  
+##  1st Qu.:  0.00   1st Qu.:    0   1st Qu.:    0   1st Qu.:    0  
+##  Median :  0.00   Median :    0   Median :    0   Median :    0  
+##  Mean   : 18.28   Mean   :18883   Mean   :15610   Mean   : 1604  
+##  3rd Qu.: 20.00   3rd Qu.:36847   3rd Qu.:25083   3rd Qu.:    0  
+##  Max.   :225.00   Max.   :85942   Max.   :79644   Max.   :31435  
+##                                                                  
+##     BTULPOTH        DOLLARLP       DOLLPSPH         DOLLPWTH     
+##  Min.   :    0   Min.   :   0   Min.   :   0.0   Min.   :  0.00  
+##  1st Qu.:    0   1st Qu.:   0   1st Qu.:   0.0   1st Qu.:  0.00  
+##  Median :    0   Median :   0   Median :   0.0   Median :  0.00  
+##  Mean   : 1668   Mean   : 384   Mean   : 320.1   Mean   : 31.08  
+##  3rd Qu.: 1859   3rd Qu.: 651   3rd Qu.: 467.0   3rd Qu.:  0.00  
+##  Max.   :20574   Max.   :1898   Max.   :1759.1   Max.   :622.00  
+##                                                                  
+##     DOLLPOTH         GALLONFO  GALLONFOSPH  GALLONFOWTH  GALLONFOOTH
+##  Min.   :  0.00   Min.   :0   Min.   :0    Min.   :0    Min.   :0   
+##  1st Qu.:  0.00   1st Qu.:0   1st Qu.:0    1st Qu.:0    1st Qu.:0   
+##  Median :  0.00   Median :0   Median :0    Median :0    Median :0   
+##  Mean   : 32.75   Mean   :0   Mean   :0    Mean   :0    Mean   :0   
+##  3rd Qu.: 35.00   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   
+##  Max.   :368.00   Max.   :0   Max.   :0    Max.   :0    Max.   :0   
+##                                                                     
+##      BTUFO      BTUFOSPH    BTUFOWTH    BTUFOOTH    DOLLARFO    DOLFOSPH
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                         
+##     DOLFOWTH    DOLFOOTH   GALLONKER  GALLONKERSPH  GALLONKERWTH
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0     Min.   :0    
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0    
+##  Median :0   Median :0   Median :0   Median :0     Median :0    
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0     Mean   :0    
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0     Max.   :0    
+##                                                                 
+##   GALLONKEROTH     BTUKER    BTUKERSPH   BTUKERWTH   BTUKEROTH   DOLLARKER
+##  Min.   :0     Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0     Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0     Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0     Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                           
+##    DOLKERSPH   DOLKERWTH   DOLKEROTH    BTUWOOD          CORDSWD    
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :     0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:     0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0   Median :     0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :  9600   Mean   :0.48  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:     0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :180000   Max.   :9.00  
+##                                                                     
+##     TOTALBTU       TOTALBTUSPH      TOTALBTUCOL     TOTALBTUWTH   
+##  Min.   : 31152   Min.   :  4495   Min.   :    0   Min.   :    0  
+##  1st Qu.: 63815   1st Qu.: 20623   1st Qu.:  339   1st Qu.: 6266  
+##  Median : 75671   Median : 33518   Median : 1759   Median : 9091  
+##  Mean   : 95135   Mean   : 45135   Mean   : 3532   Mean   :14521  
+##  3rd Qu.:112661   3rd Qu.: 56205   3rd Qu.: 4509   3rd Qu.:17799  
+##  Max.   :292813   Max.   :147477   Max.   :13515   Max.   :57511  
+##                                                                   
+##   TOTALBTURFG     TOTALBTUOTH       TOTALDOL     TOTALDOLSPH    
+##  Min.   : 1487   Min.   : 9318   Min.   : 775   Min.   : 112.0  
+##  1st Qu.: 3216   1st Qu.:16381   1st Qu.:1494   1st Qu.: 461.0  
+##  Median : 4084   Median :22777   Median :1791   Median : 522.0  
+##  Mean   : 4531   Mean   :27415   Mean   :1981   Mean   : 718.9  
+##  3rd Qu.: 5133   3rd Qu.:29904   3rd Qu.:2168   3rd Qu.:1001.0  
+##  Max.   :10810   Max.   :76701   Max.   :4392   Max.   :1759.0  
+##                                                                 
+##   TOTALDOLCOL     TOTALDOLWTH     TOTALDOLRFG     TOTALDOLOTH    
+##  Min.   :  0.0   Min.   :  0.0   Min.   : 46.0   Min.   : 221.0  
+##  1st Qu.:  8.0   1st Qu.:184.0   1st Qu.:101.0   1st Qu.: 485.0  
+##  Median : 62.0   Median :241.0   Median :117.0   Median : 646.0  
+##  Mean   :106.3   Mean   :256.9   Mean   :138.5   Mean   : 760.7  
+##  3rd Qu.:118.0   3rd Qu.:312.0   3rd Qu.:162.0   3rd Qu.: 787.0  
+##  Max.   :427.0   Max.   :622.0   Max.   :338.0   Max.   :2093.0  
+##                                                                  
+##     KAVALEL        PERIODEL       SCALEEL       KAVALNG    
+##  Min.   :1.00   Min.   :1.00   Min.   :0.0   Min.   :-2.0  
+##  1st Qu.:1.00   1st Qu.:1.00   1st Qu.:0.0   1st Qu.:-2.0  
+##  Median :1.00   Median :1.00   Median :0.0   Median :-2.0  
+##  Mean   :1.88   Mean   :2.68   Mean   :1.2   Mean   :-0.4  
+##  3rd Qu.:3.00   3rd Qu.:5.00   3rd Qu.:3.0   3rd Qu.: 1.0  
+##  Max.   :3.00   Max.   :5.00   Max.   :3.0   Max.   : 3.0  
+##                                                            
+##     PERIODNG        SCALENG         PERIODLP        SCALELP     
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   :-0.32   Mean   :-0.88   Mean   :-0.28   Mean   :-0.92  
+##  3rd Qu.: 1.00   3rd Qu.: 0.00   3rd Qu.: 2.00   3rd Qu.: 0.00  
+##  Max.   : 5.00   Max.   : 3.00   Max.   : 5.00   Max.   : 3.00  
+##                                                                 
+##     PERIODFO     SCALEFO      PERIODKR     SCALEKER  CookTopElectric
+##  Min.   :-2   Min.   :-2   Min.   :-2   Min.   :-2   Mode :logical  
+##  1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   1st Qu.:-2   FALSE:13       
+##  Median :-2   Median :-2   Median :-2   Median :-2   TRUE :12       
+##  Mean   :-2   Mean   :-2   Mean   :-2   Mean   :-2   NA&#39;s :0        
+##  3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:-2                  
+##  Max.   :-2   Max.   :-2   Max.   :-2   Max.   :-2                  
+##                                                                     
+##  OvenElectric    ELectricCook          AgeFridge  DishwaherTrue
+##  Mode :logical   Mode :logical   Less2      : 1   TRUE :13     
+##  FALSE:13        FALSE:13        2to4Years  : 3   FALSE:12     
+##  TRUE :12        TRUE :12        5to9Years  : 9                
+##  NA&#39;s :0         NA&#39;s :0         20PlusYears: 0                
+##                                  10to14Years:10                
+##                                  15to19Years: 2                
+##                                                                
+##   Hispanic      
+##  Mode :logical  
+##  FALSE:23       
+##  TRUE :2        
+##  NA&#39;s :0        
+##                 
+##                 
+## 
+</code></pre>
+
+<p>They are very poor.  Solution is to drop the ones with weights greater than 40K.  TODO</p>
 
 <p>Looking at weather</p>
 
@@ -2722,6 +4344,7 @@ summary(RECS$Hispanic)
 
 #And the clean up from importing from excell
 HUD$pop&lt;-as.numeric(gsub(&quot;,&quot;,&quot;&quot;,HUD$pop))
+HUD$reportablen&lt;-as.factor(HUD$reportablen)
 summary(HUD)
 </code></pre>
 
@@ -2733,20 +4356,71 @@ summary(HUD)
 ##  California: 1   3rd Qu.: 202.0   3rd Qu.: 6554834   3rd Qu.:4.3463  
 ##  Colorado  : 1   Max.   :1108.0   Max.   :36580371   Max.   :8.7306  
 ##  (Other)   :45                                                       
-##   reportablen      reporttot     
-##  Min.   : 1.00   Min.   : 1.812  
-##  1st Qu.: 8.50   1st Qu.: 4.222  
-##  Median :14.00   Median : 9.258  
-##  Mean   :14.49   Mean   : 9.592  
-##  3rd Qu.:21.50   3rd Qu.:13.504  
-##  Max.   :27.00   Max.   :20.496  
-## 
+##   reportablen   reporttot     
+##  1      : 5   Min.   : 1.812  
+##  10     : 4   1st Qu.: 4.222  
+##  14     : 4   Median : 9.258  
+##  23     : 4   Mean   : 9.592  
+##  27     : 4   3rd Qu.:13.504  
+##  18     : 3   Max.   :20.496  
+##  (Other):27
 </code></pre>
 
-<pre><code class="r">as.numeric(HUD$Pop)
+<h1>Some Ideas on what matters</h1>
+
+<pre><code class="r">table(RECS$UR, RECS$RENTHELP)
 </code></pre>
 
-<pre><code>## numeric(0)
+<pre><code>##        
+##         FALSE TRUE
+##   Rural  2416   11
+##   Urban  9497  159
+</code></pre>
+
+<pre><code class="r">table(RECS$TYPEHUQ,RECS$KOWNRENT)
+</code></pre>
+
+<pre><code>##              
+##                Own Rent Free
+##   Mobile       431   99   11
+##   SFDetached  6835  879   89
+##   SFAttached   506  373   11
+##   SmApartment  144  769   13
+##   LgApartment  224 1681   18
+</code></pre>
+
+<pre><code class="r">#Dump the houses that are free
+
+boxplot(RECS$TOTSQFT_EN~RECS$REPORTABLE_DOMAIN )
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">boxplot(RECS$TOTSQFT_EN~RECS$EDUCATION )
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">boxplot(RECS$TOTSQFT_EN~RECS$UR )
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">table(RECS$EDUCATION)
+</code></pre>
+
+<pre><code>## 
+##    None    NoHS      HS SomeCol      AA      BA      MA    Prof     PHD 
+##     200    1033    3193    2701    1193    2428     957     221     157
+</code></pre>
+
+<pre><code class="r">table(RECS$UR,RECS$Householder_Race)
+</code></pre>
+
+<pre><code>##        
+##           Wt AfAm NativeAm Asian Pacific Other Multi
+##   Rural 2131  201       28    14       6    17    30
+##   Urban 7447 1316       82   443      34   194   140
 </code></pre>
 
 </body>

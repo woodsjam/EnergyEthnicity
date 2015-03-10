@@ -111,16 +111,39 @@ summary(RECS$WWACAGE)
 summary(RECS$ESWWAC)
 summary(RECS$USEWWAC)
 summary(RECS$SWIMPOOL)
+
+
 summary(RECS$POOL)
+
+#Fuel used for pool
+RECS$FUELPOOL<-revalue(as.factor(RECS$FUELPOOL),c("1"="NG","2"="LPG", "3"="FuelOil","4"="Kerosene", "5"="Elec","8"="Solar","21"="Other", "-2"=NA))
 summary(RECS$FUELPOOL)
+
+#Hot Tub used
+RECS$RECBATH<-revalue(as.factor(RECS$RECBATH),c("0"=FALSE,"1"=TRUE))
 summary(RECS$RECBATH)
+
+#Hot tub fuel
+RECS$FUELTUB<-revalue(as.factor(RECS$FUELTUB),c("1"="NG","2"="LPG", "3"="FuelOil","4"="Kerosene", "5"="Elec","8"="Solar","21"="Other", "-2"=NA))
 summary(RECS$FUELTUB)
+
+RECS$TYPEGLASS<-revalue(as.factor(RECS$TYPEGLASS),c("1"="SinglePane","2"="DoublePane", "3"="TriplePane", "-2"=NA))
 summary(RECS$TYPEGLASS)
+
+#Electricity used for cooling
+RECS$ELCOOL<-revalue(as.factor(RECS$ELCOOL),c("0"=FALSE,"1"=TRUE))
 summary(RECS$ELCOOL)
+
+#Electricity used for space heating
+RECS$ELWARM<-revalue(as.factor(RECS$ELWARM),c("0"=FALSE,"1"=TRUE))
 summary(RECS$ELWARM)
+
+#Electricity used for water heating
+RECS$ELWATER<-revalue(as.factor(RECS$ELWATER),c("0"=FALSE,"1"=TRUE))
 summary(RECS$ELWATER)
 
-
+#Electricity used for cooking
+RECS$ELFOOD<-revalue(as.factor(RECS$ELFOOD),c("0"=FALSE,"1"=TRUE))
 summary(RECS$ELFOOD)
 
 #May need to do some editing on this.  Low values are too low
@@ -168,9 +191,18 @@ summary(RECS$Hispanic)
 Checkign out the weight variable
 ```{r}
 summary(RECS$NWEIGHT)
-
+plot(hist(RECS$NWEIGHT))
 ```
 Looks like it is the number of equivelent HH in population style.
+
+the weights are a little odd, too large differences.  Investigate the top end to find.
+```{r}
+summary(RECS[RECS$NWEIGHT>40000,])
+
+```
+They are very poor.  Solution is to drop the ones with weights greater than 40K.  TODO
+
+
 
 Looking at weather
 ```{r}
@@ -188,13 +220,27 @@ HUD <- read.csv("~/Research/EnergyEthnicity/Data/HUD.csv")
 
 #And the clean up from importing from excell
 HUD$pop<-as.numeric(gsub(",","",HUD$pop))
+HUD$reportablen<-as.factor(HUD$reportablen)
 summary(HUD)
 ```
-
-
-
+# Some Ideas on what matters
 ```{r}
-as.numeric(HUD$Pop)
+
+
+table(RECS$UR, RECS$RENTHELP)
+
+table(RECS$TYPEHUQ,RECS$KOWNRENT)
+#Dump the houses that are free
+
+boxplot(RECS$TOTSQFT_EN~RECS$REPORTABLE_DOMAIN )
+
+
+boxplot(RECS$TOTSQFT_EN~RECS$EDUCATION )
+boxplot(RECS$TOTSQFT_EN~RECS$UR )
+
+table(RECS$EDUCATION)
+
+table(RECS$UR,RECS$Householder_Race)
 ```
 
 
