@@ -2437,132 +2437,183 @@ summary(RECS$TEMPNITE)
 </code></pre>
 
 <pre><code class="r">#Water heater type
-#revalue(as.factor(),c())
+RECS$H2OTYPE1&lt;-revalue(as.factor(RECS$H2OTYPE1),c(&quot;1&quot;=&quot;Storage&quot;, &quot;2&quot;=&quot;Tankless&quot;, &quot;-2&quot;=NA))
 
 summary(RECS$H2OTYPE1)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   1.000   1.000   1.018   1.000   2.000
+<pre><code>##  Storage Tankless     NA&#39;s 
+##    11727      322       34
+</code></pre>
+
+<pre><code class="r">#Water service fuel
+RECS$FUELH2O&lt;-revalue(as.factor(RECS$FUELH2O),c(&quot;1&quot;=&quot;NG&quot;,&quot;2&quot;=&quot;LPG&quot;,&quot;3&quot;=&quot;Oil&quot;, &quot;4&quot;=&quot;Kerosene&quot;, &quot;5&quot;=&quot;Elec&quot;, &quot;7&quot;=&quot;Wood&quot;, &quot;8&quot;=&quot;Solar&quot;, &quot;9&quot;=&quot;District&quot;, &quot;21&quot;=&quot;Other&quot;, &quot;-2&quot;=NA))
+</code></pre>
+
+<pre><code>## The following `from` values were not present in `x`: 9
 </code></pre>
 
 <pre><code class="r">summary(RECS$FUELH2O)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   1.000   1.000   2.711   5.000  21.000
+<pre><code>##       NG      LPG      Oil Kerosene     Elec     Wood    Solar    Other 
+##     6380      399      457        3     4773       11       17        9 
+##     NA&#39;s 
+##       34
 </code></pre>
 
-<pre><code class="r">summary(RECS$WHEATSIZ)
+<pre><code class="r">#Water heater size.  Keep in mind the tankless.
+RECS$WHEATSIZ&lt;-revalue(as.factor(RECS$WHEATSIZ),c(&quot;1&quot;=&quot;Small&quot;, &quot;2&quot;=&quot;Med&quot;, &quot;3&quot;=&quot;Lrg&quot;, &quot;-2&quot;=NA))
+
+summary(RECS$WHEATSIZ)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   2.000   2.000   2.081   3.000   3.000
+<pre><code>## Small   Med   Lrg  NA&#39;s 
+##  1611  6098  4018   356
 </code></pre>
 
-<pre><code class="r">summary(RECS$WHEATAGE)
+<pre><code class="r">#Water heater age
+RECS$WHEATAGE&lt;-revalue(as.factor(RECS$WHEATAGE),c(&quot;1&quot;=&quot;Less2&quot;,&quot;2&quot;=&quot;TwoTo4&quot;, &quot;3&quot;=&quot;FiveTo9&quot;, &quot;41&quot;=&quot;TenTo14&quot;, &quot;42&quot;=&quot;FifteenTo19&quot;, &quot;5&quot;=&quot;Gr20&quot;, &quot;-2&quot;=NA))
+
+summary(RECS$WHEATAGE)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00    2.00    3.00   13.23   41.00   42.00
+<pre><code>##       Less2      TwoTo4     FiveTo9        Gr20     TenTo14 FifteenTo19 
+##        1513        2256        3776        1197        2354         953 
+##        NA&#39;s 
+##          34
 </code></pre>
 
-<pre><code class="r">summary(RECS$AIRCOND)
+<pre><code class="r">#AC is used?
+RECS$AIRCOND&lt;-revalue(as.factor(RECS$AIRCOND),c(&quot;0&quot;=FALSE, &quot;1&quot;=TRUE))
+summary(RECS$AIRCOND)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  1.0000  1.0000  0.8226  1.0000  1.0000
+<pre><code>## FALSE  TRUE 
+##  2143  9940
 </code></pre>
 
-<pre><code class="r">summary(RECS$COOLTYPE)
+<pre><code class="r">#AC Type
+RECS$COOLTYPE&lt;-revalue(as.factor(RECS$COOLTYPE),c(&quot;1&quot;=&quot;Central&quot;, &quot;2&quot;=&quot;Window&quot;, &quot;3&quot;=&quot;Both&quot;, &quot;-2&quot;=NA))
+summary(RECS$COOLTYPE)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000  1.0000  1.0000  0.7005  1.0000  3.0000
+<pre><code>## Central  Window    Both    NA&#39;s 
+##    7283    2504     153    2143
 </code></pre>
 
-<pre><code class="r">summary(RECS$CENACHP)
+<pre><code class="r">#Central AC is heatpump.  Remember only Central AC
+RECS$CENACHP&lt;-revalue(as.factor(RECS$CENACHP),c(&quot;0&quot;=FALSE, &quot;1&quot;=TRUE, &quot;-2&quot;=NA))
+summary(RECS$CENACHP)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000 -2.0000  0.0000 -0.6588  0.0000  1.0000
+<pre><code>## FALSE  TRUE  NA&#39;s 
+##  6102  1334  4647
 </code></pre>
 
-<pre><code class="r">summary(RECS$AGECENAC)
+<pre><code class="r">#Age Central AC
+RECS$AGECENAC&lt;-revalue(as.factor(RECS$AGECENAC),c(&quot;1&quot;=&quot;Less2&quot;,&quot;2&quot;=&quot;TwoTo4&quot;, &quot;3&quot;=&quot;FiveTo9&quot;, &quot;41&quot;=&quot;TenTo14&quot;, &quot;42&quot;=&quot;FifteenTo19&quot;, &quot;5&quot;=&quot;Gr20&quot;, &quot;-2&quot;=NA))
+
+summary(RECS$AGECENAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   -2.00    2.00    8.46    5.00   42.00
+<pre><code>##       Less2      TwoTo4     FiveTo9        Gr20     TenTo14 FifteenTo19 
+##         658        1237        2269         925        1626         721 
+##        NA&#39;s 
+##        4647
 </code></pre>
 
-<pre><code class="r">summary(RECS$USECENAC)
+<pre><code class="r">#Use Central AC?
+RECS$USECENAC&lt;-revalue(as.factor(RECS$USECENAC),c(&quot;1&quot;=&quot;Rare&quot;,&quot;2&quot;=&quot;Frequent&quot;, &quot;3&quot;=&quot;All&quot;, &quot;-2&quot;=NA))
+summary(RECS$USECENAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000 -2.0000  1.0000  0.6051  3.0000  3.0000
+<pre><code>##     Rare Frequent      All     NA&#39;s 
+##     2104     1494     3838     4647
 </code></pre>
 
-<pre><code class="r">summary(RECS$TEMPHOMEAC)
+<pre><code class="r">#Temp AC when home in day
+RECS$TEMPHOMEAC[RECS$TEMPHOMEAC==&quot;-2&quot;]&lt;-NA
+summary(RECS$TEMPHOMEAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    -2.0    -2.0    -2.0    31.2    72.0    88.0
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   45.00   70.00   73.00   73.25   76.00   88.00    6751
 </code></pre>
 
-<pre><code class="r">summary(RECS$TEMPGONEAC)
+<pre><code class="r">#Temp AC no home in day
+RECS$TEMPGONEAC[RECS$TEMPGONEAC==-2]&lt;-NA
+summary(RECS$TEMPGONEAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   -2.00   -2.00   32.05   75.00   96.00
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   40.00   72.00   75.00   75.16   78.00   96.00    6751
 </code></pre>
 
-<pre><code class="r">summary(RECS$TEMPNITEAC)
+<pre><code class="r">#Temp AC at night
+RECS$TEMPNITEAC[RECS$TEMPNITEAC==-2]&lt;-NA
+summary(RECS$TEMPNITEAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   -2.00   -2.00   31.11   72.00   96.00
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   45.00   70.00   73.00   73.02   76.00   96.00    6751
 </code></pre>
 
-<pre><code class="r">summary(RECS$NUMBERAC)
+<pre><code class="r">#Number of wall AC units
+RECS$NUMBERAC[RECS$NUMBERAC==-2]&lt;-NA
+summary(RECS$NUMBERAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000  -2.000  -2.000  -1.162  -2.000   9.000
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   1.000   1.000   2.000   1.811   2.000   9.000    9426
 </code></pre>
 
-<pre><code class="r">summary(RECS$WWACAGE)
+<pre><code class="r">#age of wall AC
+RECS$WWACAGE&lt;-revalue(as.factor(RECS$WWACAGE),c(&quot;1&quot;=&quot;Less2&quot;,&quot;2&quot;=&quot;TwoTo4&quot;, &quot;3&quot;=&quot;FiveTo9&quot;, &quot;41&quot;=&quot;TenTo14&quot;, &quot;42&quot;=&quot;FifteenTo19&quot;, &quot;5&quot;=&quot;Gr20&quot;, &quot;-2&quot;=NA))
+summary(RECS$WWACAGE)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000 -2.0000 -2.0000  0.3709 -2.0000 42.0000
+<pre><code>##       Less2      TwoTo4     FiveTo9        Gr20     TenTo14 FifteenTo19 
+##         390         823         840         169         338          97 
+##        NA&#39;s 
+##        9426
 </code></pre>
 
-<pre><code class="r">summary(RECS$ESWWAC)
+<pre><code class="r">#Wall AC is energy Star?
+RECS$ESWWAC&lt;-revalue(as.factor(RECS$ESWWAC),c(&quot;0&quot;=TRUE, &quot;1&quot;=FALSE, &quot;-2&quot;=FALSE, &quot;-8&quot;=FALSE, &quot;-9&quot;=FALSE))
+summary(RECS$ESWWAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -9.00   -2.00   -2.00   -1.71   -2.00    1.00
+<pre><code>## FALSE  TRUE 
+## 11404   679
 </code></pre>
 
-<pre><code class="r">summary(RECS$USEWWAC)
+<pre><code class="r">#How frequent wall ac
+RECS$USEWWAC&lt;-revalue(as.factor(RECS$USEWWAC),c(&quot;1&quot;=&quot;Rare&quot;,&quot;2&quot;=&quot;Frequent&quot;, &quot;3&quot;=&quot;All&quot;, &quot;-2&quot;=NA))
+summary(RECS$USEWWAC)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000  -2.000  -2.000  -1.195  -2.000   3.000
+<pre><code>##     Rare Frequent      All     NA&#39;s 
+##     1501      553      603     9426
 </code></pre>
 
-<pre><code class="r">summary(RECS$SWIMPOOL)
+<pre><code class="r">#Have pool?
+RECS$SWIMPOOL&lt;-revalue(as.factor(RECS$SWIMPOOL),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE, &quot;-2&quot;=FALSE))
+summary(RECS$SWIMPOOL)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000 -2.0000  0.0000 -0.4869  0.0000  1.0000
+<pre><code>## FALSE  TRUE 
+## 11186   897
 </code></pre>
 
-<pre><code class="r">summary(RECS$POOL)
+<pre><code class="r">#Pool heated?
+RECS$POOL&lt;-revalue(as.factor(RECS$POOL),c(&quot;0&quot;=FALSE,&quot;1&quot;=TRUE, &quot;-2&quot;=FALSE))
+
+summary(RECS$POOL)
 </code></pre>
 
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000  -2.000  -2.000  -1.832  -2.000   1.000
+<pre><code>## FALSE  TRUE 
+## 11846   237
 </code></pre>
 
 <pre><code class="r">#Fuel used for pool
@@ -3607,119 +3658,223 @@ Looks like it is the number of equivelent HH in population style.</p>
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:1   
 ##  Max.   :0   Max.   :0   Max.   :0     Max.   :0    Max.   :2   
 ##                                                                 
-##     H2OTYPE1        FUELH2O        WHEATOTH        WHEATSIZ    
-##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.: 1.00   1st Qu.: 1.0   1st Qu.: 0.00   1st Qu.: 2.00  
-##  Median : 1.00   Median : 5.0   Median : 0.00   Median : 2.00  
-##  Mean   : 0.88   Mean   : 3.2   Mean   : 0.08   Mean   : 1.88  
-##  3rd Qu.: 1.00   3rd Qu.: 5.0   3rd Qu.: 0.00   3rd Qu.: 2.00  
-##  Max.   : 1.00   Max.   : 5.0   Max.   : 1.00   Max.   : 3.00  
-##                                                                
-##     WHEATAGE        WHEATBKT         HELPWH         HELPWHY  
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
-##  1st Qu.: 2.00   1st Qu.: 0.00   1st Qu.:-2.00   1st Qu.:-2  
-##  Median : 3.00   Median : 0.00   Median :-2.00   Median :-2  
-##  Mean   :13.24   Mean   : 0.04   Mean   :-1.76   Mean   :-2  
-##  3rd Qu.:41.00   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2  
-##  Max.   :42.00   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
+##      H2OTYPE1      FUELH2O      WHEATOTH      WHEATSIZ         WHEATAGE
+##  Storage :24   Elec    :14   Min.   :-2.00   Small: 4   Less2      :4  
+##  Tankless: 0   NG      : 8   1st Qu.: 0.00   Med  :15   TwoTo4     :3  
+##  NA&#39;s    : 1   LPG     : 2   Median : 0.00   Lrg  : 5   FiveTo9    :8  
+##                Oil     : 0   Mean   : 0.08   NA&#39;s : 1   Gr20       :2  
+##                Kerosene: 0   3rd Qu.: 0.00              TenTo14    :5  
+##                (Other) : 0   Max.   : 1.00              FifteenTo19:2  
+##                NA&#39;s    : 1                              NA&#39;s       :1  
+##     WHEATBKT         HELPWH         HELPWHY      H2OTYPE2    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2   Min.   :-2.00  
+##  1st Qu.: 0.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:-2.00  
+##  Median : 0.00   Median :-2.00   Median :-2   Median :-2.00  
+##  Mean   : 0.04   Mean   :-1.76   Mean   :-2   Mean   :-1.88  
+##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:-2.00  
+##  Max.   : 1.00   Max.   : 0.00   Max.   :-2   Max.   : 1.00  
 ##                                                              
-##     H2OTYPE2        FUELH2O2       WHEATSIZ2      WHEATAGE2    
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.0   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00  
-##  Median :-2.00   Median :-2.00   Median :-2.0   Median :-2.00  
-##  Mean   :-1.88   Mean   :-1.84   Mean   :-1.8   Mean   :-0.28  
-##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.0   3rd Qu.:-2.00  
-##  Max.   : 1.00   Max.   : 2.00   Max.   : 3.0   Max.   :41.00  
-##                                                                
-##   ZNUMH2OHTRS  ZNUMH2ONOTNK   ZH2OTYPE1    ZFUELH2O      ZWHEATOTH
-##  Min.   :0    Min.   :0     Min.   :0   Min.   :0.00   Min.   :0  
-##  1st Qu.:0    1st Qu.:0     1st Qu.:0   1st Qu.:0.00   1st Qu.:0  
-##  Median :0    Median :0     Median :0   Median :0.00   Median :0  
-##  Mean   :0    Mean   :0     Mean   :0   Mean   :0.04   Mean   :0  
-##  3rd Qu.:0    3rd Qu.:0     3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0  
-##  Max.   :0    Max.   :0     Max.   :0   Max.   :1.00   Max.   :0  
-##                                                                   
-##    ZWHEATSIZ      ZWHEATAGE      ZWHEATBKT      ZH2OTYPE2   ZFUELH2O2
-##  Min.   :0.00   Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0  
-##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0  
-##  Median :0.00   Median :0.00   Median :0.00   Median :0   Median :0  
-##  Mean   :0.08   Mean   :0.24   Mean   :0.04   Mean   :0   Mean   :0  
-##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0  
-##  Max.   :1.00   Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0  
+##     FUELH2O2       WHEATSIZ2      WHEATAGE2      ZNUMH2OHTRS  ZNUMH2ONOTNK
+##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :0    Min.   :0    
+##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:0    1st Qu.:0    
+##  Median :-2.00   Median :-2.0   Median :-2.00   Median :0    Median :0    
+##  Mean   :-1.84   Mean   :-1.8   Mean   :-0.28   Mean   :0    Mean   :0    
+##  3rd Qu.:-2.00   3rd Qu.:-2.0   3rd Qu.:-2.00   3rd Qu.:0    3rd Qu.:0    
+##  Max.   : 2.00   Max.   : 3.0   Max.   :41.00   Max.   :0    Max.   :0    
+##                                                                           
+##    ZH2OTYPE1    ZFUELH2O      ZWHEATOTH   ZWHEATSIZ      ZWHEATAGE   
+##  Min.   :0   Min.   :0.00   Min.   :0   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0.00   1st Qu.:0.00  
+##  Median :0   Median :0.00   Median :0   Median :0.00   Median :0.00  
+##  Mean   :0   Mean   :0.04   Mean   :0   Mean   :0.08   Mean   :0.24  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0.00  
+##  Max.   :0   Max.   :1.00   Max.   :0   Max.   :1.00   Max.   :1.00  
 ##                                                                      
-##    ZWHEATSIZ2   ZWHEATAGE2    AIRCOND         DNTAC        COOLTYPENOAC  
-##  Min.   :0    Min.   :0    Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:0    1st Qu.:0    1st Qu.:1.00   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median :0    Median :0    Median :1.00   Median :-2.00   Median :-2.00  
-##  Mean   :0    Mean   :0    Mean   :0.76   Mean   :-1.12   Mean   :-1.76  
-##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:1.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
-##  Max.   :0    Max.   :0    Max.   :1.00   Max.   : 2.00   Max.   : 1.00  
-##                                                                          
-##     COOLTYPE         DUCTS       CENACHP         ACOTHERS    
-##  Min.   :-2.00   Min.   :-2   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.: 1.00   1st Qu.:-2   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median : 1.00   Median :-2   Median :-2.00   Median :-2.00  
-##  Mean   : 0.64   Mean   :-2   Mean   :-1.16   Mean   :-1.16  
-##  3rd Qu.: 2.00   3rd Qu.:-2   3rd Qu.: 0.00   3rd Qu.: 0.00  
-##  Max.   : 2.00   Max.   :-2   Max.   : 1.00   Max.   : 1.00  
-##                                                              
-##     MAINTAC         AGECENAC        REPLCCAC        HELPCAC     
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
-##  Mean   :-0.92   Mean   : 5.76   Mean   :-1.44   Mean   :-1.32  
-##  3rd Qu.: 1.00   3rd Qu.: 1.00   3rd Qu.:-2.00   3rd Qu.: 0.00  
-##  Max.   : 1.00   Max.   :42.00   Max.   : 1.00   Max.   : 3.00  
-##                                                                 
-##     HELPCACY        ACROOMS        USECENAC       THERMAINAC  
-##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.0  
-##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.0  
-##  Median :-2.00   Median :-2.0   Median :-2.00   Median :-2.0  
-##  Mean   :-1.72   Mean   : 0.8   Mean   :-0.12   Mean   :-0.8  
-##  3rd Qu.:-2.00   3rd Qu.: 4.0   3rd Qu.: 3.00   3rd Qu.: 1.0  
-##  Max.   : 5.00   Max.   : 8.0   Max.   : 3.00   Max.   : 1.0  
+##    ZWHEATBKT      ZH2OTYPE2   ZFUELH2O2   ZWHEATSIZ2   ZWHEATAGE2
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0    Min.   :0   
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0   
+##  Median :0.00   Median :0   Median :0   Median :0    Median :0   
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0    Mean   :0   
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0    Max.   :0   
+##                                                                  
+##   AIRCOND       DNTAC        COOLTYPENOAC      COOLTYPE      DUCTS   
+##  FALSE: 6   Min.   :-2.00   Min.   :-2.00   Central:10   Min.   :-2  
+##  TRUE :19   1st Qu.:-2.00   1st Qu.:-2.00   Window : 9   1st Qu.:-2  
+##             Median :-2.00   Median :-2.00   Both   : 0   Median :-2  
+##             Mean   :-1.12   Mean   :-1.76   NA&#39;s   : 6   Mean   :-2  
+##             3rd Qu.:-2.00   3rd Qu.:-2.00                3rd Qu.:-2  
+##             Max.   : 2.00   Max.   : 1.00                Max.   :-2  
+##                                                                      
+##   CENACHP      ACOTHERS        MAINTAC             AGECENAC 
+##  FALSE: 9   Min.   :-2.00   Min.   :-2.00   Less2      : 4  
+##  TRUE : 1   1st Qu.:-2.00   1st Qu.:-2.00   TwoTo4     : 1  
+##  NA&#39;s :15   Median :-2.00   Median :-2.00   FiveTo9    : 1  
+##             Mean   :-1.16   Mean   :-0.92   Gr20       : 0  
+##             3rd Qu.: 0.00   3rd Qu.: 1.00   TenTo14    : 3  
+##             Max.   : 1.00   Max.   : 1.00   FifteenTo19: 1  
+##                                             NA&#39;s       :15  
+##     REPLCCAC        HELPCAC         HELPCACY        ACROOMS    
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0  
+##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.0  
+##  Mean   :-1.44   Mean   :-1.32   Mean   :-1.72   Mean   : 0.8  
+##  3rd Qu.:-2.00   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.: 4.0  
+##  Max.   : 1.00   Max.   : 3.00   Max.   : 5.00   Max.   : 8.0  
+##                                                                
+##      USECENAC    THERMAINAC     PROTHERMAC     AUTOCOOLNITE 
+##  Rare    : 1   Min.   :-2.0   Min.   :-2.00   Min.   :-2.0  
+##  Frequent: 1   1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.0  
+##  All     : 8   Median :-2.0   Median :-2.00   Median :-2.0  
+##  NA&#39;s    :15   Mean   :-0.8   Mean   :-1.12   Mean   :-1.8  
+##                3rd Qu.: 1.0   3rd Qu.: 0.00   3rd Qu.:-2.0  
+##                Max.   : 1.0   Max.   : 1.00   Max.   : 1.0  
+##                                                             
+##   AUTOCOOLDAY     TEMPHOMEAC      TEMPGONEAC      TEMPNITEAC   
+##  Min.   :-2.0   Min.   :65.00   Min.   :70.00   Min.   :65.00  
+##  1st Qu.:-2.0   1st Qu.:71.00   1st Qu.:72.00   1st Qu.:71.00  
+##  Median :-2.0   Median :72.00   Median :75.00   Median :72.00  
+##  Mean   :-1.8   Mean   :73.22   Mean   :74.56   Mean   :73.22  
+##  3rd Qu.:-2.0   3rd Qu.:77.00   3rd Qu.:77.00   3rd Qu.:77.00  
+##  Max.   : 1.0   Max.   :78.00   Max.   :78.00   Max.   :78.00  
+##                 NA&#39;s   :16      NA&#39;s   :16      NA&#39;s   :16     
+##     NUMBERAC            WWACAGE     ESWWAC     REPLCWWAC    
+##  Min.   :1.000   Less2      : 1   FALSE:23   Min.   :-2.00  
+##  1st Qu.:1.000   TwoTo4     : 2   TRUE : 2   1st Qu.:-2.00  
+##  Median :2.000   FiveTo9    : 4              Median :-2.00  
+##  Mean   :2.111   Gr20       : 0              Mean   :-1.64  
+##  3rd Qu.:3.000   TenTo14    : 1              3rd Qu.:-2.00  
+##  Max.   :5.000   FifteenTo19: 1              Max.   : 1.00  
+##  NA&#39;s   :16      NA&#39;s       :16                             
+##     HELPWWAC       HELPWWACY      USEWWAC      NUMCFAN       USECFAN  
+##  Min.   :-2.00   Min.   :-2   Rare    : 4   Min.   :0.0   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2   Frequent: 2   1st Qu.:0.0   1st Qu.:-2  
+##  Median :-2.00   Median :-2   All     : 3   Median :1.0   Median : 1  
+##  Mean   :-1.76   Mean   :-2   NA&#39;s    :16   Mean   :1.8   Mean   : 1  
+##  3rd Qu.:-2.00   3rd Qu.:-2                 3rd Qu.:3.0   3rd Qu.: 3  
+##  Max.   : 0.00   Max.   :-2                 Max.   :6.0   Max.   : 4  
+##                                                                       
+##     TREESHAD       NOTMOIST     USENOTMOIST       ZAIRCOND     ZDNTAC 
+##  Min.   :0.00   Min.   :0.00   Min.   :-2.00   Min.   :0   Min.   :0  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:0   1st Qu.:0  
+##  Median :1.00   Median :0.00   Median :-2.00   Median :0   Median :0  
+##  Mean   :0.56   Mean   :0.16   Mean   :-1.48   Mean   :0   Mean   :0  
+##  3rd Qu.:1.00   3rd Qu.:0.00   3rd Qu.:-2.00   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1.00   Max.   :1.00   Max.   : 2.00   Max.   :0   Max.   :0  
+##                                                                       
+##  ZCOOLTYPENOAC   ZCOOLTYPE     ZDUCTS     ZCENACHP   ZACOTHERS    ZMAINTAC
+##  Min.   :0     Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0     Median :0   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :0     Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0     Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                           
+##    ZAGECENAC   ZUSECENAC    ZACROOMS  ZTHERMAINAC  ZPROTHERMAC
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0   
+##  Median :0   Median :0   Median :0   Median :0    Median :0   
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :0   
 ##                                                               
-##    PROTHERMAC     AUTOCOOLNITE   AUTOCOOLDAY     TEMPHOMEAC   
-##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.0   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:-2.0   1st Qu.:-2.00  
-##  Median :-2.00   Median :-2.0   Median :-2.0   Median :-2.00  
-##  Mean   :-1.12   Mean   :-1.8   Mean   :-1.8   Mean   :25.08  
-##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:-2.0   3rd Qu.:71.00  
-##  Max.   : 1.00   Max.   : 1.0   Max.   : 1.0   Max.   :78.00  
-##                                                               
-##    TEMPGONEAC      TEMPNITEAC       NUMBERAC        WWACAGE     
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
-##  Mean   :25.56   Mean   :25.08   Mean   :-0.52   Mean   : 2.72  
-##  3rd Qu.:72.00   3rd Qu.:71.00   3rd Qu.: 1.00   3rd Qu.: 2.00  
-##  Max.   :78.00   Max.   :78.00   Max.   : 5.00   Max.   :42.00  
-##                                                                 
-##      ESWWAC        REPLCWWAC        HELPWWAC       HELPWWACY 
-##  Min.   :-9.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2  
-##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2  
-##  Mean   :-1.64   Mean   :-1.64   Mean   :-1.76   Mean   :-2  
-##  3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.:-2  
-##  Max.   : 1.00   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
-##                                                              
-##     USEWWAC        NUMCFAN       USECFAN      TREESHAD       NOTMOIST   
-##  Min.   :-2.0   Min.   :0.0   Min.   :-2   Min.   :0.00   Min.   :0.00  
-##  1st Qu.:-2.0   1st Qu.:0.0   1st Qu.:-2   1st Qu.:0.00   1st Qu.:0.00  
-##  Median :-2.0   Median :1.0   Median : 1   Median :1.00   Median :0.00  
-##  Mean   :-0.6   Mean   :1.8   Mean   : 1   Mean   :0.56   Mean   :0.16  
-##  3rd Qu.: 1.0   3rd Qu.:3.0   3rd Qu.: 3   3rd Qu.:1.00   3rd Qu.:0.00  
-##  Max.   : 3.0   Max.   :6.0   Max.   : 4   Max.   :1.00   Max.   :1.00  
+##  ZAUTOCOOLNITE  ZAUTOCOOLDAY  ZTEMPHOMEAC  ZTEMPGONEAC  ZTEMPNITEAC
+##  Min.   :0     Min.   :0     Min.   :0    Min.   :0    Min.   :0   
+##  1st Qu.:0     1st Qu.:0     1st Qu.:0    1st Qu.:0    1st Qu.:0   
+##  Median :0     Median :0     Median :0    Median :0    Median :0   
+##  Mean   :0     Mean   :0     Mean   :0    Mean   :0    Mean   :0   
+##  3rd Qu.:0     3rd Qu.:0     3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   
+##  Max.   :0     Max.   :0     Max.   :0    Max.   :0    Max.   :0   
+##                                                                    
+##    ZNUMBERAC    ZWWACAGE    ZUSEWWAC    ZNUMCFAN    ZUSECFAN   
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0   Median :0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :1.00  
+##                                                                
+##    ZTREESHAD   ZNOTMOIST     ZUSENOTMOIST    HIGHCEIL       CATHCEIL    
+##  Min.   :0   Min.   :0.00   Min.   :0     Min.   :-2.0   Min.   :-2.00  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0     1st Qu.:-2.0   1st Qu.:-2.00  
+##  Median :0   Median :0.00   Median :0     Median : 0.0   Median :-2.00  
+##  Mean   :0   Mean   :0.04   Mean   :0     Mean   :-0.6   Mean   :-1.64  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0     3rd Qu.: 0.0   3rd Qu.:-2.00  
+##  Max.   :0   Max.   :1.00   Max.   :0     Max.   : 1.0   Max.   : 1.00  
 ##                                                                         
-##   USENOTMOIST       ZAIRCOND     ZDNTAC  ZCOOLTYPENOAC   ZCOOLTYPE
-##  Min.   :-2.00   Min.   :0   Min.   :0   Min.   :0     Min.   :0  
-##  1st Qu.:-2.00   1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0  
-##  Median :-2.00   Median :0   Median :0   Median :0     Median :0  
-##  Mean   :-1.48   Mean   :0   Mean   :0   Mean   :0     Mean   :0  
-##  3rd Qu.:-2.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
-##  Max.   : 2.00   Max.   :0   Max.   :0   Max.   :0     Max.   :0  
-##                                                                   
-##      ZDUCTS     ZCENACHP   ZACOTHERS    ZMAINTAC   ZAGECENAC   ZUSECENAC
+##   SWIMPOOL     POOL       FUELPOOL   RECBATH      FUELTUB       LGT12     
+##  FALSE:25   FALSE:25   NG     : 0   FALSE:24   NG     : 0   Min.   :0.00  
+##  TRUE : 0   TRUE : 0   LPG    : 0   TRUE : 1   LPG    : 1   1st Qu.:0.00  
+##                        FuelOil: 0              FuelOil: 0   Median :0.00  
+##                        Elec   : 0              Elec   : 0   Mean   :0.56  
+##                        Solar  : 0              Solar  : 0   3rd Qu.:0.00  
+##                        Other  : 0              Other  : 0   Max.   :9.00  
+##                        NA&#39;s   :25              NA&#39;s   :24                 
+##     LGT12EE          LGT4          LGT4EE          LGT1     
+##  Min.   :-2.0   Min.   :0.00   Min.   :-2.0   Min.   :0.00  
+##  1st Qu.:-2.0   1st Qu.:0.00   1st Qu.:-2.0   1st Qu.:0.00  
+##  Median :-2.0   Median :1.00   Median : 0.0   Median :1.00  
+##  Mean   :-1.4   Mean   :1.28   Mean   :-0.2   Mean   :1.56  
+##  3rd Qu.:-2.0   3rd Qu.:2.00   3rd Qu.: 1.0   3rd Qu.:2.00  
+##  Max.   : 9.0   Max.   :5.00   Max.   : 5.0   Max.   :5.00  
+##                                                             
+##      LGT1EE       NOUTLGTNT         LGTOEE        NGASLIGHT    
+##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median : 0.0   Median :-2.00   Median :-2.00   Median :-2.00  
+##  Mean   : 0.2   Mean   :-1.08   Mean   :-1.56   Mean   :-1.68  
+##  3rd Qu.: 1.0   3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   : 5.0   Max.   : 2.00   Max.   : 1.00   Max.   : 0.00  
+##                                                                
+##     INSTLCFL       HELPCFL         HELPCFLY        SLDDRS    
+##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.0   Min.   :0.00  
+##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:0.00  
+##  Median :-2.0   Median :-2.00   Median :-2.0   Median :0.00  
+##  Mean   :-0.6   Mean   :-0.92   Mean   :-1.8   Mean   :0.04  
+##  3rd Qu.: 1.0   3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:0.00  
+##  Max.   : 1.0   Max.   : 5.00   Max.   : 3.0   Max.   :1.00  
+##                                                              
+##     DOOR1SUM       WINDOWS           TYPEGLASS     NEWGLASS   
+##  Min.   :0.00   Min.   :20.00   SinglePane:10   Min.   :1.00  
+##  1st Qu.:0.00   1st Qu.:30.00   DoublePane:15   1st Qu.:1.00  
+##  Median :0.00   Median :41.00   TriplePane: 0   Median :3.00  
+##  Mean   :0.04   Mean   :36.96                   Mean   :2.24  
+##  3rd Qu.:0.00   3rd Qu.:41.00                   3rd Qu.:3.00  
+##  Max.   :1.00   Max.   :60.00                   Max.   :3.00  
+##                                                               
+##     HELPWIN        HELPWINY     ADQINSUL       INSTLINS        AGEINS    
+##  Min.   :-9.0   Min.   :-2   Min.   :1.00   Min.   :0.00   Min.   :-2.0  
+##  1st Qu.:-2.0   1st Qu.:-2   1st Qu.:1.00   1st Qu.:0.00   1st Qu.:-2.0  
+##  Median :-2.0   Median :-2   Median :2.00   Median :0.00   Median :-2.0  
+##  Mean   :-1.4   Mean   :-2   Mean   :1.84   Mean   :0.24   Mean   : 2.2  
+##  3rd Qu.: 0.0   3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:0.00   3rd Qu.:-2.0  
+##  Max.   : 0.0   Max.   :-2   Max.   :3.00   Max.   :1.00   Max.   :42.0  
+##                                                                          
+##     HELPINS         HELPINSY      DRAFTY        INSTLWS    
+##  Min.   :-2.00   Min.   :-2   Min.   :2.00   Min.   :0.00  
+##  1st Qu.:-2.00   1st Qu.:-2   1st Qu.:3.00   1st Qu.:0.00  
+##  Median :-2.00   Median :-2   Median :4.00   Median :0.00  
+##  Mean   :-1.92   Mean   :-2   Mean   :3.44   Mean   :0.32  
+##  3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:4.00   3rd Qu.:1.00  
+##  Max.   : 0.00   Max.   :-2   Max.   :4.00   Max.   :1.00  
+##                                                            
+##      AGEWS           HELPWS         HELPWSY       AUDIT       AGEAUD  
+##  Min.   :-2.00   Min.   :-2.00   Min.   :-2   Min.   :0   Min.   :-2  
+##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2   1st Qu.:0   1st Qu.:-2  
+##  Median :-2.00   Median :-2.00   Median :-2   Median :0   Median :-2  
+##  Mean   :-0.72   Mean   :-1.68   Mean   :-2   Mean   :0   Mean   :-2  
+##  3rd Qu.: 1.00   3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:0   3rd Qu.:-2  
+##  Max.   : 3.00   Max.   : 0.00   Max.   :-2   Max.   :0   Max.   :-2  
+##                                                                       
+##     HELPAUD      HELPAUDY    ZHIGHCEIL   ZCATHCEIL   ZSWIMPOOL     ZPOOL  
+##  Min.   :-2   Min.   :-2   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:-2   1st Qu.:-2   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :-2   Median :-2   Median :0   Median :0   Median :0   Median :0  
+##  Mean   :-2   Mean   :-2   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:-2   3rd Qu.:-2   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :-2   Max.   :-2   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##                                                                           
+##    ZFUELPOOL    ZRECBATH    ZFUELTUB     ZLGT12      ZLGT4       ZLGT1  
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3727,166 +3882,54 @@ Looks like it is the number of equivelent HH in population style.</p>
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##     ZACROOMS  ZTHERMAINAC  ZPROTHERMAC ZAUTOCOOLNITE  ZAUTOCOOLDAY
-##  Min.   :0   Min.   :0    Min.   :0    Min.   :0     Min.   :0    
-##  1st Qu.:0   1st Qu.:0    1st Qu.:0    1st Qu.:0     1st Qu.:0    
-##  Median :0   Median :0    Median :0    Median :0     Median :0    
-##  Mean   :0   Mean   :0    Mean   :0    Mean   :0     Mean   :0    
-##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0    3rd Qu.:0     3rd Qu.:0    
-##  Max.   :0   Max.   :0    Max.   :0    Max.   :0     Max.   :0    
-##                                                                   
-##   ZTEMPHOMEAC  ZTEMPGONEAC  ZTEMPNITEAC   ZNUMBERAC    ZWWACAGE
-##  Min.   :0    Min.   :0    Min.   :0    Min.   :0   Min.   :0  
-##  1st Qu.:0    1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0  
-##  Median :0    Median :0    Median :0    Median :0   Median :0  
-##  Mean   :0    Mean   :0    Mean   :0    Mean   :0   Mean   :0  
-##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0  
-##  Max.   :0    Max.   :0    Max.   :0    Max.   :0   Max.   :0  
-##                                                                
-##     ZUSEWWAC    ZNUMCFAN    ZUSECFAN      ZTREESHAD   ZNOTMOIST   
-##  Min.   :0   Min.   :0   Min.   :0.00   Min.   :0   Min.   :0.00  
-##  1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0   1st Qu.:0.00  
-##  Median :0   Median :0   Median :0.00   Median :0   Median :0.00  
-##  Mean   :0   Mean   :0   Mean   :0.04   Mean   :0   Mean   :0.04  
-##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0.00  
-##  Max.   :0   Max.   :0   Max.   :1.00   Max.   :0   Max.   :1.00  
-##                                                                   
-##   ZUSENOTMOIST    HIGHCEIL       CATHCEIL        SWIMPOOL          POOL   
-##  Min.   :0     Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :-2  
-##  1st Qu.:0     1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2  
-##  Median :0     Median : 0.0   Median :-2.00   Median :-2.00   Median :-2  
-##  Mean   :0     Mean   :-0.6   Mean   :-1.64   Mean   :-1.28   Mean   :-2  
-##  3rd Qu.:0     3rd Qu.: 0.0   3rd Qu.:-2.00   3rd Qu.: 0.00   3rd Qu.:-2  
-##  Max.   :0     Max.   : 1.0   Max.   : 1.00   Max.   : 0.00   Max.   :-2  
-##                                                                           
-##     FUELPOOL   RECBATH      FUELTUB       LGT12         LGT12EE    
-##  NG     : 0   FALSE:24   NG     : 0   Min.   :0.00   Min.   :-2.0  
-##  LPG    : 0   TRUE : 1   LPG    : 1   1st Qu.:0.00   1st Qu.:-2.0  
-##  FuelOil: 0              FuelOil: 0   Median :0.00   Median :-2.0  
-##  Elec   : 0              Elec   : 0   Mean   :0.56   Mean   :-1.4  
-##  Solar  : 0              Solar  : 0   3rd Qu.:0.00   3rd Qu.:-2.0  
-##  Other  : 0              Other  : 0   Max.   :9.00   Max.   : 9.0  
-##  NA&#39;s   :25              NA&#39;s   :24                                
-##       LGT4          LGT4EE          LGT1          LGT1EE    
-##  Min.   :0.00   Min.   :-2.0   Min.   :0.00   Min.   :-2.0  
-##  1st Qu.:0.00   1st Qu.:-2.0   1st Qu.:0.00   1st Qu.:-2.0  
-##  Median :1.00   Median : 0.0   Median :1.00   Median : 0.0  
-##  Mean   :1.28   Mean   :-0.2   Mean   :1.56   Mean   : 0.2  
-##  3rd Qu.:2.00   3rd Qu.: 1.0   3rd Qu.:2.00   3rd Qu.: 1.0  
-##  Max.   :5.00   Max.   : 5.0   Max.   :5.00   Max.   : 5.0  
-##                                                             
-##    NOUTLGTNT         LGTOEE        NGASLIGHT        INSTLCFL   
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.0  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.0  
-##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.0  
-##  Mean   :-1.08   Mean   :-1.56   Mean   :-1.68   Mean   :-0.6  
-##  3rd Qu.: 0.00   3rd Qu.:-2.00   3rd Qu.:-2.00   3rd Qu.: 1.0  
-##  Max.   : 2.00   Max.   : 1.00   Max.   : 0.00   Max.   : 1.0  
-##                                                                
-##     HELPCFL         HELPCFLY        SLDDRS        DOOR1SUM   
-##  Min.   :-2.00   Min.   :-2.0   Min.   :0.00   Min.   :0.00  
-##  1st Qu.:-2.00   1st Qu.:-2.0   1st Qu.:0.00   1st Qu.:0.00  
-##  Median :-2.00   Median :-2.0   Median :0.00   Median :0.00  
-##  Mean   :-0.92   Mean   :-1.8   Mean   :0.04   Mean   :0.04  
-##  3rd Qu.: 0.00   3rd Qu.:-2.0   3rd Qu.:0.00   3rd Qu.:0.00  
-##  Max.   : 5.00   Max.   : 3.0   Max.   :1.00   Max.   :1.00  
-##                                                              
-##     WINDOWS           TYPEGLASS     NEWGLASS       HELPWIN    
-##  Min.   :20.00   SinglePane:10   Min.   :1.00   Min.   :-9.0  
-##  1st Qu.:30.00   DoublePane:15   1st Qu.:1.00   1st Qu.:-2.0  
-##  Median :41.00   TriplePane: 0   Median :3.00   Median :-2.0  
-##  Mean   :36.96                   Mean   :2.24   Mean   :-1.4  
-##  3rd Qu.:41.00                   3rd Qu.:3.00   3rd Qu.: 0.0  
-##  Max.   :60.00                   Max.   :3.00   Max.   : 0.0  
+##    ZNOUTLGTNT   ZNGASLIGHT    ZSLDDRS    ZDOOR1SUM    ZWINDOWS
+##  Min.   :0    Min.   :0    Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0    Median :0    Median :0   Median :0   Median :0  
+##  Mean   :0    Mean   :0    Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0    Max.   :0    Max.   :0   Max.   :0   Max.   :0  
 ##                                                               
-##     HELPWINY     ADQINSUL       INSTLINS        AGEINS        HELPINS     
-##  Min.   :-2   Min.   :1.00   Min.   :0.00   Min.   :-2.0   Min.   :-2.00  
-##  1st Qu.:-2   1st Qu.:1.00   1st Qu.:0.00   1st Qu.:-2.0   1st Qu.:-2.00  
-##  Median :-2   Median :2.00   Median :0.00   Median :-2.0   Median :-2.00  
-##  Mean   :-2   Mean   :1.84   Mean   :0.24   Mean   : 2.2   Mean   :-1.92  
-##  3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:0.00   3rd Qu.:-2.0   3rd Qu.:-2.00  
-##  Max.   :-2   Max.   :3.00   Max.   :1.00   Max.   :42.0   Max.   : 0.00  
-##                                                                           
-##     HELPINSY      DRAFTY        INSTLWS         AGEWS      
-##  Min.   :-2   Min.   :2.00   Min.   :0.00   Min.   :-2.00  
-##  1st Qu.:-2   1st Qu.:3.00   1st Qu.:0.00   1st Qu.:-2.00  
-##  Median :-2   Median :4.00   Median :0.00   Median :-2.00  
-##  Mean   :-2   Mean   :3.44   Mean   :0.32   Mean   :-0.72  
-##  3rd Qu.:-2   3rd Qu.:4.00   3rd Qu.:1.00   3rd Qu.: 1.00  
-##  Max.   :-2   Max.   :4.00   Max.   :1.00   Max.   : 3.00  
-##                                                            
-##      HELPWS         HELPWSY       AUDIT       AGEAUD      HELPAUD  
-##  Min.   :-2.00   Min.   :-2   Min.   :0   Min.   :-2   Min.   :-2  
-##  1st Qu.:-2.00   1st Qu.:-2   1st Qu.:0   1st Qu.:-2   1st Qu.:-2  
-##  Median :-2.00   Median :-2   Median :0   Median :-2   Median :-2  
-##  Mean   :-1.68   Mean   :-2   Mean   :0   Mean   :-2   Mean   :-2  
-##  3rd Qu.:-2.00   3rd Qu.:-2   3rd Qu.:0   3rd Qu.:-2   3rd Qu.:-2  
-##  Max.   : 0.00   Max.   :-2   Max.   :0   Max.   :-2   Max.   :-2  
-##                                                                    
-##     HELPAUDY    ZHIGHCEIL   ZCATHCEIL   ZSWIMPOOL     ZPOOL     ZFUELPOOL
-##  Min.   :-2   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
-##  1st Qu.:-2   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
-##  Median :-2   Median :0   Median :0   Median :0   Median :0   Median :0  
-##  Mean   :-2   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
-##  3rd Qu.:-2   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
-##  Max.   :-2   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
-##                                                                          
-##     ZRECBATH    ZFUELTUB     ZLGT12      ZLGT4       ZLGT1     ZNOUTLGTNT
-##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   
-##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   
-##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0   
-##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   
-##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
-##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   
-##                                                                          
-##    ZNGASLIGHT    ZSLDDRS    ZDOOR1SUM    ZWINDOWS   ZTYPEGLASS
-##  Min.   :0    Min.   :0   Min.   :0   Min.   :0   Min.   :0   
-##  1st Qu.:0    1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   
-##  Median :0    Median :0   Median :0   Median :0   Median :0   
-##  Mean   :0    Mean   :0   Mean   :0   Mean   :0   Mean   :0   
-##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
-##  Max.   :0    Max.   :0   Max.   :0   Max.   :0   Max.   :0   
-##                                                               
-##    ZNEWGLASS      ZADQINSUL   ZINSTLINS    ZAGEINS     ZDRAFTY 
-##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
-##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
-##  Median :0.00   Median :0   Median :0   Median :0   Median :0  
-##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
-##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
-##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
-##                                                                
-##     ZINSTLWS        ZAGEWS         ZAUDIT     ZAGEAUD      USEEL  
-##  Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0   Min.   :1  
-##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:1  
-##  Median :0.00   Median :0.00   Median :0   Median :0   Median :1  
-##  Mean   :0.04   Mean   :0.04   Mean   :0   Mean   :0   Mean   :1  
-##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:1  
-##  Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0   Max.   :1  
+##    ZTYPEGLASS   ZNEWGLASS      ZADQINSUL   ZINSTLINS    ZAGEINS 
+##  Min.   :0    Min.   :0.00   Min.   :0   Min.   :0   Min.   :0  
+##  1st Qu.:0    1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0  
+##  Median :0    Median :0.00   Median :0   Median :0   Median :0  
+##  Mean   :0    Mean   :0.04   Mean   :0   Mean   :0   Mean   :0  
+##  3rd Qu.:0    3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0    Max.   :1.00   Max.   :0   Max.   :0   Max.   :0  
+##                                                                 
+##     ZDRAFTY     ZINSTLWS        ZAGEWS         ZAUDIT     ZAGEAUD 
+##  Min.   :0   Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0.00   Median :0.00   Median :0   Median :0  
+##  Mean   :0   Mean   :0.04   Mean   :0.04   Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0  
 ##                                                                   
-##      USENG          USELP         USEFO      USEKERO     USEWOOD    
-##  Min.   :0.00   Min.   :0.0   Min.   :0   Min.   :0   Min.   :0.00  
-##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
-##  Median :0.00   Median :1.0   Median :0   Median :0   Median :0.00  
-##  Mean   :0.44   Mean   :0.6   Mean   :0   Mean   :0   Mean   :0.16  
-##  3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
-##  Max.   :1.00   Max.   :1.0   Max.   :0   Max.   :0   Max.   :1.00  
-##                                                                     
-##     USESOLAR        USEOTH       ELWARM      ELECAUX       ELCOOL  
-##  Min.   :0.00   Min.   :0.00   FALSE:14   Min.   :0.00   FALSE: 6  
-##  1st Qu.:0.00   1st Qu.:0.00   TRUE :11   1st Qu.:0.00   TRUE :19  
-##  Median :0.00   Median :0.00              Median :0.00             
-##  Mean   :0.04   Mean   :0.16              Mean   :0.24             
-##  3rd Qu.:0.00   3rd Qu.:0.00              3rd Qu.:0.00             
-##  Max.   :1.00   Max.   :1.00              Max.   :1.00             
-##                                                                    
-##   ELWATER     ELFOOD      ELOTHER      UGWARM       UGASAUX    
-##  FALSE:11   FALSE:13   Min.   :1   Min.   :0.0   Min.   :0.00  
-##  TRUE :14   TRUE :12   1st Qu.:1   1st Qu.:0.0   1st Qu.:0.00  
-##                        Median :1   Median :0.0   Median :0.00  
-##                        Mean   :1   Mean   :0.4   Mean   :0.08  
-##                        3rd Qu.:1   3rd Qu.:1.0   3rd Qu.:0.00  
-##                        Max.   :1   Max.   :1.0   Max.   :1.00  
-##                                                                
+##      USEEL       USENG          USELP         USEFO      USEKERO 
+##  Min.   :1   Min.   :0.00   Min.   :0.0   Min.   :0   Min.   :0  
+##  1st Qu.:1   1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0   1st Qu.:0  
+##  Median :1   Median :0.00   Median :1.0   Median :0   Median :0  
+##  Mean   :1   Mean   :0.44   Mean   :0.6   Mean   :0   Mean   :0  
+##  3rd Qu.:1   3rd Qu.:1.00   3rd Qu.:1.0   3rd Qu.:0   3rd Qu.:0  
+##  Max.   :1   Max.   :1.00   Max.   :1.0   Max.   :0   Max.   :0  
+##                                                                  
+##     USEWOOD        USESOLAR        USEOTH       ELWARM      ELECAUX    
+##  Min.   :0.00   Min.   :0.00   Min.   :0.00   FALSE:14   Min.   :0.00  
+##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0.00   TRUE :11   1st Qu.:0.00  
+##  Median :0.00   Median :0.00   Median :0.00              Median :0.00  
+##  Mean   :0.16   Mean   :0.04   Mean   :0.16              Mean   :0.24  
+##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0.00              3rd Qu.:0.00  
+##  Max.   :1.00   Max.   :1.00   Max.   :1.00              Max.   :1.00  
+##                                                                        
+##    ELCOOL    ELWATER     ELFOOD      ELOTHER      UGWARM       UGASAUX    
+##  FALSE: 6   FALSE:11   FALSE:13   Min.   :1   Min.   :0.0   Min.   :0.00  
+##  TRUE :19   TRUE :14   TRUE :12   1st Qu.:1   1st Qu.:0.0   1st Qu.:0.00  
+##                                   Median :1   Median :0.0   Median :0.00  
+##                                   Mean   :1   Mean   :0.4   Mean   :0.08  
+##                                   3rd Qu.:1   3rd Qu.:1.0   3rd Qu.:0.00  
+##                                   Max.   :1   Max.   :1.0   Max.   :1.00  
+##                                                                           
 ##     UGWATER         UGCOOK        UGOTH          LPWARM         LPGAUX 
 ##  Min.   :0.00   Min.   :0.0   Min.   :0.00   Min.   :0.00   Min.   :0  
 ##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0  

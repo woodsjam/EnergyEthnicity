@@ -135,26 +135,83 @@ RECS$TEMPNITE[RECS$TEMPNITE==-2]<-NA
 summary(RECS$TEMPNITE)
 
 #Water heater type
-#revalue(as.factor(),c())
+RECS$H2OTYPE1<-revalue(as.factor(RECS$H2OTYPE1),c("1"="Storage", "2"="Tankless", "-2"=NA))
 
 summary(RECS$H2OTYPE1)
+
+#Water service fuel
+RECS$FUELH2O<-revalue(as.factor(RECS$FUELH2O),c("1"="NG","2"="LPG","3"="Oil", "4"="Kerosene", "5"="Elec", "7"="Wood", "8"="Solar", "9"="District", "21"="Other", "-2"=NA))
+  
 summary(RECS$FUELH2O)
+
+#Water heater size.  Keep in mind the tankless.
+RECS$WHEATSIZ<-revalue(as.factor(RECS$WHEATSIZ),c("1"="Small", "2"="Med", "3"="Lrg", "-2"=NA))
+
 summary(RECS$WHEATSIZ)
+
+#Water heater age
+RECS$WHEATAGE<-revalue(as.factor(RECS$WHEATAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+
 summary(RECS$WHEATAGE)
+
+#AC is used?
+RECS$AIRCOND<-revalue(as.factor(RECS$AIRCOND),c("0"=FALSE, "1"=TRUE))
 summary(RECS$AIRCOND)
+
+#AC Type
+RECS$COOLTYPE<-revalue(as.factor(RECS$COOLTYPE),c("1"="Central", "2"="Window", "3"="Both", "-2"=NA))
 summary(RECS$COOLTYPE)
+
+#Central AC is heatpump.  Remember only Central AC
+RECS$CENACHP<-revalue(as.factor(RECS$CENACHP),c("0"=FALSE, "1"=TRUE, "-2"=NA))
 summary(RECS$CENACHP)
+
+#Age Central AC
+RECS$AGECENAC<-revalue(as.factor(RECS$AGECENAC),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+
 summary(RECS$AGECENAC)
+
+
+#Use Central AC?
+RECS$USECENAC<-revalue(as.factor(RECS$USECENAC),c("1"="Rare","2"="Frequent", "3"="All", "-2"=NA))
 summary(RECS$USECENAC)
+
+#Temp AC when home in day
+RECS$TEMPHOMEAC[RECS$TEMPHOMEAC=="-2"]<-NA
 summary(RECS$TEMPHOMEAC)
+
+
+#Temp AC no home in day
+RECS$TEMPGONEAC[RECS$TEMPGONEAC==-2]<-NA
 summary(RECS$TEMPGONEAC)
+
+#Temp AC at night
+RECS$TEMPNITEAC[RECS$TEMPNITEAC==-2]<-NA
 summary(RECS$TEMPNITEAC)
+
+#Number of wall AC units
+RECS$NUMBERAC[RECS$NUMBERAC==-2]<-NA
 summary(RECS$NUMBERAC)
+
+
+#age of wall AC
+RECS$WWACAGE<-revalue(as.factor(RECS$WWACAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
 summary(RECS$WWACAGE)
+
+#Wall AC is energy Star?
+RECS$ESWWAC<-revalue(as.factor(RECS$ESWWAC),c("0"=TRUE, "1"=FALSE, "-2"=FALSE, "-8"=FALSE, "-9"=FALSE))
 summary(RECS$ESWWAC)
+
+#How frequent wall ac
+RECS$USEWWAC<-revalue(as.factor(RECS$USEWWAC),c("1"="Rare","2"="Frequent", "3"="All", "-2"=NA))
 summary(RECS$USEWWAC)
+
+#Have pool?
+RECS$SWIMPOOL<-revalue(as.factor(RECS$SWIMPOOL),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
 summary(RECS$SWIMPOOL)
 
+#Pool heated?
+RECS$POOL<-revalue(as.factor(RECS$POOL),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
 
 summary(RECS$POOL)
 
