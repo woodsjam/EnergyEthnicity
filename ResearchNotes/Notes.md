@@ -2163,6 +2163,9 @@ RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
 RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
 
 ##Start Recoding HERE
+
+#Age of Dryer
+AGECDRYER<-revalue(as.factor(RECS$AGECDRYER),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
 summary(RECS$AGECDRYER)
 ```
 
@@ -2172,6 +2175,7 @@ summary(RECS$AGECDRYER)
 ```
 
 ```r
+#Number of TVs
 summary(RECS$TVCOLOR)
 ```
 
@@ -2181,24 +2185,32 @@ summary(RECS$TVCOLOR)
 ```
 
 ```r
+#Type of TV 
+RECS$TVTYPE1<-revalue(as.factor(RECS$TVTYPE1),c("1"="Standard","2"="LCD", "3"="Plasma", "4"="Projection", "5"="LED", "-2"=NA))
+
 summary(RECS$TVTYPE1)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00    1.00    2.00    1.73    2.00    5.00
+##   Standard        LCD     Plasma Projection        LED       NA's 
+##       5218       4979       1059        549        130        148
 ```
 
 ```r
+#Weekday Use of TV
+RECS$TVONWD1<-revalue(as.factor(RECS$TVONWD1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
+
 summary(RECS$TVONWD1)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   2.000   3.000   3.017   4.000   5.000
+##    LessHour   OneTo3Hrs ThreeTo6Hrs  SixTo10Hrs        Gr10        NA's 
+##         621        2991        4608        2249        1466         148
 ```
 
 ```r
+#number of computers
+
 summary(RECS$NUMPC)
 ```
 
@@ -2208,78 +2220,91 @@ summary(RECS$NUMPC)
 ```
 
 ```r
+#Time computers on
+RECS$TIMEON1<-revalue(as.factor(RECS$TIMEON1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
 summary(RECS$TIMEON1)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   1.000   2.000   1.643   3.000   5.000
+##    LessHour   OneTo3Hrs ThreeTo6Hrs  SixTo10Hrs        Gr10        NA's 
+##        1741        3504        1960         873        1391        2614
 ```
 
 ```r
+#Well Pump?
+RECS$WELLPUMP<-revalue(as.factor(RECS$WELLPUMP),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
 summary(RECS$WELLPUMP)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.0000  0.0000  0.0000 -0.3561  0.0000  1.0000
+## FALSE  TRUE 
+## 10688  1395
 ```
 
 ```r
-summary(RECS$EQUIPM)
-```
-
-```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   3.000   3.000   3.446   3.000  21.000
-```
-
-```r
+#Heating Fuel
+RECS$FUELHEAT<-revalue(as.factor(RECS$FUELHEAT),c("1"="NG","2"="LPG","3"="Oil", "4"="Kerosene", "5"="Elec", "7"="Wood", "8"="Solar", "9"="District", "21"="Other", "-2"=NA))
+  
 summary(RECS$FUELHEAT)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.000   1.000   1.000   2.612   5.000  21.000
+##       NG      LPG      Oil Kerosene     Elec     Wood    Solar District 
+##     5903      487      817       52     4038      295        1       23 
+##    Other     NA's 
+##       21      446
 ```
 
 ```r
+#Heating Age
+RECS$EQUIPAGE<-revalue(as.factor(RECS$EQUIPAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
 summary(RECS$EQUIPAGE)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00    2.00    5.00   13.65   41.00   42.00
+##       Less2      TwoTo4     FiveTo9        Gr20     TenTo14 FifteenTo19 
+##        1157        1727        2821        2901        2150        1178 
+##        NA's 
+##         149
 ```
 
 ```r
+#Winter Temp Day when home
+RECS$TEMPHOME[RECS$TEMPHOME==-2]<-NA
 summary(RECS$TEMPHOME)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   68.00   70.00   67.03   72.00   90.00
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##   40.00   68.00   70.00   69.68   72.00   90.00     446
 ```
 
 ```r
+#Winter Temp Day when away
+RECS$TEMPGONE[RECS$TEMPGONE==-2]<-NA
 summary(RECS$TEMPGONE)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   62.00   68.00   63.85   70.00   90.00
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##   40.00   64.00   68.00   66.37   70.00   90.00     446
 ```
 
 ```r
+#Winter Temp at Night
+RECS$TEMPNITE[RECS$TEMPNITE==-2]<-NA
 summary(RECS$TEMPNITE)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   -2.00   65.00   68.00   65.12   70.00   91.00
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##   40.00   65.00   68.00   67.69   70.00   91.00     446
 ```
 
 ```r
+#Water heater type
+#revalue(as.factor(),c())
+
 summary(RECS$H2OTYPE1)
 ```
 
@@ -3080,13 +3105,13 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.: 0.00   3rd Qu.:-2                        3rd Qu.: 1.00  
 ##  Max.   : 0.00   Max.   :-2                        Max.   : 2.00  
 ##                                                                   
-##    AGECDRYER        TVCOLOR        TVSIZE1         TVTYPE1     
-##  Min.   :-2.00   Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:1.00   1st Qu.: 2.00   1st Qu.: 1.00  
-##  Median : 2.00   Median :2.00   Median : 2.00   Median : 2.00  
-##  Mean   : 8.92   Mean   :2.08   Mean   : 2.12   Mean   : 1.48  
-##  3rd Qu.: 3.00   3rd Qu.:3.00   3rd Qu.: 3.00   3rd Qu.: 2.00  
-##  Max.   :42.00   Max.   :4.00   Max.   : 3.00   Max.   : 3.00  
+##    AGECDRYER        TVCOLOR        TVSIZE1            TVTYPE1  
+##  Min.   :-2.00   Min.   :0.00   Min.   :-2.00   Standard  :10  
+##  1st Qu.:-2.00   1st Qu.:1.00   1st Qu.: 2.00   LCD       :13  
+##  Median : 2.00   Median :2.00   Median : 2.00   Plasma    : 1  
+##  Mean   : 8.92   Mean   :2.08   Mean   : 2.12   Projection: 0  
+##  3rd Qu.: 3.00   3rd Qu.:3.00   3rd Qu.: 3.00   LED       : 0  
+##  Max.   :42.00   Max.   :4.00   Max.   : 3.00   NA's      : 1  
 ##                                                                
 ##    CABLESAT1       COMBODVR1         DVR1         DIGITSTB1    
 ##  Min.   :-2.00   Min.   :-2.0   Min.   :-2.00   Min.   :-2.00  
@@ -3104,13 +3129,13 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 1.0  
 ##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.0  
 ##                                                                
-##   TVAUDIOSYS1   OTHERSTB1        TVONWD1       TVONWDWATCH1  
-##  Min.   :-2   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.: 0   1st Qu.: 0.00   1st Qu.: 2.00   1st Qu.:-2.00  
-##  Median : 0   Median : 0.00   Median : 3.00   Median :-2.00  
-##  Mean   : 0   Mean   :-0.04   Mean   : 2.72   Mean   :-0.84  
-##  3rd Qu.: 0   3rd Qu.: 0.00   3rd Qu.: 4.00   3rd Qu.:-2.00  
-##  Max.   : 1   Max.   : 1.00   Max.   : 5.00   Max.   : 4.00  
+##   TVAUDIOSYS1   OTHERSTB1            TVONWD1   TVONWDWATCH1  
+##  Min.   :-2   Min.   :-2.00   LessHour   :2   Min.   :-2.00  
+##  1st Qu.: 0   1st Qu.: 0.00   OneTo3Hrs  :9   1st Qu.:-2.00  
+##  Median : 0   Median : 0.00   ThreeTo6Hrs:6   Median :-2.00  
+##  Mean   : 0   Mean   :-0.04   SixTo10Hrs :3   Mean   :-0.84  
+##  3rd Qu.: 0   3rd Qu.: 0.00   Gr10       :4   3rd Qu.:-2.00  
+##  Max.   : 1   Max.   : 1.00   NA's       :1   Max.   : 4.00  
 ##                                                              
 ##     TVONWE1       TVONWEWATCH1      TVSIZE2         TVTYPE2     
 ##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
@@ -3184,14 +3209,14 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.: 1.00   3rd Qu.:-2    3rd Qu.:1.0   3rd Qu.:1.00  
 ##  Max.   : 5.00   Max.   :-2    Max.   :1.0   Max.   :2.00  
 ##                                                            
-##     PCTYPE1         MONITOR1        TIMEON1         PCONOFF1    
-##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median :-2.00   Median :-2.00   Median :-2.00   Median :-2.00  
-##  Mean   :-0.64   Mean   :-1.32   Mean   :-0.08   Mean   :-0.96  
-##  3rd Qu.: 1.00   3rd Qu.:-2.00   3rd Qu.: 2.00   3rd Qu.: 0.00  
-##  Max.   : 2.00   Max.   : 1.00   Max.   : 5.00   Max.   : 1.00  
-##                                                                 
+##     PCTYPE1         MONITOR1            TIMEON1      PCONOFF1    
+##  Min.   :-2.00   Min.   :-2.00   LessHour   : 0   Min.   :-2.00  
+##  1st Qu.:-2.00   1st Qu.:-2.00   OneTo3Hrs  : 6   1st Qu.:-2.00  
+##  Median :-2.00   Median :-2.00   ThreeTo6Hrs: 1   Median :-2.00  
+##  Mean   :-0.64   Mean   :-1.32   SixTo10Hrs : 2   Mean   :-0.96  
+##  3rd Qu.: 1.00   3rd Qu.:-2.00   Gr10       : 1   3rd Qu.: 0.00  
+##  Max.   : 2.00   Max.   : 1.00   NA's       :15   Max.   : 1.00  
+##                                                                  
 ##     PCSLEEP1        PCTYPE2         MONITOR2        TIMEON2     
 ##  Min.   :-2.00   Min.   :-2.00   Min.   :-2.00   Min.   :-2.00  
 ##  1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:-2.00  
@@ -3224,55 +3249,79 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.: 0.00   3rd Qu.: 0.00   3rd Qu.: 1.00   3rd Qu.: 1.00  
 ##  Max.   : 1.00   Max.   : 1.00   Max.   : 1.00   Max.   : 1.00  
 ##                                                                 
-##       FAX           COPIER        WELLPUMP        DIPSTICK    
-##  Min.   :0.00   Min.   :0.00   Min.   :-2.00   Min.   :-2.00  
-##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:-2.00   1st Qu.:-2.00  
-##  Median :0.00   Median :0.00   Median : 0.00   Median :-2.00  
-##  Mean   :0.04   Mean   :0.08   Mean   :-0.32   Mean   :-1.68  
-##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.: 0.00   3rd Qu.:-2.00  
-##  Max.   :1.00   Max.   :1.00   Max.   : 1.00   Max.   : 0.00  
-##                                                               
-##     SWAMPCOL        AQUARIUM        STEREO        NOCORD       ANSMACH    
-##  Min.   :-2.00   Min.   :0.00   Min.   :0.0   Min.   :0.0   Min.   :0.00  
-##  1st Qu.:-2.00   1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.0   1st Qu.:0.00  
-##  Median :-2.00   Median :0.00   Median :0.0   Median :1.0   Median :0.00  
-##  Mean   :-1.52   Mean   :0.12   Mean   :0.4   Mean   :0.6   Mean   :0.48  
-##  3rd Qu.:-2.00   3rd Qu.:0.00   3rd Qu.:1.0   3rd Qu.:1.0   3rd Qu.:1.00  
-##  Max.   : 0.00   Max.   :1.00   Max.   :1.0   Max.   :1.0   Max.   :1.00  
+##       FAX           COPIER      WELLPUMP     DIPSTICK        SWAMPCOL    
+##  Min.   :0.00   Min.   :0.00   FALSE:19   Min.   :-2.00   Min.   :-2.00  
+##  1st Qu.:0.00   1st Qu.:0.00   TRUE : 6   1st Qu.:-2.00   1st Qu.:-2.00  
+##  Median :0.00   Median :0.00              Median :-2.00   Median :-2.00  
+##  Mean   :0.04   Mean   :0.08              Mean   :-1.68   Mean   :-1.52  
+##  3rd Qu.:0.00   3rd Qu.:0.00              3rd Qu.:-2.00   3rd Qu.:-2.00  
+##  Max.   :1.00   Max.   :1.00              Max.   : 0.00   Max.   : 0.00  
+##                                                                          
+##     AQUARIUM        STEREO        NOCORD       ANSMACH        BATTOOLS   
+##  Min.   :0.00   Min.   :0.0   Min.   :0.0   Min.   :0.00   Min.   :0.00  
+##  1st Qu.:0.00   1st Qu.:0.0   1st Qu.:0.0   1st Qu.:0.00   1st Qu.:0.00  
+##  Median :0.00   Median :0.0   Median :1.0   Median :0.00   Median :1.00  
+##  Mean   :0.12   Mean   :0.4   Mean   :0.6   Mean   :0.48   Mean   :0.68  
+##  3rd Qu.:0.00   3rd Qu.:1.0   3rd Qu.:1.0   3rd Qu.:1.00   3rd Qu.:1.00  
+##  Max.   :1.00   Max.   :1.0   Max.   :1.0   Max.   :1.00   Max.   :2.00  
+##                                                                          
+##     BATCHRG      CHRGPLGT       ELECDEV        ELECCHRG        CHRGPLGE   
+##  Min.   :-2   Min.   :-2.0   Min.   :0.00   Min.   :-2.00   Min.   :-2.0  
+##  1st Qu.:-2   1st Qu.:-2.0   1st Qu.:1.00   1st Qu.: 1.00   1st Qu.:-2.0  
+##  Median : 1   Median :-2.0   Median :1.00   Median : 2.00   Median : 0.0  
+##  Mean   : 0   Mean   :-1.2   Mean   :0.96   Mean   : 1.28   Mean   :-0.2  
+##  3rd Qu.: 2   3rd Qu.: 0.0   3rd Qu.:1.00   3rd Qu.: 2.00   3rd Qu.: 1.0  
+##  Max.   : 3   Max.   : 0.0   Max.   :2.00   Max.   : 3.00   Max.   : 2.0  
 ##                                                                           
-##     BATTOOLS       BATCHRG      CHRGPLGT       ELECDEV        ELECCHRG    
-##  Min.   :0.00   Min.   :-2   Min.   :-2.0   Min.   :0.00   Min.   :-2.00  
-##  1st Qu.:0.00   1st Qu.:-2   1st Qu.:-2.0   1st Qu.:1.00   1st Qu.: 1.00  
-##  Median :1.00   Median : 1   Median :-2.0   Median :1.00   Median : 2.00  
-##  Mean   :0.68   Mean   : 0   Mean   :-1.2   Mean   :0.96   Mean   : 1.28  
-##  3rd Qu.:1.00   3rd Qu.: 2   3rd Qu.: 0.0   3rd Qu.:1.00   3rd Qu.: 2.00  
-##  Max.   :2.00   Max.   : 3   Max.   : 0.0   Max.   :2.00   Max.   : 3.00  
-##                                                                           
-##     CHRGPLGE       ZCWASHER   ZTOPFRONT   ZWASHLOAD   ZWASHTEMP
-##  Min.   :-2.0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
-##  1st Qu.:-2.0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
-##  Median : 0.0   Median :0   Median :0   Median :0   Median :0  
-##  Mean   :-0.2   Mean   :0   Mean   :0   Mean   :0   Mean   :0  
-##  3rd Qu.: 1.0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
-##  Max.   : 2.0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
+##     ZCWASHER   ZTOPFRONT   ZWASHLOAD   ZWASHTEMP   ZRNSETEMP   
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0   Median :0   Median :0   Median :0   Median :0.00  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :1.00  
 ##                                                                
-##    ZRNSETEMP      ZAGECWASH        ZDRYER    ZDRYRFUEL    ZDRYRUSE
-##  Min.   :0.00   Min.   :0.00   Min.   :0   Min.   :0   Min.   :0  
-##  1st Qu.:0.00   1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0  
-##  Median :0.00   Median :0.00   Median :0   Median :0   Median :0  
-##  Mean   :0.04   Mean   :0.04   Mean   :0   Mean   :0   Mean   :0  
-##  3rd Qu.:0.00   3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
-##  Max.   :1.00   Max.   :1.00   Max.   :0   Max.   :0   Max.   :0  
+##    ZAGECWASH        ZDRYER    ZDRYRFUEL    ZDRYRUSE   ZAGECDRYER  
+##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0   Min.   :0.00  
+##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0.00  
+##  Median :0.00   Median :0   Median :0   Median :0   Median :0.00  
+##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0   Mean   :0.04  
+##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00  
+##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :0   Max.   :1.00  
 ##                                                                   
-##    ZAGECDRYER      ZTVCOLOR    ZTVSIZE1    ZTVTYPE1      ZCABLESAT1
-##  Min.   :0.00   Min.   :0   Min.   :0   Min.   :0.00   Min.   :0   
-##  1st Qu.:0.00   1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0   
-##  Median :0.00   Median :0   Median :0   Median :0.00   Median :0   
-##  Mean   :0.04   Mean   :0   Mean   :0   Mean   :0.04   Mean   :0   
-##  3rd Qu.:0.00   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0   
-##  Max.   :1.00   Max.   :0   Max.   :0   Max.   :1.00   Max.   :0   
-##                                                                    
-##    ZCOMBODVR1     ZDVR1     ZDIGITSTB1   ZPLAYSTA1 ZCOMBOVCRDVD1
+##     ZTVCOLOR    ZTVSIZE1    ZTVTYPE1      ZCABLESAT1   ZCOMBODVR1
+##  Min.   :0   Min.   :0   Min.   :0.00   Min.   :0    Min.   :0   
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0.00   1st Qu.:0    1st Qu.:0   
+##  Median :0   Median :0   Median :0.00   Median :0    Median :0   
+##  Mean   :0   Mean   :0   Mean   :0.04   Mean   :0    Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0.00   3rd Qu.:0    3rd Qu.:0   
+##  Max.   :0   Max.   :0   Max.   :1.00   Max.   :0    Max.   :0   
+##                                                                  
+##      ZDVR1     ZDIGITSTB1   ZPLAYSTA1 ZCOMBOVCRDVD1     ZVCR1  
+##  Min.   :0   Min.   :0    Min.   :0   Min.   :0     Min.   :0  
+##  1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0     1st Qu.:0  
+##  Median :0   Median :0    Median :0   Median :0     Median :0  
+##  Mean   :0   Mean   :0    Mean   :0   Mean   :0     Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
+##  Max.   :0   Max.   :0    Max.   :0   Max.   :0     Max.   :0  
+##                                                                
+##      ZDVD1    ZTVAUDIOSYS1   ZOTHERSTB1    ZTVONWD1 ZTVONWDWATCH1
+##  Min.   :0   Min.   :0     Min.   :0    Min.   :0   Min.   :0    
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0    1st Qu.:0   1st Qu.:0    
+##  Median :0   Median :0     Median :0    Median :0   Median :0    
+##  Mean   :0   Mean   :0     Mean   :0    Mean   :0   Mean   :0    
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    
+##  Max.   :0   Max.   :0     Max.   :0    Max.   :0   Max.   :0    
+##                                                                  
+##     ZTVONWE1 ZTVONWEWATCH1    ZTVSIZE2    ZTVTYPE2   ZCABLESAT2
+##  Min.   :0   Min.   :0     Min.   :0   Min.   :0   Min.   :0   
+##  1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0   
+##  Median :0   Median :0     Median :0   Median :0   Median :0   
+##  Mean   :0   Mean   :0     Mean   :0   Mean   :0   Mean   :0   
+##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   
+##  Max.   :0   Max.   :0     Max.   :0   Max.   :0   Max.   :0   
+##                                                                
+##    ZCOMBODVR2     ZDVR2     ZDIGITSTB2   ZPLAYSTA2 ZCOMBOVCRDVD2
 ##  Min.   :0    Min.   :0   Min.   :0    Min.   :0   Min.   :0    
 ##  1st Qu.:0    1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0    
 ##  Median :0    Median :0   Median :0    Median :0   Median :0    
@@ -3280,7 +3329,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    
 ##  Max.   :0    Max.   :0   Max.   :0    Max.   :0   Max.   :0    
 ##                                                                 
-##      ZVCR1       ZDVD1    ZTVAUDIOSYS1   ZOTHERSTB1    ZTVONWD1
+##      ZVCR2       ZDVD2    ZTVAUDIOSYS2   ZOTHERSTB2    ZTVONWD2
 ##  Min.   :0   Min.   :0   Min.   :0     Min.   :0    Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0    1st Qu.:0  
 ##  Median :0   Median :0   Median :0     Median :0    Median :0  
@@ -3288,7 +3337,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0    3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0     Max.   :0    Max.   :0  
 ##                                                                
-##  ZTVONWDWATCH1    ZTVONWE1 ZTVONWEWATCH1    ZTVSIZE2    ZTVTYPE2
+##  ZTVONWDWATCH2    ZTVONWE2 ZTVONWEWATCH2    ZTVSIZE3    ZTVTYPE3
 ##  Min.   :0     Min.   :0   Min.   :0     Min.   :0   Min.   :0  
 ##  1st Qu.:0     1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0  
 ##  Median :0     Median :0   Median :0     Median :0   Median :0  
@@ -3296,7 +3345,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0     Max.   :0   Max.   :0     Max.   :0   Max.   :0  
 ##                                                                 
-##    ZCABLESAT2   ZCOMBODVR2     ZDVR2     ZDIGITSTB2   ZPLAYSTA2
+##    ZCABLESAT3   ZCOMBODVR3     ZDVR3     ZDIGITSTB3   ZPLAYSTA3
 ##  Min.   :0    Min.   :0    Min.   :0   Min.   :0    Min.   :0  
 ##  1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0    1st Qu.:0  
 ##  Median :0    Median :0    Median :0   Median :0    Median :0  
@@ -3304,7 +3353,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0    3rd Qu.:0  
 ##  Max.   :0    Max.   :0    Max.   :0   Max.   :0    Max.   :0  
 ##                                                                
-##  ZCOMBOVCRDVD2     ZVCR2       ZDVD2    ZTVAUDIOSYS2   ZOTHERSTB2
+##  ZCOMBOVCRDVD3     ZVCR3       ZDVD3    ZTVAUDIOSYS3   ZOTHERSTB3
 ##  Min.   :0     Min.   :0   Min.   :0   Min.   :0     Min.   :0   
 ##  1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0     1st Qu.:0   
 ##  Median :0     Median :0   Median :0   Median :0     Median :0   
@@ -3312,7 +3361,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   
 ##  Max.   :0     Max.   :0   Max.   :0   Max.   :0     Max.   :0   
 ##                                                                  
-##     ZTVONWD2 ZTVONWDWATCH2    ZTVONWE2 ZTVONWEWATCH2    ZTVSIZE3
+##     ZTVONWD3 ZTVONWDWATCH3    ZTVONWE3 ZTVONWEWATCH3   ZCOMPUTER
 ##  Min.   :0   Min.   :0     Min.   :0   Min.   :0     Min.   :0  
 ##  1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0     1st Qu.:0  
 ##  Median :0   Median :0     Median :0   Median :0     Median :0  
@@ -3320,31 +3369,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0     3rd Qu.:0  
 ##  Max.   :0   Max.   :0     Max.   :0   Max.   :0     Max.   :0  
 ##                                                                 
-##     ZTVTYPE3   ZCABLESAT3   ZCOMBODVR3     ZDVR3     ZDIGITSTB3
-##  Min.   :0   Min.   :0    Min.   :0    Min.   :0   Min.   :0   
-##  1st Qu.:0   1st Qu.:0    1st Qu.:0    1st Qu.:0   1st Qu.:0   
-##  Median :0   Median :0    Median :0    Median :0   Median :0   
-##  Mean   :0   Mean   :0    Mean   :0    Mean   :0   Mean   :0   
-##  3rd Qu.:0   3rd Qu.:0    3rd Qu.:0    3rd Qu.:0   3rd Qu.:0   
-##  Max.   :0   Max.   :0    Max.   :0    Max.   :0   Max.   :0   
-##                                                                
-##    ZPLAYSTA3 ZCOMBOVCRDVD3     ZVCR3       ZDVD3    ZTVAUDIOSYS3
-##  Min.   :0   Min.   :0     Min.   :0   Min.   :0   Min.   :0    
-##  1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0   1st Qu.:0    
-##  Median :0   Median :0     Median :0   Median :0   Median :0    
-##  Mean   :0   Mean   :0     Mean   :0   Mean   :0   Mean   :0    
-##  3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    
-##  Max.   :0   Max.   :0     Max.   :0   Max.   :0   Max.   :0    
-##                                                                 
-##    ZOTHERSTB3    ZTVONWD3 ZTVONWDWATCH3    ZTVONWE3 ZTVONWEWATCH3
-##  Min.   :0    Min.   :0   Min.   :0     Min.   :0   Min.   :0    
-##  1st Qu.:0    1st Qu.:0   1st Qu.:0     1st Qu.:0   1st Qu.:0    
-##  Median :0    Median :0   Median :0     Median :0   Median :0    
-##  Mean   :0    Mean   :0   Mean   :0     Mean   :0   Mean   :0    
-##  3rd Qu.:0    3rd Qu.:0   3rd Qu.:0     3rd Qu.:0   3rd Qu.:0    
-##  Max.   :0    Max.   :0   Max.   :0     Max.   :0   Max.   :0    
-##                                                                  
-##    ZCOMPUTER     ZNUMPC     ZPCTYPE1   ZMONITOR1    ZTIMEON1   ZPCONOFF1
+##      ZNUMPC     ZPCTYPE1   ZMONITOR1    ZTIMEON1   ZPCONOFF1   ZPCSLEEP1
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3352,7 +3377,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##    ZPCSLEEP1    ZPCTYPE2   ZMONITOR2    ZTIMEON2   ZPCONOFF2   ZPCSLEEP2
+##     ZPCTYPE2   ZMONITOR2    ZTIMEON2   ZPCONOFF2   ZPCSLEEP2    ZPCTYPE3
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3360,7 +3385,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##     ZPCTYPE3   ZMONITOR3    ZTIMEON3   ZPCONOFF3   ZPCSLEEP3   ZINTERNET
+##    ZMONITOR3    ZTIMEON3   ZPCONOFF3   ZPCSLEEP3   ZINTERNET   ZINDIALUP
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3368,15 +3393,15 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##    ZINDIALUP     ZINDSL     ZINCABLE    ZINSATEL  ZINWIRELESS    ZPCPRINT
-##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   :0  
-##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0  
-##  Median :0   Median :0   Median :0   Median :0   Median :0    Median :0  
-##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :0  
-##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0  
-##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :0  
+##      ZINDSL     ZINCABLE    ZINSATEL  ZINWIRELESS    ZPCPRINT      ZFAX  
+##  Min.   :0   Min.   :0   Min.   :0   Min.   :0    Min.   :0   Min.   :0  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0    1st Qu.:0   1st Qu.:0  
+##  Median :0   Median :0   Median :0   Median :0    Median :0   Median :0  
+##  Mean   :0   Mean   :0   Mean   :0   Mean   :0    Mean   :0   Mean   :0  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0    3rd Qu.:0   3rd Qu.:0  
+##  Max.   :0   Max.   :0   Max.   :0   Max.   :0    Max.   :0   Max.   :0  
 ##                                                                          
-##       ZFAX      ZCOPIER    ZWELLPUMP   ZDIPSTICK   ZSWAMPCOL   ZAQUARIUM
+##     ZCOPIER    ZWELLPUMP   ZDIPSTICK   ZSWAMPCOL   ZAQUARIUM    ZSTEREO 
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3384,7 +3409,7 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##     ZSTEREO     ZNOCORD     ZANSMACH   ZBATTOOLS    ZBATCHRG   ZCHRGPLGT
+##     ZNOCORD     ZANSMACH   ZBATTOOLS    ZBATCHRG   ZCHRGPLGT    ZELECDEV
 ##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0  
 ##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0  
 ##  Median :0   Median :0   Median :0   Median :0   Median :0   Median :0  
@@ -3392,22 +3417,22 @@ summary(RECS[RECS$NWEIGHT>40000,])
 ##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0  
 ##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0  
 ##                                                                         
-##     ZELECDEV   ZELECCHRG   ZCHRGPLGE    HEATHOME    DNTHEAT    EQUIPNOHEAT
-##  Min.   :0   Min.   :0   Min.   :0   Min.   :1   Min.   :-2   Min.   :-2  
-##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:1   1st Qu.:-2   1st Qu.:-2  
-##  Median :0   Median :0   Median :0   Median :1   Median :-2   Median :-2  
-##  Mean   :0   Mean   :0   Mean   :0   Mean   :1   Mean   :-2   Mean   :-2  
-##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:1   3rd Qu.:-2   3rd Qu.:-2  
-##  Max.   :0   Max.   :0   Max.   :0   Max.   :1   Max.   :-2   Max.   :-2  
-##                                                                           
-##    FUELNOHEAT     EQUIPM        FUELHEAT      MAINTHT        EQUIPAGE    
-##  Min.   :-2   Min.   :2.00   Min.   :1.0   Min.   :0.00   Min.   : 1.00  
-##  1st Qu.:-2   1st Qu.:3.00   1st Qu.:1.0   1st Qu.:0.00   1st Qu.: 2.00  
-##  Median :-2   Median :3.00   Median :2.0   Median :0.00   Median : 3.00  
-##  Mean   :-2   Mean   :3.44   Mean   :2.4   Mean   :0.48   Mean   :15.12  
-##  3rd Qu.:-2   3rd Qu.:3.00   3rd Qu.:2.0   3rd Qu.:1.00   3rd Qu.:41.00  
-##  Max.   :-2   Max.   :8.00   Max.   :7.0   Max.   :1.00   Max.   :42.00  
-##                                                                          
+##    ZELECCHRG   ZCHRGPLGE    HEATHOME    DNTHEAT    EQUIPNOHEAT
+##  Min.   :0   Min.   :0   Min.   :1   Min.   :-2   Min.   :-2  
+##  1st Qu.:0   1st Qu.:0   1st Qu.:1   1st Qu.:-2   1st Qu.:-2  
+##  Median :0   Median :0   Median :1   Median :-2   Median :-2  
+##  Mean   :0   Mean   :0   Mean   :1   Mean   :-2   Mean   :-2  
+##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:1   3rd Qu.:-2   3rd Qu.:-2  
+##  Max.   :0   Max.   :0   Max.   :1   Max.   :-2   Max.   :-2  
+##                                                               
+##    FUELNOHEAT     EQUIPM         FUELHEAT     MAINTHT            EQUIPAGE
+##  Min.   :-2   Min.   :2.00   NG      :10   Min.   :0.00   Less2      :4  
+##  1st Qu.:-2   1st Qu.:3.00   LPG     : 9   1st Qu.:0.00   TwoTo4     :4  
+##  Median :-2   Median :3.00   Elec    : 5   Median :0.00   FiveTo9    :5  
+##  Mean   :-2   Mean   :3.44   Wood    : 1   Mean   :0.48   Gr20       :4  
+##  3rd Qu.:-2   3rd Qu.:3.00   Oil     : 0   3rd Qu.:1.00   TenTo14    :5  
+##  Max.   :-2   Max.   :8.00   Kerosene: 0   Max.   :1.00   FifteenTo19:3  
+##                              (Other) : 0                                 
 ##     REPLCHT         HELPHT         HELPHTY         HEATOTH    
 ##  Min.   :-2.0   Min.   :-2.00   Min.   :-2.00   Min.   :0.00  
 ##  1st Qu.:-2.0   1st Qu.:-2.00   1st Qu.:-2.00   1st Qu.:0.00  

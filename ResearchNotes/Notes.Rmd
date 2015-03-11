@@ -81,19 +81,62 @@ RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
 RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
 
 ##Start Recoding HERE
+
+#Age of Dryer
+AGECDRYER<-revalue(as.factor(RECS$AGECDRYER),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
 summary(RECS$AGECDRYER)
+
+#Number of TVs
 summary(RECS$TVCOLOR)
+
+#Type of TV 
+RECS$TVTYPE1<-revalue(as.factor(RECS$TVTYPE1),c("1"="Standard","2"="LCD", "3"="Plasma", "4"="Projection", "5"="LED", "-2"=NA))
+
 summary(RECS$TVTYPE1)
+
+#Weekday Use of TV
+RECS$TVONWD1<-revalue(as.factor(RECS$TVONWD1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
+
 summary(RECS$TVONWD1)
+
+#number of computers
+
 summary(RECS$NUMPC)
+
+#Time computers on
+RECS$TIMEON1<-revalue(as.factor(RECS$TIMEON1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
 summary(RECS$TIMEON1)
+
+
+#Well Pump?
+RECS$WELLPUMP<-revalue(as.factor(RECS$WELLPUMP),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
 summary(RECS$WELLPUMP)
-summary(RECS$EQUIPM)
+
+#Heating Fuel
+RECS$FUELHEAT<-revalue(as.factor(RECS$FUELHEAT),c("1"="NG","2"="LPG","3"="Oil", "4"="Kerosene", "5"="Elec", "7"="Wood", "8"="Solar", "9"="District", "21"="Other", "-2"=NA))
+  
 summary(RECS$FUELHEAT)
+
+#Heating Age
+RECS$EQUIPAGE<-revalue(as.factor(RECS$EQUIPAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
 summary(RECS$EQUIPAGE)
+
+
+#Winter Temp Day when home
+RECS$TEMPHOME[RECS$TEMPHOME==-2]<-NA
 summary(RECS$TEMPHOME)
+
+#Winter Temp Day when away
+RECS$TEMPGONE[RECS$TEMPGONE==-2]<-NA
 summary(RECS$TEMPGONE)
+
+#Winter Temp at Night
+RECS$TEMPNITE[RECS$TEMPNITE==-2]<-NA
 summary(RECS$TEMPNITE)
+
+#Water heater type
+#revalue(as.factor(),c())
+
 summary(RECS$H2OTYPE1)
 summary(RECS$FUELH2O)
 summary(RECS$WHEATSIZ)
