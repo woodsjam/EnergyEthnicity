@@ -5,7 +5,7 @@ Load in the raw data.
 ```{r}
 RECS <- read.csv("~/Research/EnergyEthnicity/Data/recs2009_public.csv")
 
-summary(RECS)
+#summary(RECS)
 
 ```
 
@@ -297,7 +297,7 @@ Looks like it is the number of equivelent HH in population style.
 
 the weights are a little odd, too large differences.  Investigate the top end to find.
 ```{r}
-summary(RECS[RECS$NWEIGHT>40000,])
+#summary(RECS[RECS$NWEIGHT>40000,])
 
 ```
 They are very poor.  Solution is to drop the ones with weights greater than 40K.  TODO
@@ -343,4 +343,69 @@ table(RECS$EDUCATION)
 table(RECS$UR,RECS$Householder_Race)
 ```
 
+
+That should finish the data wrangling.
+
+# Electricity Model
+
+A really basic model
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ, data=RECS))
+
+```
+
+Time to kill those living for free and with the crazy large weights
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race:Hispanic+KOWNRENT:TYPEHUQ, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,]))
+
+```
+May have to chunk that up a bit
+
+
+Time to see if the behaviors are different, all exogenous.  Checking temperatures
+
+Here are the winter temps
+```{r}
+boxplot(TEMPHOME~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+```{r}
+boxplot(TEMPGONE~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+```{r}
+boxplot(TEMPNITE~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+
+and the summer temps
+```{r}
+boxplot(TEMPHOMEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+```{r}
+boxplot(TEMPGONEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+```{r}
+boxplot(TEMPNITEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
+
+There are differences and it looks like AA are more energy intensive with respect to setpoints
+
+
+Checking TV use
+
+```{r}
+xtabs(~RECS$TVONWD1+RECS$Householder_Race, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000,])
+
+```
 
