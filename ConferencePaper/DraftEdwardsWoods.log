@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  3 MAR 2015 18:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  13 MAR 2015 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -23,11 +23,12 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/R/share/texmf/tex/latex/Sweave.sty
-Package: Sweave 
+(/usr/share/texlive/texmf-dist/tex/latex/draftwatermark/draftwatermark.sty
+Package: draftwatermark 2006/06/30 1.0 Put a gray textual watermark on document
+ pages
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/everypage/everypage.sty
+Package: everypage 2007/06/20 1.1 Hooks to run on every page
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -60,6 +61,22 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+\sc@wm@fontsize=\skip43
+)
+(/usr/share/R/share/texmf/tex/latex/Sweave.sty
+Package: Sweave 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
@@ -179,27 +196,28 @@ LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 ))))
-No file DraftEdwardsWoods.aux.
+(./DraftEdwardsWoods.aux)
 \openout1 = `DraftEdwardsWoods.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -263,47 +281,43 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 9.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 9.
+(Font)              <8> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 9.
+(Font)              <6> on input line 13.
 
 (./DraftEdwardsWoods-concordance.tex)
+LaTeX Font Info:    Try loading font information for T1+aett on input line 25.
 
-LaTeX Warning: Citation `RBase' on page 1 undefined on input line 19.
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) (./DraftEdwardsWoods.bbl [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+}
 
-(./DraftEdwardsWoods.bbl [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]) [3] (./DraftEdwardsWo
-ods.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] [2]) [3]
+(./DraftEdwardsWoods.aux) ) 
 Here is how much of TeX's memory you used:
- 2715 strings out of 493307
- 38491 string characters out of 6139905
- 91492 words of memory out of 5000000
- 6096 multiletter control sequences out of 15000+600000
- 34431 words of font info for 71 fonts, out of 8000000 for 9000
+ 2840 strings out of 493307
+ 40702 string characters out of 6139905
+ 92885 words of memory out of 5000000
+ 6198 multiletter control sequences out of 15000+600000
+ 35993 words of font info for 77 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,6n,23p,860b,215s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti10.pfb>
-Output written on DraftEdwardsWoods.pdf (3 pages, 117529 bytes).
+ 38i,10n,24p,860b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on DraftEdwardsWoods.pdf (3 pages, 124499 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  5 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -363,6 +363,154 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race:Hispanic+KOWN
 ```
 May have to chunk that up a bit
 
+Back to basic to add a few things.  Start with cooking.  We want only electric cooking so a new variable is needed.
+
+
+```{r}
+RECS$ElecMeals<-RECS$NUMMEAL
+levels(RECS$ElecMeals)<-c(levels(RECS$ElecMeals),"NoElec")
+RECS$ElecMeals[RECS$ELectricCook==FALSE]<-"NoElec"
+RECS$ElecMeals<-relevel(RECS$ElecMeals, "NoElec")
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           +ElecMeals, data=RECS))
+
+```
+Looks stupid but it is in.
+
+Put the fridges in but don't use houses with more than 4 fridges.
+
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           +ElecMeals
+           + NUMFRIG+AgeFridge, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+
+
+```
+
+
+Add the TVs and computers
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           +ElecMeals
+           + NUMFRIG+AgeFridge
+           +TVONWD1:TVTYPE1
+           +NUMPC+TIMEON1, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+
+
+```
+
+
+
+now the well pump
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           +ElecMeals
+           + NUMFRIG+AgeFridge
+           +TVONWD1:TVTYPE1
+           +NUMPC+TIMEON1
+           +WELLPUMP, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+and hot water service
+```{r}
+table(RECS$WHEATSIZ,RECS$H2OTYPE1)
+table(RECS$FUELH2O,RECS$H2OTYPE1)
+
+
+RECS$ElecWater<-RECS$WHEATSIZ
+levels(RECS$ElecWater)<-c(levels(RECS$ElecWater),"Tankless","NoElec")
+RECS$ElecWater[RECS$H2OTYPE1=="Tankless"]<-"Tankless"
+RECS$ElecWater[RECS$FUELH2O!="Elec"]<-"NoElec"
+RECS$ElecWater<-relevel(RECS$ElecWater, "NoElec")
+
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           +ElecMeals
+           + NUMFRIG+AgeFridge
+           +TVONWD1:TVTYPE1
+           +NUMPC+TIMEON1
+           +WELLPUMP
+           + ElecWater, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+On to the pools
+
+```{r}
+
+
+RECS$ElecPool<-FALSE
+RECS$ElecPool[RECS$SWIMPOOL==TRUE & RECS$FUELPOOL=="Elec"]<-TRUE
+
+
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+
+Do the same with the hot tubs
+```{r}
+
+
+RECS$ElecTub<-FALSE
+RECS$ElecTub[RECS$RECBATH==TRUE & RECS$FUELTUB=="Elec"]<-TRUE
+
+
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+
+Window type
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+People for the plug loads
+```{r}
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS
+           + NHSLDMEM, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+Need to add income and all the heating and cooling things, ethnicity and structure type/ own rent.
 
 Time to see if the behaviors are different, all exogenous.  Checking temperatures
 
