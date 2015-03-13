@@ -2034,7 +2034,7 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
            + ElecWater
            + SWIMPOOL + ElecPool
            + RECBATH +ElecTub
-           + TYPEGLASS, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+           + TYPEGLASS:TOTSQFT_EN, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
 ```
 
 ```
@@ -2043,167 +2043,167 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
 ## lm(formula = KWH ~ TOTSQFT_EN:HDD65 + TOTSQFT_EN:CDD65 + Householder_Race + 
 ##     KOWNRENT:TYPEHUQ + ElecMeals + NUMFRIG + AgeFridge + TVONWD1:TVTYPE1 + 
 ##     NUMPC + TIMEON1 + WELLPUMP + ElecWater + SWIMPOOL + ElecPool + 
-##     RECBATH + ElecTub + TYPEGLASS, data = RECS[RECS$KOWNRENT != 
+##     RECBATH + ElecTub + TYPEGLASS:TOTSQFT_EN, data = RECS[RECS$KOWNRENT != 
 ##     "Free" & RECS$NWEIGHT < 40000 & RECS$NUMFRIG < 5, ])
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-## -26525  -3235   -584   2374  53663 
+## -26495  -3236   -581   2370  53476 
 ## 
 ## Coefficients: (2 not defined because of singularities)
 ##                                        Estimate Std. Error t value
-## (Intercept)                           1.307e+03  1.869e+03   0.699
-## Householder_RaceAfAm                  8.709e+02  1.900e+02   4.583
-## Householder_RaceNativeAm              4.082e+02  6.365e+02   0.641
-## Householder_RaceAsian                -1.479e+03  2.946e+02  -5.018
-## Householder_RacePacific              -2.312e+03  9.785e+02  -2.363
-## Householder_RaceOther                -4.795e+02  4.469e+02  -1.073
-## Householder_RaceMulti                -3.393e+02  4.872e+02  -0.696
-## ElecMealsThreeDay                     1.464e+03  2.980e+02   4.911
-## ElecMealsTwoDay                       1.770e+03  1.860e+02   9.517
-## ElecMealsOneDay                       1.395e+03  1.608e+02   8.673
-## ElecMealsFewWeek                      9.536e+02  1.852e+02   5.150
-## ElecMealsOneWeek                      1.028e+03  4.253e+02   2.417
-## ElecMealsLessWeek                     1.573e+02  4.494e+02   0.350
-## NUMFRIG                               1.758e+03  1.208e+02  14.560
-## AgeFridge2to4Years                    1.412e+02  1.963e+02   0.719
-## AgeFridge5to9Years                    2.909e+02  1.853e+02   1.570
-## AgeFridge20PlusYears                 -2.571e+02  3.373e+02  -0.762
-## AgeFridge10to14Years                  3.074e+02  2.106e+02   1.459
-## AgeFridge15to19Years                 -2.252e+02  2.864e+02  -0.786
-## NUMPC                                 5.877e+02  6.134e+01   9.582
-## TIMEON1OneTo3Hrs                      9.301e+01  1.657e+02   0.561
-## TIMEON1ThreeTo6Hrs                    2.960e+02  1.906e+02   1.553
-## TIMEON1SixTo10Hrs                     3.223e+02  2.417e+02   1.333
-## TIMEON1Gr10                           1.120e+03  2.179e+02   5.141
-## WELLPUMPTRUE                          1.045e+03  1.901e+02   5.498
-## ElecWaterSmall                        4.048e+03  2.696e+02  15.012
-## ElecWaterMed                          4.455e+03  1.660e+02  26.842
-## ElecWaterLrg                          5.869e+03  1.937e+02  30.301
-## ElecWaterTankless                     2.673e+03  7.578e+02   3.528
-## SWIMPOOLTRUE                          3.270e+03  2.248e+02  14.544
-## ElecPoolTRUE                          4.900e+03  7.766e+02   6.309
-## RECBATHTRUE                           9.127e+02  4.314e+02   2.116
-## ElecTubTRUE                           1.280e+03  4.937e+02   2.592
-## TYPEGLASSDoublePane                   1.324e+02  1.267e+02   1.045
-## TYPEGLASSTriplePane                   8.071e+02  4.947e+02   1.631
-## TOTSQFT_EN:HDD65                      8.068e-05  7.405e-06  10.895
-## TOTSQFT_EN:CDD65                      8.089e-04  2.283e-05  35.432
-## KOWNRENTOwn:TYPEHUQMobile             4.698e+03  3.968e+02  11.839
-## KOWNRENTRent:TYPEHUQMobile            6.078e+03  8.623e+02   7.048
-## KOWNRENTOwn:TYPEHUQSFDetached         3.182e+03  2.105e+02  15.119
-## KOWNRENTRent:TYPEHUQSFDetached        2.649e+03  2.817e+02   9.406
-## KOWNRENTOwn:TYPEHUQSFAttached         1.246e+03  3.251e+02   3.832
-## KOWNRENTRent:TYPEHUQSFAttached        2.053e+03  3.736e+02   5.496
-## KOWNRENTOwn:TYPEHUQSmApartment        1.147e+03  5.444e+02   2.106
-## KOWNRENTRent:TYPEHUQSmApartment       5.568e+02  3.042e+02   1.830
-## KOWNRENTOwn:TYPEHUQLgApartment       -6.307e+02  4.536e+02  -1.391
+## (Intercept)                           1.442e+03  1.868e+03   0.772
+## Householder_RaceAfAm                  8.695e+02  1.900e+02   4.577
+## Householder_RaceNativeAm              4.066e+02  6.364e+02   0.639
+## Householder_RaceAsian                -1.495e+03  2.946e+02  -5.074
+## Householder_RacePacific              -2.307e+03  9.782e+02  -2.358
+## Householder_RaceOther                -4.710e+02  4.469e+02  -1.054
+## Householder_RaceMulti                -3.360e+02  4.872e+02  -0.690
+## ElecMealsThreeDay                     1.477e+03  2.981e+02   4.955
+## ElecMealsTwoDay                       1.783e+03  1.859e+02   9.589
+## ElecMealsOneDay                       1.406e+03  1.608e+02   8.746
+## ElecMealsFewWeek                      9.622e+02  1.852e+02   5.197
+## ElecMealsOneWeek                      1.031e+03  4.252e+02   2.424
+## ElecMealsLessWeek                     1.750e+02  4.491e+02   0.390
+## NUMFRIG                               1.749e+03  1.209e+02  14.467
+## AgeFridge2to4Years                    1.459e+02  1.964e+02   0.743
+## AgeFridge5to9Years                    2.958e+02  1.853e+02   1.597
+## AgeFridge20PlusYears                 -2.533e+02  3.373e+02  -0.751
+## AgeFridge10to14Years                  3.119e+02  2.106e+02   1.481
+## AgeFridge15to19Years                 -2.154e+02  2.864e+02  -0.752
+## NUMPC                                 5.861e+02  6.134e+01   9.555
+## TIMEON1OneTo3Hrs                      9.266e+01  1.657e+02   0.559
+## TIMEON1ThreeTo6Hrs                    2.970e+02  1.906e+02   1.559
+## TIMEON1SixTo10Hrs                     3.281e+02  2.417e+02   1.358
+## TIMEON1Gr10                           1.118e+03  2.179e+02   5.130
+## WELLPUMPTRUE                          1.044e+03  1.901e+02   5.493
+## ElecWaterSmall                        4.046e+03  2.694e+02  15.019
+## ElecWaterMed                          4.456e+03  1.660e+02  26.853
+## ElecWaterLrg                          5.866e+03  1.937e+02  30.291
+## ElecWaterTankless                     2.665e+03  7.577e+02   3.517
+## SWIMPOOLTRUE                          3.262e+03  2.249e+02  14.508
+## ElecPoolTRUE                          4.928e+03  7.768e+02   6.344
+## RECBATHTRUE                           8.732e+02  4.321e+02   2.021
+## ElecTubTRUE                           1.314e+03  4.943e+02   2.659
+## TOTSQFT_EN:HDD65                      7.027e-05  9.417e-06   7.462
+## TOTSQFT_EN:CDD65                      7.918e-04  2.392e-05  33.097
+## KOWNRENTOwn:TYPEHUQMobile             4.705e+03  3.968e+02  11.857
+## KOWNRENTRent:TYPEHUQMobile            6.073e+03  8.620e+02   7.045
+## KOWNRENTOwn:TYPEHUQSFDetached         3.197e+03  2.098e+02  15.238
+## KOWNRENTRent:TYPEHUQSFDetached        2.666e+03  2.819e+02   9.458
+## KOWNRENTOwn:TYPEHUQSFAttached         1.260e+03  3.244e+02   3.883
+## KOWNRENTRent:TYPEHUQSFAttached        2.068e+03  3.736e+02   5.535
+## KOWNRENTOwn:TYPEHUQSmApartment        1.174e+03  5.443e+02   2.158
+## KOWNRENTRent:TYPEHUQSmApartment       5.628e+02  3.042e+02   1.850
+## KOWNRENTOwn:TYPEHUQLgApartment       -6.173e+02  4.534e+02  -1.362
 ## KOWNRENTRent:TYPEHUQLgApartment              NA         NA      NA
-## TVONWD1LessHour:TVTYPE1Standard      -3.443e+03  1.873e+03  -1.839
-## TVONWD1OneTo3Hrs:TVTYPE1Standard     -3.164e+03  1.849e+03  -1.712
-## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   -2.423e+03  1.846e+03  -1.313
-## TVONWD1SixTo10Hrs:TVTYPE1Standard    -1.659e+03  1.852e+03  -0.896
-## TVONWD1Gr10:TVTYPE1Standard          -8.607e+02  1.859e+03  -0.463
-## TVONWD1LessHour:TVTYPE1LCD           -3.102e+03  1.882e+03  -1.648
-## TVONWD1OneTo3Hrs:TVTYPE1LCD          -2.373e+03  1.847e+03  -1.285
-## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        -1.851e+03  1.844e+03  -1.004
-## TVONWD1SixTo10Hrs:TVTYPE1LCD         -1.415e+03  1.850e+03  -0.765
-## TVONWD1Gr10:TVTYPE1LCD               -4.614e+02  1.859e+03  -0.248
-## TVONWD1LessHour:TVTYPE1Plasma        -1.558e+03  2.057e+03  -0.757
-## TVONWD1OneTo3Hrs:TVTYPE1Plasma       -1.509e+03  1.875e+03  -0.805
-## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     -1.805e+03  1.861e+03  -0.970
-## TVONWD1SixTo10Hrs:TVTYPE1Plasma      -6.882e+02  1.886e+03  -0.365
-## TVONWD1Gr10:TVTYPE1Plasma             8.478e+02  1.928e+03   0.440
-## TVONWD1LessHour:TVTYPE1Projection    -2.217e+03  2.277e+03  -0.974
-## TVONWD1OneTo3Hrs:TVTYPE1Projection   -1.341e+03  1.921e+03  -0.698
-## TVONWD1ThreeTo6Hrs:TVTYPE1Projection -1.974e+03  1.882e+03  -1.048
-## TVONWD1SixTo10Hrs:TVTYPE1Projection  -1.001e+03  1.911e+03  -0.524
-## TVONWD1Gr10:TVTYPE1Projection         1.703e+03  1.996e+03   0.854
-## TVONWD1LessHour:TVTYPE1LED           -4.947e+03  3.078e+03  -1.607
-## TVONWD1OneTo3Hrs:TVTYPE1LED          -1.472e+03  2.074e+03  -0.710
-## TVONWD1ThreeTo6Hrs:TVTYPE1LED        -1.455e+03  1.998e+03  -0.728
-## TVONWD1SixTo10Hrs:TVTYPE1LED         -2.795e+03  2.358e+03  -1.186
+## TVONWD1LessHour:TVTYPE1Standard      -3.494e+03  1.872e+03  -1.866
+## TVONWD1OneTo3Hrs:TVTYPE1Standard     -3.221e+03  1.848e+03  -1.743
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   -2.479e+03  1.845e+03  -1.343
+## TVONWD1SixTo10Hrs:TVTYPE1Standard    -1.704e+03  1.851e+03  -0.921
+## TVONWD1Gr10:TVTYPE1Standard          -8.994e+02  1.859e+03  -0.484
+## TVONWD1LessHour:TVTYPE1LCD           -3.158e+03  1.881e+03  -1.678
+## TVONWD1OneTo3Hrs:TVTYPE1LCD          -2.433e+03  1.846e+03  -1.318
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        -1.909e+03  1.844e+03  -1.036
+## TVONWD1SixTo10Hrs:TVTYPE1LCD         -1.469e+03  1.850e+03  -0.794
+## TVONWD1Gr10:TVTYPE1LCD               -5.140e+02  1.858e+03  -0.277
+## TVONWD1LessHour:TVTYPE1Plasma        -1.655e+03  2.056e+03  -0.805
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma       -1.578e+03  1.874e+03  -0.842
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     -1.867e+03  1.861e+03  -1.004
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma      -7.531e+02  1.885e+03  -0.399
+## TVONWD1Gr10:TVTYPE1Plasma             7.874e+02  1.927e+03   0.409
+## TVONWD1LessHour:TVTYPE1Projection    -2.300e+03  2.276e+03  -1.011
+## TVONWD1OneTo3Hrs:TVTYPE1Projection   -1.411e+03  1.920e+03  -0.735
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection -2.023e+03  1.882e+03  -1.075
+## TVONWD1SixTo10Hrs:TVTYPE1Projection  -1.055e+03  1.910e+03  -0.552
+## TVONWD1Gr10:TVTYPE1Projection         1.654e+03  1.995e+03   0.829
+## TVONWD1LessHour:TVTYPE1LED           -4.975e+03  3.078e+03  -1.617
+## TVONWD1OneTo3Hrs:TVTYPE1LED          -1.544e+03  2.074e+03  -0.745
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED        -1.520e+03  1.998e+03  -0.761
+## TVONWD1SixTo10Hrs:TVTYPE1LED         -2.873e+03  2.357e+03  -1.219
 ## TVONWD1Gr10:TVTYPE1LED                       NA         NA      NA
+## TOTSQFT_EN:TYPEGLASSDoublePane        9.959e-02  5.184e-02   1.921
+## TOTSQFT_EN:TYPEGLASSTriplePane        2.311e-01  1.489e-01   1.553
 ##                                      Pr(>|t|)    
-## (Intercept)                          0.484548    
-## Householder_RaceAfAm                 4.64e-06 ***
-## Householder_RaceNativeAm             0.521348    
-## Householder_RaceAsian                5.32e-07 ***
-## Householder_RacePacific              0.018157 *  
-## Householder_RaceOther                0.283318    
-## Householder_RaceMulti                0.486166    
-## ElecMealsThreeDay                    9.20e-07 ***
+## (Intercept)                          0.440089    
+## Householder_RaceAfAm                 4.79e-06 ***
+## Householder_RaceNativeAm             0.522841    
+## Householder_RaceAsian                3.96e-07 ***
+## Householder_RacePacific              0.018394 *  
+## Householder_RaceOther                0.292002    
+## Householder_RaceMulti                0.490373    
+## ElecMealsThreeDay                    7.35e-07 ***
 ## ElecMealsTwoDay                       < 2e-16 ***
 ## ElecMealsOneDay                       < 2e-16 ***
-## ElecMealsFewWeek                     2.66e-07 ***
-## ElecMealsOneWeek                     0.015670 *  
-## ElecMealsLessWeek                    0.726387    
+## ElecMealsFewWeek                     2.07e-07 ***
+## ElecMealsOneWeek                     0.015355 *  
+## ElecMealsLessWeek                    0.696892    
 ## NUMFRIG                               < 2e-16 ***
-## AgeFridge2to4Years                   0.472164    
-## AgeFridge5to9Years                   0.116368    
-## AgeFridge20PlusYears                 0.445963    
-## AgeFridge10to14Years                 0.144512    
-## AgeFridge15to19Years                 0.431681    
+## AgeFridge2to4Years                   0.457439    
+## AgeFridge5to9Years                   0.110350    
+## AgeFridge20PlusYears                 0.452627    
+## AgeFridge10to14Years                 0.138767    
+## AgeFridge15to19Years                 0.452045    
 ## NUMPC                                 < 2e-16 ***
-## TIMEON1OneTo3Hrs                     0.574629    
-## TIMEON1ThreeTo6Hrs                   0.120483    
-## TIMEON1SixTo10Hrs                    0.182549    
-## TIMEON1Gr10                          2.79e-07 ***
-## WELLPUMPTRUE                         3.96e-08 ***
+## TIMEON1OneTo3Hrs                     0.576050    
+## TIMEON1ThreeTo6Hrs                   0.119120    
+## TIMEON1SixTo10Hrs                    0.174652    
+## TIMEON1Gr10                          2.96e-07 ***
+## WELLPUMPTRUE                         4.06e-08 ***
 ## ElecWaterSmall                        < 2e-16 ***
 ## ElecWaterMed                          < 2e-16 ***
 ## ElecWaterLrg                          < 2e-16 ***
-## ElecWaterTankless                    0.000421 ***
+## ElecWaterTankless                    0.000439 ***
 ## SWIMPOOLTRUE                          < 2e-16 ***
-## ElecPoolTRUE                         2.94e-10 ***
-## RECBATHTRUE                          0.034387 *  
-## ElecTubTRUE                          0.009547 ** 
-## TYPEGLASSDoublePane                  0.296080    
-## TYPEGLASSTriplePane                  0.102823    
-## TOTSQFT_EN:HDD65                      < 2e-16 ***
+## ElecPoolTRUE                         2.35e-10 ***
+## RECBATHTRUE                          0.043334 *  
+## ElecTubTRUE                          0.007862 ** 
+## TOTSQFT_EN:HDD65                     9.33e-14 ***
 ## TOTSQFT_EN:CDD65                      < 2e-16 ***
 ## KOWNRENTOwn:TYPEHUQMobile             < 2e-16 ***
-## KOWNRENTRent:TYPEHUQMobile           1.94e-12 ***
+## KOWNRENTRent:TYPEHUQMobile           1.98e-12 ***
 ## KOWNRENTOwn:TYPEHUQSFDetached         < 2e-16 ***
 ## KOWNRENTRent:TYPEHUQSFDetached        < 2e-16 ***
-## KOWNRENTOwn:TYPEHUQSFAttached        0.000128 ***
-## KOWNRENTRent:TYPEHUQSFAttached       3.99e-08 ***
-## KOWNRENTOwn:TYPEHUQSmApartment       0.035220 *  
-## KOWNRENTRent:TYPEHUQSmApartment      0.067252 .  
-## KOWNRENTOwn:TYPEHUQLgApartment       0.164404    
+## KOWNRENTOwn:TYPEHUQSFAttached        0.000104 ***
+## KOWNRENTRent:TYPEHUQSFAttached       3.20e-08 ***
+## KOWNRENTOwn:TYPEHUQSmApartment       0.030970 *  
+## KOWNRENTRent:TYPEHUQSmApartment      0.064329 .  
+## KOWNRENTOwn:TYPEHUQLgApartment       0.173387    
 ## KOWNRENTRent:TYPEHUQLgApartment            NA    
-## TVONWD1LessHour:TVTYPE1Standard      0.065989 .  
-## TVONWD1OneTo3Hrs:TVTYPE1Standard     0.087012 .  
-## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   0.189230    
-## TVONWD1SixTo10Hrs:TVTYPE1Standard    0.370192    
-## TVONWD1Gr10:TVTYPE1Standard          0.643375    
-## TVONWD1LessHour:TVTYPE1LCD           0.099332 .  
-## TVONWD1OneTo3Hrs:TVTYPE1LCD          0.198798    
-## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        0.315606    
-## TVONWD1SixTo10Hrs:TVTYPE1LCD         0.444430    
-## TVONWD1Gr10:TVTYPE1LCD               0.803979    
-## TVONWD1LessHour:TVTYPE1Plasma        0.448823    
-## TVONWD1OneTo3Hrs:TVTYPE1Plasma       0.420939    
-## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     0.332218    
-## TVONWD1SixTo10Hrs:TVTYPE1Plasma      0.715199    
-## TVONWD1Gr10:TVTYPE1Plasma            0.660115    
-## TVONWD1LessHour:TVTYPE1Projection    0.330197    
-## TVONWD1OneTo3Hrs:TVTYPE1Projection   0.485207    
-## TVONWD1ThreeTo6Hrs:TVTYPE1Projection 0.294460    
-## TVONWD1SixTo10Hrs:TVTYPE1Projection  0.600376    
-## TVONWD1Gr10:TVTYPE1Projection        0.393370    
-## TVONWD1LessHour:TVTYPE1LED           0.108050    
-## TVONWD1OneTo3Hrs:TVTYPE1LED          0.477697    
-## TVONWD1ThreeTo6Hrs:TVTYPE1LED        0.466464    
-## TVONWD1SixTo10Hrs:TVTYPE1LED         0.235812    
+## TVONWD1LessHour:TVTYPE1Standard      0.062048 .  
+## TVONWD1OneTo3Hrs:TVTYPE1Standard     0.081423 .  
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   0.179179    
+## TVONWD1SixTo10Hrs:TVTYPE1Standard    0.357286    
+## TVONWD1Gr10:TVTYPE1Standard          0.628468    
+## TVONWD1LessHour:TVTYPE1LCD           0.093288 .  
+## TVONWD1OneTo3Hrs:TVTYPE1LCD          0.187578    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        0.300384    
+## TVONWD1SixTo10Hrs:TVTYPE1LCD         0.427035    
+## TVONWD1Gr10:TVTYPE1LCD               0.782111    
+## TVONWD1LessHour:TVTYPE1Plasma        0.420937    
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma       0.399935    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     0.315545    
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma      0.689584    
+## TVONWD1Gr10:TVTYPE1Plasma            0.682882    
+## TVONWD1LessHour:TVTYPE1Projection    0.312255    
+## TVONWD1OneTo3Hrs:TVTYPE1Projection   0.462456    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection 0.282355    
+## TVONWD1SixTo10Hrs:TVTYPE1Projection  0.580887    
+## TVONWD1Gr10:TVTYPE1Projection        0.407118    
+## TVONWD1LessHour:TVTYPE1LED           0.106001    
+## TVONWD1OneTo3Hrs:TVTYPE1LED          0.456546    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED        0.446774    
+## TVONWD1SixTo10Hrs:TVTYPE1LED         0.222873    
 ## TVONWD1Gr10:TVTYPE1LED                     NA    
+## TOTSQFT_EN:TYPEGLASSDoublePane       0.054771 .  
+## TOTSQFT_EN:TYPEGLASSTriplePane       0.120552    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 5503 on 9116 degrees of freedom
+## Residual standard error: 5502 on 9116 degrees of freedom
 ##   (2719 observations deleted due to missingness)
-## Multiple R-squared:  0.4952,	Adjusted R-squared:  0.4914 
-## F-statistic: 129.6 on 69 and 9116 DF,  p-value: < 2.2e-16
+## Multiple R-squared:  0.4953,	Adjusted R-squared:  0.4915 
+## F-statistic: 129.7 on 69 and 9116 DF,  p-value: < 2.2e-16
 ```
 
 People for the plug loads
@@ -2218,7 +2218,7 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
            + ElecWater
            + SWIMPOOL + ElecPool
            + RECBATH +ElecTub
-           + TYPEGLASS
+           + TYPEGLASS:TOTSQFT_EN
            + NHSLDMEM, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
 ```
 
@@ -2228,162 +2228,162 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
 ## lm(formula = KWH ~ TOTSQFT_EN:HDD65 + TOTSQFT_EN:CDD65 + Householder_Race + 
 ##     KOWNRENT:TYPEHUQ + ElecMeals + NUMFRIG + AgeFridge + TVONWD1:TVTYPE1 + 
 ##     NUMPC + TIMEON1 + WELLPUMP + ElecWater + SWIMPOOL + ElecPool + 
-##     RECBATH + ElecTub + TYPEGLASS + NHSLDMEM, data = RECS[RECS$KOWNRENT != 
+##     RECBATH + ElecTub + TYPEGLASS:TOTSQFT_EN + NHSLDMEM, data = RECS[RECS$KOWNRENT != 
 ##     "Free" & RECS$NWEIGHT < 40000 & RECS$NUMFRIG < 5, ])
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-## -27105  -3096   -522   2241  48596 
+## -26171  -3107   -520   2230  48399 
 ## 
 ## Coefficients: (2 not defined because of singularities)
 ##                                        Estimate Std. Error t value
-## (Intercept)                          -2.649e+02  1.832e+03  -0.145
-## Householder_RaceAfAm                  6.847e+02  1.863e+02   3.675
-## Householder_RaceNativeAm              1.953e+02  6.234e+02   0.313
-## Householder_RaceAsian                -1.874e+03  2.892e+02  -6.479
-## Householder_RacePacific              -2.793e+03  9.585e+02  -2.914
-## Householder_RaceOther                -1.121e+03  4.389e+02  -2.555
-## Householder_RaceMulti                -3.828e+02  4.771e+02  -0.802
-## ElecMealsThreeDay                     1.158e+03  2.923e+02   3.961
-## ElecMealsTwoDay                       1.629e+03  1.823e+02   8.939
-## ElecMealsOneDay                       1.550e+03  1.577e+02   9.832
-## ElecMealsFewWeek                      1.333e+03  1.823e+02   7.310
-## ElecMealsOneWeek                      1.651e+03  4.176e+02   3.953
-## ElecMealsLessWeek                     8.603e+02  4.415e+02   1.949
-## NUMFRIG                               1.643e+03  1.184e+02  13.879
-## AgeFridge2to4Years                    1.150e+02  1.923e+02   0.598
-## AgeFridge5to9Years                    3.617e+02  1.815e+02   1.993
-## AgeFridge20PlusYears                  1.215e+02  3.309e+02   0.367
-## AgeFridge10to14Years                  4.672e+02  2.064e+02   2.263
-## AgeFridge15to19Years                  1.277e+01  2.807e+02   0.045
-## NUMPC                                 3.797e+02  6.098e+01   6.227
-## TIMEON1OneTo3Hrs                     -5.506e+01  1.625e+02  -0.339
-## TIMEON1ThreeTo6Hrs                    5.783e+01  1.870e+02   0.309
-## TIMEON1SixTo10Hrs                     1.715e+02  2.369e+02   0.724
-## TIMEON1Gr10                           9.574e+02  2.135e+02   4.483
-## WELLPUMPTRUE                          1.147e+03  1.863e+02   6.157
-## ElecWaterSmall                        4.222e+03  2.642e+02  15.980
-## ElecWaterMed                          4.505e+03  1.626e+02  27.714
-## ElecWaterLrg                          5.791e+03  1.897e+02  30.523
-## ElecWaterTankless                     2.707e+03  7.421e+02   3.648
-## SWIMPOOLTRUE                          3.088e+03  2.204e+02  14.014
-## ElecPoolTRUE                          5.162e+03  7.607e+02   6.786
-## RECBATHTRUE                           1.179e+03  4.226e+02   2.789
-## ElecTubTRUE                           1.195e+03  4.835e+02   2.472
-## TYPEGLASSDoublePane                   1.606e+02  1.241e+02   1.294
-## TYPEGLASSTriplePane                   9.425e+02  4.845e+02   1.945
-## NHSLDMEM                              8.289e+02  4.190e+01  19.782
-## TOTSQFT_EN:HDD65                      7.299e-05  7.262e-06  10.051
-## TOTSQFT_EN:CDD65                      7.914e-04  2.237e-05  35.373
-## KOWNRENTOwn:TYPEHUQMobile             4.118e+03  3.897e+02  10.567
-## KOWNRENTRent:TYPEHUQMobile            5.358e+03  8.452e+02   6.340
-## KOWNRENTOwn:TYPEHUQSFDetached         2.822e+03  2.069e+02  13.637
-## KOWNRENTRent:TYPEHUQSFDetached        1.906e+03  2.784e+02   6.848
-## KOWNRENTOwn:TYPEHUQSFAttached         1.185e+03  3.184e+02   3.721
-## KOWNRENTRent:TYPEHUQSFAttached        1.594e+03  3.666e+02   4.348
-## KOWNRENTOwn:TYPEHUQSmApartment        1.189e+03  5.331e+02   2.231
-## KOWNRENTRent:TYPEHUQSmApartment       3.625e+02  2.981e+02   1.216
-## KOWNRENTOwn:TYPEHUQLgApartment       -2.837e+02  4.445e+02  -0.638
+## (Intercept)                          -1.067e+02  1.831e+03  -0.058
+## Householder_RaceAfAm                  6.828e+02  1.863e+02   3.665
+## Householder_RaceNativeAm              1.912e+02  6.233e+02   0.307
+## Householder_RaceAsian                -1.891e+03  2.892e+02  -6.540
+## Householder_RacePacific              -2.788e+03  9.582e+02  -2.910
+## Householder_RaceOther                -1.113e+03  4.389e+02  -2.535
+## Householder_RaceMulti                -3.805e+02  4.771e+02  -0.798
+## ElecMealsThreeDay                     1.172e+03  2.923e+02   4.008
+## ElecMealsTwoDay                       1.644e+03  1.822e+02   9.022
+## ElecMealsOneDay                       1.563e+03  1.577e+02   9.914
+## ElecMealsFewWeek                      1.342e+03  1.823e+02   7.360
+## ElecMealsOneWeek                      1.654e+03  4.176e+02   3.962
+## ElecMealsLessWeek                     8.809e+02  4.413e+02   1.996
+## NUMFRIG                               1.634e+03  1.185e+02  13.792
+## AgeFridge2to4Years                    1.202e+02  1.923e+02   0.625
+## AgeFridge5to9Years                    3.670e+02  1.815e+02   2.022
+## AgeFridge20PlusYears                  1.236e+02  3.308e+02   0.374
+## AgeFridge10to14Years                  4.708e+02  2.064e+02   2.280
+## AgeFridge15to19Years                  2.247e+01  2.807e+02   0.080
+## NUMPC                                 3.783e+02  6.098e+01   6.204
+## TIMEON1OneTo3Hrs                     -5.532e+01  1.625e+02  -0.341
+## TIMEON1ThreeTo6Hrs                    5.894e+01  1.870e+02   0.315
+## TIMEON1SixTo10Hrs                     1.771e+02  2.368e+02   0.748
+## TIMEON1Gr10                           9.546e+02  2.135e+02   4.471
+## WELLPUMPTRUE                          1.147e+03  1.862e+02   6.159
+## ElecWaterSmall                        4.217e+03  2.640e+02  15.976
+## ElecWaterMed                          4.505e+03  1.625e+02  27.717
+## ElecWaterLrg                          5.788e+03  1.897e+02  30.512
+## ElecWaterTankless                     2.699e+03  7.421e+02   3.638
+## SWIMPOOLTRUE                          3.081e+03  2.204e+02  13.979
+## ElecPoolTRUE                          5.189e+03  7.608e+02   6.820
+## RECBATHTRUE                           1.142e+03  4.234e+02   2.697
+## ElecTubTRUE                           1.228e+03  4.841e+02   2.537
+## NHSLDMEM                              8.278e+02  4.189e+01  19.759
+## TOTSQFT_EN:HDD65                      6.268e-05  9.230e-06   6.790
+## TOTSQFT_EN:CDD65                      7.736e-04  2.345e-05  32.994
+## KOWNRENTOwn:TYPEHUQMobile             4.124e+03  3.897e+02  10.583
+## KOWNRENTRent:TYPEHUQMobile            5.349e+03  8.449e+02   6.331
+## KOWNRENTOwn:TYPEHUQSFDetached         2.842e+03  2.063e+02  13.779
+## KOWNRENTRent:TYPEHUQSFDetached        1.922e+03  2.786e+02   6.900
+## KOWNRENTOwn:TYPEHUQSFAttached         1.204e+03  3.177e+02   3.791
+## KOWNRENTRent:TYPEHUQSFAttached        1.609e+03  3.666e+02   4.390
+## KOWNRENTOwn:TYPEHUQSmApartment        1.221e+03  5.330e+02   2.290
+## KOWNRENTRent:TYPEHUQSmApartment       3.683e+02  2.981e+02   1.236
+## KOWNRENTOwn:TYPEHUQLgApartment       -2.680e+02  4.444e+02  -0.603
 ## KOWNRENTRent:TYPEHUQLgApartment              NA         NA      NA
-## TVONWD1LessHour:TVTYPE1Standard      -2.847e+03  1.834e+03  -1.552
-## TVONWD1OneTo3Hrs:TVTYPE1Standard     -2.864e+03  1.810e+03  -1.582
-## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   -2.263e+03  1.807e+03  -1.252
-## TVONWD1SixTo10Hrs:TVTYPE1Standard    -1.533e+03  1.813e+03  -0.846
-## TVONWD1Gr10:TVTYPE1Standard          -9.000e+02  1.820e+03  -0.494
-## TVONWD1LessHour:TVTYPE1LCD           -2.485e+03  1.843e+03  -1.348
-## TVONWD1OneTo3Hrs:TVTYPE1LCD          -2.087e+03  1.808e+03  -1.154
-## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        -1.643e+03  1.806e+03  -0.910
-## TVONWD1SixTo10Hrs:TVTYPE1LCD         -1.328e+03  1.812e+03  -0.733
-## TVONWD1Gr10:TVTYPE1LCD               -3.420e+02  1.820e+03  -0.188
-## TVONWD1LessHour:TVTYPE1Plasma        -8.774e+02  2.014e+03  -0.436
-## TVONWD1OneTo3Hrs:TVTYPE1Plasma       -1.236e+03  1.836e+03  -0.673
-## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     -1.712e+03  1.822e+03  -0.939
-## TVONWD1SixTo10Hrs:TVTYPE1Plasma      -7.813e+02  1.847e+03  -0.423
-## TVONWD1Gr10:TVTYPE1Plasma             5.940e+02  1.888e+03   0.315
-## TVONWD1LessHour:TVTYPE1Projection    -1.567e+03  2.230e+03  -0.703
-## TVONWD1OneTo3Hrs:TVTYPE1Projection   -1.054e+03  1.881e+03  -0.560
-## TVONWD1ThreeTo6Hrs:TVTYPE1Projection -1.745e+03  1.843e+03  -0.947
-## TVONWD1SixTo10Hrs:TVTYPE1Projection  -8.718e+02  1.871e+03  -0.466
-## TVONWD1Gr10:TVTYPE1Projection         1.565e+03  1.954e+03   0.801
-## TVONWD1LessHour:TVTYPE1LED           -5.155e+03  3.014e+03  -1.710
-## TVONWD1OneTo3Hrs:TVTYPE1LED          -1.094e+03  2.031e+03  -0.539
-## TVONWD1ThreeTo6Hrs:TVTYPE1LED        -9.115e+02  1.957e+03  -0.466
-## TVONWD1SixTo10Hrs:TVTYPE1LED         -2.747e+03  2.309e+03  -1.190
+## TVONWD1LessHour:TVTYPE1Standard      -2.906e+03  1.834e+03  -1.585
+## TVONWD1OneTo3Hrs:TVTYPE1Standard     -2.931e+03  1.810e+03  -1.619
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   -2.327e+03  1.807e+03  -1.288
+## TVONWD1SixTo10Hrs:TVTYPE1Standard    -1.587e+03  1.813e+03  -0.875
+## TVONWD1Gr10:TVTYPE1Standard          -9.458e+02  1.820e+03  -0.520
+## TVONWD1LessHour:TVTYPE1LCD           -2.547e+03  1.843e+03  -1.382
+## TVONWD1OneTo3Hrs:TVTYPE1LCD          -2.154e+03  1.808e+03  -1.191
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        -1.709e+03  1.805e+03  -0.946
+## TVONWD1SixTo10Hrs:TVTYPE1LCD         -1.390e+03  1.812e+03  -0.767
+## TVONWD1Gr10:TVTYPE1LCD               -4.015e+02  1.820e+03  -0.221
+## TVONWD1LessHour:TVTYPE1Plasma        -9.818e+02  2.014e+03  -0.487
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma       -1.311e+03  1.836e+03  -0.714
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     -1.782e+03  1.822e+03  -0.978
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma      -8.562e+02  1.846e+03  -0.464
+## TVONWD1Gr10:TVTYPE1Plasma             5.278e+02  1.888e+03   0.280
+## TVONWD1LessHour:TVTYPE1Projection    -1.661e+03  2.229e+03  -0.745
+## TVONWD1OneTo3Hrs:TVTYPE1Projection   -1.132e+03  1.880e+03  -0.602
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection -1.803e+03  1.843e+03  -0.978
+## TVONWD1SixTo10Hrs:TVTYPE1Projection  -9.352e+02  1.871e+03  -0.500
+## TVONWD1Gr10:TVTYPE1Projection         1.504e+03  1.954e+03   0.770
+## TVONWD1LessHour:TVTYPE1LED           -5.191e+03  3.014e+03  -1.722
+## TVONWD1OneTo3Hrs:TVTYPE1LED          -1.171e+03  2.031e+03  -0.577
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED        -9.815e+02  1.956e+03  -0.502
+## TVONWD1SixTo10Hrs:TVTYPE1LED         -2.828e+03  2.308e+03  -1.225
 ## TVONWD1Gr10:TVTYPE1LED                       NA         NA      NA
+## TOTSQFT_EN:TYPEGLASSDoublePane        1.011e-01  5.077e-02   1.991
+## TOTSQFT_EN:TYPEGLASSTriplePane        2.490e-01  1.458e-01   1.708
 ##                                      Pr(>|t|)    
-## (Intercept)                          0.885062    
-## Householder_RaceAfAm                 0.000239 ***
-## Householder_RaceNativeAm             0.754099    
-## Householder_RaceAsian                9.73e-11 ***
-## Householder_RacePacific              0.003577 ** 
-## Householder_RaceOther                0.010649 *  
-## Householder_RaceMulti                0.422305    
-## ElecMealsThreeDay                    7.51e-05 ***
+## (Intercept)                          0.953546    
+## Householder_RaceAfAm                 0.000249 ***
+## Householder_RaceNativeAm             0.759057    
+## Householder_RaceAsian                6.49e-11 ***
+## Householder_RacePacific              0.003624 ** 
+## Householder_RaceOther                0.011256 *  
+## Householder_RaceMulti                0.425131    
+## ElecMealsThreeDay                    6.18e-05 ***
 ## ElecMealsTwoDay                       < 2e-16 ***
 ## ElecMealsOneDay                       < 2e-16 ***
-## ElecMealsFewWeek                     2.90e-13 ***
-## ElecMealsOneWeek                     7.79e-05 ***
-## ElecMealsLessWeek                    0.051364 .  
+## ElecMealsFewWeek                     1.99e-13 ***
+## ElecMealsOneWeek                     7.49e-05 ***
+## ElecMealsLessWeek                    0.045933 *  
 ## NUMFRIG                               < 2e-16 ***
-## AgeFridge2to4Years                   0.549626    
-## AgeFridge5to9Years                   0.046244 *  
-## AgeFridge20PlusYears                 0.713510    
-## AgeFridge10to14Years                 0.023636 *  
-## AgeFridge15to19Years                 0.963727    
-## NUMPC                                4.98e-10 ***
-## TIMEON1OneTo3Hrs                     0.734658    
-## TIMEON1ThreeTo6Hrs                   0.757172    
-## TIMEON1SixTo10Hrs                    0.469004    
-## TIMEON1Gr10                          7.44e-06 ***
-## WELLPUMPTRUE                         7.74e-10 ***
+## AgeFridge2to4Years                   0.531917    
+## AgeFridge5to9Years                   0.043170 *  
+## AgeFridge20PlusYears                 0.708657    
+## AgeFridge10to14Years                 0.022607 *  
+## AgeFridge15to19Years                 0.936207    
+## NUMPC                                5.75e-10 ***
+## TIMEON1OneTo3Hrs                     0.733468    
+## TIMEON1ThreeTo6Hrs                   0.752645    
+## TIMEON1SixTo10Hrs                    0.454682    
+## TIMEON1Gr10                          7.89e-06 ***
+## WELLPUMPTRUE                         7.64e-10 ***
 ## ElecWaterSmall                        < 2e-16 ***
 ## ElecWaterMed                          < 2e-16 ***
 ## ElecWaterLrg                          < 2e-16 ***
-## ElecWaterTankless                    0.000266 ***
+## ElecWaterTankless                    0.000277 ***
 ## SWIMPOOLTRUE                          < 2e-16 ***
-## ElecPoolTRUE                         1.23e-11 ***
-## RECBATHTRUE                          0.005297 ** 
-## ElecTubTRUE                          0.013444 *  
-## TYPEGLASSDoublePane                  0.195596    
-## TYPEGLASSTriplePane                  0.051771 .  
+## ElecPoolTRUE                         9.66e-12 ***
+## RECBATHTRUE                          0.007015 ** 
+## ElecTubTRUE                          0.011193 *  
 ## NHSLDMEM                              < 2e-16 ***
-## TOTSQFT_EN:HDD65                      < 2e-16 ***
+## TOTSQFT_EN:HDD65                     1.19e-11 ***
 ## TOTSQFT_EN:CDD65                      < 2e-16 ***
 ## KOWNRENTOwn:TYPEHUQMobile             < 2e-16 ***
-## KOWNRENTRent:TYPEHUQMobile           2.41e-10 ***
+## KOWNRENTRent:TYPEHUQMobile           2.56e-10 ***
 ## KOWNRENTOwn:TYPEHUQSFDetached         < 2e-16 ***
-## KOWNRENTRent:TYPEHUQSFDetached       7.97e-12 ***
-## KOWNRENTOwn:TYPEHUQSFAttached        0.000200 ***
-## KOWNRENTRent:TYPEHUQSFAttached       1.39e-05 ***
-## KOWNRENTOwn:TYPEHUQSmApartment       0.025694 *  
-## KOWNRENTRent:TYPEHUQSmApartment      0.223954    
-## KOWNRENTOwn:TYPEHUQLgApartment       0.523289    
+## KOWNRENTRent:TYPEHUQSFDetached       5.55e-12 ***
+## KOWNRENTOwn:TYPEHUQSFAttached        0.000151 ***
+## KOWNRENTRent:TYPEHUQSFAttached       1.15e-05 ***
+## KOWNRENTOwn:TYPEHUQSmApartment       0.022037 *  
+## KOWNRENTRent:TYPEHUQSmApartment      0.216596    
+## KOWNRENTOwn:TYPEHUQLgApartment       0.546530    
 ## KOWNRENTRent:TYPEHUQLgApartment            NA    
-## TVONWD1LessHour:TVTYPE1Standard      0.120703    
-## TVONWD1OneTo3Hrs:TVTYPE1Standard     0.113640    
-## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   0.210557    
-## TVONWD1SixTo10Hrs:TVTYPE1Standard    0.397828    
-## TVONWD1Gr10:TVTYPE1Standard          0.621029    
-## TVONWD1LessHour:TVTYPE1LCD           0.177691    
-## TVONWD1OneTo3Hrs:TVTYPE1LCD          0.248487    
-## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        0.363089    
-## TVONWD1SixTo10Hrs:TVTYPE1LCD         0.463549    
-## TVONWD1Gr10:TVTYPE1LCD               0.850993    
-## TVONWD1LessHour:TVTYPE1Plasma        0.663173    
-## TVONWD1OneTo3Hrs:TVTYPE1Plasma       0.500734    
-## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     0.347540    
-## TVONWD1SixTo10Hrs:TVTYPE1Plasma      0.672285    
-## TVONWD1Gr10:TVTYPE1Plasma            0.753050    
-## TVONWD1LessHour:TVTYPE1Projection    0.482108    
-## TVONWD1OneTo3Hrs:TVTYPE1Projection   0.575291    
-## TVONWD1ThreeTo6Hrs:TVTYPE1Projection 0.343747    
-## TVONWD1SixTo10Hrs:TVTYPE1Projection  0.641317    
-## TVONWD1Gr10:TVTYPE1Projection        0.423299    
-## TVONWD1LessHour:TVTYPE1LED           0.087276 .  
-## TVONWD1OneTo3Hrs:TVTYPE1LED          0.589981    
-## TVONWD1ThreeTo6Hrs:TVTYPE1LED        0.641356    
-## TVONWD1SixTo10Hrs:TVTYPE1LED         0.234170    
+## TVONWD1LessHour:TVTYPE1Standard      0.112996    
+## TVONWD1OneTo3Hrs:TVTYPE1Standard     0.105390    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard   0.197781    
+## TVONWD1SixTo10Hrs:TVTYPE1Standard    0.381510    
+## TVONWD1Gr10:TVTYPE1Standard          0.603313    
+## TVONWD1LessHour:TVTYPE1LCD           0.166998    
+## TVONWD1OneTo3Hrs:TVTYPE1LCD          0.233567    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD        0.343990    
+## TVONWD1SixTo10Hrs:TVTYPE1LCD         0.442958    
+## TVONWD1Gr10:TVTYPE1LCD               0.825391    
+## TVONWD1LessHour:TVTYPE1Plasma        0.625935    
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma       0.475018    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma     0.327980    
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma      0.642852    
+## TVONWD1Gr10:TVTYPE1Plasma            0.779793    
+## TVONWD1LessHour:TVTYPE1Projection    0.456145    
+## TVONWD1OneTo3Hrs:TVTYPE1Projection   0.547354    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection 0.327911    
+## TVONWD1SixTo10Hrs:TVTYPE1Projection  0.617169    
+## TVONWD1Gr10:TVTYPE1Projection        0.441455    
+## TVONWD1LessHour:TVTYPE1LED           0.085075 .  
+## TVONWD1OneTo3Hrs:TVTYPE1LED          0.564071    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED        0.615888    
+## TVONWD1SixTo10Hrs:TVTYPE1LED         0.220549    
 ## TVONWD1Gr10:TVTYPE1LED                     NA    
+## TOTSQFT_EN:TYPEGLASSDoublePane       0.046539 *  
+## TOTSQFT_EN:TYPEGLASSTriplePane       0.087721 .  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
@@ -2393,8 +2393,484 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
 ## F-statistic: 138.8 on 70 and 9115 DF,  p-value: < 2.2e-16
 ```
 
-Need to add income and all the heating and cooling things, ethnicity and structure type/ own rent.
+Time for income.  Need to convert this to a real value from the categories and blending this in with the race and ethnicity.
 
+
+```r
+summary(RECS$MONEYPY)
+```
+
+```
+## Less2500   Less5K Less7500  Less10K  Less15K  Less20K  Less25K  Less30K 
+##      310      152      176      328      686      602      746      755 
+##  Less35K  Less40K  Less45K  Less50K  Less55K   Less60   Less65   Less70 
+##      698      671      622      787      526      374      450      406 
+##   Less75   Less80   Less85   Less90   Less95 Less100K Less120K   Gr120K 
+##      393      302      289      287      231      250      653     1389
+```
+
+```r
+library(plyr)
+IncomeTopCode<-150000
+
+RECS$Income<-as.numeric(as.character(revalue(RECS$MONEYPY,c("Less2500"=1250, "Less5K"=3750, "Less7500"=6250,"Less10K"=8750,"Less15K"=12500,"Less20K"=17500,"Less25K"=22500,"Less30K"=27500, "Less35K"=32500,"Less40K"=37500,"Less45K"=42500,"Less50K"=47500,"Less55K"=52500,"Less60"=57500,"Less65"=62500,"Less70"=67500,"Less75"=72500,"Less80"=77500, "Less85"=82500, "Less90"=87500,"Less95"=92500,"Less100K"=97500,"Less120K"=110000,"Gr120K"=IncomeTopCode))))
+
+#Setting left out to wt non-hispanic
+RECS$Householder_Race<-relevel(RECS$Householder_Race,"Wt")
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income:Hispanic+Householder_Race:Hispanic:Income, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+```
+## 
+## Call:
+## lm(formula = KWH ~ TOTSQFT_EN:HDD65 + TOTSQFT_EN:CDD65 + KOWNRENT:TYPEHUQ + 
+##     ElecMeals + NUMFRIG + AgeFridge + TVONWD1:TVTYPE1 + NUMPC + 
+##     TIMEON1 + WELLPUMP + ElecWater + SWIMPOOL + ElecPool + RECBATH + 
+##     ElecTub + TYPEGLASS:TOTSQFT_EN + NHSLDMEM + Income:Hispanic + 
+##     Householder_Race:Hispanic:Income, data = RECS[RECS$KOWNRENT != 
+##     "Free" & RECS$NWEIGHT < 40000 & RECS$NUMFRIG < 5, ])
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -26557  -3111   -554   2232  48298 
+## 
+## Coefficients: (2 not defined because of singularities)
+##                                                 Estimate Std. Error
+## (Intercept)                                   -2.190e+02  1.827e+03
+## ElecMealsThreeDay                              1.132e+03  2.919e+02
+## ElecMealsTwoDay                                1.585e+03  1.824e+02
+## ElecMealsOneDay                                1.461e+03  1.577e+02
+## ElecMealsFewWeek                               1.276e+03  1.822e+02
+## ElecMealsOneWeek                               1.643e+03  4.170e+02
+## ElecMealsLessWeek                              9.176e+02  4.406e+02
+## NUMFRIG                                        1.552e+03  1.187e+02
+## AgeFridge2to4Years                             1.274e+02  1.920e+02
+## AgeFridge5to9Years                             3.336e+02  1.812e+02
+## AgeFridge20PlusYears                           7.431e+01  3.303e+02
+## AgeFridge10to14Years                           4.399e+02  2.063e+02
+## AgeFridge15to19Years                          -2.612e+01  2.802e+02
+## NUMPC                                          3.287e+02  6.204e+01
+## TIMEON1OneTo3Hrs                              -8.519e+01  1.623e+02
+## TIMEON1ThreeTo6Hrs                             2.038e+01  1.867e+02
+## TIMEON1SixTo10Hrs                              1.278e+02  2.366e+02
+## TIMEON1Gr10                                    8.141e+02  2.137e+02
+## WELLPUMPTRUE                                   1.119e+03  1.859e+02
+## ElecWaterSmall                                 4.302e+03  2.636e+02
+## ElecWaterMed                                   4.596e+03  1.625e+02
+## ElecWaterLrg                                   5.830e+03  1.895e+02
+## ElecWaterTankless                              2.888e+03  7.410e+02
+## SWIMPOOLTRUE                                   3.028e+03  2.204e+02
+## ElecPoolTRUE                                   5.144e+03  7.597e+02
+## RECBATHTRUE                                    1.180e+03  4.235e+02
+## ElecTubTRUE                                    1.093e+03  4.837e+02
+## NHSLDMEM                                       8.643e+02  4.246e+01
+## TOTSQFT_EN:HDD65                               5.550e-05  9.274e-06
+## TOTSQFT_EN:CDD65                               7.715e-04  2.348e-05
+## KOWNRENTOwn:TYPEHUQMobile                      4.024e+03  3.877e+02
+## KOWNRENTRent:TYPEHUQMobile                     5.325e+03  8.429e+02
+## KOWNRENTOwn:TYPEHUQSFDetached                  2.663e+03  2.062e+02
+## KOWNRENTRent:TYPEHUQSFDetached                 1.891e+03  2.779e+02
+## KOWNRENTOwn:TYPEHUQSFAttached                  1.071e+03  3.183e+02
+## KOWNRENTRent:TYPEHUQSFAttached                 1.540e+03  3.658e+02
+## KOWNRENTOwn:TYPEHUQSmApartment                 1.007e+03  5.326e+02
+## KOWNRENTRent:TYPEHUQSmApartment                3.834e+02  2.975e+02
+## KOWNRENTOwn:TYPEHUQLgApartment                -5.168e+02  4.445e+02
+## KOWNRENTRent:TYPEHUQLgApartment                       NA         NA
+## TVONWD1LessHour:TVTYPE1Standard               -2.866e+03  1.830e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Standard              -2.859e+03  1.807e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard            -2.177e+03  1.804e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Standard             -1.410e+03  1.810e+03
+## TVONWD1Gr10:TVTYPE1Standard                   -7.094e+02  1.817e+03
+## TVONWD1LessHour:TVTYPE1LCD                    -2.510e+03  1.839e+03
+## TVONWD1OneTo3Hrs:TVTYPE1LCD                   -2.110e+03  1.805e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD                 -1.636e+03  1.802e+03
+## TVONWD1SixTo10Hrs:TVTYPE1LCD                  -1.276e+03  1.808e+03
+## TVONWD1Gr10:TVTYPE1LCD                        -2.060e+02  1.817e+03
+## TVONWD1LessHour:TVTYPE1Plasma                 -9.149e+02  2.011e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma                -1.281e+03  1.832e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma              -1.690e+03  1.819e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma               -7.065e+02  1.843e+03
+## TVONWD1Gr10:TVTYPE1Plasma                      7.474e+02  1.884e+03
+## TVONWD1LessHour:TVTYPE1Projection             -1.620e+03  2.225e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Projection            -1.065e+03  1.877e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection          -1.712e+03  1.840e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Projection           -8.458e+02  1.867e+03
+## TVONWD1Gr10:TVTYPE1Projection                  1.675e+03  1.951e+03
+## TVONWD1LessHour:TVTYPE1LED                    -4.956e+03  3.009e+03
+## TVONWD1OneTo3Hrs:TVTYPE1LED                   -1.177e+03  2.027e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED                 -9.137e+02  1.953e+03
+## TVONWD1SixTo10Hrs:TVTYPE1LED                  -2.768e+03  2.304e+03
+## TVONWD1Gr10:TVTYPE1LED                                NA         NA
+## TOTSQFT_EN:TYPEGLASSDoublePane                 7.193e-02  5.098e-02
+## TOTSQFT_EN:TYPEGLASSTriplePane                 2.318e-01  1.456e-01
+## Income:HispanicFALSE                           9.015e-03  1.582e-03
+## Income:HispanicTRUE                           -8.267e-03  3.147e-03
+## Income:HispanicFALSE:Householder_RaceAfAm      3.122e-03  2.706e-03
+## Income:HispanicTRUE:Householder_RaceAfAm      -3.162e-03  1.600e-02
+## Income:HispanicFALSE:Householder_RaceNativeAm -3.640e-03  1.227e-02
+## Income:HispanicTRUE:Householder_RaceNativeAm   3.068e-03  1.346e-02
+## Income:HispanicFALSE:Householder_RaceAsian    -2.249e-02  3.208e-03
+## Income:HispanicTRUE:Householder_RaceAsian     -1.383e-02  4.105e-02
+## Income:HispanicFALSE:Householder_RacePacific  -1.665e-02  1.259e-02
+## Income:HispanicTRUE:Householder_RacePacific    1.588e-02  5.326e-02
+## Income:HispanicFALSE:Householder_RaceOther    -2.779e-02  7.926e-03
+## Income:HispanicTRUE:Householder_RaceOther     -2.808e-03  9.790e-03
+## Income:HispanicFALSE:Householder_RaceMulti    -1.173e-02  6.812e-03
+## Income:HispanicTRUE:Householder_RaceMulti     -1.883e-02  1.871e-02
+##                                               t value Pr(>|t|)    
+## (Intercept)                                    -0.120 0.904591    
+## ElecMealsThreeDay                               3.877 0.000107 ***
+## ElecMealsTwoDay                                 8.689  < 2e-16 ***
+## ElecMealsOneDay                                 9.264  < 2e-16 ***
+## ElecMealsFewWeek                                7.001 2.71e-12 ***
+## ElecMealsOneWeek                                3.941 8.19e-05 ***
+## ElecMealsLessWeek                               2.083 0.037292 *  
+## NUMFRIG                                        13.075  < 2e-16 ***
+## AgeFridge2to4Years                              0.664 0.506950    
+## AgeFridge5to9Years                              1.841 0.065691 .  
+## AgeFridge20PlusYears                            0.225 0.821971    
+## AgeFridge10to14Years                            2.133 0.032976 *  
+## AgeFridge15to19Years                           -0.093 0.925738    
+## NUMPC                                           5.298 1.20e-07 ***
+## TIMEON1OneTo3Hrs                               -0.525 0.599665    
+## TIMEON1ThreeTo6Hrs                              0.109 0.913095    
+## TIMEON1SixTo10Hrs                               0.540 0.588991    
+## TIMEON1Gr10                                     3.810 0.000140 ***
+## WELLPUMPTRUE                                    6.019 1.82e-09 ***
+## ElecWaterSmall                                 16.316  < 2e-16 ***
+## ElecWaterMed                                   28.281  < 2e-16 ***
+## ElecWaterLrg                                   30.772  < 2e-16 ***
+## ElecWaterTankless                               3.897 9.80e-05 ***
+## SWIMPOOLTRUE                                   13.740  < 2e-16 ***
+## ElecPoolTRUE                                    6.771 1.36e-11 ***
+## RECBATHTRUE                                     2.786 0.005341 ** 
+## ElecTubTRUE                                     2.259 0.023880 *  
+## NHSLDMEM                                       20.353  < 2e-16 ***
+## TOTSQFT_EN:HDD65                                5.985 2.25e-09 ***
+## TOTSQFT_EN:CDD65                               32.852  < 2e-16 ***
+## KOWNRENTOwn:TYPEHUQMobile                      10.379  < 2e-16 ***
+## KOWNRENTRent:TYPEHUQMobile                      6.318 2.78e-10 ***
+## KOWNRENTOwn:TYPEHUQSFDetached                  12.915  < 2e-16 ***
+## KOWNRENTRent:TYPEHUQSFDetached                  6.807 1.06e-11 ***
+## KOWNRENTOwn:TYPEHUQSFAttached                   3.364 0.000771 ***
+## KOWNRENTRent:TYPEHUQSFAttached                  4.211 2.57e-05 ***
+## KOWNRENTOwn:TYPEHUQSmApartment                  1.892 0.058581 .  
+## KOWNRENTRent:TYPEHUQSmApartment                 1.289 0.197509    
+## KOWNRENTOwn:TYPEHUQLgApartment                 -1.163 0.245058    
+## KOWNRENTRent:TYPEHUQLgApartment                    NA       NA    
+## TVONWD1LessHour:TVTYPE1Standard                -1.566 0.117370    
+## TVONWD1OneTo3Hrs:TVTYPE1Standard               -1.582 0.113583    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard             -1.207 0.227416    
+## TVONWD1SixTo10Hrs:TVTYPE1Standard              -0.779 0.435849    
+## TVONWD1Gr10:TVTYPE1Standard                    -0.390 0.696241    
+## TVONWD1LessHour:TVTYPE1LCD                     -1.365 0.172434    
+## TVONWD1OneTo3Hrs:TVTYPE1LCD                    -1.169 0.242397    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD                  -0.908 0.363987    
+## TVONWD1SixTo10Hrs:TVTYPE1LCD                   -0.706 0.480298    
+## TVONWD1Gr10:TVTYPE1LCD                         -0.113 0.909716    
+## TVONWD1LessHour:TVTYPE1Plasma                  -0.455 0.649120    
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma                 -0.699 0.484651    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma               -0.929 0.352848    
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma                -0.383 0.701485    
+## TVONWD1Gr10:TVTYPE1Plasma                       0.397 0.691634    
+## TVONWD1LessHour:TVTYPE1Projection              -0.728 0.466563    
+## TVONWD1OneTo3Hrs:TVTYPE1Projection             -0.567 0.570398    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection           -0.930 0.352174    
+## TVONWD1SixTo10Hrs:TVTYPE1Projection            -0.453 0.650622    
+## TVONWD1Gr10:TVTYPE1Projection                   0.859 0.390363    
+## TVONWD1LessHour:TVTYPE1LED                     -1.647 0.099559 .  
+## TVONWD1OneTo3Hrs:TVTYPE1LED                    -0.581 0.561589    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED                  -0.468 0.639947    
+## TVONWD1SixTo10Hrs:TVTYPE1LED                   -1.202 0.229571    
+## TVONWD1Gr10:TVTYPE1LED                             NA       NA    
+## TOTSQFT_EN:TYPEGLASSDoublePane                  1.411 0.158304    
+## TOTSQFT_EN:TYPEGLASSTriplePane                  1.592 0.111418    
+## Income:HispanicFALSE                            5.700 1.24e-08 ***
+## Income:HispanicTRUE                            -2.627 0.008637 ** 
+## Income:HispanicFALSE:Householder_RaceAfAm       1.154 0.248600    
+## Income:HispanicTRUE:Householder_RaceAfAm       -0.198 0.843348    
+## Income:HispanicFALSE:Householder_RaceNativeAm  -0.297 0.766748    
+## Income:HispanicTRUE:Householder_RaceNativeAm    0.228 0.819658    
+## Income:HispanicFALSE:Householder_RaceAsian     -7.011 2.54e-12 ***
+## Income:HispanicTRUE:Householder_RaceAsian      -0.337 0.736138    
+## Income:HispanicFALSE:Householder_RacePacific   -1.323 0.185796    
+## Income:HispanicTRUE:Householder_RacePacific     0.298 0.765576    
+## Income:HispanicFALSE:Householder_RaceOther     -3.506 0.000458 ***
+## Income:HispanicTRUE:Householder_RaceOther      -0.287 0.774229    
+## Income:HispanicFALSE:Householder_RaceMulti     -1.721 0.085228 .  
+## Income:HispanicTRUE:Householder_RaceMulti      -1.006 0.314336    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5378 on 9107 degrees of freedom
+##   (2719 observations deleted due to missingness)
+## Multiple R-squared:  0.5183,	Adjusted R-squared:  0.5142 
+## F-statistic: 125.6 on 78 and 9107 DF,  p-value: < 2.2e-16
+```
+
+
+Now time to add structure type.  I added it just to the weather driven.
+
+
+```r
+summary(lm(KWH~TYPEHUQ:KOWNRENT:TOTSQFT_EN:HDD65+TYPEHUQ:KOWNRENT:TOTSQFT_EN:CDD65 +KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income:Hispanic+Householder_Race:Hispanic:Income, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+```
+
+```
+## 
+## Call:
+## lm(formula = KWH ~ TYPEHUQ:KOWNRENT:TOTSQFT_EN:HDD65 + TYPEHUQ:KOWNRENT:TOTSQFT_EN:CDD65 + 
+##     KOWNRENT:TYPEHUQ + ElecMeals + NUMFRIG + AgeFridge + TVONWD1:TVTYPE1 + 
+##     NUMPC + TIMEON1 + WELLPUMP + ElecWater + SWIMPOOL + ElecPool + 
+##     RECBATH + ElecTub + TYPEGLASS:TOTSQFT_EN + NHSLDMEM + Income:Hispanic + 
+##     Householder_Race:Hispanic:Income, data = RECS[RECS$KOWNRENT != 
+##     "Free" & RECS$NWEIGHT < 40000 & RECS$NUMFRIG < 5, ])
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -26321  -3104   -546   2225  48545 
+## 
+## Coefficients: (2 not defined because of singularities)
+##                                                    Estimate Std. Error
+## (Intercept)                                      -5.526e+02  1.858e+03
+## ElecMealsThreeDay                                 1.107e+03  2.921e+02
+## ElecMealsTwoDay                                   1.539e+03  1.827e+02
+## ElecMealsOneDay                                   1.433e+03  1.581e+02
+## ElecMealsFewWeek                                  1.260e+03  1.825e+02
+## ElecMealsOneWeek                                  1.617e+03  4.170e+02
+## ElecMealsLessWeek                                 9.252e+02  4.409e+02
+## NUMFRIG                                           1.560e+03  1.189e+02
+## AgeFridge2to4Years                                1.250e+02  1.919e+02
+## AgeFridge5to9Years                                3.351e+02  1.812e+02
+## AgeFridge20PlusYears                              9.826e+01  3.304e+02
+## AgeFridge10to14Years                              4.339e+02  2.062e+02
+## AgeFridge15to19Years                             -1.821e+01  2.802e+02
+## NUMPC                                             3.394e+02  6.218e+01
+## TIMEON1OneTo3Hrs                                 -7.913e+01  1.622e+02
+## TIMEON1ThreeTo6Hrs                                2.771e+01  1.866e+02
+## TIMEON1SixTo10Hrs                                 1.284e+02  2.365e+02
+## TIMEON1Gr10                                       8.067e+02  2.136e+02
+## WELLPUMPTRUE                                      1.097e+03  1.860e+02
+## ElecWaterSmall                                    4.409e+03  2.659e+02
+## ElecWaterMed                                      4.597e+03  1.638e+02
+## ElecWaterLrg                                      5.809e+03  1.898e+02
+## ElecWaterTankless                                 2.927e+03  7.412e+02
+## SWIMPOOLTRUE                                      3.028e+03  2.204e+02
+## ElecPoolTRUE                                      5.113e+03  7.597e+02
+## RECBATHTRUE                                       1.242e+03  4.243e+02
+## ElecTubTRUE                                       1.026e+03  4.844e+02
+## NHSLDMEM                                          8.661e+02  4.256e+01
+## TYPEHUQMobile:KOWNRENTOwn                         3.165e+03  1.010e+03
+## TYPEHUQSFDetached:KOWNRENTOwn                     2.979e+03  4.457e+02
+## TYPEHUQSFAttached:KOWNRENTOwn                     2.427e+03  7.028e+02
+## TYPEHUQSmApartment:KOWNRENTOwn                    2.075e+03  1.200e+03
+## TYPEHUQLgApartment:KOWNRENTOwn                    5.476e+02  1.096e+03
+## TYPEHUQMobile:KOWNRENTRent                       -1.429e+03  2.114e+03
+## TYPEHUQSFDetached:KOWNRENTRent                    2.561e+03  5.950e+02
+## TYPEHUQSFAttached:KOWNRENTRent                    2.469e+03  7.971e+02
+## TYPEHUQSmApartment:KOWNRENTRent                   1.934e+02  6.793e+02
+## TYPEHUQLgApartment:KOWNRENTRent                          NA         NA
+## TVONWD1LessHour:TVTYPE1Standard                  -2.837e+03  1.828e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Standard                 -2.818e+03  1.805e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard               -2.111e+03  1.802e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Standard                -1.394e+03  1.808e+03
+## TVONWD1Gr10:TVTYPE1Standard                      -6.887e+02  1.815e+03
+## TVONWD1LessHour:TVTYPE1LCD                       -2.478e+03  1.838e+03
+## TVONWD1OneTo3Hrs:TVTYPE1LCD                      -2.044e+03  1.803e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD                    -1.597e+03  1.800e+03
+## TVONWD1SixTo10Hrs:TVTYPE1LCD                     -1.250e+03  1.807e+03
+## TVONWD1Gr10:TVTYPE1LCD                           -1.847e+02  1.815e+03
+## TVONWD1LessHour:TVTYPE1Plasma                    -8.298e+02  2.009e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma                   -1.207e+03  1.831e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma                 -1.653e+03  1.817e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma                  -6.582e+02  1.841e+03
+## TVONWD1Gr10:TVTYPE1Plasma                         6.794e+02  1.883e+03
+## TVONWD1LessHour:TVTYPE1Projection                -1.459e+03  2.224e+03
+## TVONWD1OneTo3Hrs:TVTYPE1Projection               -1.040e+03  1.875e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection             -1.680e+03  1.838e+03
+## TVONWD1SixTo10Hrs:TVTYPE1Projection              -9.392e+02  1.866e+03
+## TVONWD1Gr10:TVTYPE1Projection                     1.725e+03  1.949e+03
+## TVONWD1LessHour:TVTYPE1LED                       -5.068e+03  3.007e+03
+## TVONWD1OneTo3Hrs:TVTYPE1LED                      -1.109e+03  2.025e+03
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED                    -9.177e+02  1.951e+03
+## TVONWD1SixTo10Hrs:TVTYPE1LED                     -2.683e+03  2.303e+03
+## TVONWD1Gr10:TVTYPE1LED                                   NA         NA
+## TOTSQFT_EN:TYPEGLASSSinglePane                   -3.230e-01  1.501e-01
+## TOTSQFT_EN:TYPEGLASSDoublePane                   -2.255e-01  1.447e-01
+## TOTSQFT_EN:TYPEGLASSTriplePane                   -8.639e-02  2.030e-01
+## Income:HispanicFALSE                              9.203e-03  1.586e-03
+## Income:HispanicTRUE                              -7.918e-03  3.150e-03
+## Income:HispanicFALSE:Householder_RaceAfAm         3.305e-03  2.705e-03
+## Income:HispanicTRUE:Householder_RaceAfAm         -2.564e-03  1.601e-02
+## Income:HispanicFALSE:Householder_RaceNativeAm    -3.371e-03  1.226e-02
+## Income:HispanicTRUE:Householder_RaceNativeAm      3.035e-03  1.348e-02
+## Income:HispanicFALSE:Householder_RaceAsian       -2.240e-02  3.221e-03
+## Income:HispanicTRUE:Householder_RaceAsian        -1.719e-02  4.104e-02
+## Income:HispanicFALSE:Householder_RacePacific     -1.604e-02  1.257e-02
+## Income:HispanicTRUE:Householder_RacePacific       1.759e-02  5.323e-02
+## Income:HispanicFALSE:Householder_RaceOther       -2.793e-02  7.921e-03
+## Income:HispanicTRUE:Householder_RaceOther        -3.512e-03  9.785e-03
+## Income:HispanicFALSE:Householder_RaceMulti       -1.226e-02  6.808e-03
+## Income:HispanicTRUE:Householder_RaceMulti        -2.006e-02  1.870e-02
+## TYPEHUQMobile:KOWNRENTOwn:TOTSQFT_EN:HDD65        2.957e-04  1.178e-04
+## TYPEHUQSFDetached:KOWNRENTOwn:TOTSQFT_EN:HDD65    9.280e-05  1.885e-05
+## TYPEHUQSFAttached:KOWNRENTOwn:TOTSQFT_EN:HDD65    3.969e-05  4.426e-05
+## TYPEHUQSmApartment:KOWNRENTOwn:TOTSQFT_EN:HDD65   9.785e-05  7.593e-05
+## TYPEHUQLgApartment:KOWNRENTOwn:TOTSQFT_EN:HDD65   1.122e-04  1.428e-04
+## TYPEHUQMobile:KOWNRENTRent:TOTSQFT_EN:HDD65       9.047e-04  3.392e-04
+## TYPEHUQSFDetached:KOWNRENTRent:TOTSQFT_EN:HDD65   5.788e-05  3.596e-05
+## TYPEHUQSFAttached:KOWNRENTRent:TOTSQFT_EN:HDD65   2.774e-05  6.564e-05
+## TYPEHUQSmApartment:KOWNRENTRent:TOTSQFT_EN:HDD65  1.464e-04  7.144e-05
+## TYPEHUQLgApartment:KOWNRENTRent:TOTSQFT_EN:HDD65  2.158e-04  8.245e-05
+## TYPEHUQMobile:KOWNRENTOwn:TOTSQFT_EN:CDD65        9.633e-04  2.121e-04
+## TYPEHUQSFDetached:KOWNRENTOwn:TOTSQFT_EN:CDD65    8.594e-04  4.247e-05
+## TYPEHUQSFAttached:KOWNRENTOwn:TOTSQFT_EN:CDD65    6.174e-04  1.248e-04
+## TYPEHUQSmApartment:KOWNRENTOwn:TOTSQFT_EN:CDD65   3.694e-04  3.879e-04
+## TYPEHUQLgApartment:KOWNRENTOwn:TOTSQFT_EN:CDD65   3.381e-04  2.873e-04
+## TYPEHUQMobile:KOWNRENTRent:TOTSQFT_EN:CDD65       2.995e-03  5.408e-04
+## TYPEHUQSFDetached:KOWNRENTRent:TOTSQFT_EN:CDD65   8.278e-04  9.591e-05
+## TYPEHUQSFAttached:KOWNRENTRent:TOTSQFT_EN:CDD65   7.618e-04  1.932e-04
+## TYPEHUQSmApartment:KOWNRENTRent:TOTSQFT_EN:CDD65  1.038e-03  2.031e-04
+## TYPEHUQLgApartment:KOWNRENTRent:TOTSQFT_EN:CDD65  7.787e-04  1.490e-04
+##                                                  t value Pr(>|t|)    
+## (Intercept)                                       -0.297 0.766160    
+## ElecMealsThreeDay                                  3.790 0.000152 ***
+## ElecMealsTwoDay                                    8.424  < 2e-16 ***
+## ElecMealsOneDay                                    9.067  < 2e-16 ***
+## ElecMealsFewWeek                                   6.904 5.40e-12 ***
+## ElecMealsOneWeek                                   3.878 0.000106 ***
+## ElecMealsLessWeek                                  2.099 0.035881 *  
+## NUMFRIG                                           13.117  < 2e-16 ***
+## AgeFridge2to4Years                                 0.651 0.514859    
+## AgeFridge5to9Years                                 1.849 0.064455 .  
+## AgeFridge20PlusYears                               0.297 0.766199    
+## AgeFridge10to14Years                               2.105 0.035356 *  
+## AgeFridge15to19Years                              -0.065 0.948184    
+## NUMPC                                              5.459 4.92e-08 ***
+## TIMEON1OneTo3Hrs                                  -0.488 0.625680    
+## TIMEON1ThreeTo6Hrs                                 0.148 0.881952    
+## TIMEON1SixTo10Hrs                                  0.543 0.587243    
+## TIMEON1Gr10                                        3.777 0.000160 ***
+## WELLPUMPTRUE                                       5.894 3.89e-09 ***
+## ElecWaterSmall                                    16.578  < 2e-16 ***
+## ElecWaterMed                                      28.074  < 2e-16 ***
+## ElecWaterLrg                                      30.604  < 2e-16 ***
+## ElecWaterTankless                                  3.949 7.92e-05 ***
+## SWIMPOOLTRUE                                      13.736  < 2e-16 ***
+## ElecPoolTRUE                                       6.731 1.78e-11 ***
+## RECBATHTRUE                                        2.927 0.003433 ** 
+## ElecTubTRUE                                        2.119 0.034134 *  
+## NHSLDMEM                                          20.348  < 2e-16 ***
+## TYPEHUQMobile:KOWNRENTOwn                          3.132 0.001741 ** 
+## TYPEHUQSFDetached:KOWNRENTOwn                      6.684 2.46e-11 ***
+## TYPEHUQSFAttached:KOWNRENTOwn                      3.454 0.000555 ***
+## TYPEHUQSmApartment:KOWNRENTOwn                     1.729 0.083847 .  
+## TYPEHUQLgApartment:KOWNRENTOwn                     0.500 0.617278    
+## TYPEHUQMobile:KOWNRENTRent                        -0.676 0.498924    
+## TYPEHUQSFDetached:KOWNRENTRent                     4.304 1.69e-05 ***
+## TYPEHUQSFAttached:KOWNRENTRent                     3.098 0.001955 ** 
+## TYPEHUQSmApartment:KOWNRENTRent                    0.285 0.775923    
+## TYPEHUQLgApartment:KOWNRENTRent                       NA       NA    
+## TVONWD1LessHour:TVTYPE1Standard                   -1.552 0.120811    
+## TVONWD1OneTo3Hrs:TVTYPE1Standard                  -1.562 0.118409    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard                -1.171 0.241539    
+## TVONWD1SixTo10Hrs:TVTYPE1Standard                 -0.771 0.440610    
+## TVONWD1Gr10:TVTYPE1Standard                       -0.379 0.704428    
+## TVONWD1LessHour:TVTYPE1LCD                        -1.348 0.177592    
+## TVONWD1OneTo3Hrs:TVTYPE1LCD                       -1.134 0.257034    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD                     -0.887 0.375175    
+## TVONWD1SixTo10Hrs:TVTYPE1LCD                      -0.692 0.489054    
+## TVONWD1Gr10:TVTYPE1LCD                            -0.102 0.918949    
+## TVONWD1LessHour:TVTYPE1Plasma                     -0.413 0.679567    
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma                    -0.659 0.509811    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma                  -0.910 0.363080    
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma                   -0.357 0.720755    
+## TVONWD1Gr10:TVTYPE1Plasma                          0.361 0.718177    
+## TVONWD1LessHour:TVTYPE1Projection                 -0.656 0.511953    
+## TVONWD1OneTo3Hrs:TVTYPE1Projection                -0.555 0.579137    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection              -0.914 0.360648    
+## TVONWD1SixTo10Hrs:TVTYPE1Projection               -0.503 0.614783    
+## TVONWD1Gr10:TVTYPE1Projection                      0.885 0.376283    
+## TVONWD1LessHour:TVTYPE1LED                        -1.685 0.091951 .  
+## TVONWD1OneTo3Hrs:TVTYPE1LED                       -0.548 0.583820    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED                     -0.470 0.638193    
+## TVONWD1SixTo10Hrs:TVTYPE1LED                      -1.165 0.244031    
+## TVONWD1Gr10:TVTYPE1LED                                NA       NA    
+## TOTSQFT_EN:TYPEGLASSSinglePane                    -2.151 0.031472 *  
+## TOTSQFT_EN:TYPEGLASSDoublePane                    -1.558 0.119364    
+## TOTSQFT_EN:TYPEGLASSTriplePane                    -0.426 0.670480    
+## Income:HispanicFALSE                               5.801 6.80e-09 ***
+## Income:HispanicTRUE                               -2.514 0.011961 *  
+## Income:HispanicFALSE:Householder_RaceAfAm          1.222 0.221873    
+## Income:HispanicTRUE:Householder_RaceAfAm          -0.160 0.872754    
+## Income:HispanicFALSE:Householder_RaceNativeAm     -0.275 0.783357    
+## Income:HispanicTRUE:Householder_RaceNativeAm       0.225 0.821901    
+## Income:HispanicFALSE:Householder_RaceAsian        -6.955 3.78e-12 ***
+## Income:HispanicTRUE:Householder_RaceAsian         -0.419 0.675279    
+## Income:HispanicFALSE:Householder_RacePacific      -1.275 0.202213    
+## Income:HispanicTRUE:Householder_RacePacific        0.330 0.741089    
+## Income:HispanicFALSE:Householder_RaceOther        -3.527 0.000423 ***
+## Income:HispanicTRUE:Householder_RaceOther         -0.359 0.719695    
+## Income:HispanicFALSE:Householder_RaceMulti        -1.801 0.071735 .  
+## Income:HispanicTRUE:Householder_RaceMulti         -1.073 0.283339    
+## TYPEHUQMobile:KOWNRENTOwn:TOTSQFT_EN:HDD65         2.511 0.012060 *  
+## TYPEHUQSFDetached:KOWNRENTOwn:TOTSQFT_EN:HDD65     4.924 8.65e-07 ***
+## TYPEHUQSFAttached:KOWNRENTOwn:TOTSQFT_EN:HDD65     0.897 0.369879    
+## TYPEHUQSmApartment:KOWNRENTOwn:TOTSQFT_EN:HDD65    1.289 0.197552    
+## TYPEHUQLgApartment:KOWNRENTOwn:TOTSQFT_EN:HDD65    0.785 0.432237    
+## TYPEHUQMobile:KOWNRENTRent:TOTSQFT_EN:HDD65        2.667 0.007661 ** 
+## TYPEHUQSFDetached:KOWNRENTRent:TOTSQFT_EN:HDD65    1.609 0.107543    
+## TYPEHUQSFAttached:KOWNRENTRent:TOTSQFT_EN:HDD65    0.423 0.672603    
+## TYPEHUQSmApartment:KOWNRENTRent:TOTSQFT_EN:HDD65   2.049 0.040499 *  
+## TYPEHUQLgApartment:KOWNRENTRent:TOTSQFT_EN:HDD65   2.617 0.008885 ** 
+## TYPEHUQMobile:KOWNRENTOwn:TOTSQFT_EN:CDD65         4.543 5.62e-06 ***
+## TYPEHUQSFDetached:KOWNRENTOwn:TOTSQFT_EN:CDD65    20.235  < 2e-16 ***
+## TYPEHUQSFAttached:KOWNRENTOwn:TOTSQFT_EN:CDD65     4.947 7.69e-07 ***
+## TYPEHUQSmApartment:KOWNRENTOwn:TOTSQFT_EN:CDD65    0.952 0.341026    
+## TYPEHUQLgApartment:KOWNRENTOwn:TOTSQFT_EN:CDD65    1.177 0.239344    
+## TYPEHUQMobile:KOWNRENTRent:TOTSQFT_EN:CDD65        5.538 3.15e-08 ***
+## TYPEHUQSFDetached:KOWNRENTRent:TOTSQFT_EN:CDD65    8.631  < 2e-16 ***
+## TYPEHUQSFAttached:KOWNRENTRent:TOTSQFT_EN:CDD65    3.942 8.13e-05 ***
+## TYPEHUQSmApartment:KOWNRENTRent:TOTSQFT_EN:CDD65   5.110 3.29e-07 ***
+## TYPEHUQLgApartment:KOWNRENTRent:TOTSQFT_EN:CDD65   5.227 1.76e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5371 on 9088 degrees of freedom
+##   (2719 observations deleted due to missingness)
+## Multiple R-squared:  0.5205,	Adjusted R-squared:  0.5154 
+## F-statistic: 101.7 on 97 and 9088 DF,  p-value: < 2.2e-16
+```
+
+
+
+
+
+
+# Checking on behaviors
 Time to see if the behaviors are different, all exogenous.  Checking temperatures
 
 Here are the winter temps
@@ -2408,7 +2884,7 @@ boxplot(TEMPHOME~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & 
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19-1.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png) 
 
 
 ```r
@@ -2420,7 +2896,7 @@ boxplot(TEMPGONE~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & 
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20-1.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png) 
 
 
 ```r
@@ -2432,7 +2908,7 @@ boxplot(TEMPNITE~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" &
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png) 
 
 
 and the summer temps
@@ -2446,7 +2922,7 @@ boxplot(TEMPHOMEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 
 
 
 ```r
@@ -2458,7 +2934,7 @@ boxplot(TEMPGONEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png) 
 
 
 ```r
@@ -2470,7 +2946,7 @@ boxplot(TEMPNITEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png) 
 
 There are differences and it looks like AA are more energy intensive with respect to setpoints
 
