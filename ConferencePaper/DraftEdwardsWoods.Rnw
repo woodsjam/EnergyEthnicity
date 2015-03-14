@@ -18,20 +18,16 @@ When socio-demographic factors are considered in any kind of analysis of househo
 \end{abstract}
 
 \section{Introduction}
-  Hello, this is Michael Edwards
-
-<<>>=
-
-1+1+1
-
-@
 
 \cite{RBase}
 
-  \subsection{Ethnicity in Conditional Demand}
-  \subsection{How Ethnicity is Interpreted}
+  \subsection{Race and Ethnicity in Conditional Demand}
+  \subsection{How Race and Ethnicity are Interpreted}
 
 \section{RECS}
+
+  \subsection{Race and Ethnicity Differences in Equipment and Structure}
+  \subsection{Differences in Reported Behavior}
 
 \section{Conditional Demand Estimation}
 
