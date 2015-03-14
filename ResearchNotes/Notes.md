@@ -3206,3 +3206,7 @@ xtabs(~RECS$TVONWD1+RECS$Householder_Race, data=RECS[RECS$KOWNRENT!="Free" & REC
 ##   Gr10        1090  284       21    18       6    24    23
 ```
 
+library(ggplot2)
+ggplot(RECS, aes(KWH))+geom_boxplot()
+facets=KOWNRENT~Householder_Race
+qplot(KWH, data = RECS,geom="boxplot", xlim=c(0,24000) )

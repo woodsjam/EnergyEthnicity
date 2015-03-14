@@ -3172,6 +3172,11 @@ summary(lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65
 ##   Gr10        1090  284       21    18       6    24    23
 </code></pre>
 
+<p>library(ggplot2)
+ggplot(RECS, aes(KWH))+geom_boxplot()
+facets=KOWNRENT~Householder_Race
+qplot(KWH, data = RECS,geom=&ldquo;boxplot&rdquo;, xlim=c(0,24000) )</p>
+
 </body>
 
 </html>

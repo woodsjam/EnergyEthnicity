@@ -21,7 +21,10 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \cite{RBase}
 
-<<echo=FALSE, results=hide>>=
+<<DataEdit,echo=FALSE, results=hide>>=
+
+#Saves time if the wrangling is already done.
+if(file.exists("RECS.RData")) load("RECS.RData") else {
 #This block reads in data and does some data cleaning and edits.
 RECS <- read.csv("recs2009_public.csv")
 library(plyr)
@@ -313,12 +316,21 @@ RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
 RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
 
 RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
+}
 
+HUD <- read.csv("HUD.csv")
+
+#And the clean up from importing from excell
+HUD$pop<-as.numeric(gsub(",","",HUD$pop))
+HUD$reportablen<-as.factor(HUD$reportablen)
 @
 
-<<echo=FALSE,results=hide>>=
+<<DataSubsetMerge,echo=FALSE,results=hide>>=
 #work only with this subset
 RECS<-RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]
+if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
+
+#Merge the RECS and HUD together ***TODO***
 @
 
 
@@ -327,8 +339,40 @@ RECS<-RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]
 
 \section{RECS}
 
+<<tabRaceVStruct,echo=false,results=tex>>=
+library(xtable)
+xtable(table(RECS$TYPEHUQ,RECS$Householder_Race), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Annual kWh by Rent/Own and Race}
+\label{fig:kWhbyOwnRace}
+<<echo=false,fig=TRUE>>=
+library(ggplot2)
+qplot(KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT, geom = "density" )
+@
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\caption{Annual kWh by Income}
+\label{fig:kWhbyIncome}
+<<echo=false,fig=TRUE>>=
+library(ggplot2)
+qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT )+geom_boxplot()
+@
+\end{center}
+\end{figure}
+
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
+  
+  
+  
   \subsection{Differences in Reported Behavior}
+  
+  
 
 \section{Conditional Demand Estimation}
 
