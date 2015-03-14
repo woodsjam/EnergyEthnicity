@@ -558,6 +558,40 @@ summary(lm(KWH~TYPEHUQ:KOWNRENT:TOTSQFT_EN:HDD65+TYPEHUQ:KOWNRENT:TOTSQFT_EN:CDD
 
 ```
 
+Lets modify some errors and base levels to make this tell a clearer story.  First add in the weights and combine a few things
+```{r}
+
+#Combine race and ethnicity
+
+RECS$EthRace<-factor(paste(as.character(RECS$Hispanic),as.character(RECS$Householder_Race),sep = ""))
+
+RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
+
+#Combine structure and tenure
+
+RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
+
+RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
+
+summary(lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income+EthRace:Income, 
+           data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,],weights=NWEIGHT))
+
+
+```
+
+Going to call this close to done and work on some other parts of the paper.
+
 
 
 

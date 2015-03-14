@@ -2865,6 +2865,244 @@ summary(lm(KWH~TYPEHUQ:KOWNRENT:TOTSQFT_EN:HDD65+TYPEHUQ:KOWNRENT:TOTSQFT_EN:CDD
 ## F-statistic: 101.7 on 97 and 9088 DF,  p-value: < 2.2e-16
 ```
 
+Lets modify some errors and base levels to make this tell a clearer story.  First add in the weights and combine a few things
+
+```r
+#Combine race and ethnicity
+
+RECS$EthRace<-factor(paste(as.character(RECS$Hispanic),as.character(RECS$Householder_Race),sep = ""))
+
+RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
+
+#Combine structure and tenure
+
+RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
+
+RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
+
+summary(lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income+EthRace:Income, 
+           data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,],weights=NWEIGHT))
+```
+
+```
+## 
+## Call:
+## lm(formula = KWH ~ StrTenure:TOTSQFT_EN:HDD65 + StrTenure:TOTSQFT_EN:CDD65 + 
+##     ElecMeals + NUMFRIG + AgeFridge + TVONWD1:TVTYPE1 + NUMPC + 
+##     TIMEON1 + WELLPUMP + ElecWater + SWIMPOOL + ElecPool + RECBATH + 
+##     ElecTub + TYPEGLASS:TOTSQFT_EN + NHSLDMEM + Income + EthRace:Income, 
+##     data = RECS[RECS$KOWNRENT != "Free" & RECS$NWEIGHT < 40000 & 
+##         RECS$NUMFRIG < 5, ], weights = NWEIGHT)
+## 
+## Weighted Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -3383603  -290206   -64908   187985  6314195 
+## 
+## Coefficients: (1 not defined because of singularities)
+##                                             Estimate Std. Error t value
+## (Intercept)                                2.181e+03  1.792e+03   1.217
+## ElecMealsThreeDay                          1.339e+03  2.977e+02   4.496
+## ElecMealsTwoDay                            1.644e+03  1.851e+02   8.885
+## ElecMealsOneDay                            1.685e+03  1.592e+02  10.589
+## ElecMealsFewWeek                           1.451e+03  1.838e+02   7.897
+## ElecMealsOneWeek                           1.727e+03  4.063e+02   4.250
+## ElecMealsLessWeek                          9.928e+02  4.249e+02   2.337
+## NUMFRIG                                    1.575e+03  1.208e+02  13.033
+## AgeFridge2to4Years                         4.965e+01  1.951e+02   0.254
+## AgeFridge5to9Years                         3.129e+02  1.831e+02   1.709
+## AgeFridge20PlusYears                       2.825e+02  3.287e+02   0.859
+## AgeFridge10to14Years                       3.923e+02  2.074e+02   1.891
+## AgeFridge15to19Years                       3.430e+00  2.837e+02   0.012
+## NUMPC                                      3.450e+02  6.431e+01   5.365
+## TIMEON1OneTo3Hrs                          -1.422e+02  1.606e+02  -0.885
+## TIMEON1ThreeTo6Hrs                        -5.946e+00  1.864e+02  -0.032
+## TIMEON1SixTo10Hrs                          2.243e+02  2.391e+02   0.938
+## TIMEON1Gr10                                8.232e+02  2.147e+02   3.834
+## WELLPUMPTRUE                               1.501e+03  1.835e+02   8.182
+## ElecWaterSmall                             4.422e+03  2.564e+02  17.249
+## ElecWaterMed                               4.658e+03  1.639e+02  28.420
+## ElecWaterLrg                               5.810e+03  1.898e+02  30.616
+## ElecWaterTankless                          3.252e+03  7.554e+02   4.305
+## SWIMPOOLTRUE                               3.229e+03  2.223e+02  14.522
+## ElecPoolTRUE                               4.604e+03  8.371e+02   5.500
+## RECBATHTRUE                                1.013e+03  4.263e+02   2.377
+## ElecTubTRUE                                1.219e+03  4.866e+02   2.505
+## NHSLDMEM                                   9.521e+02  4.255e+01  22.375
+## Income                                     8.620e-03  1.606e-03   5.366
+## TVONWD1LessHour:TVTYPE1Standard           -3.266e+03  1.800e+03  -1.814
+## TVONWD1OneTo3Hrs:TVTYPE1Standard          -3.010e+03  1.776e+03  -1.695
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard        -2.517e+03  1.773e+03  -1.420
+## TVONWD1SixTo10Hrs:TVTYPE1Standard         -1.795e+03  1.779e+03  -1.009
+## TVONWD1Gr10:TVTYPE1Standard               -1.291e+03  1.785e+03  -0.723
+## TVONWD1LessHour:TVTYPE1LCD                -2.897e+03  1.807e+03  -1.603
+## TVONWD1OneTo3Hrs:TVTYPE1LCD               -2.313e+03  1.774e+03  -1.304
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD             -1.956e+03  1.771e+03  -1.104
+## TVONWD1SixTo10Hrs:TVTYPE1LCD              -1.594e+03  1.777e+03  -0.897
+## TVONWD1Gr10:TVTYPE1LCD                    -4.857e+02  1.786e+03  -0.272
+## TVONWD1LessHour:TVTYPE1Plasma             -1.498e+03  1.988e+03  -0.753
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma            -1.665e+03  1.801e+03  -0.924
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma          -2.002e+03  1.789e+03  -1.119
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma           -9.409e+02  1.816e+03  -0.518
+## TVONWD1Gr10:TVTYPE1Plasma                  4.189e+02  1.846e+03   0.227
+## TVONWD1LessHour:TVTYPE1Projection         -2.095e+03  2.147e+03  -0.976
+## TVONWD1OneTo3Hrs:TVTYPE1Projection        -1.640e+03  1.851e+03  -0.886
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection      -2.152e+03  1.813e+03  -1.187
+## TVONWD1SixTo10Hrs:TVTYPE1Projection       -9.252e+02  1.838e+03  -0.503
+## TVONWD1Gr10:TVTYPE1Projection              1.530e+03  1.911e+03   0.801
+## TVONWD1LessHour:TVTYPE1LED                -4.513e+03  2.901e+03  -1.556
+## TVONWD1OneTo3Hrs:TVTYPE1LED               -1.679e+03  2.013e+03  -0.834
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED             -2.107e+03  1.924e+03  -1.095
+## TVONWD1SixTo10Hrs:TVTYPE1LED              -3.418e+03  2.391e+03  -1.430
+## TVONWD1Gr10:TVTYPE1LED                            NA         NA      NA
+## TOTSQFT_EN:TYPEGLASSSinglePane            -1.921e-01  1.586e-01  -1.211
+## TOTSQFT_EN:TYPEGLASSDoublePane            -3.365e-02  1.540e-01  -0.218
+## TOTSQFT_EN:TYPEGLASSTriplePane             9.334e-03  2.093e-01   0.045
+## Income:EthRaceFALSEAfAm                    3.057e-03  2.684e-03   1.139
+## Income:EthRaceFALSEAsian                  -2.435e-02  3.398e-03  -7.165
+## Income:EthRaceFALSEMulti                  -1.680e-02  6.926e-03  -2.426
+## Income:EthRaceFALSENativeAm                1.166e-02  1.228e-02   0.949
+## Income:EthRaceFALSEOther                  -2.486e-02  8.312e-03  -2.991
+## Income:EthRaceFALSEPacific                -1.635e-02  1.384e-02  -1.181
+## Income:EthRaceTRUEAfAm                    -1.196e-02  1.645e-02  -0.727
+## Income:EthRaceTRUEAsian                   -3.649e-02  4.543e-02  -0.803
+## Income:EthRaceTRUEMulti                   -2.912e-02  2.118e-02  -1.375
+## Income:EthRaceTRUENativeAm                -1.870e-02  1.484e-02  -1.260
+## Income:EthRaceTRUEOther                   -2.618e-02  9.940e-03  -2.634
+## Income:EthRaceTRUEPacific                 -1.223e-02  3.798e-02  -0.322
+## Income:EthRaceTRUEWt                      -1.923e-02  3.056e-03  -6.291
+## StrTenureOwnSFDetached:TOTSQFT_EN:HDD65    8.350e-05  2.034e-05   4.104
+## StrTenureOwnLgApartment:TOTSQFT_EN:HDD65  -7.570e-05  7.902e-05  -0.958
+## StrTenureOwnMobile:TOTSQFT_EN:HDD65        3.963e-04  6.624e-05   5.984
+## StrTenureOwnSFAttached:TOTSQFT_EN:HDD65   -2.026e-05  3.673e-05  -0.552
+## StrTenureOwnSmApartment:TOTSQFT_EN:HDD65   3.123e-05  5.742e-05   0.544
+## StrTenureRentLgApartment:TOTSQFT_EN:HDD65 -2.136e-04  5.335e-05  -4.003
+## StrTenureRentMobile:TOTSQFT_EN:HDD65       3.622e-04  2.054e-04   1.763
+## StrTenureRentSFAttached:TOTSQFT_EN:HDD65   3.408e-05  5.670e-05   0.601
+## StrTenureRentSFDetached:TOTSQFT_EN:HDD65   1.779e-05  3.225e-05   0.552
+## StrTenureRentSmApartment:TOTSQFT_EN:HDD65 -9.520e-05  5.124e-05  -1.858
+## StrTenureOwnSFDetached:TOTSQFT_EN:CDD65    8.457e-04  4.403e-05  19.207
+## StrTenureOwnLgApartment:TOTSQFT_EN:CDD65  -1.666e-04  2.040e-04  -0.817
+## StrTenureOwnMobile:TOTSQFT_EN:CDD65        9.156e-04  1.251e-04   7.317
+## StrTenureOwnSFAttached:TOTSQFT_EN:CDD65    5.920e-04  1.181e-04   5.013
+## StrTenureOwnSmApartment:TOTSQFT_EN:CDD65   1.158e-04  2.880e-04   0.402
+## StrTenureRentLgApartment:TOTSQFT_EN:CDD65  4.510e-05  1.149e-04   0.393
+## StrTenureRentMobile:TOTSQFT_EN:CDD65       2.424e-03  3.836e-04   6.321
+## StrTenureRentSFAttached:TOTSQFT_EN:CDD65   7.010e-04  1.743e-04   4.021
+## StrTenureRentSFDetached:TOTSQFT_EN:CDD65   7.565e-04  8.162e-05   9.268
+## StrTenureRentSmApartment:TOTSQFT_EN:CDD65  4.725e-04  1.666e-04   2.837
+##                                           Pr(>|t|)    
+## (Intercept)                               0.223683    
+## ElecMealsThreeDay                         7.00e-06 ***
+## ElecMealsTwoDay                            < 2e-16 ***
+## ElecMealsOneDay                            < 2e-16 ***
+## ElecMealsFewWeek                          3.19e-15 ***
+## ElecMealsOneWeek                          2.16e-05 ***
+## ElecMealsLessWeek                         0.019471 *  
+## NUMFRIG                                    < 2e-16 ***
+## AgeFridge2to4Years                        0.799161    
+## AgeFridge5to9Years                        0.087538 .  
+## AgeFridge20PlusYears                      0.390165    
+## AgeFridge10to14Years                      0.058655 .  
+## AgeFridge15to19Years                      0.990353    
+## NUMPC                                     8.29e-08 ***
+## TIMEON1OneTo3Hrs                          0.375998    
+## TIMEON1ThreeTo6Hrs                        0.974554    
+## TIMEON1SixTo10Hrs                         0.348226    
+## TIMEON1Gr10                               0.000127 ***
+## WELLPUMPTRUE                              3.17e-16 ***
+## ElecWaterSmall                             < 2e-16 ***
+## ElecWaterMed                               < 2e-16 ***
+## ElecWaterLrg                               < 2e-16 ***
+## ElecWaterTankless                         1.69e-05 ***
+## SWIMPOOLTRUE                               < 2e-16 ***
+## ElecPoolTRUE                              3.89e-08 ***
+## RECBATHTRUE                               0.017469 *  
+## ElecTubTRUE                               0.012272 *  
+## NHSLDMEM                                   < 2e-16 ***
+## Income                                    8.24e-08 ***
+## TVONWD1LessHour:TVTYPE1Standard           0.069675 .  
+## TVONWD1OneTo3Hrs:TVTYPE1Standard          0.090042 .  
+## TVONWD1ThreeTo6Hrs:TVTYPE1Standard        0.155689    
+## TVONWD1SixTo10Hrs:TVTYPE1Standard         0.313063    
+## TVONWD1Gr10:TVTYPE1Standard               0.469664    
+## TVONWD1LessHour:TVTYPE1LCD                0.108995    
+## TVONWD1OneTo3Hrs:TVTYPE1LCD               0.192282    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LCD             0.269456    
+## TVONWD1SixTo10Hrs:TVTYPE1LCD              0.369787    
+## TVONWD1Gr10:TVTYPE1LCD                    0.785617    
+## TVONWD1LessHour:TVTYPE1Plasma             0.451232    
+## TVONWD1OneTo3Hrs:TVTYPE1Plasma            0.355286    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Plasma          0.263100    
+## TVONWD1SixTo10Hrs:TVTYPE1Plasma           0.604361    
+## TVONWD1Gr10:TVTYPE1Plasma                 0.820495    
+## TVONWD1LessHour:TVTYPE1Projection         0.329205    
+## TVONWD1OneTo3Hrs:TVTYPE1Projection        0.375779    
+## TVONWD1ThreeTo6Hrs:TVTYPE1Projection      0.235178    
+## TVONWD1SixTo10Hrs:TVTYPE1Projection       0.614661    
+## TVONWD1Gr10:TVTYPE1Projection             0.423350    
+## TVONWD1LessHour:TVTYPE1LED                0.119825    
+## TVONWD1OneTo3Hrs:TVTYPE1LED               0.404383    
+## TVONWD1ThreeTo6Hrs:TVTYPE1LED             0.273452    
+## TVONWD1SixTo10Hrs:TVTYPE1LED              0.152837    
+## TVONWD1Gr10:TVTYPE1LED                          NA    
+## TOTSQFT_EN:TYPEGLASSSinglePane            0.225881    
+## TOTSQFT_EN:TYPEGLASSDoublePane            0.827096    
+## TOTSQFT_EN:TYPEGLASSTriplePane            0.964424    
+## Income:EthRaceFALSEAfAm                   0.254787    
+## Income:EthRaceFALSEAsian                  8.41e-13 ***
+## Income:EthRaceFALSEMulti                  0.015291 *  
+## Income:EthRaceFALSENativeAm               0.342502    
+## Income:EthRaceFALSEOther                  0.002789 ** 
+## Income:EthRaceFALSEPacific                0.237753    
+## Income:EthRaceTRUEAfAm                    0.467180    
+## Income:EthRaceTRUEAsian                   0.421872    
+## Income:EthRaceTRUEMulti                   0.169307    
+## Income:EthRaceTRUENativeAm                0.207741    
+## Income:EthRaceTRUEOther                   0.008465 ** 
+## Income:EthRaceTRUEPacific                 0.747369    
+## Income:EthRaceTRUEWt                      3.31e-10 ***
+## StrTenureOwnSFDetached:TOTSQFT_EN:HDD65   4.09e-05 ***
+## StrTenureOwnLgApartment:TOTSQFT_EN:HDD65  0.338080    
+## StrTenureOwnMobile:TOTSQFT_EN:HDD65       2.26e-09 ***
+## StrTenureOwnSFAttached:TOTSQFT_EN:HDD65   0.581216    
+## StrTenureOwnSmApartment:TOTSQFT_EN:HDD65  0.586596    
+## StrTenureRentLgApartment:TOTSQFT_EN:HDD65 6.30e-05 ***
+## StrTenureRentMobile:TOTSQFT_EN:HDD65      0.077878 .  
+## StrTenureRentSFAttached:TOTSQFT_EN:HDD65  0.547865    
+## StrTenureRentSFDetached:TOTSQFT_EN:HDD65  0.581275    
+## StrTenureRentSmApartment:TOTSQFT_EN:HDD65 0.063205 .  
+## StrTenureOwnSFDetached:TOTSQFT_EN:CDD65    < 2e-16 ***
+## StrTenureOwnLgApartment:TOTSQFT_EN:CDD65  0.414043    
+## StrTenureOwnMobile:TOTSQFT_EN:CDD65       2.76e-13 ***
+## StrTenureOwnSFAttached:TOTSQFT_EN:CDD65   5.47e-07 ***
+## StrTenureOwnSmApartment:TOTSQFT_EN:CDD65  0.687541    
+## StrTenureRentLgApartment:TOTSQFT_EN:CDD65 0.694622    
+## StrTenureRentMobile:TOTSQFT_EN:CDD65      2.73e-10 ***
+## StrTenureRentSFAttached:TOTSQFT_EN:CDD65  5.84e-05 ***
+## StrTenureRentSFDetached:TOTSQFT_EN:CDD65   < 2e-16 ***
+## StrTenureRentSmApartment:TOTSQFT_EN:CDD65 0.004571 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 514500 on 9097 degrees of freedom
+##   (2719 observations deleted due to missingness)
+## Multiple R-squared:  0.5171,	Adjusted R-squared:  0.5124 
+## F-statistic: 110.7 on 88 and 9097 DF,  p-value: < 2.2e-16
+```
+
+Going to call this close to done and work on some other parts of the paper.
+
 
 
 
@@ -2884,7 +3122,7 @@ boxplot(TEMPHOME~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & 
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png) 
 
 
 ```r
@@ -2896,7 +3134,7 @@ boxplot(TEMPGONE~Householder_Race, notch=TRUE,data=RECS[RECS$KOWNRENT!="Free" & 
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png) 
 
 
 ```r
@@ -2908,7 +3146,7 @@ boxplot(TEMPNITE~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free" &
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 
 
 
 and the summer temps
@@ -2922,7 +3160,7 @@ boxplot(TEMPHOMEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png) 
 
 
 ```r
@@ -2934,7 +3172,7 @@ boxplot(TEMPGONEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png) 
 
 
 ```r
@@ -2946,7 +3184,7 @@ boxplot(TEMPNITEAC~Householder_Race, notch=TRUE, data=RECS[RECS$KOWNRENT!="Free"
 ## : some notches went outside hinges ('box'): maybe set notch=FALSE
 ```
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27-1.png) 
 
 There are differences and it looks like AA are more energy intensive with respect to setpoints
 
