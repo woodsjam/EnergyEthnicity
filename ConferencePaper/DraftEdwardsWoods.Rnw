@@ -316,21 +316,26 @@ RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
 RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
 
 RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
-}
 
 HUD <- read.csv("HUD.csv")
 
 #And the clean up from importing from excell
 HUD$pop<-as.numeric(gsub(",","",HUD$pop))
 HUD$reportablen<-as.factor(HUD$reportablen)
+summary(HUD)
+CritHUD<-unique(HUD[c("reportablen","reporttot")])
+RECS<-merge(RECS,CritHUD, by.x="REPORTABLE_DOMAIN", by.y="reportablen")
+
+}
+
+
 @
 
-<<DataSubsetMerge,echo=FALSE,results=hide>>=
+<<DataSubset,echo=FALSE,results=hide>>=
 #work only with this subset
 RECS<-RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]
 if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
-#Merge the RECS and HUD together ***TODO***
 @
 
 
@@ -341,7 +346,7 @@ if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
-xtable(table(RECS$TYPEHUQ,RECS$Householder_Race), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+xtable(table(RECS$TYPEHUQ,RECS$EthRace), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
 @
 
 \begin{figure}
@@ -350,10 +355,12 @@ xtable(table(RECS$TYPEHUQ,RECS$Householder_Race), caption="Count of Observations
 \label{fig:kWhbyOwnRace}
 <<echo=false,fig=TRUE>>=
 library(ggplot2)
-qplot(KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT, geom = "density" )
+qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
 @
 \end{center}
 \end{figure}
+
+
 
 \begin{figure}
 \begin{center}
@@ -361,10 +368,12 @@ qplot(KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT, geom 
 \label{fig:kWhbyIncome}
 <<echo=false,fig=TRUE>>=
 library(ggplot2)
-qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT )+geom_boxplot()
+qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
 @
 \end{center}
 \end{figure}
+
+
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
   
@@ -372,11 +381,59 @@ qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =Householder_Race~KOWNRENT
   
   \subsection{Differences in Reported Behavior}
   
+  \subsection{HUD Complaints}
   
+  
+<<echo=false,results=tex>>=
+library(xtable)
+HUD<-read.csv("HUD.csv")
+HUDCut<-HUD[c("state","pop","reporttot")]
+names(HUDCut)<-c("State","Population","Reports (per 100,000)")
+
+#***TODO Fix so it does not show the row number***
+xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints")
+rm(HUD)
+@
 
 \section{Conditional Demand Estimation}
 
   \subsection{Orthodox Results}
+  
+<<OrthodoxKWH, echo=FALSE, results=tex>>=
+
+OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income+EthRace:Income, data=RECS,weights=NWEIGHT)
+xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH")
+@
+  
+
+
+<<OrthodoxSQFT, echo=FALSE,results=tex>>=
+# Replicating what Edwards did in Stata.
+# reg totsqft_encat rentass ownrent dweltype lnincome nhsldmem reporttot reporttot i.education 
+# i.householder_race#c.reporttot urbanrural
+
+OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS)
+xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
+
+@
+
+
+<<OrthodoxStructTenure,echo=FALSE,results=tex>>=
+
+@
+
+  
   \subsection{Single Equation Methods}
   \subsection{Multiple Equation Methods}
   
