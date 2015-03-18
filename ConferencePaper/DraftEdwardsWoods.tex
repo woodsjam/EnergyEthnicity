@@ -30,8 +30,8 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{RECS}
 
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sun Mar 15 22:51:59 2015
+% latex table generated in R 3.0.2 by xtable 1.7-4 package
+% Wed Mar 18 09:33:26 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrrrrrrr}
@@ -77,8 +77,8 @@ Mobile & 371 &  24 &   1 &   6 &   7 &   2 &   1 &   3 &   0 &   1 &   2 &   6 &
   \subsection{HUD Complaints}
   
   
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sun Mar 15 22:52:15 2015
+% latex table generated in R 3.0.2 by xtable 1.7-4 package
+% Wed Mar 18 09:33:32 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -145,8 +145,8 @@ Mobile & 371 &  24 &   1 &   6 &   7 &   2 &   1 &   3 &   0 &   1 &   2 &   6 &
 
   \subsection{Orthodox Results}
   
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sun Mar 15 22:52:15 2015
+% latex table generated in R 3.0.2 by xtable 1.7-4 package
+% Wed Mar 18 09:33:32 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -249,8 +249,8 @@ Mobile & 371 &  24 &   1 &   6 &   7 &   2 &   1 &   3 &   0 &   1 &   2 &   6 &
 \end{table}  
 
 
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sun Mar 15 22:52:15 2015
+% latex table generated in R 3.0.2 by xtable 1.7-4 package
+% Wed Mar 18 09:33:32 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -298,6 +298,257 @@ Mobile & 371 &  24 &   1 &   6 &   7 &   2 &   1 &   3 &   0 &   1 &   2 &   6 &
 \label{tab:OrthoSQFT}
 \end{table}
 
+\begin{Schunk}
+\begin{Soutput}
+# weights:  290 (252 variable)
+initial  value 27412.275532 
+iter  10 value 18277.849872
+iter  20 value 16456.709264
+iter  30 value 15328.790711
+iter  40 value 14953.228502
+iter  50 value 14605.498292
+iter  60 value 14072.205160
+iter  70 value 13614.076441
+iter  80 value 13476.010708
+iter  90 value 13353.307788
+iter 100 value 13165.327630
+final  value 13165.327630 
+stopped after 100 iterations
+\end{Soutput}
+\begin{Soutput}
+Call:
+multinom(formula = StrTenure ~ RENTHELP + TOTSQFT_EN + Income + 
+    NHSLDMEM + reporttot + EDUCATION + reporttot + reporttot:EthRace + 
+    UR, data = RECS)
+
+Coefficients:
+                (Intercept) RENTHELPTRUE    TOTSQFT_EN        Income
+OwnLgApartment   -1.4012045    2.1454443 -0.0019509345  3.459254e-06
+OwnMobile         1.8481044   -0.3335909 -0.0024782727 -1.036208e-05
+OwnSFAttached    -3.6710529    0.2236006 -0.0004030778  7.180833e-07
+OwnSmApartment   -3.1672555    4.6166536 -0.0010380324  2.974365e-06
+RentLgApartment   1.7899438    5.1034563 -0.0030038175 -1.046446e-05
+RentMobile        1.9786892    5.8969739 -0.0038888400 -3.639383e-05
+RentSFAttached   -2.3878420    4.7618232 -0.0012446232 -1.021858e-05
+RentSFDetached   -1.5726891    2.8200895 -0.0005734065 -1.226262e-05
+RentSmApartment   0.1807821    5.1008582 -0.0026323099 -1.619186e-05
+                   NHSLDMEM    reporttot EDUCATIONNoHS EDUCATIONHS
+OwnLgApartment  -0.34797258  0.015013718   0.477269446  0.37401861
+OwnMobile        0.15128116 -0.004738898   0.485162185  0.11640843
+OwnSFAttached   -0.25038723  0.008050993   0.226793906  0.85684652
+OwnSmApartment  -0.28237646 -0.009663942  -0.688673023 -0.03748283
+RentLgApartment -0.03500606  0.011237582   0.004987983 -0.04286051
+RentMobile       0.40934677 -0.051218671   0.390739477  0.14594218
+RentSFAttached   0.12059529  0.034419469  -0.030921130 -0.23572032
+RentSFDetached   0.30723498  0.001014244   0.102122854 -0.01403466
+RentSmApartment  0.05205921 -0.014265982   0.263488737  0.02949444
+                EDUCATIONSomeCol EDUCATIONAA EDUCATIONBA EDUCATIONMA
+OwnLgApartment         0.6929779  0.65737452  0.95739291   1.4417718
+OwnMobile              0.7905695  0.21659624 -0.35389397  -1.6492500
+OwnSFAttached          0.8985078  0.87238180  1.52406591   1.2864582
+OwnSmApartment        -0.3374229 -0.16358571  0.11573260  -0.4165630
+RentLgApartment        0.2805560  0.27019330  0.66607255   0.7373567
+RentMobile            -0.2202073  0.00850999 -1.06151061  -5.7933615
+RentSFAttached         0.2031599 -0.13171082  0.02641089  -0.1009914
+RentSFDetached         0.2157358  0.11563920 -0.10035484  -0.4337383
+RentSmApartment        0.3623767  0.41090394  0.47854431   0.1297479
+                EDUCATIONProf EDUCATIONPHD    URUrban
+OwnLgApartment      1.8736513    1.2372782  1.4520879
+OwnMobile          -2.1151470   -2.4556028 -1.1014520
+OwnSFAttached       1.5983874    1.5419624  1.6277862
+OwnSmApartment      0.3985125    0.5267079  2.3226177
+RentLgApartment     0.9433553    0.9234813  1.5801513
+RentMobile          1.7018720    2.9972013 -1.0603773
+RentSFAttached     -0.8478266    0.4381929  1.9708629
+RentSFDetached     -0.1725402   -0.0787602  0.5626279
+RentSmApartment     0.3681771    0.6908721  1.9187057
+                reporttot:EthRaceFALSEAfAm reporttot:EthRaceFALSEAsian
+OwnLgApartment                -0.061129933                  0.07766379
+OwnMobile                     -0.253501612                 -0.71539058
+OwnSFAttached                  0.073028129                  0.06828815
+OwnSmApartment                -0.003398508                 -0.07136701
+RentLgApartment                0.135654877                  0.06161987
+RentMobile                    -0.584744072                 -1.76876817
+RentSFAttached                 0.135991827                 -0.04106818
+RentSFDetached                 0.075353177                 -0.00935299
+RentSmApartment                0.190626173                  0.12929070
+                reporttot:EthRaceFALSEMulti reporttot:EthRaceFALSENativeAm
+OwnLgApartment                 -0.218513213                   -0.542488392
+OwnMobile                       0.009344288                    0.026094924
+OwnSFAttached                  -0.024491876                    0.079630580
+OwnSmApartment                 -0.260290488                   -0.551033411
+RentLgApartment                 0.097746978                    0.029581017
+RentMobile                     -0.615016447                   -0.036504716
+RentSFAttached                  0.014477356                    0.092926422
+RentSFDetached                  0.093122527                   -0.017882116
+RentSmApartment                 0.037601924                   -0.002009332
+                reporttot:EthRaceFALSEOther reporttot:EthRaceFALSEPacific
+OwnLgApartment                  -0.02561634                   -0.68676247
+OwnMobile                       -0.55227399                   -0.04961086
+OwnSFAttached                   -0.02252647                   -5.15650607
+OwnSmApartment                  -0.13826734                   -1.70662972
+RentLgApartment                  0.05565783                    0.10232812
+RentMobile                      -0.01394297                   -2.42342974
+RentSFAttached                   0.11273668                   -1.10930205
+RentSFDetached                   0.05107721                    0.01030506
+RentSmApartment                  0.07408486                   -0.25631938
+                reporttot:EthRaceTRUEAfAm reporttot:EthRaceTRUEAsian
+OwnLgApartment               -0.994558317                -0.33037417
+OwnMobile                    -0.008599062                -0.49712877
+OwnSFAttached                 0.901421947                -1.07591077
+OwnSmApartment                0.720621562                -0.42752187
+RentLgApartment               0.702580769                -0.08253460
+RentMobile                    0.823029357                -0.71191633
+RentSFAttached                0.706637515                -1.72623591
+RentSFDetached                0.653334007                 0.04942301
+RentSmApartment               0.779288301                -2.09522007
+                reporttot:EthRaceTRUEMulti reporttot:EthRaceTRUENativeAm
+OwnLgApartment                 -0.19864986                     0.4914334
+OwnMobile                       0.03562188                     0.2623866
+OwnSFAttached                  -1.13148003                     0.3121788
+OwnSmApartment                  0.17970443                     0.4218565
+RentLgApartment                 0.14034061                     0.3174522
+RentMobile                      0.21249252                    -0.5517922
+RentSFAttached                 -0.81366313                     0.4200183
+RentSFDetached                  0.03562691                     0.1682046
+RentSmApartment                 0.31811515                     0.3544462
+                reporttot:EthRaceTRUEOther reporttot:EthRaceTRUEPacific
+OwnLgApartment                  0.02180558                 -0.397523801
+OwnMobile                      -0.06062417                 -0.180497351
+OwnSFAttached                   0.03002728                  0.281796703
+OwnSmApartment                  0.18705769                  0.142528296
+RentLgApartment                 0.07142922                 -1.524863739
+RentMobile                      0.21052647                 -1.033877065
+RentSFAttached                  0.07825611                 -0.689753196
+RentSFDetached                 -0.06288220                 -3.109386196
+RentSmApartment                 0.08111029                 -0.004257285
+                reporttot:EthRaceTRUEWt
+OwnLgApartment              -0.07852315
+OwnMobile                   -0.03453491
+OwnSFAttached               -0.02259886
+OwnSmApartment              -0.05248278
+RentLgApartment              0.04717723
+RentMobile                  -0.01815809
+RentSFAttached               0.01876969
+RentSFDetached               0.03145875
+RentSmApartment              0.08247824
+
+Std. Errors:
+                 (Intercept) RENTHELPTRUE   TOTSQFT_EN       Income
+OwnLgApartment  4.351724e-08 1.361833e-10 8.042083e-05 1.486828e-06
+OwnMobile       4.801794e-08 2.878315e-11 7.351840e-05 2.004093e-06
+OwnSFAttached   1.093224e-08 2.331910e-11 3.658997e-05 1.015700e-06
+OwnSmApartment  3.405954e-08 1.684418e-09 8.323208e-05 1.893700e-06
+RentLgApartment 3.217775e-08 1.259582e-08 4.426271e-05 1.009244e-06
+RentMobile      1.680366e-07 2.380603e-08 1.954323e-04 6.852449e-06
+RentSFAttached  2.662972e-08 3.695408e-09 5.604870e-05 1.623214e-06
+RentSFDetached  2.296883e-08 1.271973e-09 3.053730e-05 1.052931e-06
+RentSmApartment 4.160313e-08 6.682058e-09 5.994973e-05 1.579855e-06
+                    NHSLDMEM    reporttot EDUCATIONNoHS  EDUCATIONHS
+OwnLgApartment  8.500718e-08 3.075767e-07  4.870920e-09 1.386252e-08
+OwnMobile       1.299624e-07 3.006569e-07  1.355709e-08 1.767290e-08
+OwnSFAttached   2.393908e-08 7.985562e-08  9.307634e-10 3.961343e-09
+OwnSmApartment  7.270828e-08 2.359306e-07  3.187754e-09 1.477896e-08
+RentLgApartment 8.193668e-08 2.062674e-07  1.301925e-08 1.208165e-08
+RentMobile      5.537054e-07 9.511767e-07  7.046973e-08 6.631369e-08
+RentSFAttached  7.665648e-08 2.069790e-07  6.389055e-09 9.143159e-09
+RentSFDetached  1.007340e-07 1.130154e-07  1.170572e-08 7.680150e-09
+RentSmApartment 1.102293e-07 2.587058e-07  1.173288e-08 1.497742e-08
+                EDUCATIONSomeCol  EDUCATIONAA  EDUCATIONBA  EDUCATIONMA
+OwnLgApartment      1.158332e-08 4.914648e-09 5.566968e-09 2.329809e-09
+OwnMobile           1.491993e-08 2.521968e-09 4.256616e-10 3.059156e-11
+OwnSFAttached       2.523770e-09 1.061512e-09 2.194114e-09 4.833421e-10
+OwnSmApartment      6.977600e-09 3.697818e-09 4.241222e-09 6.433379e-10
+RentLgApartment     7.959396e-09 2.991435e-09 3.372193e-09 3.581167e-10
+RentMobile          1.813836e-08 5.950328e-09 7.252824e-11 9.122272e-13
+RentSFAttached      7.476959e-09 1.936084e-09 1.891315e-09 2.454978e-10
+RentSFDetached      3.744902e-09 9.586280e-10 1.326644e-09 3.522232e-10
+RentSmApartment     1.017352e-08 3.547218e-09 2.200330e-09 1.212453e-10
+                EDUCATIONProf EDUCATIONPHD      URUrban
+OwnLgApartment   1.264854e-10 1.966242e-10 3.914011e-08
+OwnMobile        1.174724e-11 1.327710e-11 2.054870e-08
+OwnSFAttached    1.626516e-10 6.605900e-11 9.742949e-09
+OwnSmApartment   1.079404e-10 1.247334e-10 3.236071e-08
+RentLgApartment  2.764815e-10 7.535749e-10 2.760945e-08
+RentMobile       5.514256e-10 1.506763e-09 9.058000e-08
+RentSFAttached   1.052140e-11 9.127383e-11 2.471527e-08
+RentSFDetached   6.977103e-11 2.535682e-11 1.538717e-08
+RentSmApartment  4.023520e-11 1.231473e-10 3.864537e-08
+                reporttot:EthRaceFALSEAfAm reporttot:EthRaceFALSEAsian
+OwnLgApartment                1.963367e-08                5.606453e-09
+OwnMobile                     1.362978e-08                1.615299e-11
+OwnSFAttached                 9.815614e-09                1.350058e-09
+OwnSmApartment                1.921235e-08                2.132416e-10
+RentLgApartment               4.541580e-08                2.210217e-09
+RentMobile                    1.942309e-08                7.827963e-12
+RentSFAttached                4.187071e-08                9.156847e-10
+RentSFDetached                1.910479e-08                2.239577e-09
+RentSmApartment               7.118139e-08                4.919406e-09
+                reporttot:EthRaceFALSEMulti reporttot:EthRaceFALSENativeAm
+OwnLgApartment                 2.615273e-10                   9.367484e-11
+OwnMobile                      4.200240e-09                   6.379168e-09
+OwnSFAttached                  2.550073e-10                   1.109178e-09
+OwnSmApartment                 1.935621e-10                   5.739529e-11
+RentLgApartment                4.251619e-09                   2.523858e-09
+RentMobile                     1.011654e-09                   1.426604e-08
+RentSFAttached                 1.781757e-09                   4.230313e-09
+RentSFDetached                 2.187221e-09                   1.898748e-09
+RentSmApartment                2.506901e-09                   1.606973e-09
+                reporttot:EthRaceFALSEOther reporttot:EthRaceFALSEPacific
+OwnLgApartment                 1.090309e-09                  2.227915e-11
+OwnMobile                      8.697048e-11                  1.698262e-09
+OwnSFAttached                  2.490790e-10                  2.558331e-16
+OwnSmApartment                 1.256503e-10                  6.267601e-13
+RentLgApartment                1.880471e-09                  9.010899e-10
+RentMobile                     3.482380e-09                  2.806748e-13
+RentSFAttached                 6.042252e-09                  2.639569e-12
+RentSFDetached                 2.204181e-09                  3.601196e-10
+RentSmApartment                2.452424e-09                  1.655045e-11
+                reporttot:EthRaceTRUEAfAm reporttot:EthRaceTRUEAsian
+OwnLgApartment               1.200681e-12               3.770832e-11
+OwnMobile                    8.285815e-10               4.408003e-11
+OwnSFAttached                2.950472e-10               4.674004e-13
+OwnSmApartment               7.533099e-10               1.311664e-11
+RentLgApartment              7.302695e-09               1.623169e-10
+RentMobile                   2.160392e-08               2.622579e-10
+RentSFAttached               2.013095e-09               3.157614e-13
+RentSFDetached               5.062913e-09               1.471258e-10
+RentSmApartment              5.034675e-09               3.440708e-13
+                reporttot:EthRaceTRUEMulti reporttot:EthRaceTRUENativeAm
+OwnLgApartment                7.673547e-11                  7.795320e-10
+OwnMobile                     1.673434e-10                  8.459745e-10
+OwnSFAttached                 6.945296e-13                  1.942390e-10
+OwnSmApartment                4.258973e-09                  3.941367e-10
+RentLgApartment               1.115209e-09                  8.417261e-10
+RentMobile                    2.474460e-09                  2.379009e-10
+RentSFAttached                1.180096e-12                  8.788977e-10
+RentSFDetached                2.050147e-09                  3.858355e-10
+RentSmApartment               6.918216e-09                  1.286191e-09
+                reporttot:EthRaceTRUEOther reporttot:EthRaceTRUEPacific
+OwnLgApartment                1.562151e-09                 2.575334e-12
+OwnMobile                     1.582095e-09                 2.668836e-10
+OwnSFAttached                 1.052125e-09                 1.270903e-10
+OwnSmApartment                2.413554e-08                 9.823655e-11
+RentLgApartment               5.490875e-08                 2.399506e-14
+RentMobile                    1.566813e-07                 1.182834e-12
+RentSFAttached                3.278555e-08                 1.156016e-12
+RentSFDetached                4.937909e-09                 5.975457e-15
+RentSmApartment               2.918801e-08                 1.839679e-10
+                reporttot:EthRaceTRUEWt
+OwnLgApartment             1.438646e-08
+OwnMobile                  3.358932e-08
+OwnSFAttached              3.806993e-09
+OwnSmApartment             1.043395e-08
+RentLgApartment            3.496748e-08
+RentMobile                 1.828711e-07
+RentSFAttached             2.182158e-08
+RentSFDetached             4.080229e-08
+RentSmApartment            4.782485e-08
+
+Residual Deviance: 26330.66 
+AIC: 26834.66 
+\end{Soutput}
+\end{Schunk}
 
   
   \subsection{Single Equation Methods}

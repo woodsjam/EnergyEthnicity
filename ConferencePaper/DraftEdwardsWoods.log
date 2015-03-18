@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  15 MAR 2015 22:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.3)  18 MAR 2015 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **DraftEdwardsWoods.tex
 (./DraftEdwardsWoods.tex
 LaTeX2e <2011/06/27>
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+Babel <3.9h> and hyphenation patterns for 2 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -89,11 +89,7 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \c@FancyVerbLine=\count89
 \FV@StepNumber=\count90
 \FV@OutFile=\write3
-) (/usr/share/R/share/texmf/tex/latex/upquote.sty
-Package: upquote 2003/08/11 v1.1 Covington's upright-quote modification to verb
-atim and verb
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -173,7 +169,7 @@ Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
 Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
-))
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -333,29 +329,35 @@ Overfull \hbox (28.0796pt too wide) in paragraph at lines 256--297
  [][] 
  []
 
-(./DraftEdwardsWoods.bbl [4]) [5] [6] [7] [8] (./DraftEdwardsWoods.aux) ) 
+LaTeX Font Info:    Try loading font information for T1+aett on input line 302.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [4] [5] [6] [7] [8]
+(./DraftEdwardsWoods.bbl [9] [10]) [11] [12] [13] [14] (./DraftEdwardsWoods.aux
+) ) 
 Here is how much of TeX's memory you used:
- 2833 strings out of 493307
- 40803 string characters out of 6139905
- 136933 words of memory out of 5000000
- 6196 multiletter control sequences out of 15000+600000
- 34655 words of font info for 72 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
- 38i,10n,27p,860b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmti10.pfb>
-Output written on DraftEdwardsWoods.pdf (8 pages, 410135 bytes).
+ 2852 strings out of 495028
+ 41077 string characters out of 6181498
+ 134803 words of memory out of 5000000
+ 5966 multiletter control sequences out of 15000+600000
+ 35502 words of font info for 75 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 38i,10n,27p,860b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmtt10.pfb>
+Output written on DraftEdwardsWoods.pdf (14 pages, 437396 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  15 words of extra memory for PDF output out of 10000 (max. 10000000)
 

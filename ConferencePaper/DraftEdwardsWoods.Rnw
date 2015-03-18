@@ -436,7 +436,7 @@ xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
 library(nnet)
 OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS)
 summary(OrthodoxStructTenure)
-xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
+#xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
 
   
