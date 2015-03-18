@@ -680,9 +680,20 @@ RECSTemp<-cbind(SubsetRECS,StructProb)
 RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
 
 #Alter formula in KWH model for new variables
-summary(CopyKWH)
-update(CopyKWH, .~ .-TOTSQFT_EN + PSQFT, data=RECSTemp)
+formula(CopyKWH)
+StructNames<-as.character(names(as.data.frame(StructProb)))
+NewStruct<-paste("(",paste(unlist(StructNames),collapse="+",sep=""),")")
 
+library(stringr)
+NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
+NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
+NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
+
+update(CopyKWH, formula=NewForm, data=RECSTemp)
+
+
+#That is one loop
+#Now lets get it bootstrapping
 
 ```
 
