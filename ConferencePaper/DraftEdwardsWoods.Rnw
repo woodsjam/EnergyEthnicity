@@ -429,8 +429,14 @@ xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
 @
 
 
-<<OrthodoxStructTenure,echo=FALSE,results=tex>>=
-
+<<OrthodoxStructTenure,echo=FALSE,results=verbatim>>=
+# Recreating what Edwards did in Stata
+#Output is not pretty  ***TODO Make Output pretty ***
+# mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
+library(nnet)
+OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS)
+summary(OrthodoxStructTenure)
+xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
 
   
