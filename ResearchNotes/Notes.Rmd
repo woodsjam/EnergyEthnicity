@@ -689,21 +689,48 @@ NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
 NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
 NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
 
-update(CopyKWH, formula=NewForm, data=RECSTemp)
+coef(update(CopyKWH, formula=NewForm, data=RECSTemp))
 
 
 #That is one loop
 #Now lets get it bootstrapping
 
+BootThing<-function(Data,Indexes){
+  OurData<-SubsetRECS[Indexes,]
+  #First Round of Square foot forecast
+  OurData$PSQFT<-predict(update(CopySQFT,.~. ,data=OurData))
+
+  #Find tenure probabilities with new sqft estimates
+  update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData )
+  StructProb<-predict(update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData ), type="probs")
+
+  RECSTemp<-cbind(OurData,StructProb)
+
+  #Run through again for new square foot estimate
+  RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
+
+  #Alter formula in KWH model for new variables
+  formula(CopyKWH)
+  StructNames<-as.character(names(as.data.frame(StructProb)))
+  NewStruct<-paste("(",paste(unlist(StructNames),collapse="+",sep=""),")")
+
+  library(stringr)
+  NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
+  NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
+  NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
+
+  #Return the KWH model coeficients
+  Ret<-coef(update(CopyKWH, formula=NewForm, data=RECSTemp))
+  if(length(Ret)!=length(coef(CopyKWH))) rep(NA,length(coef(CopyKWH))) else  Ret
+  
+  }
+
+BootThing(1:1000)
+library(boot)
+
+system.time(boot(SubsetRECS,BootThing,10))
+
+
 ```
 
  
- 
-```{r}
-update(OrthodoxStructTenure)$fitted.values
-all.vars(formula(OrthodoxKWH))
-all.vars(formula(OrthodoxSQFT))
-all.vars(formula(OrthodoxStructTenure))
-
-
-```
