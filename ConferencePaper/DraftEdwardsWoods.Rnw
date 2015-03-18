@@ -485,11 +485,11 @@ BootThing<-function(Data,Indexes){
   if(length(Ret)!=length(coef(CopyKWH))) rep(NA,length(coef(CopyKWH))) else  Ret
   }
 
-#Either load or create bootstrap estimates
+#Either load or create bootstrap estimates.  Note that multicore does not work on windows machines
 library(boot)
 if(file.exists("System.RData")) load("System.RData") else {
  System<-boot(SubsetRECS,BootThing,400,parallel="multicore",ncpus=4)
- save(System,"System.RData")
+ save(System,file="System.RData")
 }
 @
 

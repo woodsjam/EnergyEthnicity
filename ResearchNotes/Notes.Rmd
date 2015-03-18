@@ -727,9 +727,10 @@ BootThing<-function(Data,Indexes){
 
 BootThing(1:1000)
 library(boot)
-
-system.time(boot(SubsetRECS,BootThing,10))
-
+library(parallel)
+detectCores()
+system.time(boot(SubsetRECS,BootThing,10,parallel="snow",ncpus=4))
+Res<-boot(SubsetRECS,BootThing,10,parallel="multicore",ncpus=4)
 
 ```
 
