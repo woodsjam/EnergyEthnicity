@@ -423,7 +423,7 @@ xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH")
 # reg totsqft_encat rentass ownrent dweltype lnincome nhsldmem reporttot reporttot i.education 
 # i.householder_race#c.reporttot urbanrural
 
-OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS)
+OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS, weights=NWEIGHT)
 xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
 
 @
@@ -434,7 +434,7 @@ xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
 #Output is not pretty  ***TODO Make Output pretty ***
 # mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
 library(nnet)
-OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS)
+OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS,weights=NWEIGHT)
 summary(OrthodoxStructTenure)
 #xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @

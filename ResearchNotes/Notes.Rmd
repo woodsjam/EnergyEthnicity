@@ -643,7 +643,56 @@ xtabs(~RECS$TVONWD1+RECS$Householder_Race, data=RECS[RECS$KOWNRENT!="Free" & REC
 
 ```
 
-library(ggplot2)
-ggplot(RECS, aes(KWH))+geom_boxplot()
-facets=KOWNRENT~Householder_Race
-qplot(KWH, data = RECS,geom="boxplot", xlim=c(0,24000) )
+
+
+# The bootstrap of the system
+
+
+Start with the existing objects for the three models
+ "OrthodoxKWH"          "OrthodoxSQFT"         "OrthodoxStructTenure"
+ 
+ and data
+ 
+First lets get only the parts of recs with complete cases for the models
+
+```{r}
+VarsUsed<-unique(c(all.vars(formula(OrthodoxKWH)),all.vars(formula(OrthodoxSQFT)),all.vars(formula(OrthodoxStructTenure)),"NWEIGHT"))
+SubsetRECS<-RECS[VarsUsed]
+SubsetRECS<-SubsetRECS[complete.cases(SubsetRECS),]
+
+#copy the objects
+CopyKWH<-update(OrthodoxKWH,.~.,SubsetRECS)
+CopySQFT<-update(OrthodoxSQFT,.~.,SubsetRECS)
+CopyTenure<-OrthodoxStructTenure
+
+
+
+#First Round of Square foot forecast
+SubsetRECS$PSQFT<-predict(update(CopySQFT,.~. ,data=SubsetRECS))
+
+#Find tenure probabilities with new sqft estimates
+update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=SubsetRECS )
+StructProb<-predict(update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=SubsetRECS ), type="probs")
+
+RECSTemp<-cbind(SubsetRECS,StructProb)
+
+#Run through again for new square foot estimate
+RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
+
+#Alter formula in KWH model for new variables
+summary(CopyKWH)
+update(CopyKWH, .~ .-TOTSQFT_EN + PSQFT, data=RECSTemp)
+
+
+```
+
+ 
+ 
+```{r}
+update(OrthodoxStructTenure)$fitted.values
+all.vars(formula(OrthodoxKWH))
+all.vars(formula(OrthodoxSQFT))
+all.vars(formula(OrthodoxStructTenure))
+
+
+```
