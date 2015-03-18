@@ -488,7 +488,7 @@ BootThing<-function(Data,Indexes){
 #Either load or create bootstrap estimates
 library(boot)
 if(file.exists("System.RData")) load("System.RData") else {
- System<-boot(SubsetRECS,BootThing,400)
+ System<-boot(SubsetRECS,BootThing,400,parallel="multicore",ncpus=4)
  save(System,"System.RData")
 }
 @
