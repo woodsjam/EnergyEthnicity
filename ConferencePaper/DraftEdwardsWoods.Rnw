@@ -20,6 +20,17 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{Introduction}
 
+
+\begin{itemize}
+
+  \item Differences in energy use by race and ethnicity is frequently reported in the literature
+  \item Much of the difference has to do with differences in income levels and education but not frequently modeled correctly.
+  \item Even with proper race and ethnicity controls with income, some patterns persist.
+  \item We assert that that these differences are at least partially caused by some housing discriminations, forceing people into houseing types different than what they would prefer without discrimination and into renting rather than buying.
+  \item We show this with a model that endogenizes structure type and tenure decision.
+  \item emphasize that this is early work.
+\end{itemize}
+
 \cite{RBase}
 
 <<DataEdit,echo=FALSE, results=hide>>=
@@ -341,9 +352,19 @@ if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
 
   \subsection{Race and Ethnicity in Conditional Demand}
+  
   \subsection{How Race and Ethnicity are Interpreted}
 
 \section{RECS}
+
+\begin{itemize}
+  \item Description on RECS data size number of observations sampling method etc.
+  \item Scope of data  
+  \item Weighting to account for stratifieed sampling
+  \item We need more tables and graphics here.
+\end{itemize}
+
+
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
@@ -377,14 +398,38 @@ qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_b
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
+
+\begin{itemize}
+  \item differences in structure type
+  \item differnce in tenure
+  \item differences in energy star controling for own rent
+  \item general differences in own vs rent.  
+  \item explain with split incentives story
+  \item difference in age of structure
+  \item differnces in hot water fuel
+  \item difference in heating fuel
+    \item difference in climate/location
+\end{itemize}
   
-  
-  
+
   \subsection{Differences in Reported Behavior}
   
-  \subsection{HUD Complaints}
+  \begin{itemize}
+    \item Differnces in thermostat settings
+    \item difference in cooking behavior
+    \item difference in reported AC use
+
+  \end{itemize}
   
   
+  \subsection{HUD Complaints as a Measure of Discrimination}
+  
+  \begin{itemize}
+    \item trouble finding a good statewide index of housing discrimination
+    \item the HUD complaint measure
+    \item may be endogenous and be indicative of reduced discrimination
+  
+  \end{itemize}
 <<echo=false,results=tex>>=
 library(xtable)
 HUD<-read.csv("HUD.csv")
@@ -399,6 +444,15 @@ rm(HUD)
 \section{Conditional Demand Estimation}
 
   \subsection{Orthodox Results}
+  
+  \begin{itemize}
+    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
+    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
+    \item Major end-uses are included but relativly unsophisticated.
+    \item discusss the orthodox results.
+  \end{itemize}
+  
+  
   
 <<OrthodoxKWH, echo=FALSE, results=tex>>=
 
@@ -417,7 +471,13 @@ OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65
 print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable")
 @
   
+  
+  
+\begin{itemize}
+  \item explain the logic behind the making both sqft and structure tenure endogenous.
+  \item primarily that sqft may be related to quality of houseing, newer structures
 
+\end{itemize}
 
 <<OrthodoxSQFT, echo=FALSE,results=tex>>=
 # Replicating what Edwards did in Stata.
@@ -425,8 +485,8 @@ print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabu
 # i.householder_race#c.reporttot urbanrural
 
 OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS, weights=NWEIGHT)
-print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable")
-
+print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
+#Still needs a housman test
 @
 
 
@@ -440,9 +500,22 @@ summary(OrthodoxStructTenure)
 #xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
 
-  
-%   \subsection{Single Equation Methods}
-  \subsection{Multiple Equation Methods}
+
+<<HousemanTest,echo=false,results=tex>>=
+#Need to do a Houseman test for on the stucture model 
+@
+
+
+
+  \subsection{System Estimation}
+
+\begin{itemize}
+  \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
+  \item probablities of structure type rather than forecast were used.
+  \item no censoring for square footage less than zero.
+  \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
+\end{itemize}
+
 
 <<BootStrap,echo=FALSE,results=hide>>=
 #Limit the data to only the cols and rows that we can use

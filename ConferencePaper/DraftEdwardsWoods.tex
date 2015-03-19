@@ -21,18 +21,39 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{Introduction}
 
+
+\begin{itemize}
+
+  \item Differences in energy use by race and ethnicity is frequently reported in the literature
+  \item Much of the difference has to do with differences in income levels and education but not frequently modeled correctly.
+  \item Even with proper race and ethnicity controls with income, some patterns persist.
+  \item We assert that that these differences are at least partially caused by some housing discriminations, forceing people into houseing types different than what they would prefer without discrimination and into renting rather than buying.
+  \item We show this with a model that endogenizes structure type and tenure decision.
+  \item emphasize that this is early work.
+\end{itemize}
+
 \cite{RBase}
 
 
 
 
   \subsection{Race and Ethnicity in Conditional Demand}
+  
   \subsection{How Race and Ethnicity are Interpreted}
 
 \section{RECS}
 
+\begin{itemize}
+  \item Description on RECS data size number of observations sampling method etc.
+  \item Scope of data  
+  \item Weighting to account for stratifieed sampling
+  \item We need more tables and graphics here.
+\end{itemize}
+
+
+
 % latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Mar 19 07:55:11 2015
+% Thu Mar 19 09:20:06 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -79,16 +100,40 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
+
+\begin{itemize}
+  \item differences in structure type
+  \item differnce in tenure
+  \item differences in energy star controling for own rent
+  \item general differences in own vs rent.  
+  \item explain with split incentives story
+  \item difference in age of structure
+  \item differnces in hot water fuel
+  \item difference in heating fuel
+    \item difference in climate/location
+\end{itemize}
   
-  
-  
+
   \subsection{Differences in Reported Behavior}
   
-  \subsection{HUD Complaints}
+  \begin{itemize}
+    \item Differnces in thermostat settings
+    \item difference in cooking behavior
+    \item difference in reported AC use
+
+  \end{itemize}
   
   
+  \subsection{HUD Complaints as a Measure of Discrimination}
+  
+  \begin{itemize}
+    \item trouble finding a good statewide index of housing discrimination
+    \item the HUD complaint measure
+    \item may be endogenous and be indicative of reduced discrimination
+  
+  \end{itemize}
 % latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Mar 19 07:55:18 2015
+% Thu Mar 19 09:20:11 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -155,8 +200,17 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 
   \subsection{Orthodox Results}
   
+  \begin{itemize}
+    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
+    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
+    \item Major end-uses are included but relativly unsophisticated.
+    \item discusss the orthodox results.
+  \end{itemize}
+  
+  
+  
 % latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Mar 19 07:55:18 2015
+% Thu Mar 19 09:20:12 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -255,10 +309,16 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \caption{Orthodox kWh Model} 
 \label{tab:OrthoKWH}
 \end{longtable}  
+  
+  
+\begin{itemize}
+  \item explain the logic behind the making both sqft and structure tenure endogenous.
+  \item primarily that sqft may be related to quality of houseing, newer structures
 
+\end{itemize}
 
 % latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Mar 19 07:55:18 2015
+% Thu Mar 19 09:20:12 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -546,9 +606,19 @@ AIC: 263738355
 \end{Soutput}
 \end{Schunk}
 
-  
-%   \subsection{Single Equation Methods}
-  \subsection{Multiple Equation Methods}
+
+
+
+
+  \subsection{System Estimation}
+
+\begin{itemize}
+  \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
+  \item probablities of structure type rather than forecast were used.
+  \item no censoring for square footage less than zero.
+  \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
+\end{itemize}
+
 
 
 
