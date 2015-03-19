@@ -371,6 +371,11 @@ library(xtable)
 xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
 @
 
+<<echo=false,results=tex>>=
+library(xtable)
+xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
+@
+
 \begin{figure}
 \begin{center}
 \caption{Annual kWh by Rent/Own and Race}
@@ -395,32 +400,146 @@ qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_b
 \end{center}
 \end{figure}
 
+<<echo=false,fig=TRUE>>=
+qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Size by Race and Ethnicity")+xlab("Household Size")
+@
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
 
 \begin{itemize}
-  \item differences in structure type
-  \item differnce in tenure
+  \item differences in structure type x
+  \item differnce in tenure x
   \item differences in energy star controling for own rent
   \item general differences in own vs rent.  
   \item explain with split incentives story
-  \item difference in age of structure
-  \item differnces in hot water fuel
-  \item difference in heating fuel
-    \item difference in climate/location
+  \item difference in age of structure x
+  \item differnces in hot water fuel x
+  \item difference in heating fuel x
+    \item difference in climate/location x
 \end{itemize}
   
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+@
 
-  \subsection{Differences in Reported Behavior}
+
+
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EstarWall")
+@
+
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+@
+
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$FUELH2O),caption="Water Service by Race and Ethnicity", label="tab:Water")
+@
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$FUELHEAT),caption="Heating Fuel by Race and Ethnicity", label="tab:HeatFuel")
+@
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$Climate_Region_Pub),caption="Climate by Race and Ethnicity", label="tab:Climate")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Age of Structure by Rent/Own and Race/Ethnicity}
+\label{fig:AgebyOwnRace}
+<<echo=false,fig=TRUE>>=
+qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
+@
+\end{center}
+\end{figure}
+
+
+\subsection{Differences in Reported Behavior}
   
   \begin{itemize}
     \item Differnces in thermostat settings
-    \item difference in cooking behavior
+    \item difference in cooking behavior x
     \item difference in reported AC use
 
   \end{itemize}
   
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and Ethnicity", label="tab:Cooking")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp and Race/Ethnicity (Winter)}
+\label{fig:TempHomeRace}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPHOME~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
+\label{fig:DayAwayRace}
+boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Nightime Temp and Race/Ethnicity (Winter)}
+\label{fig:NightRace}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp Home by Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Day Temp Away by Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Nightime Temp and Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
   
   \subsection{HUD Complaints as a Measure of Discrimination}
   
