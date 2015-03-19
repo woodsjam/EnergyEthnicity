@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{draftwatermark}
+\usepackage{longtable}
 \SetWatermarkText{DRAFT}
 \SetWatermarkScale{1}
 
@@ -413,7 +414,7 @@ OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65
            + TYPEGLASS:TOTSQFT_EN
            + NHSLDMEM
            + Income+EthRace:Income, data=RECS,weights=NWEIGHT)
-xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH")
+print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable")
 @
   
 
@@ -424,7 +425,7 @@ xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH")
 # i.householder_race#c.reporttot urbanrural
 
 OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS, weights=NWEIGHT)
-xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT")
+print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable")
 
 @
 
@@ -487,8 +488,12 @@ BootThing<-function(Data,Indexes){
 
 #Either load or create bootstrap estimates.  Note that multicore does not work on windows machines
 library(boot)
+BootReplicates<-400
 if(file.exists("System.RData")) load("System.RData") else {
- System<-boot(SubsetRECS,BootThing,400,parallel="multicore",ncpus=4)
+  if(Sys.info()[['sysname']]=="Linux") {
+    System<-boot(SubsetRECS,BootThing,BootReplicates,parallel="multicore",ncpus=4)} else {
+      System<-boot(SubsetRECS,BootThing,BootReplicates)
+    }
  save(System,file="System.RData")
 }
 @
