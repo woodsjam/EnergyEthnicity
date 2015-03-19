@@ -347,7 +347,7 @@ if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
-xtable(table(RECS$TYPEHUQ,RECS$EthRace), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
 @
 
 \begin{figure}
