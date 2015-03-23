@@ -541,7 +541,7 @@ boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
 \end{center}
 \end{figure}
   
-  \subsection{HUD Complaints as a Measure of Discrimination}
+  \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
   
   \begin{itemize}
     \item trouble finding a good statewide index of housing discrimination
@@ -573,8 +573,12 @@ rm(HUD)
   
   
   
-<<OrthodoxKWH, echo=FALSE, results=tex>>=
+Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimatates, survey responses and analysists best estimates to produce energy end-use estimates.  For example, suvey resondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analylist will assign a likely efficency for the furnace based on the average of the age range and then estimate hours used based on set points, weather and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model that what is normally reguarded as a conditional demand model outside of the energy community.
 
+Our model is based more on the traditional conditional demand models and includes terms for electricity use contingent on: the age of the home, which is a proxy for building code requirements and insulation; the weather, in the form of Heating and Cooling degree days with a base temperature of 65F; Meals cooked at home, to indicate energy use related to food prepration; the number and age of refrigerators, a major end-use;  the number of and types of TVs and computers, as a proxy for major plug loads; the existence of a well pump; weather the residence has electric hot water service; the existence of pools and hot tubs as well as if they are electrically heated; the kind of windows installed, as another indication of shell quality; the number of people in the home; and finally the income, race and ethnicity of the residents.  The parameter estimates of the full model can be found in appendix \ref{OrthResults}, partial results are shown in table \ref{tab:ParOrthKWH}.
+  
+<<OrthodoxKWH, echo=FALSE, results=tex>>=
+library(xtable)
 OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
            + ElecMeals
            + NUMFRIG+AgeFridge
@@ -587,16 +591,37 @@ OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65
            + TYPEGLASS:TOTSQFT_EN
            + NHSLDMEM
            + Income+EthRace:Income, data=RECS,weights=NWEIGHT)
-print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable")
-@
-  
-  
-  
-\begin{itemize}
-  \item explain the logic behind the making both sqft and structure tenure endogenous.
-  \item primarily that sqft may be related to quality of houseing, newer structures
 
-\end{itemize}
+
+library(stringr)
+LimitedKWH<-coef(summary(OrthodoxKWH))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"Income"))|!is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"StrTenure")),]
+
+
+print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable",label="tab:ParOrthKWH")
+@
+
+The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-hispanic caucasian.  The remaining income related variabes show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasion households and households that reported some other race.
+
+The remaining items shown in the table show the electricy use per square foot for each of the structure types, e.g., Single Family Detached, and tenure, i.e., Rent or Own, per annual heating and cooling degree days.  Aside from the negative and significant estimate for the heating load in large Rented appartments, the results are unremarkable. 
+
+\subsection{Endogenizing Structure and Other Variables}
+
+Treating stucture type and square footage as endogenous is our first step in estimating conditional demand for many end uses treating the choice of things like, EnergyStar appliances, refridgerator size and design.  The current standard, treating these as exogenous drivers of energy use biases or estimates of energy use in unknown ways.
+
+Focusing on tenure, i.e., the decision to own or rent, structure and square footage decisions allows us to see if other housing market institutions are driving energy use differently depending on ethnicity.  At this early stage of research we are focusing only on these major drivers but we can expand the analysis to other choices including clothes washing, hot water service and other large energy drivers.
+
+As stated in section \ref{sec:WhyHUD}, using HUD complaints as a measure of housing market discrimination based on race and ethnicty is less than optimal measure, but at this early stage is an adequate measure to determine the scale of the effect.  
+
+Table \ref{tab:LimParOrthKWH} shows only the discrimiation related results for our model of square footage.  Full results can be seen in appendix \ref{OrthResults}.   Note that the square footage model includes structure type and tenure as an exogenous variable.  This model of square footage will be included later as part of a system estimation of electricity use.   
+
+The key discrimination variable, reporttot, is the count of complaints recieved by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects accross groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Causcasian households.
+
+
+
+% \begin{itemize}
+%   \item explain the logic behind the making both sqft and structure tenure endogenous.
+%   \item primarily that sqft may be related to quality of houseing, newer structures
+% \end{itemize}
 
 <<OrthodoxSQFT, echo=FALSE,results=tex>>=
 # Replicating what Edwards did in Stata.
@@ -604,7 +629,11 @@ print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabu
 # i.householder_race#c.reporttot urbanrural
 
 OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS, weights=NWEIGHT)
-print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
+
+library(stringr)
+LimitedSQFT<-coef(summary(OrthodoxSQFT))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"reporttot")),]
+
+print(xtable(LimitedSQFT,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable",label="tab:LimParOrthKWH")
 #Still needs a housman test
 @
 
@@ -697,6 +726,21 @@ if(file.exists("System.RData")) load("System.RData") else {
 \bibliographystyle{plain}
 \bibliography{FullBib}
 
+\appendix
+\section{Orthodx Results}\label{OrthResults}
+\
+<<echo=false, results=tex>>=
+
+print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable")
+
+@
+
+
+
+
+<<echo=false, results=tex>>=
+print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
+@
 
 
 \end{document}
