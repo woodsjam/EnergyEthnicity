@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{draftwatermark}
+\usepackage{longtable}
 \SetWatermarkText{DRAFT}
 \SetWatermarkScale{1}
 
@@ -18,33 +19,728 @@ When socio-demographic factors are considered in any kind of analysis of househo
 \end{abstract}
 
 \section{Introduction}
-  Hello, this is Michael Edwards
 
-<<>>=
 
-1+1
+\begin{itemize}
 
-@
+  \item Differences in energy use by race and ethnicity is frequently reported in the literature
+  \item Much of the difference has to do with differences in income levels and education but not frequently modeled correctly.
+  \item Even with proper race and ethnicity controls with income, some patterns persist.
+  \item We assert that these differences are caused, at least in part, by housing discriminations, forcing people into housing types different than what they would prefer without discrimination; and renting rather than buying.
+  \item We show this with a model that endogenizes structure type and tenure decision.
+  \item emphasize that this is early work.
+\end{itemize}
 
 \cite{RBase}
 
-  \subsection{Ethnicity in Conditional Demand}
-  \subsection{How Ethnicity is Interpreted}
+<<DataEdit,echo=FALSE, results=hide>>=
+
+#Saves time if the wrangling is already done.
+if(file.exists("RECS.RData")) load("RECS.RData") else {
+#This block reads in data and does some data cleaning and edits.
+RECS <- read.csv("recs2009_public.csv")
+library(plyr)
+#ID
+RECS$DOEID<-as.factor(RECS$DOEID)  
+
+#Region
+RECS$REGIONC<-revalue(as.factor(RECS$REGIONC),c("1"="NE", "2"="MidWest","3"="South","4"="West"))
+
+#Type of Structure
+RECS$TYPEHUQ<-revalue(as.factor(RECS$TYPEHUQ), c("1"="Mobile", "2"="SFDetached", "3"="SFAttached", "4"="SmApartment", "5"="LgApartment"))
+
+#Climate zone
+RECS$Climate_Region_Pub<-revalue(as.factor(RECS$Climate_Region_Pub),c("1"="VColdCold","2"="HotDryMixedDry","3"="HotHumid","4"="MixedHumid","5"="Marine"))
+
+#Urban vs Rural
+RECS$UR<-revalue(as.factor(RECS$UR), c("U"="Urban","R"="Rural"))
+RECS$KOWNRENT<-revalue(as.factor(RECS$KOWNRENT),c("1"="Own","2"="Rent","3"="Free"))
+
+#Year Built
+summary(RECS$YEARMADE)
+
+#Moved in
+RECS$OCCUPYYRANGE<-revalue(as.factor(RECS$OCCUPYYRANGE),c("1"="Pre50", "2"="5059","3"="6069","4"="7079","5"="8089","6"="9099", "7"="0004","8"="0509"))
+
+#Bedrooms
+RECS$BEDROOMS[RECS$BEDROOMS==-2]<-NA
+summary(RECS$BEDROOMS)
+
+#Working with cooking end use
+summary(RECS$STOVEN)
+summary(RECS$STOVE)
+summary(RECS$OVEN)
+#Stove and oven fuel are only reported if separate
+
+RECS$CookTopElectric<-FALSE
+RECS$CookTopElectric[RECS$STOVENFUEL=='5' | RECS$STOVEFUEL=='5' ]<-TRUE
+
+RECS$OvenElectric<-FALSE
+RECS$OvenElectric[RECS$STOVENFUEL=='5' | RECS$OVENFUEL=='5' ]<-TRUE
+
+#Just indicating that that cook with electricity
+summary(RECS$CookTopElectric)
+summary(RECS$OvenElectric)
+
+#How much they use it
+RECS$NUMMEAL<-revalue(as.factor(RECS$NUMMEAL),c("0"="Never","1"="ThreeDay","2"="TwoDay", "3"="OneDay", "4"="FewWeek","5"="OneWeek","6"="LessWeek"))
+
+#this is better on cooking fuel.  Don't use the separate oven and cook top from above
+RECS$ELectricCook<-FALSE
+RECS$ELectricCook[RECS$FUELFOOD=="5"]<-TRUE
+
+#Number of fridges.  Watch out for those with more than 4.
+table(RECS$NUMFRIG)
+
+#age of fridge
+RECS$AgeFridge<-revalue(as.factor(RECS$AGERFRI1), c("1"="Less2", "2"="2to4Years", "3"="5to9Years","41"="10to14Years","42"="15to19Years","5"="20PlusYears","-2"=NA))
+summary(RECS$AgeFridge)
+
+#Has Dishwasher
+RECS$DishwaherTrue<-revalue(as.factor(RECS$DISHWASH),c("0"=TRUE, "1"=FALSE))
+
+RECS$WASHLOAD<-revalue(as.factor(RECS$WASHLOAD),c("1"="1Less","2"="2to4Loads","3"="5to9Loads","4"="10to15Loads","5"="15PlusLoads","-2"=NA))
+
+RECS$DRYER<-revalue(as.factor(RECS$DRYER), c("0"=FALSE,"1"=TRUE))
+
+RECS$DRYRFUEL<-revalue(as.factor(RECS$DRYRFUEL), c("1"="NG","2"="LPG","5"="Elec","-2"=NA))
+
+
+#Age of Dryer
+AGECDRYER<-revalue(as.factor(RECS$AGECDRYER),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+summary(RECS$AGECDRYER)
+
+#Number of TVs
+summary(RECS$TVCOLOR)
+
+#Type of TV 
+RECS$TVTYPE1<-revalue(as.factor(RECS$TVTYPE1),c("1"="Standard","2"="LCD", "3"="Plasma", "4"="Projection", "5"="LED", "-2"=NA))
+summary(RECS$TVTYPE1)
+
+#Weekday Use of TV
+RECS$TVONWD1<-revalue(as.factor(RECS$TVONWD1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
+summary(RECS$TVONWD1)
+
+#number of computers
+summary(RECS$NUMPC)
+
+#Time computers on
+RECS$TIMEON1<-revalue(as.factor(RECS$TIMEON1),c("1"="LessHour","2"="OneTo3Hrs", "3"="ThreeTo6Hrs", "4"="SixTo10Hrs", "5"="Gr10", "-2"=NA))
+summary(RECS$TIMEON1)
+
+#Well Pump?
+RECS$WELLPUMP<-revalue(as.factor(RECS$WELLPUMP),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
+summary(RECS$WELLPUMP)
+
+#Heating Fuel
+RECS$FUELHEAT<-revalue(as.factor(RECS$FUELHEAT),c("1"="NG","2"="LPG","3"="Oil", "4"="Kerosene", "5"="Elec", "7"="Wood", "8"="Solar", "9"="District", "21"="Other", "-2"=NA))
+summary(RECS$FUELHEAT)
+
+#Heating Age
+RECS$EQUIPAGE<-revalue(as.factor(RECS$EQUIPAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+summary(RECS$EQUIPAGE)
+
+#Winter Temp Day when home
+RECS$TEMPHOME[RECS$TEMPHOME==-2]<-NA
+summary(RECS$TEMPHOME)
+
+#Winter Temp Day when away
+RECS$TEMPGONE[RECS$TEMPGONE==-2]<-NA
+summary(RECS$TEMPGONE)
+
+#Winter Temp at Night
+RECS$TEMPNITE[RECS$TEMPNITE==-2]<-NA
+summary(RECS$TEMPNITE)
+
+#Water heater type
+RECS$H2OTYPE1<-revalue(as.factor(RECS$H2OTYPE1),c("1"="Storage", "2"="Tankless", "-2"=NA))
+summary(RECS$H2OTYPE1)
+
+#Water service fuel
+RECS$FUELH2O<-revalue(as.factor(RECS$FUELH2O),c("1"="NG","2"="LPG","3"="Oil", "4"="Kerosene", "5"="Elec", "7"="Wood", "8"="Solar", "9"="District", "21"="Other", "-2"=NA))
+summary(RECS$FUELH2O)
+
+#Water heater size.  Keep in mind the tankless.
+RECS$WHEATSIZ<-revalue(as.factor(RECS$WHEATSIZ),c("1"="Small", "2"="Med", "3"="Lrg", "-2"=NA))
+summary(RECS$WHEATSIZ)
+
+#Water heater age
+RECS$WHEATAGE<-revalue(as.factor(RECS$WHEATAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+summary(RECS$WHEATAGE)
+
+#AC is used?
+RECS$AIRCOND<-revalue(as.factor(RECS$AIRCOND),c("0"=FALSE, "1"=TRUE))
+summary(RECS$AIRCOND)
+
+#AC Type
+RECS$COOLTYPE<-revalue(as.factor(RECS$COOLTYPE),c("1"="Central", "2"="Window", "3"="Both", "-2"=NA))
+summary(RECS$COOLTYPE)
+
+#Central AC is heatpump.  Remember only Central AC
+RECS$CENACHP<-revalue(as.factor(RECS$CENACHP),c("0"=FALSE, "1"=TRUE, "-2"=NA))
+summary(RECS$CENACHP)
+
+#Age Central AC
+RECS$AGECENAC<-revalue(as.factor(RECS$AGECENAC),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+summary(RECS$AGECENAC)
+
+#Use Central AC?
+RECS$USECENAC<-revalue(as.factor(RECS$USECENAC),c("1"="Rare","2"="Frequent", "3"="All", "-2"=NA))
+summary(RECS$USECENAC)
+
+#Temp AC when home in day
+RECS$TEMPHOMEAC[RECS$TEMPHOMEAC=="-2"]<-NA
+summary(RECS$TEMPHOMEAC)
+
+#Temp AC no home in day
+RECS$TEMPGONEAC[RECS$TEMPGONEAC==-2]<-NA
+summary(RECS$TEMPGONEAC)
+
+#Temp AC at night
+RECS$TEMPNITEAC[RECS$TEMPNITEAC==-2]<-NA
+summary(RECS$TEMPNITEAC)
+
+#Number of wall AC units
+RECS$NUMBERAC[RECS$NUMBERAC==-2]<-NA
+summary(RECS$NUMBERAC)
+
+#age of wall AC
+RECS$WWACAGE<-revalue(as.factor(RECS$WWACAGE),c("1"="Less2","2"="TwoTo4", "3"="FiveTo9", "41"="TenTo14", "42"="FifteenTo19", "5"="Gr20", "-2"=NA))
+summary(RECS$WWACAGE)
+
+#Wall AC is energy Star?
+RECS$ESWWAC<-revalue(as.factor(RECS$ESWWAC),c("0"=TRUE, "1"=FALSE, "-2"=FALSE, "-8"=FALSE, "-9"=FALSE))
+summary(RECS$ESWWAC)
+
+#How frequent wall ac
+RECS$USEWWAC<-revalue(as.factor(RECS$USEWWAC),c("1"="Rare","2"="Frequent", "3"="All", "-2"=NA))
+summary(RECS$USEWWAC)
+
+#Have pool?
+RECS$SWIMPOOL<-revalue(as.factor(RECS$SWIMPOOL),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
+summary(RECS$SWIMPOOL)
+
+#Pool heated?
+RECS$POOL<-revalue(as.factor(RECS$POOL),c("0"=FALSE,"1"=TRUE, "-2"=FALSE))
+summary(RECS$POOL)
+
+#Fuel used for pool
+RECS$FUELPOOL<-revalue(as.factor(RECS$FUELPOOL),c("1"="NG","2"="LPG", "3"="FuelOil","4"="Kerosene", "5"="Elec","8"="Solar","21"="Other", "-2"=NA))
+summary(RECS$FUELPOOL)
+
+#Hot Tub used
+RECS$RECBATH<-revalue(as.factor(RECS$RECBATH),c("0"=FALSE,"1"=TRUE))
+summary(RECS$RECBATH)
+
+#Hot tub fuel
+RECS$FUELTUB<-revalue(as.factor(RECS$FUELTUB),c("1"="NG","2"="LPG", "3"="FuelOil","4"="Kerosene", "5"="Elec","8"="Solar","21"="Other", "-2"=NA))
+summary(RECS$FUELTUB)
+
+RECS$TYPEGLASS<-revalue(as.factor(RECS$TYPEGLASS),c("1"="SinglePane","2"="DoublePane", "3"="TriplePane", "-2"=NA))
+summary(RECS$TYPEGLASS)
+
+#Electricity used for cooling
+RECS$ELCOOL<-revalue(as.factor(RECS$ELCOOL),c("0"=FALSE,"1"=TRUE))
+summary(RECS$ELCOOL)
+
+#Electricity used for space heating
+RECS$ELWARM<-revalue(as.factor(RECS$ELWARM),c("0"=FALSE,"1"=TRUE))
+summary(RECS$ELWARM)
+
+#Electricity used for water heating
+RECS$ELWATER<-revalue(as.factor(RECS$ELWATER),c("0"=FALSE,"1"=TRUE))
+summary(RECS$ELWATER)
+
+#Electricity used for cooking
+RECS$ELFOOD<-revalue(as.factor(RECS$ELFOOD),c("0"=FALSE,"1"=TRUE))
+summary(RECS$ELFOOD)
+
+
+#This is the sqft variable to use
+summary(RECS$TOTSQFT_EN)
+
+#Get income working two ways
+RECS$MONEYPY<-revalue(as.factor(RECS$MONEYPY),c("1"="Less2500", "2"="Less5K", "3"="Less7500","4"="Less10K","5"="Less15K","6"="Less20K","7"="Less25K","8"="Less30K", "9"="Less35K","10"="Less40K","11"="Less45K","12"="Less50K","13"="Less55K","14"="Less60","15"="Less65","16"="Less70","17"="Less75","18"="Less80", "19"="Less85", "20"="Less90","21"="Less95","22"="Less100K","23"="Less120K","24"="Gr120K"))
+summary(RECS$MONEYPY)
+
+
+RECS$RENTHELP<-revalue(as.factor(RECS$RENTHELP),c("0"=FALSE, "1"=TRUE, "-2"=FALSE))
+summary(RECS$RENTHELP)
+
+RECS$FOODASST<-revalue(as.factor(RECS$FOODASST),c("0"=FALSE, "1"=TRUE))
+summary(RECS$FOODASST)
+
+#Age of HH looks ok
+summary(RECS$HHAGE)
+
+#number of people
+summary(RECS$NHSLDMEM)
+
+#Ed level of HH
+RECS$EDUCATION<-revalue(as.factor(RECS$EDUCATION),c("0"="None","1"="NoHS","2"="HS","3"="SomeCol","4"="AA","5"="BA", "6"="MA", "7"="Prof", "8"="PHD"))
+summary(RECS$EDUCATION)
+
+#HH Race
+RECS$Householder_Race<-revalue(as.factor(RECS$Householder_Race),c("1"="Wt","2"="AfAm","3"="NativeAm","4"="Asian","5"="Pacific", "6"="Other", "7"="Multi"))
+summary(RECS$Householder_Race)
+
+#Hispanic
+RECS$Hispanic<-FALSE
+RECS$Hispanic[RECS$SDESCENT=="1"]<-TRUE
+summary(RECS$Hispanic)
+
+RECS$ElecMeals<-RECS$NUMMEAL
+levels(RECS$ElecMeals)<-c(levels(RECS$ElecMeals),"NoElec")
+RECS$ElecMeals[RECS$ELectricCook==FALSE]<-"NoElec"
+RECS$ElecMeals<-relevel(RECS$ElecMeals, "NoElec")
+
+
+
+RECS$ElecWater<-RECS$WHEATSIZ
+levels(RECS$ElecWater)<-c(levels(RECS$ElecWater),"Tankless","NoElec")
+RECS$ElecWater[RECS$H2OTYPE1=="Tankless"]<-"Tankless"
+RECS$ElecWater[RECS$FUELH2O!="Elec"]<-"NoElec"
+RECS$ElecWater<-relevel(RECS$ElecWater, "NoElec")
+
+RECS$ElecPool<-FALSE
+RECS$ElecPool[RECS$SWIMPOOL==TRUE & RECS$FUELPOOL=="Elec"]<-TRUE
+
+
+RECS$ElecTub<-FALSE
+RECS$ElecTub[RECS$RECBATH==TRUE & RECS$FUELTUB=="Elec"]<-TRUE
+
+
+IncomeTopCode<-150000
+
+RECS$Income<-as.numeric(as.character(revalue(RECS$MONEYPY,c("Less2500"=1250, "Less5K"=3750, "Less7500"=6250,"Less10K"=8750,"Less15K"=12500,"Less20K"=17500,"Less25K"=22500,"Less30K"=27500, "Less35K"=32500,"Less40K"=37500,"Less45K"=42500,"Less50K"=47500,"Less55K"=52500,"Less60"=57500,"Less65"=62500,"Less70"=67500,"Less75"=72500,"Less80"=77500, "Less85"=82500, "Less90"=87500,"Less95"=92500,"Less100K"=97500,"Less120K"=110000,"Gr120K"=IncomeTopCode))))
+
+#Setting left out to wt non-hispanic
+RECS$Householder_Race<-relevel(RECS$Householder_Race,"Wt")
+
+#Combine race and ethnicity
+
+RECS$EthRace<-factor(paste(as.character(RECS$Hispanic),as.character(RECS$Householder_Race),sep = ""))
+
+RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
+
+#Combine structure and tenure
+
+RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
+
+RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
+
+HUD <- read.csv("HUD.csv")
+
+#And the clean up from importing from excell
+HUD$pop<-as.numeric(gsub(",","",HUD$pop))
+HUD$reportablen<-as.factor(HUD$reportablen)
+summary(HUD)
+CritHUD<-unique(HUD[c("reportablen","reporttot")])
+RECS<-merge(RECS,CritHUD, by.x="REPORTABLE_DOMAIN", by.y="reportablen")
+
+}
+
+
+@
+
+<<DataSubset,echo=FALSE,results=hide>>=
+#work only with this subset
+RECS<-RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]
+if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
+
+@
+
+
+  \subsection{Race and Ethnicity in Conditional Demand}
+  
+  \subsection{How Race and Ethnicity are Interpreted}
 
 \section{RECS}
+
+\begin{itemize}
+  \item Description on RECS data size number of observations sampling method etc.
+  \item Scope of data  
+  \item Weighting to account for stratifieed sampling
+  \item We need more tables and graphics here.
+\end{itemize}
+
+
+
+<<tabRaceVStruct,echo=false,results=tex>>=
+library(xtable)
+xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+@
+
+<<echo=false,results=tex>>=
+library(xtable)
+xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Annual kWh by Rent/Own and Race}
+\label{fig:kWhbyOwnRace}
+<<echo=false,fig=TRUE>>=
+library(ggplot2)
+qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
+@
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{center}
+\caption{Annual kWh by Income}
+\label{fig:kWhbyIncome}
+<<echo=false,fig=TRUE>>=
+library(ggplot2)
+qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
+@
+\end{center}
+\end{figure}
+
+<<echo=false,fig=TRUE>>=
+qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Size by Race and Ethnicity")+xlab("Household Size")
+@
+
+
+  \subsection{Race and Ethnicity Differences in Equipment and Structure}
+
+\begin{itemize}
+  \item differences in structure type x
+  \item differnce in tenure x
+  \item differences in energy star controling for own rent
+  \item general differences in own vs rent.  
+  \item explain with split incentives story
+  \item difference in age of structure x
+  \item differnces in hot water fuel x
+  \item difference in heating fuel x
+    \item difference in climate/location x
+\end{itemize}
+  
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+@
+
+
+
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EstarWall")
+@
+
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+@
+
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$FUELH2O),caption="Water Service by Race and Ethnicity", label="tab:Water")
+@
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$FUELHEAT),caption="Heating Fuel by Race and Ethnicity", label="tab:HeatFuel")
+@
+
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$Climate_Region_Pub),caption="Climate by Race and Ethnicity", label="tab:Climate")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Age of Structure by Rent/Own and Race/Ethnicity}
+\label{fig:AgebyOwnRace}
+<<echo=false,fig=TRUE>>=
+qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
+@
+\end{center}
+\end{figure}
+
+
+\subsection{Differences in Reported Behavior}
+  
+  \begin{itemize}
+    \item Differnces in thermostat settings
+    \item difference in cooking behavior x
+    \item difference in reported AC use
+
+  \end{itemize}
+  
+  
+<<echo=false, results=tex>>=
+xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and Ethnicity", label="tab:Cooking")
+@
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp and Race/Ethnicity (Winter)}
+\label{fig:TempHomeRace}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPHOME~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
+\label{fig:DayAwayRace}
+boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Nightime Temp and Race/Ethnicity (Winter)}
+\label{fig:NightRace}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}
+\begin{center}
+\caption{Daytime Temp Home by Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Day Temp Away by Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
+
+@
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Nightime Temp and Race/Ethnicity (Summer)}
+\label{fig:NightRaceS}
+<<echo=false,fig=TRUE>>=
+boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
+@
+\end{center}
+\end{figure}
+  
+  \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
+  
+  \begin{itemize}
+    \item trouble finding a good statewide index of housing discrimination
+    \item the HUD complaint measure
+    \item may be endogenous and be indicative of reduced discrimination
+  
+  \end{itemize}
+<<echo=false,results=tex>>=
+library(xtable)
+HUD<-read.csv("HUD.csv")
+HUDCut<-HUD[c("state","pop","reporttot")]
+names(HUDCut)<-c("State","Population","Reports (per 100,000)")
+
+#***TODO Fix so it does not show the row number***
+xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints")
+rm(HUD)
+@
 
 \section{Conditional Demand Estimation}
 
   \subsection{Orthodox Results}
-  \subsection{Single Equation Methods}
-  \subsection{Multiple Equation Methods}
   
+  \begin{itemize}
+    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
+    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
+    \item Major end-uses are included but relativly unsophisticated.
+    \item discusss the orthodox results.
+  \end{itemize}
+  
+  
+  
+Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimates, survey responses and analyst best estimates to produce energy end-use estimates.  For example, survey resondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analyst will assign a likely efficency for the furnace based on the average of the age ranges and then estimate hours used based on set points, weather, and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model than what is normally regarded as a conditional demand model outside of the energy community.
+
+Our model is based more on the traditional conditional demand models, and includes terms for electricity use contingent on: the age of the home, which is a proxy for building code requirements and insulation; the weather, in the form of Heating and Cooling degree days with a base temperature of 65F; Meals cooked at home, to indicate energy use related to food prepration; the number and age of refrigerators, a major end-use;  the number of and types of TVs and computers, as a proxy for major plug loads; the existence of a well pump; weather the residence has electric hot water service; the existence of pools and hot tubs as well as if they are electrically heated; the kind of windows installed, as another indication of shell quality; the number of people in the home; and finally the income, race and ethnicity of the residents.  The parameter estimates of the full model can be found in appendix \ref{OrthResults}, partial results are shown in table \ref{tab:ParOrthKWH}.
+  
+<<OrthodoxKWH, echo=FALSE, results=tex>>=
+library(xtable)
+OrthodoxKWH<-lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income+EthRace:Income, data=RECS,weights=NWEIGHT)
+
+
+library(stringr)
+LimitedKWH<-coef(summary(OrthodoxKWH))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"Income"))|!is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"StrTenure")),]
+
+
+print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable",label="tab:ParOrthKWH")
+@
+
+The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-hispanic caucasian.  The remaining income related variabes show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasion households and households that reported some other race.
+
+The remaining items shown in the table show the electricy use per square foot for each of the structure types, e.g., Single Family Detached, and tenure, i.e., Rent or Own, per annual heating and cooling degree days.  Aside from the negative and significant estimate for the heating load in large Rented appartments, the results are unremarkable. 
+
+\subsection{Endogenizing Structure and Other Variables}
+
+Treating stucture type and square footage as endogenous is our first step in estimating conditional demand for many end uses treating the choice of things like, EnergyStar appliances, refridgerator size and design.  The current standard, treating these as exogenous drivers of energy use biases or estimates of energy use in unknown ways.
+
+Focusing on tenure, i.e., the decision to own or rent, structure and square footage decisions allows us to see if other housing market institutions are driving energy use differently depending on ethnicity.  At this early stage of research we are focusing only on these major drivers but we can expand the analysis to other choices including clothes washing, hot water service and other large energy drivers.
+
+As stated in section \ref{sec:WhyHUD}, using HUD complaints as a measure of housing market discrimination based on race and ethnicty is less than optimal measure, but at this early stage is an adequate measure to determine the scale of the effect.  
+
+Table \ref{tab:LimParOrthKWH} shows only the discrimiation related results for our model of square footage.  Full results can be seen in appendix \ref{OrthResults}.   Note that the square footage model includes structure type and tenure as an exogenous variable.  This model of square footage will be included later as part of a system estimation of electricity use.   
+
+The key discrimination variable, reporttot, is the count of complaints recieved by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects accross groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Causcasian households.
+
+
+
+% \begin{itemize}
+%   \item explain the logic behind the making both sqft and structure tenure endogenous.
+%   \item primarily that sqft may be related to quality of houseing, newer structures
+% \end{itemize}
+
+<<OrthodoxSQFT, echo=FALSE,results=tex>>=
+# Replicating what Edwards did in Stata.
+# reg totsqft_encat rentass ownrent dweltype lnincome nhsldmem reporttot reporttot i.education 
+# i.householder_race#c.reporttot urbanrural
+
+OrthodoxSQFT<-lm(TOTSQFT_EN~RENTHELP+StrTenure+Income+reporttot+reporttot:EthRace+EDUCATION+UR, data=RECS, weights=NWEIGHT)
+
+library(stringr)
+LimitedSQFT<-coef(summary(OrthodoxSQFT))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"reporttot")),]
+
+print(xtable(LimitedSQFT,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable",label="tab:LimParOrthKWH")
+#Still needs a housman test
+@
+
+
+<<OrthodoxStructTenure,echo=FALSE,results=verbatim>>=
+# Recreating what Edwards did in Stata
+#Output is not pretty  ***TODO Make Output pretty ***
+# mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
+library(nnet)
+OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS,weights=NWEIGHT)
+summary(OrthodoxStructTenure)
+#xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
+@
+
+
+<<HousemanTest,echo=false,results=tex>>=
+#Need to do a Houseman test for on the stucture model 
+@
+
+
+
+  \subsection{System Estimation}
+
+\begin{itemize}
+  \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
+  \item probablities of structure type rather than forecast were used.
+  \item no censoring for square footage less than zero.
+  \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
+\end{itemize}
+
+
+<<BootStrap,echo=FALSE,results=hide>>=
+#Limit the data to only the cols and rows that we can use
+VarsUsed<-unique(c(all.vars(formula(OrthodoxKWH)),all.vars(formula(OrthodoxSQFT)),all.vars(formula(OrthodoxStructTenure)),"NWEIGHT"))
+SubsetRECS<-RECS[VarsUsed]
+SubsetRECS<-SubsetRECS[complete.cases(SubsetRECS),]
+
+#copy the single equation objects
+CopyKWH<-update(OrthodoxKWH,.~.,SubsetRECS)
+CopySQFT<-update(OrthodoxSQFT,.~.,SubsetRECS)
+CopyTenure<-OrthodoxStructTenure
+
+#function that creates estimates of kwh model parameters with bootstrap
+
+BootThing<-function(Data,Indexes){
+  OurData<-SubsetRECS[Indexes,]
+  #First Round of Square foot forecast
+  OurData$PSQFT<-predict(update(CopySQFT,.~. ,data=OurData))
+
+  #Find tenure probabilities with new sqft estimates
+  update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData )
+  StructProb<-predict(update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData ), type="probs")
+
+  RECSTemp<-cbind(OurData,StructProb)
+
+  #Run through again for new square foot estimate
+  RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
+
+  #Alter formula in KWH model for new variables
+  formula(CopyKWH)
+  StructNames<-as.character(names(as.data.frame(StructProb)))
+  NewStruct<-paste("(",paste(unlist(StructNames),collapse="+",sep=""),")")
+
+  library(stringr)
+  NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
+  NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
+  NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
+
+#Return the KWH model coeficients
+  Ret<-coef(update(CopyKWH, formula=NewForm, data=RECSTemp))
+  if(length(Ret)!=length(coef(CopyKWH))) rep(NA,length(coef(CopyKWH))) else  Ret
+  }
+
+#Either load or create bootstrap estimates.  Note that multicore does not work on windows machines
+library(boot)
+BootReplicates<-400
+if(file.exists("System.RData")) load("System.RData") else {
+  if(Sys.info()[['sysname']]=="Linux") {
+    System<-boot(SubsetRECS,BootThing,BootReplicates,parallel="multicore",ncpus=4)} else {
+      System<-boot(SubsetRECS,BootThing,BootReplicates)
+    }
+ save(System,file="System.RData")
+}
+@
+
+
 \section{Summary and Conclusions}
 
 \nocite{*}
 \bibliographystyle{plain}
 \bibliography{FullBib}
 
+\appendix
+\section{Orthodx Results}\label{OrthResults}
+\
+<<echo=false, results=tex>>=
+
+print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabular.environment="longtable")
+
+@
+
+
+
+
+<<echo=false, results=tex>>=
+print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
+@
 
 
 \end{document}

@@ -491,7 +491,7 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
            + ElecWater
            + SWIMPOOL + ElecPool
            + RECBATH +ElecTub
-           + TYPEGLASS, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+           + TYPEGLASS:TOTSQFT_EN, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
 ```
 
 People for the plug loads
@@ -506,12 +506,98 @@ summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +Householder_Race+KOWNRENT:TYPE
            + ElecWater
            + SWIMPOOL + ElecPool
            + RECBATH +ElecTub
-           + TYPEGLASS
+           + TYPEGLASS:TOTSQFT_EN
            + NHSLDMEM, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
 ```
 
-Need to add income and all the heating and cooling things, ethnicity and structure type/ own rent.
+Time for income.  Need to convert this to a real value from the categories and blending this in with the race and ethnicity.
 
+```{r}
+
+summary(RECS$MONEYPY)
+library(plyr)
+IncomeTopCode<-150000
+
+RECS$Income<-as.numeric(as.character(revalue(RECS$MONEYPY,c("Less2500"=1250, "Less5K"=3750, "Less7500"=6250,"Less10K"=8750,"Less15K"=12500,"Less20K"=17500,"Less25K"=22500,"Less30K"=27500, "Less35K"=32500,"Less40K"=37500,"Less45K"=42500,"Less50K"=47500,"Less55K"=52500,"Less60"=57500,"Less65"=62500,"Less70"=67500,"Less75"=72500,"Less80"=77500, "Less85"=82500, "Less90"=87500,"Less95"=92500,"Less100K"=97500,"Less120K"=110000,"Gr120K"=IncomeTopCode))))
+
+#Setting left out to wt non-hispanic
+RECS$Householder_Race<-relevel(RECS$Householder_Race,"Wt")
+
+summary(lm(KWH~TOTSQFT_EN:HDD65+TOTSQFT_EN:CDD65 +KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income:Hispanic+Householder_Race:Hispanic:Income, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+
+```
+
+
+Now time to add structure type.  I added it just to the weather driven.
+
+```{r}
+
+summary(lm(KWH~TYPEHUQ:KOWNRENT:TOTSQFT_EN:HDD65+TYPEHUQ:KOWNRENT:TOTSQFT_EN:CDD65 +KOWNRENT:TYPEHUQ 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income:Hispanic+Householder_Race:Hispanic:Income, data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,]))
+
+```
+
+Lets modify some errors and base levels to make this tell a clearer story.  First add in the weights and combine a few things
+```{r}
+
+#Combine race and ethnicity
+
+RECS$EthRace<-factor(paste(as.character(RECS$Hispanic),as.character(RECS$Householder_Race),sep = ""))
+
+RECS$EthRace<-relevel(RECS$EthRace,"FALSEWt")
+
+#Combine structure and tenure
+
+RECS$StrTenure<-factor(paste(as.character(RECS$KOWNRENT),as.character(RECS$TYPEHUQ),sep=""))
+
+RECS$StrTenure<-relevel(RECS$StrTenure,"OwnSFDetached")
+
+summary(lm(KWH~StrTenure:TOTSQFT_EN:HDD65+StrTenure:TOTSQFT_EN:CDD65 
+           + ElecMeals
+           + NUMFRIG+AgeFridge
+           + TVONWD1:TVTYPE1
+           + NUMPC+TIMEON1
+           + WELLPUMP
+           + ElecWater
+           + SWIMPOOL + ElecPool
+           + RECBATH +ElecTub
+           + TYPEGLASS:TOTSQFT_EN
+           + NHSLDMEM
+           + Income+EthRace:Income, 
+           data=RECS[RECS$KOWNRENT!="Free" & RECS$NWEIGHT<40000 & RECS$NUMFRIG<5,],weights=NWEIGHT))
+
+
+```
+
+Going to call this close to done and work on some other parts of the paper.
+
+
+
+
+
+
+# Checking on behaviors
 Time to see if the behaviors are different, all exogenous.  Checking temperatures
 
 Here are the winter temps
@@ -557,3 +643,95 @@ xtabs(~RECS$TVONWD1+RECS$Householder_Race, data=RECS[RECS$KOWNRENT!="Free" & REC
 
 ```
 
+
+
+# The bootstrap of the system
+
+
+Start with the existing objects for the three models
+ "OrthodoxKWH"          "OrthodoxSQFT"         "OrthodoxStructTenure"
+ 
+ and data
+ 
+First lets get only the parts of recs with complete cases for the models
+
+```{r}
+VarsUsed<-unique(c(all.vars(formula(OrthodoxKWH)),all.vars(formula(OrthodoxSQFT)),all.vars(formula(OrthodoxStructTenure)),"NWEIGHT"))
+SubsetRECS<-RECS[VarsUsed]
+SubsetRECS<-SubsetRECS[complete.cases(SubsetRECS),]
+
+#copy the objects
+CopyKWH<-update(OrthodoxKWH,.~.,SubsetRECS)
+CopySQFT<-update(OrthodoxSQFT,.~.,SubsetRECS)
+CopyTenure<-OrthodoxStructTenure
+
+
+
+#First Round of Square foot forecast
+SubsetRECS$PSQFT<-predict(update(CopySQFT,.~. ,data=SubsetRECS))
+
+#Find tenure probabilities with new sqft estimates
+update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=SubsetRECS )
+StructProb<-predict(update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=SubsetRECS ), type="probs")
+
+RECSTemp<-cbind(SubsetRECS,StructProb)
+
+#Run through again for new square foot estimate
+RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
+
+#Alter formula in KWH model for new variables
+formula(CopyKWH)
+StructNames<-as.character(names(as.data.frame(StructProb)))
+NewStruct<-paste("(",paste(unlist(StructNames),collapse="+",sep=""),")")
+
+library(stringr)
+NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
+NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
+NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
+
+coef(update(CopyKWH, formula=NewForm, data=RECSTemp))
+
+
+#That is one loop
+#Now lets get it bootstrapping
+
+BootThing<-function(Data,Indexes){
+  OurData<-SubsetRECS[Indexes,]
+  #First Round of Square foot forecast
+  OurData$PSQFT<-predict(update(CopySQFT,.~. ,data=OurData))
+
+  #Find tenure probabilities with new sqft estimates
+  update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData )
+  StructProb<-predict(update(CopyTenure,.~.-TOTSQFT_EN + PSQFT,data=OurData ), type="probs")
+
+  RECSTemp<-cbind(OurData,StructProb)
+
+  #Run through again for new square foot estimate
+  RECSTemp$PSQFT<-predict(update(CopySQFT,.~. ,data=RECSTemp))
+
+  #Alter formula in KWH model for new variables
+  formula(CopyKWH)
+  StructNames<-as.character(names(as.data.frame(StructProb)))
+  NewStruct<-paste("(",paste(unlist(StructNames),collapse="+",sep=""),")")
+
+  library(stringr)
+  NewForm<-str_replace_all(as.character(formula(CopyKWH)),"TOTSQFT_EN","PSQFT")
+  NewForm<-str_replace_all(NewForm,"StrTenure",NewStruct)
+  NewForm<-as.formula(paste(NewForm[2],NewForm[1],NewForm[3]))
+
+  #Return the KWH model coeficients
+  Ret<-coef(update(CopyKWH, formula=NewForm, data=RECSTemp))
+  if(length(Ret)!=length(coef(CopyKWH))) rep(NA,length(coef(CopyKWH))) else  Ret
+  
+  }
+
+BootThing(1:1000)
+library(boot)
+library(parallel)
+detectCores()
+system.time(boot(SubsetRECS,BootThing,10,parallel="snow",ncpus=4))
+Res<-boot(SubsetRECS,BootThing,10,parallel="multicore",ncpus=4)
+
+```
+
+ 
