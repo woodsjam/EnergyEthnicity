@@ -604,7 +604,7 @@ The top parameter, Income, shows the estimate for annual kWh per dollar of incom
 
 The remaining items shown in the table show the electricy use per square foot for each of the structure types, e.g., Single Family Detached, and tenure, i.e., Rent or Own, per annual heating and cooling degree days.  Aside from the negative and significant estimate for the heating load in large Rented appartments, the results are unremarkable. 
 
-\subsection{Endogenizing Structure and Other Variables}
+\subsection{Endogenizing Structure and Other Variables}\label{sec:SingleEq}
 
 Treating stucture type and square footage as endogenous is our first step in estimating conditional demand for many end uses treating the choice of things like, EnergyStar appliances, refridgerator size and design.  The current standard, treating these as exogenous drivers of energy use biases or estimates of energy use in unknown ways.
 
@@ -614,8 +614,7 @@ As stated in section \ref{sec:WhyHUD}, using HUD complaints as a measure of hous
 
 Table \ref{tab:LimParOrthKWH} shows only the discrimiation related results for our model of square footage.  Full results can be seen in appendix \ref{OrthResults}.   Note that the square footage model includes structure type and tenure as an exogenous variable.  This model of square footage will be included later as part of a system estimation of electricity use.   
 
-The key discrimination variable, reporttot, is the count of complaints recieved by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects accross groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Causcasian households.
-
+The key discrimination variable, reporttot, is the count of complaints recieved by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects accross groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Causcasian households.  In this case incendences of HUD complaints per 100,000 of state population results in a reduction in the square footage for Caucasian Hispanics by 22.73 square feet.
 
 
 % \begin{itemize}
@@ -638,24 +637,55 @@ print(xtable(LimitedSQFT,caption="Orthodox kWh Model",label="tab:OrthoKWH"),tabu
 @
 
 
-<<OrthodoxStructTenure,echo=FALSE,results=verbatim>>=
+While the impact of houseing market discrimination has some effect on the size of residences, the effects on the ownership and structure type decision is expected to be more dramatic.  Houseing market discrimination can be expected to push some people away from owned property and into the rental market, which is rife with split incentives for conservation and energy efficiency investments.  
+
+Discrimination can also be a force pushing some households into structure types, where even when owned, that have significant split incentives for energy efficency investments.  Take, for example, small and large apartment buildings.  While the householder may have control over some appliances, the building shell and some of the heating and cooling equipment decisions are made by others.  
+
+Our model of structure type and tenure includes categories for both owned and rented: Large Apparements, Small Appartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household recieves rental assistance, Income, number of people in the household, eduction level of the head of household, the HUD reports per 100,000 in that state and wether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
+
+All parameter estimates for the models are statistically significant at the 1\% level and are displayed in appendix \ref{OrthResults}. 
+<<OrthodoxStructTenure,echo=FALSE,results=hide>>=
 # Recreating what Edwards did in Stata
 #Output is not pretty  ***TODO Make Output pretty ***
 # mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
 library(nnet)
 OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS,weights=NWEIGHT)
-summary(OrthodoxStructTenure)
+
+SumTenure<-summary(OrthodoxStructTenure)
+
+tstat<-SumTenure$coefficients/SumTenure$standard.errors
+pval<-(1 - pnorm(abs(tstat), 0, 1)) * 2
+
+DisplayStructTenure<-cbind(SumTenure$coefficients,tstat,pval)
+
 #xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
 
+Since all the parameters are statistically significant it is easier to show the effects of our measure of housing market discrimination on the probability of each structure and tenure choice for the race and ethnicity combinations.  The HUD reports run from \Sexp{min(HUDCut[3])} complaints per 100,000 to \Sexp{max(HUDCut[3])} complaints per 100,000.  Figure \ref{} shows the reaction to HUD complaints over the 1 to 21 complaint range.
 
-<<HousemanTest,echo=false,results=tex>>=
+
+
+\begin{figure}
+\begin{center}
+
+<<echo=false,fig=TRUE>>=
+# Need to figure this figure out.  It may be very complex
+
+@
+\end{caption}
+\end{figure}
+
+***Lots of explaination goes here***
+
+<<HousemanTest,echo=false,results=hide>>=
 #Need to do a Houseman test for on the stucture model 
 @
 
 
 
   \subsection{System Estimation}
+
+The single equation results discussed in section \ref{sec:SingleEq} show strong promis for endogenizing some of the decisions make about structure and equipment within the conditional demand model as well as the 
 
 \begin{itemize}
   \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
