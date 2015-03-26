@@ -376,37 +376,37 @@ library(xtable)
 #xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
 @
 
-\begin{figure}
-\begin{center}
-\caption{Annual kWh by Rent/Own and Race}
-\label{fig:kWhbyOwnRace}
-<<echo=false,fig=TRUE>>=
-library(ggplot2)
-#qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Annual kWh by Rent/Own and Race}
+% \label{fig:kWhbyOwnRace}
+% <<echo=false,fig=TRUE>>=
+% library(ggplot2)
+% #qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
+% @
+% \end{center}
+% \end{figure}
 
 
 
-\begin{figure}
-\begin{center}
-\caption{Annual kWh by Income}
-\label{fig:kWhbyIncome}
-<<echo=false,fig=TRUE>>=
-library(ggplot2)
-#qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
-@
-\end{center}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-<<echo=false,fig=TRUE>>=
-#qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Size by Race and Ethnicity")+xlab("Household Size")
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Annual kWh by Income}
+% \label{fig:kWhbyIncome}
+% <<echo=false,fig=TRUE>>=
+% library(ggplot2)
+% #qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
+% @
+% \end{center}
+% \end{figure}
+% 
+% \begin{figure}
+% \begin{center}
+% <<echo=false,fig=TRUE>>=
+% #qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Size by Race and Ethnicity")+xlab("Household Size")
+% @
+% \end{center}
+% \end{figure}
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
@@ -449,15 +449,15 @@ library(ggplot2)
 #xtable(table(RECS$EthRace,RECS$Climate_Region_Pub),caption="Climate by Race and Ethnicity", label="tab:Climate")
 @
 
-\begin{figure}
-\begin{center}
-\caption{Age of Structure by Rent/Own and Race/Ethnicity}
-\label{fig:AgebyOwnRace}
-<<echo=false,fig=TRUE>>=
-#qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Age of Structure by Rent/Own and Race/Ethnicity}
+% \label{fig:AgebyOwnRace}
+% <<echo=false,fig=TRUE>>=
+% #qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
+% @
+% \end{center}
+% \end{figure}
 
 
 \subsection{Differences in Reported Behavior}
@@ -474,72 +474,72 @@ library(ggplot2)
 #xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and Ethnicity", label="tab:Cooking")
 @
 
-\begin{figure}
-\begin{center}
-\caption{Daytime Temp and Race/Ethnicity (Winter)}
-\label{fig:TempHomeRace}
-<<echo=false,fig=TRUE>>=
-#boxplot(TEMPHOME~EthRace, notch=TRUE,data=RECS)
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Daytime Temp and Race/Ethnicity (Winter)}
+% \label{fig:TempHomeRace}
+% <<echo=false,fig=TRUE>>=
+% #boxplot(TEMPHOME~EthRace, notch=TRUE,data=RECS)
+% @
+% \end{center}
+% \end{figure}
 
-\begin{figure}
-\begin{center}
-\caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
-\label{fig:DayAwayRace}
-#boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
-@
-\end{center}
-\end{figure}
-
-
-\begin{figure}
-\begin{center}
-\caption{Nightime Temp and Race/Ethnicity (Winter)}
-\label{fig:NightRace}
-<<echo=false,fig=TRUE>>=
-#boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
-
-@
-\end{center}
-\end{figure}
-
-
-
-\begin{figure}
-\begin{center}
-\caption{Daytime Temp Home by Race/Ethnicity (Summer)}
-\label{fig:HomeRaceS}
-<<echo=false,fig=TRUE>>=
-#boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
-
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
+% \label{fig:DayAwayRace}
+% #boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
+% @
+% \end{center}
+% \end{figure}
+% 
+% 
+% \begin{figure}
+% \begin{center}
+% \caption{Nightime Temp and Race/Ethnicity (Winter)}
+% \label{fig:NightRace}
+% <<echo=false,fig=TRUE>>=
+% #boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
+% 
+% @
+% \end{center}
+% \end{figure}
 
 
-\begin{figure}
-\begin{center}
-\caption{Day Temp Away by Race/Ethnicity (Summer)}
-\label{fig:AwayRaceS}
-<<echo=false,fig=TRUE>>=
-#boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
 
-@
-\end{center}
-\end{figure}
-
-
-\begin{figure}
-\begin{center}
-\caption{Nightime Temp and Race/Ethnicity (Summer)}
-\label{fig:NightRaceS}
-<<echo=false,fig=TRUE>>=
-#boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
-@
-\end{center}
-\end{figure}
+% \begin{figure}
+% \begin{center}
+% \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
+% \label{fig:HomeRaceS}
+% <<echo=false,fig=TRUE>>=
+% #boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
+% 
+% @
+% \end{center}
+% \end{figure}
+% 
+% 
+% \begin{figure}
+% \begin{center}
+% \caption{Day Temp Away by Race/Ethnicity (Summer)}
+% \label{fig:AwayRaceS}
+% <<echo=false,fig=TRUE>>=
+% #boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
+% 
+% @
+% \end{center}
+% \end{figure}
+% 
+% 
+% \begin{figure}
+% \begin{center}
+% \caption{Nightime Temp and Race/Ethnicity (Summer)}
+% \label{fig:NightRaceS}
+% <<echo=false,fig=TRUE>>=
+% #boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
+% @
+% \end{center}
+% \end{figure}
   
   \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
   
@@ -667,19 +667,21 @@ DisplayStructTenure<-cbind(SumTenure$coefficients,tstat,pval)
 @
 
 %Fix the Latex part of this.
-% Since all the parameters are statistically significant it is easier to show the effects of our measure of housing market discrimination on the probability of each structure and tenure choice for the race and ethnicity combinations.  The HUD reports run from \Sexp{min(HUDCut[3])} complaints per 100,000 to \Sexp{max(HUDCut[3])} complaints per 100,000.  Figure \ref{fig:HUDOnChoice} shows the reaction to HUD complaints over the 1 to 21 complaint range.
+Since all the parameters are statistically significant it is easier to show the effects of our measure of housing market discrimination on the probability of each structure and tenure choice for the race and ethnicity combinations.  The HUD reports run from \Sexpr{min(HUDCut[3])} complaints per 100,000 to \Sexpr{max(HUDCut[3])} complaints per 100,000.  Figure 
+% \ref{fig:HUDOnChoice} 
+shows the reaction to HUD complaints over the 1 to 21 complaint range.
 
 
-
-\begin{figure}
-\begin{center}\label{fig:HUDOnChoice}
-
-<<echo=false,fig=TRUE>>=
-# Need to figure this figure out.  It may be very complex
-
-@
-\end{center}
-\end{figure}
+% 
+% \begin{figure}
+% \begin{center}\label{fig:HUDOnChoice}
+% 
+% <<echo=false,fig=TRUE>>=
+% # Need to figure this figure out.  It may be very complex
+% 
+% @
+% \end{center}
+% \end{figure}
 
 ***Lots of explaination goes here***
 
@@ -777,7 +779,7 @@ if(file.exists("System.RData")) load("System.RData") else {
 \bibliographystyle{plain} 
 \bibliography{FullBib}
 
-\appendix
+% \appendix
 \section{Orthodox Results}\label{OrthResults}
 
 
