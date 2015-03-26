@@ -368,24 +368,24 @@ if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
-#xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
 @
 
 <<echo=false,results=tex>>=
 library(xtable)
-#xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
+xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
 @
 
-% \begin{figure}
-% \begin{center}
-% \caption{Annual kWh by Rent/Own and Race}
-% \label{fig:kWhbyOwnRace}
-% <<echo=false,fig=TRUE>>=
-% library(ggplot2)
-% #qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
-% @
-% \end{center}
-% \end{figure}
+\begin{figure}
+\begin{center}
+\caption{Annual kWh by Rent/Own and Race}
+\label{fig:kWhbyOwnRace}
+<<echo=false,fig=TRUE>>=
+library(ggplot2)
+qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
+@
+\end{center}
+\end{figure}
 
 
 
@@ -577,8 +577,13 @@ rm(HUD)
 Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimates, survey responses and analyst best estimates to produce energy end-use estimates.  For example, survey resondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analyst will assign a likely efficency for the furnace based on the average of the age ranges and then estimate hours used based on set points, weather, and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model than what is normally regarded as a conditional demand model outside of the energy community.
 
 Our model is based more on the traditional conditional demand models, and includes terms for electricity use contingent on: the age of the home, which is a proxy for building code requirements and insulation; the weather, in the form of Heating and Cooling degree days with a base temperature of 65F; Meals cooked at home, to indicate energy use related to food prepration; the number and age of refrigerators, a major end-use;  the number of and types of TVs and computers, as a proxy for major plug loads; the existence of a well pump; weather the residence has electric hot water service; the existence of pools and hot tubs as well as if they are electrically heated; the kind of windows installed, as another indication of shell quality; the number of people in the home; and finally the income, race and ethnicity of the residents.  
+
 %Fix latex ref
-% The parameter estimates of the full model can be found in appendix \ref{OrthResults}, partial results are shown in table \ref{tab:ParOrthKWH}.
+The parameter estimates of the full model can be found in appendix 
+% \ref{OrthResults}
+, partial results are shown in table 
+% \ref{tab:ParOrthKWH}
+.
   
 <<OrthodoxKWH, echo=FALSE, results=tex>>=
 library(xtable)
@@ -614,8 +619,13 @@ Treating stucture type and square footage as endogenous is our first step in est
 Focusing on tenure, i.e., the decision to own or rent, structure and square footage decisions allows us to see if other housing market institutions are driving energy use differently depending on ethnicity.  At this early stage of research we are focusing only on these major drivers but we can expand the analysis to other choices including clothes washing, hot water service and other large energy drivers.
 
 As stated in section \ref{sec:WhyHUD}, using HUD complaints as a measure of housing market discrimination based on race and ethnicty is less than optimal measure, but at this early stage is an adequate measure to determine the scale of the effect.  
-%Fix ref
-% Table \ref{tab:OrthoSQFTLimited} shows only the discrimiation related results for our model of square footage.  Full results can be seen in appendix \ref{OrthResults}.   Note that the square footage model includes structure type and tenure as an exogenous variable.  This model of square footage will be included later as part of a system estimation of electricity use.   
+
+
+Table 
+% \ref{tab:OrthoSQFTLimited} 
+shows only the discrimiation related results for our model of square footage.  Full results can be seen in appendix 
+% \ref{OrthResults}
+.   Note that the square footage model includes structure type and tenure as an exogenous variable.  This model of square footage will be included later as part of a system estimation of electricity use.   
 
 The key discrimination variable, reporttot, is the count of complaints recieved by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects accross groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Causcasian households.  In this case incendences of HUD complaints per 100,000 of state population results in a reduction in the square footage for Caucasian Hispanics by 22.73 square feet.
 
@@ -646,8 +656,9 @@ Discrimination can also be a force pushing some households into structure types,
 
 Our model of structure type and tenure includes categories for both owned and rented: Large Apparements, Small Appartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household recieves rental assistance, Income, number of people in the household, eduction level of the head of household, the HUD reports per 100,000 in that state and wether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
 
-%fix ref
-% All parameter estimates for the models are statistically significant at the 1\% level and are displayed in appendix \ref{OrthResults}. 
+
+All parameter estimates for the models are statistically significant at the 1\% level and are displayed in appendix 
+% \ref{OrthResults}. 
 
 <<OrthodoxStructTenure,echo=FALSE,results=hide>>=
 # Recreating what Edwards did in Stata
