@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  25 MAR 2015 15:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.22)  26 MAR 2015 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,6 +316,200 @@ LaTeX Font Info:    Font shape `TS1/aer/m/n' in size <10> not available
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-!pdfTeX error: /usr/bin/pdflatex (file ./DraftEdwardsWoods-005.pdf): PDF inclus
-ion: required page does not exist <0>
- ==> Fatal error occurred, no output PDF file produced!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 59.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 59.
+
+Overfull \hbox (56.6767pt too wide) in paragraph at lines 59--79
+ [][] 
+ []
+
+
+Overfull \hbox (19.9267pt too wide) in paragraph at lines 86--96
+ [][] 
+ []
+
+<DraftEdwardsWoods-005.pdf, id=14, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-005.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-005.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-005.pdf used on input line 103.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-006.pdf, id=15, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-006.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-006.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-006.pdf used on input line 113.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-007.pdf, id=16, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-007.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-007.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-007.pdf used on input line 119.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+Overfull \hbox (9.92125pt too wide) in paragraph at lines 124--124
+[]\T1/aer/bx/n/12 Race and Eth-nic-ity Dif-fer-ences in Equip-ment and Struc-
+ []
+
+[2] [3 <./DraftEdwardsWoods-005.pdf>] [4 <./DraftEdwardsWoods-006.pdf>]
+[5 <./DraftEdwardsWoods-007.pdf>]
+Overfull \hbox (27.61786pt too wide) in paragraph at lines 202--222
+ [][] 
+ []
+
+
+Overfull \hbox (72.83707pt too wide) in paragraph at lines 229--249
+ [][] 
+ []
+
+
+Overfull \hbox (62.22636pt too wide) in paragraph at lines 256--276
+ [][] 
+ []
+
+<DraftEdwardsWoods-013.pdf, id=44, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-013.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-013.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-013.pdf used on input line 283.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+Overfull \hbox (92.04689pt too wide) in paragraph at lines 302--322
+ [][] 
+ []
+
+<DraftEdwardsWoods-015.pdf, id=45, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-015.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-015.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-015.pdf used on input line 329.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-016.pdf, id=46, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-016.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-016.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-016.pdf used on input line 337.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-017.pdf, id=47, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-017.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-017.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-017.pdf used on input line 346.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-018.pdf, id=48, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-018.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-018.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-018.pdf used on input line 356.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-019.pdf, id=49, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-019.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-019.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-019.pdf used on input line 365.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+<DraftEdwardsWoods-020.pdf, id=50, 433.62pt x 433.62pt>
+File: DraftEdwardsWoods-020.pdf Graphic file (type pdf)
+
+<use DraftEdwardsWoods-020.pdf>
+Package pdftex.def Info: DraftEdwardsWoods-020.pdf used on input line 374.
+(pdftex.def)             Requested size: 276.00105pt x 276.0139pt.
+
+
+LaTeX Warning: Float too large for page by 95.07986pt on input line 450.
+
+[6] [7 <./DraftEdwardsWoods-013.pdf>] [8 <./DraftEdwardsWoods-015.pdf>]
+[9 <./DraftEdwardsWoods-016.pdf>] [10 <./DraftEdwardsWoods-017.pdf>] [11 <./Dra
+ftEdwardsWoods-018.pdf>] [12 <./DraftEdwardsWoods-019.pdf>] [13 <./DraftEdwards
+Woods-020.pdf>] [14]
+Overfull \hbox (96.95866pt too wide) in alignment at lines 477--500
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 500
+ []
+
+
+Overfull \hbox (96.95866pt too wide) in alignment at lines 500--519
+ [] [] [] [] [] 
+ []
+
+[15] [16] [17] [18] [19] (./DraftEdwardsWoods.bbl)
+Overfull \hbox (104.01912pt too wide) in alignment at lines 622--645
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 645
+ []
+
+
+Overfull \hbox (104.01912pt too wide) in alignment at lines 645--665
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (104.01912pt too wide) in alignment at lines 665--685
+ [] [] [] [] [] 
+ []
+
+[20]
+Overfull \hbox (104.01912pt too wide) in alignment at lines 685--705
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (104.01912pt too wide) in alignment at lines 705--719
+ [] [] [] [] [] 
+ []
+
+[21]
+Overfull \hbox (28.0796pt too wide) in alignment at lines 725--748
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 748
+ []
+
+
+Overfull \hbox (28.0796pt too wide) in alignment at lines 748--768
+ [] [] [] [] [] 
+ []
+
+[22] [23] [24] (./DraftEdwardsWoods.aux) ) 
+Here is how much of TeX's memory you used:
+ 2990 strings out of 493307
+ 43637 string characters out of 6139905
+ 135007 words of memory out of 5000000
+ 6340 multiletter control sequences out of 15000+600000
+ 32506 words of font info for 70 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,10n,28p,865b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-
+super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb>
+Output written on DraftEdwardsWoods.pdf (24 pages, 634883 bytes).
+PDF statistics:
+ 180 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 55 words of extra memory for PDF output out of 10000 (max. 10000000)
+
