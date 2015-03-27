@@ -20,7 +20,9 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{Introduction}
 
+*******Observed differences evident between different households can at least be partially explained by race and ethnicity composition.  That is, there 
 
+0
 \begin{itemize}
 
   \item Differences in energy use by race and ethnicity is frequently reported in the literature
@@ -357,6 +359,7 @@ if(!file.exists("RECS.RData"))save(RECS,file="RECS.RData")
 
 \section{RECS}
 
+RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model.
 \begin{itemize}
   \item Description on RECS data size number of observations sampling method etc.
   \item Scope of data  
