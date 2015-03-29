@@ -53,7 +53,7 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:35 2015
+% Fri Mar 27 15:58:26 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -80,7 +80,7 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \label{tab:RaceVStruct}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:35 2015
+% Fri Mar 27 15:58:26 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -140,7 +140,7 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:53 2015
+% Fri Mar 27 15:58:43 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -168,7 +168,7 @@ FALSEWt & 7606 & 384 \\
 \end{table}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:53 2015
+% Fri Mar 27 15:58:43 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -196,7 +196,7 @@ FALSEWt & 1937 & 6053 \\
 \end{table}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:53 2015
+% Fri Mar 27 15:58:43 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrr}
@@ -223,7 +223,7 @@ FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\
 \label{tab:Water}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:53 2015
+% Fri Mar 27 15:58:43 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -250,7 +250,7 @@ FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\
 \label{tab:HeatFuel}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:53 2015
+% Fri Mar 27 15:58:43 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -296,7 +296,7 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
   
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:57 2015
+% Fri Mar 27 15:58:48 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrr}
@@ -385,7 +385,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   \end{itemize}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:57 2015
+% Fri Mar 27 15:58:48 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -473,7 +473,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:51:58 2015
+% Fri Mar 27 15:58:49 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -587,7 +587,7 @@ It is unclear how this can be accomplished in a full information, so we chose a 
 
 This should produce consistent results but the variance of the parameter estimates are biased.  It is unclear how to make the usual corrections to the variance of the parameter estimates given that the structure and tenure model is estimated as a multinomial logit.  The best alternative is to bootstrap the system.  There are a few caveats.
 
-First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare cells, rented mobile homes being the most restricted.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
+First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare endogenouse cells, rented mobile homes being the most restricted, and exogenous variables, e.g., Hispanic Pacific Islanders.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
 
 Second, we did not censor non-positive square footage forecasts.  The square footage model is weaker than expected and it was quite possible to have negative forecasts.  Alternative models, such as Tobit, would not be effective, but we are considering transformations of square footage as we move forward.  
 
@@ -601,170 +601,3 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 % \end{itemize}
 
 
-
-***NEED TEXT TO EXPLAIN HERE*** 
-
-\section{Summary and Conclusions}
-
-
-
-
-\nocite{*}
-\bibliographystyle{plain} 
-\bibliography{FullBib}
-
-% \appendix
-\section{Orthodox Results}\label{OrthResults}
-
-
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:54:09 2015
-\begin{longtable}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
-  \hline
-(Intercept) & 2181.1197 & 1792.3947 & 1.22 & 0.2237 \\ 
-  ElecMealsThreeDay & 1338.6588 & 297.7217 & 4.50 & 0.0000 \\ 
-  ElecMealsTwoDay & 1644.3185 & 185.0764 & 8.88 & 0.0000 \\ 
-  ElecMealsOneDay & 1685.3404 & 159.1570 & 10.59 & 0.0000 \\ 
-  ElecMealsFewWeek & 1451.1356 & 183.7584 & 7.90 & 0.0000 \\ 
-  ElecMealsOneWeek & 1726.8842 & 406.3322 & 4.25 & 0.0000 \\ 
-  ElecMealsLessWeek & 992.8116 & 424.8594 & 2.34 & 0.0195 \\ 
-  NUMFRIG & 1574.9574 & 120.8432 & 13.03 & 0.0000 \\ 
-  AgeFridge2to4Years & 49.6457 & 195.1174 & 0.25 & 0.7992 \\ 
-  AgeFridge5to9Years & 312.9075 & 183.1243 & 1.71 & 0.0875 \\ 
-  AgeFridge20PlusYears & 282.4503 & 328.6753 & 0.86 & 0.3902 \\ 
-  AgeFridge10to14Years & 392.2705 & 207.4396 & 1.89 & 0.0587 \\ 
-  AgeFridge15to19Years & 3.4299 & 283.6629 & 0.01 & 0.9904 \\ 
-  NUMPC & 345.0370 & 64.3126 & 5.37 & 0.0000 \\ 
-  TIMEON1OneTo3Hrs & -142.2026 & 160.6198 & -0.89 & 0.3760 \\ 
-  TIMEON1ThreeTo6Hrs & -5.9463 & 186.4186 & -0.03 & 0.9746 \\ 
-  TIMEON1SixTo10Hrs & 224.2810 & 239.0840 & 0.94 & 0.3482 \\ 
-  TIMEON1Gr10 & 823.2281 & 214.7291 & 3.83 & 0.0001 \\ 
-  WELLPUMPTRUE & 1501.4018 & 183.5027 & 8.18 & 0.0000 \\ 
-  ElecWaterSmall & 4421.9192 & 256.3522 & 17.25 & 0.0000 \\ 
-  ElecWaterMed & 4658.3555 & 163.9114 & 28.42 & 0.0000 \\ 
-  ElecWaterLrg & 5809.5827 & 189.7584 & 30.62 & 0.0000 \\ 
-  ElecWaterTankless & 3251.7517 & 755.3718 & 4.30 & 0.0000 \\ 
-  SWIMPOOLTRUE & 3228.7285 & 222.3292 & 14.52 & 0.0000 \\ 
-  ElecPoolTRUE & 4604.1557 & 837.0574 & 5.50 & 0.0000 \\ 
-  RECBATHTRUE & 1013.4653 & 426.3413 & 2.38 & 0.0175 \\ 
-  ElecTubTRUE & 1218.8041 & 486.6005 & 2.50 & 0.0123 \\ 
-  NHSLDMEM & 952.0720 & 42.5506 & 22.38 & 0.0000 \\ 
-  Income & 0.0086 & 0.0016 & 5.37 & 0.0000 \\ 
-  TVONWD1LessHour:TVTYPE1Standard & -3266.1101 & 1800.2730 & -1.81 & 0.0697 \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Standard & -3010.1255 & 1775.5111 & -1.70 & 0.0900 \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -2516.9211 & 1772.6818 & -1.42 & 0.1557 \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1794.7156 & 1778.9345 & -1.01 & 0.3131 \\ 
-  TVONWD1Gr10:TVTYPE1Standard & -1290.6207 & 1784.9518 & -0.72 & 0.4697 \\ 
-  TVONWD1LessHour:TVTYPE1LCD & -2896.8097 & 1807.2466 & -1.60 & 0.1090 \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LCD & -2313.1891 & 1773.9814 & -1.30 & 0.1923 \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1955.8036 & 1770.9445 & -1.10 & 0.2695 \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LCD & -1593.9919 & 1777.1898 & -0.90 & 0.3698 \\ 
-  TVONWD1Gr10:TVTYPE1LCD & -485.7205 & 1785.6404 & -0.27 & 0.7856 \\ 
-  TVONWD1LessHour:TVTYPE1Plasma & -1497.7500 & 1988.0024 & -0.75 & 0.4512 \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -1664.7504 & 1800.8346 & -0.92 & 0.3553 \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -2001.8306 & 1788.6852 & -1.12 & 0.2631 \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -940.8541 & 1815.7684 & -0.52 & 0.6044 \\ 
-  TVONWD1Gr10:TVTYPE1Plasma & 418.9083 & 1846.1024 & 0.23 & 0.8205 \\ 
-  TVONWD1LessHour:TVTYPE1Projection & -2094.9059 & 2146.9297 & -0.98 & 0.3292 \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1639.6049 & 1851.1064 & -0.89 & 0.3758 \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -2152.3377 & 1812.9470 & -1.19 & 0.2352 \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Projection & -925.1902 & 1837.7040 & -0.50 & 0.6147 \\ 
-  TVONWD1Gr10:TVTYPE1Projection & 1530.2305 & 1911.2140 & 0.80 & 0.4234 \\ 
-  TVONWD1LessHour:TVTYPE1LED & -4513.1128 & 2901.1001 & -1.56 & 0.1198 \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LED & -1678.7884 & 2013.2805 & -0.83 & 0.4044 \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -2106.7446 & 1923.5912 & -1.10 & 0.2735 \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LED & -3418.0720 & 2390.7609 & -1.43 & 0.1528 \\ 
-  TOTSQFT\_EN:TYPEGLASSSinglePane & -0.1921 & 0.1586 & -1.21 & 0.2259 \\ 
-  TOTSQFT\_EN:TYPEGLASSDoublePane & -0.0336 & 0.1540 & -0.22 & 0.8271 \\ 
-  TOTSQFT\_EN:TYPEGLASSTriplePane & 0.0093 & 0.2093 & 0.04 & 0.9644 \\ 
-  Income:EthRaceFALSEAfAm & 0.0031 & 0.0027 & 1.14 & 0.2548 \\ 
-  Income:EthRaceFALSEAsian & -0.0243 & 0.0034 & -7.16 & 0.0000 \\ 
-  Income:EthRaceFALSEMulti & -0.0168 & 0.0069 & -2.43 & 0.0153 \\ 
-  Income:EthRaceFALSENativeAm & 0.0117 & 0.0123 & 0.95 & 0.3425 \\ 
-  Income:EthRaceFALSEOther & -0.0249 & 0.0083 & -2.99 & 0.0028 \\ 
-  Income:EthRaceFALSEPacific & -0.0163 & 0.0138 & -1.18 & 0.2378 \\ 
-  Income:EthRaceTRUEAfAm & -0.0120 & 0.0165 & -0.73 & 0.4672 \\ 
-  Income:EthRaceTRUEAsian & -0.0365 & 0.0454 & -0.80 & 0.4219 \\ 
-  Income:EthRaceTRUEMulti & -0.0291 & 0.0212 & -1.37 & 0.1693 \\ 
-  Income:EthRaceTRUENativeAm & -0.0187 & 0.0148 & -1.26 & 0.2077 \\ 
-  Income:EthRaceTRUEOther & -0.0262 & 0.0099 & -2.63 & 0.0085 \\ 
-  Income:EthRaceTRUEPacific & -0.0122 & 0.0380 & -0.32 & 0.7474 \\ 
-  Income:EthRaceTRUEWt & -0.0192 & 0.0031 & -6.29 & 0.0000 \\ 
-  StrTenureOwnSFDetached:TOTSQFT\_EN:HDD65 & 0.0001 & 0.0000 & 4.10 & 0.0000 \\ 
-  StrTenureOwnLgApartment:TOTSQFT\_EN:HDD65 & -0.0001 & 0.0001 & -0.96 & 0.3381 \\ 
-  StrTenureOwnMobile:TOTSQFT\_EN:HDD65 & 0.0004 & 0.0001 & 5.98 & 0.0000 \\ 
-  StrTenureOwnSFAttached:TOTSQFT\_EN:HDD65 & -0.0000 & 0.0000 & -0.55 & 0.5812 \\ 
-  StrTenureOwnSmApartment:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0001 & 0.54 & 0.5866 \\ 
-  StrTenureRentLgApartment:TOTSQFT\_EN:HDD65 & -0.0002 & 0.0001 & -4.00 & 0.0001 \\ 
-  StrTenureRentMobile:TOTSQFT\_EN:HDD65 & 0.0004 & 0.0002 & 1.76 & 0.0779 \\ 
-  StrTenureRentSFAttached:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0001 & 0.60 & 0.5479 \\ 
-  StrTenureRentSFDetached:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0000 & 0.55 & 0.5813 \\ 
-  StrTenureRentSmApartment:TOTSQFT\_EN:HDD65 & -0.0001 & 0.0001 & -1.86 & 0.0632 \\ 
-  StrTenureOwnSFDetached:TOTSQFT\_EN:CDD65 & 0.0008 & 0.0000 & 19.21 & 0.0000 \\ 
-  StrTenureOwnLgApartment:TOTSQFT\_EN:CDD65 & -0.0002 & 0.0002 & -0.82 & 0.4140 \\ 
-  StrTenureOwnMobile:TOTSQFT\_EN:CDD65 & 0.0009 & 0.0001 & 7.32 & 0.0000 \\ 
-  StrTenureOwnSFAttached:TOTSQFT\_EN:CDD65 & 0.0006 & 0.0001 & 5.01 & 0.0000 \\ 
-  StrTenureOwnSmApartment:TOTSQFT\_EN:CDD65 & 0.0001 & 0.0003 & 0.40 & 0.6875 \\ 
-  StrTenureRentLgApartment:TOTSQFT\_EN:CDD65 & 0.0000 & 0.0001 & 0.39 & 0.6946 \\ 
-  StrTenureRentMobile:TOTSQFT\_EN:CDD65 & 0.0024 & 0.0004 & 6.32 & 0.0000 \\ 
-  StrTenureRentSFAttached:TOTSQFT\_EN:CDD65 & 0.0007 & 0.0002 & 4.02 & 0.0001 \\ 
-  StrTenureRentSFDetached:TOTSQFT\_EN:CDD65 & 0.0008 & 0.0001 & 9.27 & 0.0000 \\ 
-  StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.84 & 0.0046 \\ 
-   \hline
-\hline
-\caption{Orthodox kWh Model} 
-\label{tab:OrthoKWHFull}
-\end{longtable}
-
-
-
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Mar 26 16:54:09 2015
-\begin{longtable}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
-  \hline
-(Intercept) & 1944.2850 & 75.4800 & 25.76 & 0.0000 \\ 
-  RENTHELPTRUE & 182.1575 & 82.5453 & 2.21 & 0.0274 \\ 
-  StrTenureOwnLgApartment & -1374.2383 & 67.6666 & -20.31 & 0.0000 \\ 
-  StrTenureOwnMobile & -1095.7710 & 47.1356 & -23.25 & 0.0000 \\ 
-  StrTenureOwnSFAttached & -493.4629 & 52.5900 & -9.38 & 0.0000 \\ 
-  StrTenureOwnSmApartment & -776.3654 & 87.1475 & -8.91 & 0.0000 \\ 
-  StrTenureRentLgApartment & -1393.2440 & 30.1078 & -46.28 & 0.0000 \\ 
-  StrTenureRentMobile & -1202.7143 & 95.8133 & -12.55 & 0.0000 \\ 
-  StrTenureRentSFAttached & -807.0103 & 62.9410 & -12.82 & 0.0000 \\ 
-  StrTenureRentSFDetached & -561.3334 & 38.9760 & -14.40 & 0.0000 \\ 
-  StrTenureRentSmApartment & -1142.2015 & 41.4263 & -27.57 & 0.0000 \\ 
-  Income & 0.0079 & 0.0003 & 30.04 & 0.0000 \\ 
-  reporttot & 11.6455 & 2.0454 & 5.69 & 0.0000 \\ 
-  EDUCATIONNoHS & 45.4843 & 77.6015 & 0.59 & 0.5578 \\ 
-  EDUCATIONHS & 77.1327 & 73.4168 & 1.05 & 0.2935 \\ 
-  EDUCATIONSomeCol & 131.9180 & 74.1386 & 1.78 & 0.0752 \\ 
-  EDUCATIONAA & 123.6675 & 77.9407 & 1.59 & 0.1126 \\ 
-  EDUCATIONBA & 330.4375 & 75.4797 & 4.38 & 0.0000 \\ 
-  EDUCATIONMA & 334.8239 & 80.7072 & 4.15 & 0.0000 \\ 
-  EDUCATIONProf & 585.2435 & 104.0935 & 5.62 & 0.0000 \\ 
-  EDUCATIONPHD & 436.0771 & 115.7913 & 3.77 & 0.0002 \\ 
-  URUrban & -232.6741 & 24.4942 & -9.50 & 0.0000 \\ 
-  reporttot:EthRaceFALSEAfAm & -6.9645 & 4.4105 & -1.58 & 0.1143 \\ 
-  reporttot:EthRaceFALSEAsian & -6.5949 & 8.0953 & -0.81 & 0.4153 \\ 
-  reporttot:EthRaceFALSEMulti & -18.6324 & 10.3186 & -1.81 & 0.0710 \\ 
-  reporttot:EthRaceFALSENativeAm & -11.9507 & 11.6925 & -1.02 & 0.3068 \\ 
-  reporttot:EthRaceFALSEOther & 0.1925 & 14.9557 & 0.01 & 0.9897 \\ 
-  reporttot:EthRaceFALSEPacific & -34.7044 & 19.0077 & -1.83 & 0.0679 \\ 
-  reporttot:EthRaceTRUEAfAm & -18.4892 & 31.5771 & -0.59 & 0.5582 \\ 
-  reporttot:EthRaceTRUEAsian & -24.6105 & 43.8328 & -0.56 & 0.5745 \\ 
-  reporttot:EthRaceTRUEMulti & 4.1417 & 17.6508 & 0.23 & 0.8145 \\ 
-  reporttot:EthRaceTRUENativeAm & -19.0098 & 37.4768 & -0.51 & 0.6120 \\ 
-  reporttot:EthRaceTRUEOther & 5.9743 & 13.0668 & 0.46 & 0.6475 \\ 
-  reporttot:EthRaceTRUEPacific & -19.2825 & 57.2286 & -0.34 & 0.7362 \\ 
-  reporttot:EthRaceTRUEWt & -22.7295 & 5.5102 & -4.12 & 0.0000 \\ 
-   \hline
-\hline
-\caption{Orthodox Square Foot Model} 
-\label{tab:OrthoSQFT}
-\end{longtable}
-
-\end{document}

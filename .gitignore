@@ -1,11 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-<<<<<<< HEAD
-=======
-EnergyEthnicity.Rproj
-<<<<<<< HEAD
 *.Rproj
-=======
->>>>>>> cab5deeedcb7f1318dae70d7a6af3d09f1667179
->>>>>>> df77a6b41e6e1e96dcb6d19cabb0f280253738a4
+.gitignore
+CopyOfSystem.RData
