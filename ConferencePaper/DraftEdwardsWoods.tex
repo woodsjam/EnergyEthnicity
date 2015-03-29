@@ -21,7 +21,32 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{Introduction}
 
+*******Observed differences evident between different households can at least be partially explained by race and ethnicity composition.  That is, there 
 
+Introduction/Literature Review:
+
+
+This project sets out to derive an explanation for the effect on housing selection by household characteristics.  The choice of housing, differentiates between renters and owners: owners and those households making payments towards ownership are treated as the same.  Homes are categorized by structure type.   
+Housing choice is of importance for several reasons.  First, housing choices may be linked to fundamental characteristics of the heads of households as a dependent variable that has implications as to utility, and in this respect it is assumed that owning a detached home is of greatest use.  The choice of homes is considered cardinal, where a house is of greatest value and the mobile home is treated as the least appealing choice.  A townhome, row house, in a desirable location such as an urban area, may be a highly desirable good, in general that is not treated as the norm. Structures other than detached houses may be considerably more perishable.  This assumption is made regardless of variations within the desirability of particular detached houses. Second, the choice of purchasing or renting a home is relevant within the structure types.  An individual may choose to forego ownership of a townhouse in favor of renting a house, or forego owning a mobile home in favor of renting an apartment.  Here, both from a utilitarian perspective of the need for one domicile over another is considered as well as prestige that comes from both the structure type as well as what utility may derive from ownership.
+	The value of structure type may have implications as to future wealth.  Homeowners tend towards greater wealth over time, related to home ownership itself(Di 2007).  Homeowners have the opportunity to use their wealth for investment or paying off higher interest debts, such as credit cards, by using home equity.  Homeowners have access to a safety net in terms of debt, and they also have the opportunity of reducing the lifetime costs of debts.  Homeowners may also choose to liquidate their homes, or pass on wealth at at or near the end of their lives.  One source found homeowners held more wealth compared to their contemporary counterparts.  The growth of wealth was also appreciably higher(Di 2007). 
+Lastly, the effect of home ownership and structure choice may have implications for future outcomes of the children of the suggested households.  In that respect, it can be said that there is evidence of children having better outcomes, in terms of education and income, than their peers in households that choose to rent (Boehm 2014).  It is plausible that the outcome benefits are coming from a causal relationship with parental characteristics rather than that of the housing choice, and are co-variables, rather than having an internal causal relationship.  While it is beyond the scope of this paper, it is also plausible that housing choice is indicative of neighborhood choice, though it should be stated that there is no assertion on this statement to be found here.
+It is also of note that households choice of structure type, payment method, and location are often very difficult to change based on the history of a household (Darrah 2014).  That is, that households that have tended towards renting, have difficulty or at least choice not, to buy in the future.  Rather, community attitudes and behaviors in relation to housing are often sticky in changing, and this is of importance as related to the outcomes of children; often mirroring the characteristics of their parents.  
+Until this point the role of race has not been mentioned in the development of the motivation for this paper.  It should be stated here that it is assumed that race has no direct impact on the housing choices made.  Rather, race may help to stand as a proxy for cultural differences in behaviors that are persistent.  While there is no sufficient explanation for why race appears to make a difference in housing choices, to does appear that it plays a role.
+To sum, this paper explores the relationship between the household characteristics and the choice of housing structure, and suggests that there is reason in particular of choosing housing structures based on wealth and needs as a proxy for utility, which not only has immediate effects but those that have persistent effects on the legacy of households.  While the utility of a particular domicile cannot be measured directly, it is assumed that the choice of structure is indicative of the value that the household places on one choice over another.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
 \begin{itemize}
 
   \item Differences in energy use by race and ethnicity is frequently reported in the literature
@@ -43,6 +68,7 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{RECS}
 
+RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model.
 \begin{itemize}
   \item Description on RECS data size number of observations sampling method etc.
   \item Scope of data  
@@ -50,10 +76,26 @@ When socio-demographic factors are considered in any kind of analysis of househo
   \item We need more tables and graphics here.
 \end{itemize}
 
+Variable and Data Description: 
 
 
+The RASS data set includes 25721 observations from households.  Of these observations, many respondents to the survey left questions blank and thus those respondent’s information is omitted from the analysis.  Nonetheless, 20,303 observations are included in applying the model.   Observations are taken from households across the state of California and the initial phase of the RASS consisted of a mail out survey that in total had a 20% response rate (RASS Methodology 21) across stratums.  While the data set includes 564 variables only a small portion of those are used to construct our model.
+  First, our dependent variable is constructed by combing dwelling type (dwltype) and the binary response variable Ownrent.  Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home, and other.  For our purposes the category of other was dropped from the analysis.  As well mobile homes are noted with having considerably fewer observations than other categories.  Thus, we end with ten categories, the previous five dwelling types combined with whether the household is renting/leasing or buying/own the home.
+	Next, our independent variables are as follows: income, resident ages, education, and ethnicity.  Income is categorized into twelve separate options ranging from less than ten thousand to over one hundred and fifty thousand dollars total annually. Resident characteristics describe the number of individuals in the household including children, adults, and seniors.  Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household #2 is ignored.
+	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
+	With respect to respondent education attainment, it can be noted that the percentages of each category (see appendix) do differ from that of what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.  Comparing to a cursory internet search for example, more respondents hold graduate degrees and bachelor’s degrees, and less high school diplomas and below than that percentage constructed for the state of California (PPIC).  It is also of minor interest to note the seventy-nine respondents who claim to live in mobile homes and hold graduate degrees.  While that combination of characteristics is plausible enough without further examination, it does bring into question the honesty of respondent’s self-reported information.  But, by constructing a variable equal to the number of housemates over the age of 65 and tabulating it against just mobile homes within the dwelling type variable, we note that the majority of respondents state that 1346 seniors live in mobile homes compared to 643 mobile homes without senior citizens, which is a considerably different trend than homes largely without seniors in the other dwelling type categories particularly detached houses, bearing in mind that this is relatively and the majority of seniors recorded in the data do not live in mobile homes. This may suggests that seniors are utilizing mobile homes as retirement homes, possibly within retirement communities and that would help to explain the minor perceived discrepancy in the education variable.  It is also commonly held that seniors may be more likely to respond to surveys, much like voting, and this would suggest why there are more respondents in mobile homes than in every other category of dwelling aside from home ownership and small complex ownership.  It can be noted from the RASS survey that, in fact, mobile homes had the highest response rate (RASS).
+	
+Lastly, one of our variables, actually two, are count variables that account for the number of children under the age of five and between six and eighteen respectively.  This variable was constructed with the intention of finding whether larger structures, in general, such as houses and townhouses, are chosen more often by individuals requiring more room or who are exhibiting more permanent nesting behavior, as in choosing to purchase a home with the intention of residing there for a long period of time and becoming well established.
+
+
+
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:26 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:48 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -79,8 +121,13 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \caption{Count of Observations by Race and Structure Type} 
 \label{tab:RaceVStruct}
 \end{table}
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:26 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:48 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -139,8 +186,13 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
 
   
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:43 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:54 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -167,8 +219,13 @@ FALSEWt & 7606 & 384 \\
 \label{tab:EnergyStarWall}
 \end{table}
 
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:43 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:54 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -195,8 +252,13 @@ FALSEWt & 1937 & 6053 \\
 \label{tab:UrbRural}
 \end{table}
 
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:43 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:54 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrr}
@@ -222,8 +284,13 @@ FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\
 \caption{Water Service by Race and Ethnicity} 
 \label{tab:Water}
 \end{table}
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:43 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:54 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -249,8 +316,13 @@ FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\
 \caption{Heating Fuel by Race and Ethnicity} 
 \label{tab:HeatFuel}
 \end{table}
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:43 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:54 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -295,8 +367,13 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
   \end{itemize}
   
   
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:48 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:56 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrr}
@@ -384,8 +461,13 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   
   \end{itemize}
 
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:48 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:56 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -465,6 +547,22 @@ Modern conditional demand models of the kind commonly created as part of the pro
 
 Our model is based more on the traditional conditional demand models, and includes terms for electricity use contingent on: the age of the home, which is a proxy for building code requirements and insulation; the weather, in the form of Heating and Cooling degree days with a base temperature of 65F; Meals cooked at home, to indicate energy use related to food preparation; the number and age of refrigerators, a major end-use;  the number of and types of TVs and computers, as a proxy for major plug loads; the existence of a well pump; weather the residence has electric hot water service; the existence of pools and hot tubs as well as if they are electrically heated; the kind of windows installed, as another indication of shell quality; the number of people in the home; and finally the income, race and ethnicity of the residents.  
 
+
+Model: Multinomial logit
+
+As a point of clarity, surveys with questions not filled in were coded with 97, to differentiate between responses that were left blank and those where the value coded was not applicable.  For the purpose of this paper 97s were recoded to not and were dropped from the analysis.  
+The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
+The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
+
+Results:
+
+The first and most likely indicator of home ownership within the structure type is income.  Here, we find in the results that the effect of income is statistically significant in each category accept the renting of townhomes.  Theory may suggest that, as mentioned earlier, row houses and townhomes in highly desirable neighborhoods especially historic neighborhoods are often rentals and as such might be rented by those with high incomes.  This question will remained unanswered within the scope of this study. 
+ More importantly, the sign of the coefficient for income is positive for house ownership (approx. .22).  Continuing down the coefficients it is negative for townhouse rental (insignificant), positive for townhouse ownership, and the trend continues until that of mobile homes.  The income coefficient for mobile homes is negative for both rental and ownership, suggesting that a positive change in income has a negative effect on the probability of a household choosing a mobile home regardless if they are choosing to rent or buy.  It could be suggested that living in a mobile home is considered an inferior good, and households might choose to forego ownership or renting a mobile home in favor of choosing any other domicile.
+The education variable is estimated, and is found to be statistically insignificant in the ownership of houses and the renting of townhouses and small complex apartment units.  Based on its coefficient, its value as an explanatory variable appears to be weak, yet as we go down the list of owndwel values the education coefficient moves from a positive to a negative at mobile homes. That is to say that here, education appears to have an effect mostly positive between the owndwel values of 3-8, and negative thereafter.
+Race, the dummy for being white, is statistically significant everywhere except in the rental of apartments in large small complexes.  Note that for mobile homes the dummy for race takes on a value of approximately 1 and 1.57 for renters and owners respectively.  This would suggest, while not realistic probabilities, that overwhelmingly whites have a higher probability of choosing mobile homes in comparison to non-self-reporting whites.  Notably, no results of interest were found regarding the stereotype of Native-Americans dwelling in mobile homes within the data.  Also race in this case appears to be linked to ownership of homes in each of the categories, within the bootstrapped version of the model it is statistically significant in each of the ownership owndwel categories.  
+Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
+When the model as specified first, is ran using a multinomial logit vce bootstrapping the results are slightly different with regards to children.  Now, while in places not statistically significant (see appendix) there does appear to be a trend towards the results are the same.  Further examination is needed.
+
 %Fix latex ref
 The parameter estimates of the full model can be found in appendix 
 % \ref{OrthResults}
@@ -472,8 +570,13 @@ The parameter estimates of the full model can be found in appendix
 % \ref{tab:ParOrthKWH}
 .
   
+<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
 % Fri Mar 27 15:58:49 2015
+=======
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:08:56 2015
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -601,3 +704,182 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 % \end{itemize}
 
 
+<<<<<<< HEAD
+=======
+
+***NEED TEXT TO EXPLAIN HERE*** 
+
+\section{Summary and Conclusions}
+
+
+Conclusion/Further Avenues of Study:
+  
+The model set out to provide some explanation of housing choices based on relevant variables.  In doing so it is apparent that income places a significant role in the formation of house choices both to own/rent and what type of structure is chosen.  Further education played a less significant role than anticipated, thought it could be said that the role of education is actually channeled through income.  As such its placement in the model is suspect in its current form.
+The race variable appears to suggest that whites tend towards ownership of their homes, and that whites are more likely to live in mobile homes than other races.  Further examination of race within this model framework would be an interesting and possibly useful endeavor. 
+The model would likely benefit by an expansion of the explanatory variables in an effort to provide a better fit.  It is relevant to point out that this is a model in progress whose ultimate goal is that of modeling household characteristics on energy consumption.
+
+
+As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
+
+
+
+\nocite{*}
+\bibliographystyle{plain} 
+\bibliography{FullBib}
+
+% \appendix
+\section{Orthodox Results}\label{OrthResults}
+
+
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:09:57 2015
+\begin{longtable}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 2181.1197 & 1792.3947 & 1.22 & 0.2237 \\ 
+  ElecMealsThreeDay & 1338.6588 & 297.7217 & 4.50 & 0.0000 \\ 
+  ElecMealsTwoDay & 1644.3185 & 185.0764 & 8.88 & 0.0000 \\ 
+  ElecMealsOneDay & 1685.3404 & 159.1570 & 10.59 & 0.0000 \\ 
+  ElecMealsFewWeek & 1451.1356 & 183.7584 & 7.90 & 0.0000 \\ 
+  ElecMealsOneWeek & 1726.8842 & 406.3322 & 4.25 & 0.0000 \\ 
+  ElecMealsLessWeek & 992.8116 & 424.8594 & 2.34 & 0.0195 \\ 
+  NUMFRIG & 1574.9574 & 120.8432 & 13.03 & 0.0000 \\ 
+  AgeFridge2to4Years & 49.6457 & 195.1174 & 0.25 & 0.7992 \\ 
+  AgeFridge5to9Years & 312.9075 & 183.1243 & 1.71 & 0.0875 \\ 
+  AgeFridge20PlusYears & 282.4503 & 328.6753 & 0.86 & 0.3902 \\ 
+  AgeFridge10to14Years & 392.2705 & 207.4396 & 1.89 & 0.0587 \\ 
+  AgeFridge15to19Years & 3.4299 & 283.6629 & 0.01 & 0.9904 \\ 
+  NUMPC & 345.0370 & 64.3126 & 5.37 & 0.0000 \\ 
+  TIMEON1OneTo3Hrs & -142.2026 & 160.6198 & -0.89 & 0.3760 \\ 
+  TIMEON1ThreeTo6Hrs & -5.9463 & 186.4186 & -0.03 & 0.9746 \\ 
+  TIMEON1SixTo10Hrs & 224.2810 & 239.0840 & 0.94 & 0.3482 \\ 
+  TIMEON1Gr10 & 823.2281 & 214.7291 & 3.83 & 0.0001 \\ 
+  WELLPUMPTRUE & 1501.4018 & 183.5027 & 8.18 & 0.0000 \\ 
+  ElecWaterSmall & 4421.9192 & 256.3522 & 17.25 & 0.0000 \\ 
+  ElecWaterMed & 4658.3555 & 163.9114 & 28.42 & 0.0000 \\ 
+  ElecWaterLrg & 5809.5827 & 189.7584 & 30.62 & 0.0000 \\ 
+  ElecWaterTankless & 3251.7517 & 755.3718 & 4.30 & 0.0000 \\ 
+  SWIMPOOLTRUE & 3228.7285 & 222.3292 & 14.52 & 0.0000 \\ 
+  ElecPoolTRUE & 4604.1557 & 837.0574 & 5.50 & 0.0000 \\ 
+  RECBATHTRUE & 1013.4653 & 426.3413 & 2.38 & 0.0175 \\ 
+  ElecTubTRUE & 1218.8041 & 486.6005 & 2.50 & 0.0123 \\ 
+  NHSLDMEM & 952.0720 & 42.5506 & 22.38 & 0.0000 \\ 
+  Income & 0.0086 & 0.0016 & 5.37 & 0.0000 \\ 
+  TVONWD1LessHour:TVTYPE1Standard & -3266.1101 & 1800.2730 & -1.81 & 0.0697 \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Standard & -3010.1255 & 1775.5111 & -1.70 & 0.0900 \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -2516.9211 & 1772.6818 & -1.42 & 0.1557 \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1794.7156 & 1778.9345 & -1.01 & 0.3131 \\ 
+  TVONWD1Gr10:TVTYPE1Standard & -1290.6207 & 1784.9518 & -0.72 & 0.4697 \\ 
+  TVONWD1LessHour:TVTYPE1LCD & -2896.8097 & 1807.2466 & -1.60 & 0.1090 \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LCD & -2313.1891 & 1773.9814 & -1.30 & 0.1923 \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1955.8036 & 1770.9445 & -1.10 & 0.2695 \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LCD & -1593.9919 & 1777.1898 & -0.90 & 0.3698 \\ 
+  TVONWD1Gr10:TVTYPE1LCD & -485.7205 & 1785.6404 & -0.27 & 0.7856 \\ 
+  TVONWD1LessHour:TVTYPE1Plasma & -1497.7500 & 1988.0024 & -0.75 & 0.4512 \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -1664.7504 & 1800.8346 & -0.92 & 0.3553 \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -2001.8306 & 1788.6852 & -1.12 & 0.2631 \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -940.8541 & 1815.7684 & -0.52 & 0.6044 \\ 
+  TVONWD1Gr10:TVTYPE1Plasma & 418.9083 & 1846.1024 & 0.23 & 0.8205 \\ 
+  TVONWD1LessHour:TVTYPE1Projection & -2094.9059 & 2146.9297 & -0.98 & 0.3292 \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1639.6049 & 1851.1064 & -0.89 & 0.3758 \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -2152.3377 & 1812.9470 & -1.19 & 0.2352 \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Projection & -925.1902 & 1837.7040 & -0.50 & 0.6147 \\ 
+  TVONWD1Gr10:TVTYPE1Projection & 1530.2305 & 1911.2140 & 0.80 & 0.4234 \\ 
+  TVONWD1LessHour:TVTYPE1LED & -4513.1128 & 2901.1001 & -1.56 & 0.1198 \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LED & -1678.7884 & 2013.2805 & -0.83 & 0.4044 \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -2106.7446 & 1923.5912 & -1.10 & 0.2735 \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LED & -3418.0720 & 2390.7609 & -1.43 & 0.1528 \\ 
+  TOTSQFT\_EN:TYPEGLASSSinglePane & -0.1921 & 0.1586 & -1.21 & 0.2259 \\ 
+  TOTSQFT\_EN:TYPEGLASSDoublePane & -0.0336 & 0.1540 & -0.22 & 0.8271 \\ 
+  TOTSQFT\_EN:TYPEGLASSTriplePane & 0.0093 & 0.2093 & 0.04 & 0.9644 \\ 
+  Income:EthRaceFALSEAfAm & 0.0031 & 0.0027 & 1.14 & 0.2548 \\ 
+  Income:EthRaceFALSEAsian & -0.0243 & 0.0034 & -7.16 & 0.0000 \\ 
+  Income:EthRaceFALSEMulti & -0.0168 & 0.0069 & -2.43 & 0.0153 \\ 
+  Income:EthRaceFALSENativeAm & 0.0117 & 0.0123 & 0.95 & 0.3425 \\ 
+  Income:EthRaceFALSEOther & -0.0249 & 0.0083 & -2.99 & 0.0028 \\ 
+  Income:EthRaceFALSEPacific & -0.0163 & 0.0138 & -1.18 & 0.2378 \\ 
+  Income:EthRaceTRUEAfAm & -0.0120 & 0.0165 & -0.73 & 0.4672 \\ 
+  Income:EthRaceTRUEAsian & -0.0365 & 0.0454 & -0.80 & 0.4219 \\ 
+  Income:EthRaceTRUEMulti & -0.0291 & 0.0212 & -1.37 & 0.1693 \\ 
+  Income:EthRaceTRUENativeAm & -0.0187 & 0.0148 & -1.26 & 0.2077 \\ 
+  Income:EthRaceTRUEOther & -0.0262 & 0.0099 & -2.63 & 0.0085 \\ 
+  Income:EthRaceTRUEPacific & -0.0122 & 0.0380 & -0.32 & 0.7474 \\ 
+  Income:EthRaceTRUEWt & -0.0192 & 0.0031 & -6.29 & 0.0000 \\ 
+  StrTenureOwnSFDetached:TOTSQFT\_EN:HDD65 & 0.0001 & 0.0000 & 4.10 & 0.0000 \\ 
+  StrTenureOwnLgApartment:TOTSQFT\_EN:HDD65 & -0.0001 & 0.0001 & -0.96 & 0.3381 \\ 
+  StrTenureOwnMobile:TOTSQFT\_EN:HDD65 & 0.0004 & 0.0001 & 5.98 & 0.0000 \\ 
+  StrTenureOwnSFAttached:TOTSQFT\_EN:HDD65 & -0.0000 & 0.0000 & -0.55 & 0.5812 \\ 
+  StrTenureOwnSmApartment:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0001 & 0.54 & 0.5866 \\ 
+  StrTenureRentLgApartment:TOTSQFT\_EN:HDD65 & -0.0002 & 0.0001 & -4.00 & 0.0001 \\ 
+  StrTenureRentMobile:TOTSQFT\_EN:HDD65 & 0.0004 & 0.0002 & 1.76 & 0.0779 \\ 
+  StrTenureRentSFAttached:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0001 & 0.60 & 0.5479 \\ 
+  StrTenureRentSFDetached:TOTSQFT\_EN:HDD65 & 0.0000 & 0.0000 & 0.55 & 0.5813 \\ 
+  StrTenureRentSmApartment:TOTSQFT\_EN:HDD65 & -0.0001 & 0.0001 & -1.86 & 0.0632 \\ 
+  StrTenureOwnSFDetached:TOTSQFT\_EN:CDD65 & 0.0008 & 0.0000 & 19.21 & 0.0000 \\ 
+  StrTenureOwnLgApartment:TOTSQFT\_EN:CDD65 & -0.0002 & 0.0002 & -0.82 & 0.4140 \\ 
+  StrTenureOwnMobile:TOTSQFT\_EN:CDD65 & 0.0009 & 0.0001 & 7.32 & 0.0000 \\ 
+  StrTenureOwnSFAttached:TOTSQFT\_EN:CDD65 & 0.0006 & 0.0001 & 5.01 & 0.0000 \\ 
+  StrTenureOwnSmApartment:TOTSQFT\_EN:CDD65 & 0.0001 & 0.0003 & 0.40 & 0.6875 \\ 
+  StrTenureRentLgApartment:TOTSQFT\_EN:CDD65 & 0.0000 & 0.0001 & 0.39 & 0.6946 \\ 
+  StrTenureRentMobile:TOTSQFT\_EN:CDD65 & 0.0024 & 0.0004 & 6.32 & 0.0000 \\ 
+  StrTenureRentSFAttached:TOTSQFT\_EN:CDD65 & 0.0007 & 0.0002 & 4.02 & 0.0001 \\ 
+  StrTenureRentSFDetached:TOTSQFT\_EN:CDD65 & 0.0008 & 0.0001 & 9.27 & 0.0000 \\ 
+  StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.84 & 0.0046 \\ 
+   \hline
+\hline
+\caption{Orthodox kWh Model} 
+\label{tab:OrthoKWHFull}
+\end{longtable}
+
+
+
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Mar 27 15:09:57 2015
+\begin{longtable}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 1944.2850 & 75.4800 & 25.76 & 0.0000 \\ 
+  RENTHELPTRUE & 182.1575 & 82.5453 & 2.21 & 0.0274 \\ 
+  StrTenureOwnLgApartment & -1374.2383 & 67.6666 & -20.31 & 0.0000 \\ 
+  StrTenureOwnMobile & -1095.7710 & 47.1356 & -23.25 & 0.0000 \\ 
+  StrTenureOwnSFAttached & -493.4629 & 52.5900 & -9.38 & 0.0000 \\ 
+  StrTenureOwnSmApartment & -776.3654 & 87.1475 & -8.91 & 0.0000 \\ 
+  StrTenureRentLgApartment & -1393.2440 & 30.1078 & -46.28 & 0.0000 \\ 
+  StrTenureRentMobile & -1202.7143 & 95.8133 & -12.55 & 0.0000 \\ 
+  StrTenureRentSFAttached & -807.0103 & 62.9410 & -12.82 & 0.0000 \\ 
+  StrTenureRentSFDetached & -561.3334 & 38.9760 & -14.40 & 0.0000 \\ 
+  StrTenureRentSmApartment & -1142.2015 & 41.4263 & -27.57 & 0.0000 \\ 
+  Income & 0.0079 & 0.0003 & 30.04 & 0.0000 \\ 
+  reporttot & 11.6455 & 2.0454 & 5.69 & 0.0000 \\ 
+  EDUCATIONNoHS & 45.4843 & 77.6015 & 0.59 & 0.5578 \\ 
+  EDUCATIONHS & 77.1327 & 73.4168 & 1.05 & 0.2935 \\ 
+  EDUCATIONSomeCol & 131.9180 & 74.1386 & 1.78 & 0.0752 \\ 
+  EDUCATIONAA & 123.6675 & 77.9407 & 1.59 & 0.1126 \\ 
+  EDUCATIONBA & 330.4375 & 75.4797 & 4.38 & 0.0000 \\ 
+  EDUCATIONMA & 334.8239 & 80.7072 & 4.15 & 0.0000 \\ 
+  EDUCATIONProf & 585.2435 & 104.0935 & 5.62 & 0.0000 \\ 
+  EDUCATIONPHD & 436.0771 & 115.7913 & 3.77 & 0.0002 \\ 
+  URUrban & -232.6741 & 24.4942 & -9.50 & 0.0000 \\ 
+  reporttot:EthRaceFALSEAfAm & -6.9645 & 4.4105 & -1.58 & 0.1143 \\ 
+  reporttot:EthRaceFALSEAsian & -6.5949 & 8.0953 & -0.81 & 0.4153 \\ 
+  reporttot:EthRaceFALSEMulti & -18.6324 & 10.3186 & -1.81 & 0.0710 \\ 
+  reporttot:EthRaceFALSENativeAm & -11.9507 & 11.6925 & -1.02 & 0.3068 \\ 
+  reporttot:EthRaceFALSEOther & 0.1925 & 14.9557 & 0.01 & 0.9897 \\ 
+  reporttot:EthRaceFALSEPacific & -34.7044 & 19.0077 & -1.83 & 0.0679 \\ 
+  reporttot:EthRaceTRUEAfAm & -18.4892 & 31.5771 & -0.59 & 0.5582 \\ 
+  reporttot:EthRaceTRUEAsian & -24.6105 & 43.8328 & -0.56 & 0.5745 \\ 
+  reporttot:EthRaceTRUEMulti & 4.1417 & 17.6508 & 0.23 & 0.8145 \\ 
+  reporttot:EthRaceTRUENativeAm & -19.0098 & 37.4768 & -0.51 & 0.6120 \\ 
+  reporttot:EthRaceTRUEOther & 5.9743 & 13.0668 & 0.46 & 0.6475 \\ 
+  reporttot:EthRaceTRUEPacific & -19.2825 & 57.2286 & -0.34 & 0.7362 \\ 
+  reporttot:EthRaceTRUEWt & -22.7295 & 5.5102 & -4.12 & 0.0000 \\ 
+   \hline
+\hline
+\caption{Orthodox Square Foot Model} 
+\label{tab:OrthoSQFT}
+\end{longtable}
+
+\end{document}
+>>>>>>> e5752846ed9886fbf3cb694ac78dd8aefdcf028d
