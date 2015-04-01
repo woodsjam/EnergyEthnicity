@@ -463,7 +463,7 @@ qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
 \subsection{Differences in Reported Behavior}
   
   \begin{itemize}
-    \item Differnces in thermostat settings
+    \item Differnces in thermostat settings x
     \item difference in cooking behavior x
     \item difference in reported AC use
 
