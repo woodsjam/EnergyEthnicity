@@ -645,39 +645,38 @@ Second, we did not censor non-positive square footage forecasts.  The square foo
 Finally, only 400 bootstrap replicates were evaluated.  This is usually enough to produce adequate estimates of the standard deviations of the parameter estimates in the electricity model but insufficient for BCa, percentile, or even basic bootstrap confidence intervals. 
 
 % \begin{itemize}
-%   \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
-%   \item probablities of structure type rather than forecast were used.
-%   \item no censoring for square footage less than zero.
-%   \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
-% \end{itemize}
+%   \item results are bootstrapped 400 times for standard 
+***NEED TEXT TO EXPLAIN HERE*** 
+
+\section{Summary and Conclusions}
+
+
+Conclusion/Further Avenues of Study:
+  
 
 
 
 
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:33 2015
-\begin{longtable}{rrrrl}
-  \hline
- & Estimate & Std. Error & t value & Sig \\ 
-  \hline
-(Intercept) & -637.3566 & 1754.7664 & -0.3632 &   \\ 
-  ElecMealsThreeDay & 1265.5101 & 447.0979 & 2.8305 & * \\ 
-  ElecMealsTwoDay & 1548.2300 & 199.6619 & 7.7543 & *** \\ 
-  ElecMealsOneDay & 1607.3686 & 186.4168 & 8.6224 & *** \\ 
-  ElecMealsFewWeek & 1371.7940 & 201.0134 & 6.8244 & *** \\ 
-  ElecMealsOneWeek & 1613.9994 & 446.8554 & 3.6119 & ** \\ 
-  ElecMealsLessWeek & 1078.7643 & 420.7528 & 2.5639 & . \\ 
-  NUMFRIG & 2043.1588 & 162.1146 & 12.6032 & *** \\ 
-  AgeFridge2to4Years & -37.2321 & 219.9343 & -0.1693 &   \\ 
-  AgeFridge5to9Years & 189.4846 & 206.9121 & 0.9158 &   \\ 
-  AgeFridge20PlusYears & 289.0881 & 442.9034 & 0.6527 &   \\ 
-  AgeFridge10to14Years & 390.5240 & 258.1351 & 1.5129 &   \\ 
-  AgeFridge15to19Years & -109.7635 & 303.2599 & -0.3619 &   \\ 
-  NUMPC & 431.9238 & 75.4693 & 5.7232 & *** \\ 
-  TIMEON1OneTo3Hrs & 9.2777 & 182.6120 & 0.0508 &   \\ 
-  TIMEON1ThreeTo6Hrs & 35.3052 & 208.4801 & 0.1693 &   \\ 
-  TIMEON1SixTo10Hrs & 258.4370 & 294.7298 & 0.8769 &   \\ 
-  TIMEON1Gr10 & 929.5422 & 268.3058 & 3.4645 & ** \\ 
+
+
+The model set out to provide some explanation of housing choices based on relevant variables.  In doing so it is apparent that income places a significant role in the formation of house choices both to own/rent and what type of structure is chosen.  Further education played a less significant role than anticipated, thought it could be said that the role of education is actually channeled through income.  As such its placement in the model is suspect in its current form.
+The race variable appears to suggest that whites tend towards ownership of their homes, and that whites are more likely to live in mobile homes than other races.  Further examination of race within this model framework would be an interesting and possibly useful endeavor. 
+The model would likely benefit by an expansion of the explanatory variables in an effort to provide a better fit.  It is relevant to point out that this is a model in progress whose ultimate goal is that of modeling household characteristics on energy consumption.
+
+
+As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
+
+
+
+\nocite{*}
+\bibliographystyle{plain} 
+\bibliography{FullBib}
+
+% \appendix
+\section{Orthodox Results}\label{OrthResults}
+
+
+ & 268.3058 & 3.4645 & ** \\ 
   WELLPUMPTRUE & 1182.7020 & 300.5331 & 3.9353 & ** \\ 
   ElecWaterSmall & 4283.1501 & 307.1885 & 13.9431 & *** \\ 
   ElecWaterMed & 4381.2889 & 201.2909 & 21.7660 & *** \\ 
