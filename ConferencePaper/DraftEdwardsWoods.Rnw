@@ -26,35 +26,27 @@ Introduction/Literature Review:
 
 
 The choice of housing, differentiated between renters and owners: owners and those households making payments towards ownership are treated as the same.  Homes are categorized by structure type.   
+
 Housing choices may be linked to fundamental characteristics of the heads of households as a dependent variable that has implications as to utility, and in this respect it is assumed that owning a detached home is of greatest use.  The choice of homes is considered cardinal, where a house is of greatest value and the mobile home is treated as the least appealing choice.  A townhome, row house, in a desirable location such as an urban area, may be a highly desirable good, in general that is not treated as the norm. Structures other than detached houses may be considerably more perishable.  This assumption is made regardless of variations within the desirability of particular detached houses. The choice of purchasing or renting a home is relevant within the structure types.  An individual may choose to forego ownership of a townhouse in favor of renting a house, or forego owning a mobile home in favor of renting an apartment.  Here, both from a utilitarian perspective of the need for one domicile over another is considered as well as prestige that comes from both the structure type as well as what utility may derive from ownership.
+
 	The value of structure type may have implications as to future wealth.  Homeowners tend towards greater wealth over time, related to home ownership itself(Di 2007).  Homeowners have the opportunity to use their wealth for investment or paying off higher interest debts, such as credit cards, by using home equity.  Homeowners have access to a safety net in terms of debt, and they also have the opportunity of reducing the lifetime costs of debts.  Homeowners may also choose to liquidate their homes, or pass on wealth at at or near the end of their lives.  One source found homeowners held more wealth compared to their contemporary counterparts.  The growth of wealth was also appreciably higher(Di 2007). 
+  
 The effect of home ownership and structure choice may have implications for future outcomes of the children of the suggested households.  In that respect, it can be said that there is evidence of children having better outcomes, in terms of education and income, than their peers in households that choose to rent (Boehm 2014).  It is plausible that the outcome benefits are coming from a causal relationship with parental characteristics rather than that of the housing choice, and are co-variables, rather than having an internal causal relationship.  While it is beyond the scope of this paper, it is also plausible that housing choice is indicative of neighborhood choice, though it should be stated that there is no assertion on this statement to be found here.
+
 Households choice of structure type, payment method, and location are often very difficult to change based on the history of a household (Darrah 2014).  Households that have tended towards renting have difficulty, or at least choose not to, buy in the future.  Community attitudes and behaviors in relation to housing are often sticky in changing, and this is of importance as related to the outcomes of children; often mirroring the characteristics of their parents.  
 
 This paper explores the relationship between the household characteristics and the choice of housing structure, and suggests that there is reason in particular of choosing housing structures based on wealth and needs as a proxy for utility, which not only has immediate effects but those that have persistent effects on the legacy of households.  While the utility of a particular domicile cannot be measured directly, it is assumed that the choice of structure is indicative of the value that the household places on one choice over another.  
 
 
-
-
-
-
-
-
-
-
-
-
-
-0
-\begin{itemize}
-
-  \item Differences in energy use by race and ethnicity is frequently reported in the literature
-  \item Much of the difference has to do with differences in income levels and education but not frequently modeled correctly.
-  \item Even with proper race and ethnicity controls with income, some patterns persist.
-  \item We assert that these differences are caused, at least in part, by housing discrimination, forcing people into housing types different than what they would prefer without discrimination; and renting rather than buying.
-  \item We show this with a model that endogenizes structure type and tenure decision.
-  \item emphasize that this is early work.
-\end{itemize}
+% \begin{itemize}
+% 
+%   \item Differences in energy use by race and ethnicity is frequently reported in the literature
+%   \item Much of the difference has to do with differences in income levels and education but not frequently modeled correctly.
+%   \item Even with proper race and ethnicity controls with income, some patterns persist.
+%   \item We assert that these differences are caused, at least in part, by housing discrimination, forcing people into housing types different than what they would prefer without discrimination; and renting rather than buying.
+%   \item We show this with a model that endogenizes structure type and tenure decision.
+%   \item emphasize that this is early work.
+% \end{itemize}
 
 %\cite{RBase}
 
@@ -394,7 +386,9 @@ Variable and Data Description:
 
 
 RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent,Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household #2 is ignored.
+
 	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
+  
 	With respect to respondent education attainment, it can be noted that the percentages of each category (see appendix) do differ from that of what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.  Comparing to a cursory internet search for example, more respondents hold graduate degrees and bachelor’s degrees, and less high school diplomas and below than that percentage constructed for the state of California (PPIC).  It is also of minor interest to note the seventy-nine respondents who claim to live in mobile homes and hold graduate degrees.  While that combination of characteristics is plausible enough without further examination, it does bring into question the honesty of respondent’s self-reported information.  But, by constructing a variable equal to the number of housemates over the age of 65 and tabulating it against just mobile homes within the dwelling type variable, we note that the majority of respondents state that 1346 seniors live in mobile homes compared to 643 mobile homes without senior citizens, which is a considerably different trend than homes largely without seniors in the other dwelling type categories particularly detached houses, bearing in mind that this is relatively and the majority of seniors recorded in the data do not live in mobile homes. This may suggests that seniors are utilizing mobile homes as retirement homes, possibly within retirement communities and that would help to explain the minor perceived discrepancy in the education variable.  It is also commonly held that seniors may be more likely to respond to surveys, much like voting, and this would suggest why there are more respondents in mobile homes than in every other category of dwelling aside from home ownership and small complex ownership.  It can be noted from the RASS survey that, in fact, mobile homes had the highest response rate (RASS).
 	
 Lastly, one of our variables, actually two, are count variables that account for the number of children under the age of five and between six and eighteen respectively.  This variable was constructed with the intention of finding whether larger structures, in general, such as houses and townhouses, are chosen more often by individuals requiring more room or who are exhibiting more permanent nesting behavior, as in choosing to purchase a home with the intention of residing there for a long period of time and becoming well established.
@@ -615,16 +609,22 @@ Our model is based more on the traditional conditional demand models, and includ
 Model: Multinomial logit
 
 As a point of clarity, surveys with questions not filled in were coded with 97, to differentiate between responses that were left blank and those where the value coded was not applicable.  For the purpose of this paper 97s were recoded to not and were dropped from the analysis.  
+
 The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
 The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
 
 Results:
 
 The first and most likely indicator of home ownership within the structure type is income.  Here, we find in the results that the effect of income is statistically significant in each category accept the renting of townhomes.  Theory may suggest that, as mentioned earlier, row houses and townhomes in highly desirable neighborhoods especially historic neighborhoods are often rentals and as such might be rented by those with high incomes.  This question will remained unanswered within the scope of this study. 
+
  More importantly, the sign of the coefficient for income is positive for house ownership (approx. .22).  Continuing down the coefficients it is negative for townhouse rental (insignificant), positive for townhouse ownership, and the trend continues until that of mobile homes.  The income coefficient for mobile homes is negative for both rental and ownership, suggesting that a positive change in income has a negative effect on the probability of a household choosing a mobile home regardless if they are choosing to rent or buy.  It could be suggested that living in a mobile home is considered an inferior good, and households might choose to forego ownership or renting a mobile home in favor of choosing any other domicile.
+ 
 The education variable is estimated, and is found to be statistically insignificant in the ownership of houses and the renting of townhouses and small complex apartment units.  Based on its coefficient, its value as an explanatory variable appears to be weak, yet as we go down the list of owndwel values the education coefficient moves from a positive to a negative at mobile homes. That is to say that here, education appears to have an effect mostly positive between the owndwel values of 3-8, and negative thereafter.
+
 Race, the dummy for being white, is statistically significant everywhere except in the rental of apartments in large small complexes.  Note that for mobile homes the dummy for race takes on a value of approximately 1 and 1.57 for renters and owners respectively.  This would suggest, while not realistic probabilities, that overwhelmingly whites have a higher probability of choosing mobile homes in comparison to non-self-reporting whites.  Notably, no results of interest were found regarding the stereotype of Native-Americans dwelling in mobile homes within the data.  Also race in this case appears to be linked to ownership of homes in each of the categories, within the bootstrapped version of the model it is statistically significant in each of the ownership owndwel categories.  
+
 Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
+
 When the model as specified first, is ran using a multinomial logit vce bootstrapping the results are slightly different with regards to children.  Now, while in places not statistically significant (see appendix) there does appear to be a trend towards the results are the same.  Further examination is needed.
 
 %Fix latex ref
@@ -654,7 +654,7 @@ library(stringr)
 LimitedKWH<-coef(summary(OrthodoxKWH))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"Income"))|!is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"StrTenure")),]
 
 
-print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHLimited"),tabular.environment="longtable",label="tab:ParOrthKWH")
+print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHLimited",digits=4),tabular.environment="longtable",label="tab:ParOrthKWH")
 @
 
 The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-Hispanic Caucasian.  The remaining income related variables show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasian households and households that reported some other race.
@@ -714,17 +714,27 @@ All parameter estimates for the models are statistically significant at the 1\% 
 #Output is not pretty  ***TODO Make Output pretty ***
 # mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
 
+
 MaxIt<-5000
 
-library(nnet)
-OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS,weights=NWEIGHT,maxit=MaxIt)
+if(file.exists("OrthStructTenure.RData")) load("OrthStructTenure.RData") else {
 
-SumTenure<-summary(OrthodoxStructTenure)
+  library(nnet)
+  OrthodoxStructTenure<-multinom(StrTenure~ RENTHELP+TOTSQFT_EN+Income+NHSLDMEM+ reporttot+EDUCATION+reporttot+reporttot:EthRace+UR,data=RECS,weights=NWEIGHT,maxit=MaxIt)
+  
+  
+  SumTenure<-summary(OrthodoxStructTenure)
+  
+  tstat<-SumTenure$coefficients/SumTenure$standard.errors
+  pval<-(1 - pnorm(abs(tstat), 0, 1)) * 2
+  
+  DisplayStructTenure<-cbind(SumTenure$coefficients,tstat,pval)
+  save(OrthodoxStructTenure,DisplayStructTenure,file="OrthStructTenure.RData")
+}
 
-tstat<-SumTenure$coefficients/SumTenure$standard.errors
-pval<-(1 - pnorm(abs(tstat), 0, 1)) * 2
 
-DisplayStructTenure<-cbind(SumTenure$coefficients,tstat,pval)
+
+
 
 #xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
@@ -831,21 +841,29 @@ if(file.exists("System.RData")) load("System.RData") else {
 }
 @
 
-***NEED TEXT TO EXPLAIN HERE*** 
+
+<<echo=false,results=tex>>=
+library(xtable)
+library(gtools)
+
+SDBoot<-apply(System$t,MARGIN=2,FUN=function(x)sd(x,na.rm=TRUE))
+BootResults<-data.frame(System$t0,SDBoot,System$t0/SDBoot,stars.pval(pnorm(1-abs(System$t0/SDBoot))))
+                        
+names(BootResults)<-c("Estimate","Std. Error","t value","Sig")
+
+print(xtable(BootResults,caption="System Estimation of kWh Model",label="tab:SystemKWH",digits=4),tabular.environment="longtable")
+
+@
+
+
+
 
 \section{Summary and Conclusions}
 
-
-Conclusion/Further Avenues of Study:
-  
-
-
-
-
-
-
 The model set out to provide some explanation of housing choices based on relevant variables.  In doing so it is apparent that income places a significant role in the formation of house choices both to own/rent and what type of structure is chosen.  Further education played a less significant role than anticipated, thought it could be said that the role of education is actually channeled through income.  As such its placement in the model is suspect in its current form.
+
 The race variable appears to suggest that whites tend towards ownership of their homes, and that whites are more likely to live in mobile homes than other races.  Further examination of race within this model framework would be an interesting and possibly useful endeavor. 
+
 The model would likely benefit by an expansion of the explanatory variables in an effort to provide a better fit.  It is relevant to point out that this is a model in progress whose ultimate goal is that of modeling household characteristics on energy consumption.
 
 
