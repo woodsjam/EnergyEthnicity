@@ -391,7 +391,7 @@ Residential Energy Consumption Survey national data 2009 (RECS) was utilitized f
 	With respect to respondent education attainment, percentages of each category (see appendix) do differ from what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.   	
 
 
-RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent,Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household #2 is ignored.
+% RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household \#2 is ignored.
 
 	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
   
@@ -618,8 +618,8 @@ Model: Multinomial logit
 
 As a point of clarity, surveys with questions not filled in were coded with 97, to differentiate between responses that were left blank and those where the value coded was not applicable.  For the purpose of this paper 97s were recoded to not and were dropped from the analysis.  
 
-The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
-The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
+% The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
+% The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
 
 Results:
 
@@ -631,7 +631,7 @@ The education variable is estimated, and is found to be statistically insignific
 
 Race, the dummy for being white, is statistically significant everywhere except in the rental of apartments in large small complexes.  Note that for mobile homes the dummy for race takes on a value of approximately 1 and 1.57 for renters and owners respectively.  This would suggest, while not realistic probabilities, that overwhelmingly whites have a higher probability of choosing mobile homes in comparison to non-self-reporting whites.  Notably, no results of interest were found regarding the stereotype of Native-Americans dwelling in mobile homes within the data.  Also race in this case appears to be linked to ownership of homes in each of the categories, within the bootstrapped version of the model it is statistically significant in each of the ownership owndwel categories.  
 
-Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
+% Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
 
 When the model as specified first, is ran using a multinomial logit vce bootstrapping the results are slightly different with regards to children.  Now, while in places not statistically significant (see appendix) there does appear to be a trend towards the results are the same.  Further examination is needed.
 
@@ -686,6 +686,8 @@ shows only the discrimination related results for our model of square footage.  
 
 The key discrimination variable, reporttot, is the count of complaints received by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects  groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Caucasian households.  In this case incidences of HUD complaints per 100,000 of state population results in a reduction in the square footage for Caucasian Hispanics by 22.73 square feet.
 
+This model is in general not very good at explaining square footage; the adjusted $R^2$ is only $.3897$.  This weakness will plague us later when we jointly estimate this model with structure type, tenure and electricity use, but illustrates one of the ways we can endogenize the choices that lead to electricity consumption.
+
 
 % \begin{itemize}
 %   \item explain the logic behind the making both sqft and structure tenure endogenous.
@@ -709,17 +711,17 @@ LimitedSQFT<-coef(summary(OrthodoxSQFT))[ !is.na(str_match(rownames(coef(summary
 
 While the impact of housing market discrimination has some effect on the size of residences, the effects on the ownership and structure type decision is expected to be more dramatic.  Housing market discrimination can be expected to push some people away from owned property and into the rental market, which is rife with split incentives for conservation and energy efficiency investments.  
 
-Discrimination can also be a force pushing some households into structure types, where even when owned, that have significant split incentives for energy efficiency investments.  Take, for example, small and large apartment buildings.  While the householder may have control over some appliances, the building shell and some of the heating and cooling equipment decisions are made by others.  
+Discrimination can also push some households into structure types, where even when owned, that have significant split incentives for energy efficiency investments.  Take, for example, small and large apartment buildings.  While the householder may have control over some appliances, the building shell and some of the heating and cooling equipment decisions are made by others.  
 
-Our model of structure type and tenure includes categories for both owned and rented: Large Apartments, Small Apartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household receives rental assistance, Income, number of people in the household, education level of the head of household, the HUD reports per 100,000 in that state and whether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
+Our model of structure type and tenure includes categories for both owned and rented: Large Apartments, Small Apartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household receives rental assistance, income, number of people in the household, education level of the head of household, the HUD reports per 100,000 in that state and whether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
 
 
-All parameter estimates for the models are statistically significant at the 1\% level and are displayed in appendix 
+All parameter estimates for the models are statistically significant at the 1\% level, with the exception of the income variable which is highly correlated with the education variables, and are displayed in appendix. 
 % \ref{OrthResults}. 
 
 <<OrthodoxStructTenure,echo=FALSE,results=hide>>=
 # Recreating what Edwards did in Stata
-#Output is not pretty  ***TODO Make Output pretty ***
+
 # mlogit owndwel rentass totsqft_en lnincome nhsldmem reporttot i.education i.householder_race#c.reporttot urbanrural, base(1)
 
 
@@ -739,10 +741,6 @@ if(file.exists("OrthStructTenure.RData")) load("OrthStructTenure.RData") else {
   DisplayStructTenure<-cbind(SumTenure$coefficients,tstat,pval)
   save(OrthodoxStructTenure,DisplayStructTenure,file="OrthStructTenure.RData")
 }
-
-
-
-
 
 #xtable(summary(OrthodoxStructTenure),caption="Orthodox Structure and Ownership Model",label="tab:OrthoStructTenure")
 @
@@ -776,7 +774,7 @@ shows the reaction to HUD complaints over the 1 to 21 complaint range.
 
 The single equation results discussed in section \ref{sec:SingleEq} show strong promise for endogenizing some of the decisions made about structure and equipment within the conditional demand model as well as the potential importance of housing market discrimination in structure choice.  In this section we treat square footage, tenure and structure type as endogenous and estimate estimate the electricity, structure/tenure, and square footage model as a system.
 
-It is unclear how this can be accomplished in a full information, so we chose a two-state least squares technique estimating first the square footage model, then using forecasted values to estimate tenure and structure type model.  Forecasts from that model were used to resestimate and produce a new round of forecasts for the square footage model.  Both the forecasts of the structure tenure model and square footage model were then used to estimate the conditional demand model.
+It is unclear how this can be accomplished in a full information, so we chose a two-stage least squares technique, estimating first the square footage model, then using forecasted values to estimate tenure and structure type model.  Forecasts from that model were used to resestimate and produce a new round of forecasts for the square footage model.  Both the forecasts of the structure tenure model and square footage model were then used to estimate the conditional demand model.
 
 This should produce consistent results but the variance of the parameter estimates are biased.  It is unclear how to make the usual corrections to the variance of the parameter estimates given that the structure and tenure model is estimated as a multinomial logit.  The best alternative is to bootstrap the system.  There are a few caveats.
 
@@ -850,6 +848,8 @@ if(file.exists("System.RData")) load("System.RData") else {
 @
 
 
+The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separatly and the effects of the other endogenous variables, structre and tenure and square footage.
+
 <<echo=false,results=tex>>=
 library(xtable)
 library(gtools)
@@ -859,12 +859,35 @@ BootResults<-data.frame(System$t0,SDBoot,System$t0/SDBoot,stars.pval(pnorm(1-abs
                         
 names(BootResults)<-c("Estimate","Std. Error","t value","Sig")
 
-print(xtable(BootResults,caption="System Estimation of kWh Model",label="tab:SystemKWH",digits=4),tabular.environment="longtable")
+library(stringr)
+LimitedBootEthnicity<-BootResults[ !is.na(str_match(rownames(BootResults),"EthRace")),]
+print(xtable(LimitedBootEthnicity,caption="System Estimation of kWh Model: Race and Ethnicity",label="tab:SystemKWHEthnicity",digits=4),tabular.environment="longtable")
 
 @
 
+Table 
+% \ref{tab:SystemKWHEthnicity}
+shows similarites with the results from the orthodox electrity model.  Non-Hispanic Asians, and Hispanic Caucasians and Hispanic heads of households that identify as some other race all show lower electricity use per dollar of income.   This is consistent in sign with the parameter estimates in table 
+% \ref{tab:ParOrthKWH}
+, but the statistically significant deviations from non-Hispanic caucasions for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant paremeter estimates are also roughly the same magnitude but attenuated towards zero.
 
+<<echo=false,results=tex>>=
+library(xtable)
+library(gtools)
 
+library(stringr)
+LimitedBootSQFT<-BootResults[ !is.na(str_match(rownames(BootResults),"PSQFT")),]
+LimitedBootSQFT<-LimitedBootSQFT[ is.na(str_match(rownames(LimitedBootSQFT),"TYPEGLASS")),]
+
+print(xtable(LimitedBootSQFT,caption="System Estimation of kWh Model: Square Footage",label="tab:SystemKWHSQFT",digits=4),tabular.environment="longtable")
+
+@
+
+Table 
+% \ref{tab:SystemKWHSQFT}
+shows the relationship between heating and cooling degree days per square foot on electricity use for each of the tenure and structure type combinations.  These results are particularly troublesome because heating and cooling degree days, in conjunction with square footage, are one of the most reliable explanatory variables for electricity use.  Space heating and cooling are two major end-uses in most households.  The parameter estimates show that these reliable explanatory variables are only significant in a few rare cases.  There is a strong relationship heating and cooling degree days for owned single family detached structures, but only rented mobile homes show statistically significant reations to heating loads and only large appartments, owned or rented, for cooling loads.
+
+This is very strong evidence that our square footage choice model needs improvement if it will be used as part of this electricity consumsption system. 
 
 \section{Summary and Conclusions}
 
@@ -900,5 +923,10 @@ print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHFull"),
 print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
 @
 
+
+<<echo=false, results=tex>>=
+
+print(xtable(BootResults,caption="System Estimation of kWh Model",label="tab:SystemKWH",digits=4),tabular.environment="longtable")
+@
 
 \end{document}
