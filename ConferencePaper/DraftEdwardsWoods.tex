@@ -87,14 +87,14 @@ Lastly, one of our variables, actually two, are count variables that account for
 
 
 
+% Adding in some basic descriptors
 
-<<<<<<< HEAD
+Table 
+% \ref{tab:RaceVStruct}
+shows the count of observations by Race/Ethnicty and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratefied sampling scheme used to collect the data.
+
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:34 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:48 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:33 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -120,28 +120,38 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \caption{Count of Observations by Race and Structure Type} 
 \label{tab:RaceVStruct}
 \end{table}
-<<<<<<< HEAD
+
+
+Table
+% \ref{tab:RegionVStruct}
+gives a further description of the data is distributed around the country.  Please note that both the Western and North Eastern area have a larger fraction of large apartment buldings, LgApartment in the table, than the other two regions. 
+
+
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:34 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:48 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:33 2015
 \begin{table}[ht]
 \centering
-\begin{tabular}{rrrrrr}
+\begin{tabular}{rrrrr}
   \hline
- & Mobile & SFDetached & SFAttached & SmApartment & LgApartment \\ 
+ & NE & MidWest & South & West \\ 
   \hline
-NE &  47 & 1173 & 218 & 326 & 470 \\ 
-  MidWest &  92 & 2080 & 162 & 145 & 323 \\ 
-  South & 245 & 2685 & 257 & 226 & 603 \\ 
-  West & 137 & 1757 & 241 & 209 & 509 \\ 
+Mobile &  47 &  92 & 245 & 137 \\ 
+  SFDetached & 1173 & 2080 & 2685 & 1757 \\ 
+  SFAttached & 218 & 162 & 257 & 241 \\ 
+  SmApartment & 326 & 145 & 226 & 209 \\ 
+  LgApartment & 470 & 323 & 603 & 509 \\ 
    \hline
 \end{tabular}
 \caption{Count of Observations by Region and Structure Type} 
 \label{tab:RegionVStruct}
 \end{table}
+
+Figure
+% \ref{fig:kWhbyOwnRace}
+shows a smooth approximation of the distribution of annual household electricity use in kWh per year.  The columns indicates the varias self-identified race and the columns indicate if the the household self identifies as Hispanic and if the home is owned or rented. The blank cells indicate that there are two few observations to generate a reliable smooth approximation of electricity consumption.
+
+Please note that households that rent tend to have lower annual electricity consumption and a smaller variance in that consumption.  This is normal given the large number of rented apartments which are typically smaller and of more uniform size than single family dewellings.  
+
 \begin{figure}
 \begin{center}
 \caption{Annual kWh by Rent/Own and Race}
@@ -152,19 +162,31 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
 
 
-\begin{figure}
-\begin{center}
-\caption{Annual kWh by Income}
-\label{fig:kWhbyIncome}
-\includegraphics{DraftEdwardsWoods-006}
-\end{center}
-\end{figure}
+% Cut for now. 
+% \begin{figure}
+% \begin{center}
+% \caption{Annual kWh by Income}
+% \label{fig:kWhbyIncome}
+% <<echo=false,fig=TRUE>>=
+% # library(ggplot2)
+% # 
+% # qplot(Income,KWH, data = RECS, xlim=c(0,30000) )+facet_grid(Hispanic+KOWNRENT~Householder_Race)+geom_smooth()
+% # 
+% # qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
+% @
+% \end{center}
+% \end{figure}
 
-\begin{figure}
-\begin{center}\label{fig:HHbyRace}
-\includegraphics{DraftEdwardsWoods-007}
-\end{center}
-\end{figure}
+
+
+% 
+% \begin{figure}
+% \begin{center}\label{fig:HHbyRace}
+% <<echo=false,fig=TRUE>>=
+% # qplot(NHSLDMEM,data=RECS,title="Household Size by Race and Ethnicity")+xlab("Household Size")+facet_grid(Hispanic~Householder_Race)+xlim(0,7)+geom_density()
+% @
+% \end{center}
+% \end{figure}
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
@@ -185,13 +207,8 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
 
   
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:50 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:55 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -218,13 +235,8 @@ FALSEWt & 7606 & 384 \\
 \label{tab:EnergyStarWall}
 \end{table}
 
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:50 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:55 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -251,13 +263,8 @@ FALSEWt & 1937 & 6053 \\
 \label{tab:UrbRural}
 \end{table}
 
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:50 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:55 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrr}
@@ -283,13 +290,8 @@ FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\
 \caption{Water Service by Race and Ethnicity} 
 \label{tab:Water}
 \end{table}
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:50 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:55 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -315,13 +317,8 @@ FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\
 \caption{Heating Fuel by Race and Ethnicity} 
 \label{tab:HeatFuel}
 \end{table}
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:50 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:55 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -351,7 +348,7 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
 \begin{center}
 \caption{Age of Structure by Rent/Own and Race/Ethnicity}
 \label{fig:AgebyOwnRace}
-\includegraphics{DraftEdwardsWoods-013}
+\includegraphics{DraftEdwardsWoods-011}
 \end{center}
 \end{figure}
 
@@ -367,13 +364,8 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
   \end{itemize}
   
   
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:54 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrr}
@@ -399,11 +391,20 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \caption{Weekly Meals Cooked by Race and Ethnicity} 
 \label{tab:Cooking}
 \end{table}
+\begin{Schunk}
+\begin{Sinput}
+> # qplot(NUMMEAL,data=RECS)+geom_bar(stat="identity")+facet_grid(Hispanic~Householder_Race)
+\end{Sinput}
+\end{Schunk}
+
+
+
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp and Race/Ethnicity (Winter)}
 \label{fig:TempHomeRace}
-\includegraphics{DraftEdwardsWoods-015}
+\includegraphics{DraftEdwardsWoods-014}
+
 \end{center}
 \end{figure}
 
@@ -411,7 +412,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
 \label{fig:DayAwayRace}
-\includegraphics{DraftEdwardsWoods-016}
+\includegraphics{DraftEdwardsWoods-015}
 \end{center}
 \end{figure}
 
@@ -420,7 +421,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Nighttime Temp and Race/Ethnicity (Winter)}
 \label{fig:NightRace}
-\includegraphics{DraftEdwardsWoods-017}
+\includegraphics{DraftEdwardsWoods-016}
 \end{center}
 \end{figure}
 
@@ -430,7 +431,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
 \label{fig:HomeRaceS}
-\includegraphics{DraftEdwardsWoods-018}
+\includegraphics{DraftEdwardsWoods-017}
 \end{center}
 \end{figure}
 
@@ -439,7 +440,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Day Temp Away by Race/Ethnicity (Summer)}
 \label{fig:AwayRaceS}
-\includegraphics{DraftEdwardsWoods-019}
+\includegraphics{DraftEdwardsWoods-018}
 \end{center}
 \end{figure}
 
@@ -448,7 +449,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Nighttime Temp and Race/Ethnicity (Summer)}
 \label{fig:NightRaceS}
-\includegraphics{DraftEdwardsWoods-020}
+\includegraphics{DraftEdwardsWoods-019}
 \end{center}
 \end{figure}
   
@@ -461,70 +462,65 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   
   \end{itemize}
 
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:54 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:50 2015
 \begin{table}[ht]
 \centering
-\begin{tabular}{rllr}
+\begin{tabular}{llr}
   \hline
- & State & Population & Reports (per 100,000) \\ 
+State & Population & Reports (per 100,000) \\ 
   \hline
-1 & Alabama & 4,677,464 & 7.50 \\ 
-  2 & Alaska & 688,125 & 13.01 \\ 
-  3 & Arizona & 6,499,377 & 3.68 \\ 
-  4 & Arkansas & 2,867,764 & 9.26 \\ 
-  5 & California & 36,580,371 & 3.03 \\ 
-  6 & Colorado & 4,935,213 & 1.97 \\ 
-  7 & Connecticut & 3,502,932 & 20.50 \\ 
-  8 & Delaware & 876,211 & 14.00 \\ 
-  9 & District of Columbia & 590,074 & 14.00 \\ 
-  10 & Florida & 18,423,878 & 3.93 \\ 
-  11 & Georgia & 9,697,838 & 2.06 \\ 
-  12 & Hawaii & 1,287,481 & 13.01 \\ 
-  13 & Idaho & 1,527,506 & 9.94 \\ 
-  14 & Illinois & 12,842,954 & 2.88 \\ 
-  15 & Indiana & 6,388,309 & 9.14 \\ 
-  16 & Iowa & 2,993,987 & 19.92 \\ 
-  17 & Kansas & 2,797,375 & 10.31 \\ 
-  18 & Kentucky & 4,287,931 & 7.50 \\ 
-  19 & Louisiana & 4,451,513 & 9.26 \\ 
-  20 & Maine & 1,319,691 & 20.50 \\ 
-  21 & Maryland & 5,658,655 & 14.00 \\ 
-  22 & Massachusetts & 6,543,595 & 4.51 \\ 
-  23 & Michigan & 10,002,486 & 4.97 \\ 
-  24 & Minnesota & 5,230,567 & 19.92 \\ 
-  25 & Mississippi & 2,940,212 & 7.50 \\ 
-  26 & Missouri & 5,956,335 & 4.99 \\ 
-  27 & Montana & 968,035 & 9.94 \\ 
-  28 & Nebraska & 1,781,949 & 10.31 \\ 
-  29 & Nevada & 2,615,772 & 5.08 \\ 
-  30 & New Hampshire & 1,321,872 & 20.50 \\ 
-  31 & New Jersey & 8,663,398 & 2.34 \\ 
-  32 & New Mexico & 1,986,763 & 5.08 \\ 
-  33 & New York & 19,467,789 & 4.60 \\ 
-  34 & North Carolina & 9,247,134 & 4.22 \\ 
-  35 & North Dakota & 641,421 & 19.92 \\ 
-  36 & Ohio & 11,528,072 & 9.14 \\ 
-  37 & Oklahoma & 3,644,025 & 9.26 \\ 
-  38 & Oregon & 3,782,991 & 13.01 \\ 
-  39 & Pennsylvania & 12,566,368 & 1.87 \\ 
-  40 & Rhode Island & 1,053,502 & 20.50 \\ 
-  41 & South Carolina & 4,503,280 & 4.22 \\ 
-  42 & South Dakota & 804,532 & 19.92 \\ 
-  43 & Tennessee & 6,240,456 & 2.61 \\ 
-  44 & Texas & 24,304,290 & 4.18 \\ 
-  45 & Utah & 2,727,343 & 9.94 \\ 
-  46 & Vermont & 621,049 & 20.50 \\ 
-  47 & Virginia & 7,795,424 & 2.03 \\ 
-  48 & Washington & 6,566,073 & 13.01 \\ 
-  49 & West Virginia & 1,814,873 & 14.00 \\ 
-  50 & Wisconsin & 5,627,610 & 1.81 \\ 
-  51 & Wyoming & 532,981 & 9.94 \\ 
+Alabama & 4,677,464 & 7.50 \\ 
+  Alaska & 688,125 & 13.01 \\ 
+  Arizona & 6,499,377 & 3.68 \\ 
+  Arkansas & 2,867,764 & 9.26 \\ 
+  California & 36,580,371 & 3.03 \\ 
+  Colorado & 4,935,213 & 1.97 \\ 
+  Connecticut & 3,502,932 & 20.50 \\ 
+  Delaware & 876,211 & 14.00 \\ 
+  District of Columbia & 590,074 & 14.00 \\ 
+  Florida & 18,423,878 & 3.93 \\ 
+  Georgia & 9,697,838 & 2.06 \\ 
+  Hawaii & 1,287,481 & 13.01 \\ 
+  Idaho & 1,527,506 & 9.94 \\ 
+  Illinois & 12,842,954 & 2.88 \\ 
+  Indiana & 6,388,309 & 9.14 \\ 
+  Iowa & 2,993,987 & 19.92 \\ 
+  Kansas & 2,797,375 & 10.31 \\ 
+  Kentucky & 4,287,931 & 7.50 \\ 
+  Louisiana & 4,451,513 & 9.26 \\ 
+  Maine & 1,319,691 & 20.50 \\ 
+  Maryland & 5,658,655 & 14.00 \\ 
+  Massachusetts & 6,543,595 & 4.51 \\ 
+  Michigan & 10,002,486 & 4.97 \\ 
+  Minnesota & 5,230,567 & 19.92 \\ 
+  Mississippi & 2,940,212 & 7.50 \\ 
+  Missouri & 5,956,335 & 4.99 \\ 
+  Montana & 968,035 & 9.94 \\ 
+  Nebraska & 1,781,949 & 10.31 \\ 
+  Nevada & 2,615,772 & 5.08 \\ 
+  New Hampshire & 1,321,872 & 20.50 \\ 
+  New Jersey & 8,663,398 & 2.34 \\ 
+  New Mexico & 1,986,763 & 5.08 \\ 
+  New York & 19,467,789 & 4.60 \\ 
+  North Carolina & 9,247,134 & 4.22 \\ 
+  North Dakota & 641,421 & 19.92 \\ 
+  Ohio & 11,528,072 & 9.14 \\ 
+  Oklahoma & 3,644,025 & 9.26 \\ 
+  Oregon & 3,782,991 & 13.01 \\ 
+  Pennsylvania & 12,566,368 & 1.87 \\ 
+  Rhode Island & 1,053,502 & 20.50 \\ 
+  South Carolina & 4,503,280 & 4.22 \\ 
+  South Dakota & 804,532 & 19.92 \\ 
+  Tennessee & 6,240,456 & 2.61 \\ 
+  Texas & 24,304,290 & 4.18 \\ 
+  Utah & 2,727,343 & 9.94 \\ 
+  Vermont & 621,049 & 20.50 \\ 
+  Virginia & 7,795,424 & 2.03 \\ 
+  Washington & 6,566,073 & 13.01 \\ 
+  West Virginia & 1,814,873 & 14.00 \\ 
+  Wisconsin & 5,627,610 & 1.81 \\ 
+  Wyoming & 532,981 & 9.94 \\ 
    \hline
 \end{tabular}
 \caption{HUD Complaints per 100,000 Population} 
@@ -576,13 +572,8 @@ The parameter estimates of the full model can be found in appendix
 % \ref{tab:ParOrthKWH}
 .
   
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:55 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:50 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -710,89 +701,19 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 %   \item no censoring for square footage less than zero.
 %   \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
 % \end{itemize}
-<<<<<<< HEAD
-
-
-
-
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:56 2015
-=======
 
 
 
 
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separatly and the effects of the other endogenous variables, structre and tenure and square footage.
 
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% latex table generated in R 3.0.1 by xtable 1.7-4 package
+% Fri Apr  3 16:52:52 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
   \hline
-<<<<<<< HEAD
-(Intercept) & -547.7160 & 1505.7185 & -0.3638 &   \\ 
-  ElecMealsThreeDay & 1375.6512 & 440.4367 & 3.1234 & * \\ 
-  ElecMealsTwoDay & 1600.5524 & 212.9011 & 7.5178 & *** \\ 
-  ElecMealsOneDay & 1686.5705 & 175.7809 & 9.5947 & *** \\ 
-  ElecMealsFewWeek & 1470.9015 & 204.6759 & 7.1865 & *** \\ 
-  ElecMealsOneWeek & 1702.6234 & 412.2076 & 4.1305 & *** \\ 
-  ElecMealsLessWeek & 1040.6175 & 383.9259 & 2.7105 & * \\ 
-  NUMFRIG & 2041.4460 & 167.4981 & 12.1879 & *** \\ 
-  AgeFridge2to4Years & 2.9750 & 216.7455 & 0.0137 &   \\ 
-  AgeFridge5to9Years & 193.7201 & 211.8752 & 0.9143 &   \\ 
-  AgeFridge20PlusYears & 248.7269 & 479.4517 & 0.5188 &   \\ 
-  AgeFridge10to14Years & 358.7208 & 241.2085 & 1.4872 &   \\ 
-  AgeFridge15to19Years & -117.8308 & 320.5402 & -0.3676 &   \\ 
-  NUMPC & 418.1593 & 72.6452 & 5.7562 & *** \\ 
-  TIMEON1OneTo3Hrs & -69.0487 & 183.3079 & -0.3767 &   \\ 
-  TIMEON1ThreeTo6Hrs & -13.1604 & 200.3356 & -0.0657 &   \\ 
-  TIMEON1SixTo10Hrs & 233.6172 & 289.5477 & 0.8068 &   \\ 
-  TIMEON1Gr10 & 889.8391 & 292.0892 & 3.0465 & * \\ 
-  WELLPUMPTRUE & 1411.7137 & 279.3720 & 5.0532 & *** \\ 
-  ElecWaterSmall & 4275.4234 & 278.7125 & 15.3399 & *** \\ 
-  ElecWaterMed & 4404.4543 & 180.8300 & 24.3569 & *** \\ 
-  ElecWaterLrg & 5779.6329 & 300.7620 & 19.2166 & *** \\ 
-  ElecWaterTankless & 3020.2905 & 995.0797 & 3.0352 & * \\ 
-  SWIMPOOLTRUE & 3627.7895 & 364.5886 & 9.9504 & *** \\ 
-  ElecPoolTRUE & 5201.5011 & 1709.7956 & 3.0422 & * \\ 
-  RECBATHTRUE & 1882.7243 & 691.6599 & 2.7220 & * \\ 
-  ElecTubTRUE & 310.9469 & 794.7220 & 0.3913 &   \\ 
-  NHSLDMEM & 1014.0356 & 56.8306 & 17.8431 & *** \\ 
-  Income & -0.0021 & 0.0032 & -0.6434 &   \\ 
-  TVONWD1LessHour:TVTYPE1Standard & -2571.5913 & 1483.2943 & -1.7337 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Standard & -2304.5338 & 1463.4167 & -1.5748 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -1804.8250 & 1469.5580 & -1.2281 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1136.4160 & 1452.3312 & -0.7825 &   \\ 
-  TVONWD1Gr10:TVTYPE1Standard & -739.2962 & 1482.9861 & -0.4985 &   \\ 
-  TVONWD1LessHour:TVTYPE1LCD & -2139.9144 & 1487.6184 & -1.4385 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LCD & -1526.1157 & 1472.2723 & -1.0366 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1183.2819 & 1456.8798 & -0.8122 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LCD & -944.2670 & 1440.7984 & -0.6554 &   \\ 
-  TVONWD1Gr10:TVTYPE1LCD & 211.0419 & 1479.7559 & 0.1426 &   \\ 
-  TVONWD1LessHour:TVTYPE1Plasma & -387.6774 & 1879.4130 & -0.2063 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -766.5487 & 1583.4746 & -0.4841 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -1352.4175 & 1499.5147 & -0.9019 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -402.8629 & 1514.6445 & -0.2660 &   \\ 
-  TVONWD1Gr10:TVTYPE1Plasma & 889.3760 & 1569.4195 & 0.5667 &   \\ 
-  TVONWD1LessHour:TVTYPE1Projection & -699.8204 & 1637.1732 & -0.4275 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1218.5567 & 1534.0730 & -0.7943 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -1319.9761 & 1490.3811 & -0.8857 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Projection & -52.4928 & 1558.1229 & -0.0337 &   \\ 
-  TVONWD1Gr10:TVTYPE1Projection & 2109.5856 & 1775.7924 & 1.1880 &   \\ 
-  TVONWD1LessHour:TVTYPE1LED & -4069.8485 & 2205.6129 & -1.8452 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LED & -1017.3486 & 1706.4396 & -0.5962 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -1379.6589 & 1638.8949 & -0.8418 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LED & -2980.6241 & 2057.1315 & -1.4489 &   \\ 
-  TVONWD1Gr10:TVTYPE1LED &  &  &  &  \\ 
-  PSQFT:TYPEGLASSSinglePane & 0.5481 & 0.2887 & 1.8987 &   \\ 
-  PSQFT:TYPEGLASSDoublePane & 0.7501 & 0.2804 & 2.6746 & * \\ 
-  PSQFT:TYPEGLASSTriplePane & 1.1070 & 0.3696 & 2.9950 & * \\ 
-  Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\ 
-=======
 Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\ 
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
   Income:EthRaceFALSEAsian & -0.0230 & 0.0035 & -6.4831 & *** \\ 
   Income:EthRaceFALSEMulti & -0.0157 & 0.0057 & -2.7584 & * \\ 
   Income:EthRaceFALSENativeAm & 0.0092 & 0.0211 & 0.4382 &   \\ 
@@ -805,29 +726,6 @@ Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\
   Income:EthRaceTRUEOther & -0.0274 & 0.0080 & -3.4318 & ** \\ 
   Income:EthRaceTRUEPacific & -0.0240 & 0.0659 & -0.3647 &   \\ 
   Income:EthRaceTRUEWt & -0.0185 & 0.0033 & -5.5782 & *** \\ 
-<<<<<<< HEAD
-  PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\ 
-  PSQFT:HDD65:OwnLgApartment & 0.0000 & 0.0001 & 0.8450 &   \\ 
-  PSQFT:HDD65:OwnMobile & 0.0004 & 0.0001 & 4.6205 & *** \\ 
-  PSQFT:HDD65:OwnSFAttached & 0.0000 & 0.0000 & 1.3603 &   \\ 
-  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0000 & 1.1709 &   \\ 
-  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0000 & -1.3292 &   \\ 
-  PSQFT:HDD65:RentMobile & 0.0005 & 0.0003 & 2.0238 &   \\ 
-  PSQFT:HDD65:RentSFAttached & 0.0001 & 0.0001 & 1.0923 &   \\ 
-  PSQFT:HDD65:RentSFDetached & 0.0001 & 0.0000 & 1.7233 &   \\ 
-  PSQFT:HDD65:RentSmApartment & -0.0000 & 0.0000 & -0.2465 &   \\ 
-  PSQFT:OwnSFDetached:CDD65 & 0.0007 & 0.0000 & 16.3870 & *** \\ 
-  PSQFT:OwnLgApartment:CDD65 & 0.0000 & 0.0002 & 0.2207 &   \\ 
-  PSQFT:OwnMobile:CDD65 & 0.0011 & 0.0002 & 6.7660 & *** \\ 
-  PSQFT:OwnSFAttached:CDD65 & 0.0005 & 0.0001 & 5.3085 & *** \\ 
-  PSQFT:OwnSmApartment:CDD65 & 0.0003 & 0.0002 & 1.8671 &   \\ 
-  PSQFT:RentLgApartment:CDD65 & 0.0003 & 0.0001 & 2.5551 & . \\ 
-  PSQFT:RentMobile:CDD65 & 0.0020 & 0.0009 & 2.2066 &   \\ 
-  PSQFT:RentSFAttached:CDD65 & 0.0009 & 0.0002 & 4.9470 & *** \\ 
-  PSQFT:RentSFDetached:CDD65 & 0.0008 & 0.0001 & 8.8123 & *** \\ 
-  PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
-=======
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
    \hline
 \hline
 \caption{System Estimation of kWh Model: Race and Ethnicity} 
@@ -839,8 +737,8 @@ shows similarites with the results from the orthodox electrity model.  Non-Hispa
 % \ref{tab:ParOrthKWH}
 , but the statistically significant deviations from non-Hispanic caucasions for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant paremeter estimates are also roughly the same magnitude but attenuated towards zero.
 
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
+% latex table generated in R 3.0.1 by xtable 1.7-4 package
+% Fri Apr  3 16:52:52 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
@@ -897,13 +795,8 @@ As well, the location of a structure type to needs such as: employment, school d
 \section{Orthodox Results}\label{OrthResults}
 
 
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:56 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:57 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:52 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -1005,13 +898,8 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 
-<<<<<<< HEAD
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Thu Apr  2 18:57:56 2015
-=======
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:58 2015
->>>>>>> 2a12e2c508e619ce8423ee9ca881cf821a653dc2
+% Fri Apr  3 16:52:52 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -1057,8 +945,8 @@ As well, the location of a structure type to needs such as: employment, school d
 \label{tab:OrthoSQFT}
 \end{longtable}
 
-% latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Thu Apr  2 14:49:58 2015
+% latex table generated in R 3.0.1 by xtable 1.7-4 package
+% Fri Apr  3 16:52:52 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 

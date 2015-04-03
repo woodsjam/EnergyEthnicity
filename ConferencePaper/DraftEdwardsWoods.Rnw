@@ -401,16 +401,35 @@ Lastly, one of our variables, actually two, are count variables that account for
 
 
 
+% Adding in some basic descriptors
+
+Table 
+% \ref{tab:RaceVStruct}
+shows the count of observations by Race/Ethnicty and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratefied sampling scheme used to collect the data.
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
 xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
 @
 
+
+
+Table
+% \ref{tab:RegionVStruct}
+gives a further description of the data is distributed around the country.  Please note that both the Western and North Eastern area have a larger fraction of large apartment buldings, LgApartment in the table, than the other two regions. 
+
+
 <<echo=false,results=tex>>=
 library(xtable)
-xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
+xtable(table(RECS$TYPEHUQ,RECS$REGIONC), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
 @
+
+
+Figure
+% \ref{fig:kWhbyOwnRace}
+shows a smooth approximation of the distribution of annual household electricity use in kWh per year.  The columns indicates the varias self-identified race and the columns indicate if the the household self identifies as Hispanic and if the home is owned or rented. The blank cells indicate that there are two few observations to generate a reliable smooth approximation of electricity consumption.
+
+Please note that households that rent tend to have lower annual electricity consumption and a smaller variance in that consumption.  This is normal given the large number of rented apartments which are typically smaller and of more uniform size than single family dewellings.  
 
 \begin{figure}
 \begin{center}
@@ -418,31 +437,38 @@ xtable(table(RECS$REGIONC,RECS$TYPEHUQ), caption="Count of Observations by Regio
 \label{fig:kWhbyOwnRace}
 <<echo=false,fig=TRUE>>=
 library(ggplot2)
-qplot(KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT, geom = "density" )
+qplot(KWH, data = RECS, xlim=c(0,30000), geom = "density" )+facet_grid(Hispanic+KOWNRENT~Householder_Race)+ylab("")+xlab("Annual kWh")
 @
 \end{center}
 \end{figure}
 
 
 
-\begin{figure}
-\begin{center}
-\caption{Annual kWh by Income}
-\label{fig:kWhbyIncome}
-<<echo=false,fig=TRUE>>=
-library(ggplot2)
-qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
-@
-\end{center}
-\end{figure}
+% Cut for now. 
+% \begin{figure}
+% \begin{center}
+% \caption{Annual kWh by Income}
+% \label{fig:kWhbyIncome}
+% <<echo=false,fig=TRUE>>=
+% # library(ggplot2)
+% # 
+% # qplot(Income,KWH, data = RECS, xlim=c(0,30000) )+facet_grid(Hispanic+KOWNRENT~Householder_Race)+geom_smooth()
+% # 
+% # qplot(Income,KWH, data = RECS, xlim=c(0,30000),facets =EthRace~KOWNRENT )+geom_boxplot()
+% @
+% \end{center}
+% \end{figure}
 
-\begin{figure}
-\begin{center}\label{fig:HHbyRace}
-<<echo=false,fig=TRUE>>=
-qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Size by Race and Ethnicity")+xlab("Household Size")
-@
-\end{center}
-\end{figure}
+
+
+% 
+% \begin{figure}
+% \begin{center}\label{fig:HHbyRace}
+% <<echo=false,fig=TRUE>>=
+% # qplot(NHSLDMEM,data=RECS,title="Household Size by Race and Ethnicity")+xlab("Household Size")+facet_grid(Hispanic~Householder_Race)+xlim(0,7)+geom_density()
+% @
+% \end{center}
+% \end{figure}
 
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
@@ -465,6 +491,7 @@ qplot(NHSLDMEM,data=RECS,facets =~EthRace, geom = "density",title="Household Siz
   
 <<echo=false, results=tex>>=
 xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EnergyStarWall")
+
 @
 
 
@@ -511,13 +538,21 @@ qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
 xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and Ethnicity", label="tab:Cooking")
 @
 
+<<>>=
+# qplot(NUMMEAL,data=RECS)+geom_bar(stat="identity")+facet_grid(Hispanic~Householder_Race)
+@
+
+
+
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp and Race/Ethnicity (Winter)}
 \label{fig:TempHomeRace}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPHOME~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPHOME, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,85))
+
 @
+
 \end{center}
 \end{figure}
 
@@ -591,8 +626,8 @@ HUD<-read.csv("HUD.csv")
 HUDCut<-HUD[c("state","pop","reporttot")]
 names(HUDCut)<-c("State","Population","Reports (per 100,000)")
 
-#***TODO Fix so it does not show the row number***
-xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints")
+
+print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE)
 rm(HUD)
 @
 
