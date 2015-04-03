@@ -409,7 +409,7 @@ shows the count of observations by Race/Ethnicty and structure after the basic d
 
 <<tabRaceVStruct,echo=false,results=tex>>=
 library(xtable)
-xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct")
+print(xtable(table(RECS$EthRace,RECS$TYPEHUQ), caption="Count of Observations by Race and Structure Type", label="tab:RaceVStruct"),caption.placement="top",size="small",latex.environments="center")
 @
 
 
@@ -421,7 +421,7 @@ gives a further description of the data is distributed around the country.  Plea
 
 <<echo=false,results=tex>>=
 library(xtable)
-xtable(table(RECS$TYPEHUQ,RECS$REGIONC), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct")
+print(xtable(table(RECS$TYPEHUQ,RECS$REGIONC), caption="Count of Observations by Region and Structure Type", label="tab:RegionVStruct"),caption.placement="top",size="small",latex.environments="center")
 @
 
 
@@ -689,7 +689,7 @@ library(xtable)
 HUD<-read.csv("HUD.csv")
 HUDCut<-HUD[c("state","pop","reporttot")]
 names(HUDCut)<-c("State","Population","Reports (per 100,000)")
-print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE)
+print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE,caption.placement="top",size="small",latex.environments="center")
 rm(HUD)
 @
 
@@ -759,7 +759,7 @@ library(stringr)
 LimitedKWH<-coef(summary(OrthodoxKWH))[ !is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"Income"))|!is.na(str_match(rownames(coef(summary(OrthodoxKWH))),"StrTenure")),]
 
 
-print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHLimited",digits=4),tabular.environment="longtable",label="tab:ParOrthKWH")
+print(xtable(LimitedKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHLimited",digits=4),tabular.environment="longtable",label="tab:ParOrthKWH",caption.placement="top",size="small",latex.environments="center")
 @
 
 The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-Hispanic Caucasian.  The remaining income related variables show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasian households and households that reported some other race.
@@ -958,7 +958,7 @@ names(BootResults)<-c("Estimate","Std. Error","t value","Sig")
 
 library(stringr)
 LimitedBootEthnicity<-BootResults[ !is.na(str_match(rownames(BootResults),"EthRace")),]
-print(xtable(LimitedBootEthnicity,caption="System Estimation of kWh Model: Race and Ethnicity",label="tab:SystemKWHEthnicity",digits=4),tabular.environment="longtable")
+print(xtable(LimitedBootEthnicity,caption="System Estimation of kWh Model: Race and Ethnicity",label="tab:SystemKWHEthnicity",digits=4),tabular.environment="longtable",caption.placement="top",size="small",latex.environments="center")
 
 @
 
@@ -976,7 +976,7 @@ library(stringr)
 LimitedBootSQFT<-BootResults[ !is.na(str_match(rownames(BootResults),"PSQFT")),]
 LimitedBootSQFT<-LimitedBootSQFT[ is.na(str_match(rownames(LimitedBootSQFT),"TYPEGLASS")),]
 
-print(xtable(LimitedBootSQFT,caption="System Estimation of kWh Model: Square Footage",label="tab:SystemKWHSQFT",digits=4),tabular.environment="longtable")
+print(xtable(LimitedBootSQFT,caption="System Estimation of kWh Model: Square Footage",label="tab:SystemKWHSQFT",digits=4),tabular.environment="longtable",caption.placement="top",size="small",latex.environments="center")
 
 @
 
@@ -998,32 +998,29 @@ The model would likely benefit by an expansion of the explanatory variables in a
 As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
 
 
-
+\cite{boot}
 \nocite{*}
 \bibliographystyle{plain} 
 \bibliography{FullBib}
 
-% \appendix
-\section{Orthodox Results}\label{OrthResults}
+\appendix
+\section{Full Regression Results}\label{OrthResults}
 
 
 <<echo=false, results=tex>>=
 
-print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHFull"),tabular.environment="longtable")
+print(xtable(OrthodoxKWH,caption="Orthodox kWh Model",label="tab:OrthoKWHFull"),tabular.environment="longtable",caption.placement="top",size="small",latex.environments="center")
 
 @
 
-
-
-
 <<echo=false, results=tex>>=
-print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE)
+print(xtable(OrthodoxSQFT,caption="Orthodox Square Foot Model",label="tab:OrthoSQFT"),tabular.environment="longtable",floating = FALSE, caption.placement="top",size="small",latex.environments="center")
 @
 
 
+\subsection{System Estimation Results}
 <<echo=false, results=tex>>=
-
-print(xtable(BootResults,caption="System Estimation of kWh Model",label="tab:SystemKWH",digits=4),tabular.environment="longtable")
+print(xtable(BootResults,caption="System Estimation of kWh Model",label="tab:SystemKWH",digits=4),tabular.environment="longtable",caption.placement="top",size="small",latex.environments="center")
 @
 
 \end{document}

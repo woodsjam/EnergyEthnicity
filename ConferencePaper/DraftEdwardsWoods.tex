@@ -94,9 +94,12 @@ Table
 shows the count of observations by Race/Ethnicty and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratefied sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:06:40 2015
+% Fri Apr  3 22:03:21 2015
 \begin{table}[ht]
 \centering
+\caption{Count of Observations by Race and Structure Type} 
+\label{tab:RaceVStruct}
+{\small
 \begin{tabular}{rrrrrr}
   \hline
  & Mobile & SFDetached & SFAttached & SmApartment & LgApartment \\ 
@@ -117,8 +120,7 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
   TRUEWt &  97 & 730 & 105 & 184 & 332 \\ 
    \hline
 \end{tabular}
-\caption{Count of Observations by Race and Structure Type} 
-\label{tab:RaceVStruct}
+}
 \end{table}
 
 
@@ -128,9 +130,12 @@ gives a further description of the data is distributed around the country.  Plea
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:06:40 2015
+% Fri Apr  3 22:03:21 2015
 \begin{table}[ht]
 \centering
+\caption{Count of Observations by Region and Structure Type} 
+\label{tab:RegionVStruct}
+{\small
 \begin{tabular}{rrrrr}
   \hline
  & NE & MidWest & South & West \\ 
@@ -142,8 +147,7 @@ Mobile &  47 &  92 & 245 & 137 \\
   LgApartment & 470 & 323 & 603 & 509 \\ 
    \hline
 \end{tabular}
-\caption{Count of Observations by Region and Structure Type} 
-\label{tab:RegionVStruct}
+}
 \end{table}
 
 Figure
@@ -373,9 +377,12 @@ Note that non-Hispanic Caucasian and Native households are more likely to reside
   \end{itemize}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:34 2015
+% Fri Apr  3 22:04:14 2015
 \begin{table}[ht]
 \centering
+\caption{HUD Complaints per 100,000 Population} 
+\label{tab:HUDComplaints}
+{\small
 \begin{tabular}{llr}
   \hline
 State & Population & Reports (per 100,000) \\ 
@@ -433,8 +440,7 @@ Alabama & 4,677,464 & 7.50 \\
   Wyoming & 532,981 & 9.94 \\ 
    \hline
 \end{tabular}
-\caption{HUD Complaints per 100,000 Population} 
-\label{tab:HUDComplaints}
+}
 \end{table}
 \section{Conditional Demand Estimation}
 
@@ -483,8 +489,10 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:35 2015
+% Fri Apr  3 22:04:14 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox kWh Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -524,9 +532,9 @@ Income & 0.0086 & 0.0016 & 5.3662 & 0.0000 \\
   StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.8365 & 0.0046 \\ 
    \hline
 \hline
-\caption{Orthodox kWh Model} 
 \label{tab:OrthoKWHLimited}
 \end{longtable}
+}
 The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-Hispanic Caucasian.  The remaining income related variables show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasian households and households that reported some other race.
 
 The remaining items shown in the table show the electricity use per square foot for each of the structure types, e.g., Single Family Detached, and tenure, i.e., Rent or Own, per annual heating and cooling degree days.  Aside from the negative and significant estimate for the heating load in large Rented apartments, the results are unremarkable. 
@@ -618,8 +626,10 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separatly and the effects of the other endogenous variables, structre and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:36 2015
+% Fri Apr  3 22:04:16 2015
+{\small
 \begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
   \hline
@@ -638,9 +648,9 @@ Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\
   Income:EthRaceTRUEWt & -0.0185 & 0.0033 & -5.5782 & *** \\ 
    \hline
 \hline
-\caption{System Estimation of kWh Model: Race and Ethnicity} 
 \label{tab:SystemKWHEthnicity}
 \end{longtable}
+}
 Table 
 % \ref{tab:SystemKWHEthnicity}
 shows similarites with the results from the orthodox electrity model.  Non-Hispanic Asians, and Hispanic Caucasians and Hispanic heads of households that identify as some other race all show lower electricity use per dollar of income.   This is consistent in sign with the parameter estimates in table 
@@ -648,8 +658,10 @@ shows similarites with the results from the orthodox electrity model.  Non-Hispa
 , but the statistically significant deviations from non-Hispanic caucasions for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant paremeter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:36 2015
+% Fri Apr  3 22:04:16 2015
+{\small
 \begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model: Square Footage} \\ 
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
   \hline
@@ -675,9 +687,9 @@ PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\
   PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
    \hline
 \hline
-\caption{System Estimation of kWh Model: Square Footage} 
 \label{tab:SystemKWHSQFT}
 \end{longtable}
+}
 Table 
 % \ref{tab:SystemKWHSQFT}
 shows the relationship between heating and cooling degree days per square foot on electricity use for each of the tenure and structure type combinations.  These results are particularly troublesome because heating and cooling degree days, in conjunction with square footage, are one of the most reliable explanatory variables for electricity use.  Space heating and cooling are two major end-uses in most households.  The parameter estimates show that these reliable explanatory variables are only significant in a few rare cases.  There is a strong relationship heating and cooling degree days for owned single family detached structures, but only rented mobile homes show statistically significant reations to heating loads and only large appartments, owned or rented, for cooling loads.
@@ -696,18 +708,20 @@ The model would likely benefit by an expansion of the explanatory variables in a
 As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
 
 
-
+\cite{boot}
 \nocite{*}
 \bibliographystyle{plain} 
 \bibliography{FullBib}
 
-% \appendix
-\section{Orthodox Results}\label{OrthResults}
+\appendix
+\section{Full Regression Results}\label{OrthResults}
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:36 2015
+% Fri Apr  3 22:04:16 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox kWh Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -802,15 +816,14 @@ As well, the location of a structure type to needs such as: employment, school d
   StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.84 & 0.0046 \\ 
    \hline
 \hline
-\caption{Orthodox kWh Model} 
 \label{tab:OrthoKWHFull}
 \end{longtable}
-
-
-
+}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:36 2015
+% Fri Apr  3 22:04:16 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox Square Foot Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -851,13 +864,16 @@ As well, the location of a structure type to needs such as: employment, school d
   reporttot:EthRaceTRUEWt & -22.7295 & 5.5102 & -4.12 & 0.0000 \\ 
    \hline
 \hline
-\caption{Orthodox Square Foot Model} 
 \label{tab:OrthoSQFT}
 \end{longtable}
+}
 
+\subsection{System Estimation Results}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 21:07:36 2015
+% Fri Apr  3 22:04:16 2015
+{\small
 \begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
   \hline
@@ -953,7 +969,7 @@ As well, the location of a structure type to needs such as: employment, school d
   PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
    \hline
 \hline
-\caption{System Estimation of kWh Model} 
 \label{tab:SystemKWH}
 \end{longtable}
+}
 \end{document}
