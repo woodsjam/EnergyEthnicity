@@ -94,7 +94,7 @@ Table
 shows the count of observations by Race/Ethnicty and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratefied sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:33 2015
+% Fri Apr  3 21:06:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -128,7 +128,7 @@ gives a further description of the data is distributed around the country.  Plea
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:33 2015
+% Fri Apr  3 21:06:40 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -207,150 +207,84 @@ Please note that households that rent tend to have lower annual electricity cons
 
 
   
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:40 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrr}
-  \hline
- & FALSE & TRUE \\ 
-  \hline
-FALSEWt & 7606 & 384 \\ 
-  FALSEAfAm & 1367 &  88 \\ 
-  FALSEAsian & 424 &  21 \\ 
-  FALSEMulti & 133 &  13 \\ 
-  FALSENativeAm &  68 &   5 \\ 
-  FALSEOther & 102 &   9 \\ 
-  FALSEPacific &  30 &   6 \\ 
-  TRUEAfAm &  31 &   3 \\ 
-  TRUEAsian &   4 &   2 \\ 
-  TRUEMulti &  19 &   2 \\ 
-  TRUENativeAm &  36 &   1 \\ 
-  TRUEOther &  88 &  11 \\ 
-  TRUEPacific &   4 &   0 \\ 
-  TRUEWt & 1330 & 118 \\ 
-   \hline
-\end{tabular}
-\caption{EnergyStar Wall AC by Race and Ethnicity} 
-\label{tab:EnergyStarWall}
-\end{table}
+% <<echo=false, results=tex>>=
+% # xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EnergyStarWall")
+% 
+% @
 
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:40 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrr}
-  \hline
- & Rural & Urban \\ 
-  \hline
-FALSEWt & 1937 & 6053 \\ 
-  FALSEAfAm & 192 & 1263 \\ 
-  FALSEAsian &  14 & 431 \\ 
-  FALSEMulti &  28 & 118 \\ 
-  FALSENativeAm &  25 &  48 \\ 
-  FALSEOther &  12 &  99 \\ 
-  FALSEPacific &   4 &  32 \\ 
-  TRUEAfAm &   6 &  28 \\ 
-  TRUEAsian &   0 &   6 \\ 
-  TRUEMulti &   1 &  20 \\ 
-  TRUENativeAm &   3 &  34 \\ 
-  TRUEOther &   5 &  94 \\ 
-  TRUEPacific &   2 &   2 \\ 
-  TRUEWt & 137 & 1311 \\ 
-   \hline
-\end{tabular}
-\caption{Race by Urban/Rural} 
-\label{tab:UrbRural}
-\end{table}
+% 
+% \begin{figure}
+% \begin{center}
+% \caption{EnergyStar Wall AC by Race and Ethnicity}
+% \label{fig:EnergyStarWall}
+% <<echo=false, fig=TRUE>>=
+% # library(ggplot2)
+% # ggplot(RECS,aes(ESWWAC))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) 
+% @
+% \end{center}
+% \end{figure}
 
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:40 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrrr}
-  \hline
- & NG & LPG & Oil & Kerosene & Elec & Wood & Solar & Other \\ 
-  \hline
-FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\ 
-  FALSEAfAm & 755 &  17 &  35 &   0 & 640 &   0 &   2 &   0 \\ 
-  FALSEAsian & 312 &   7 &  12 &   0 & 109 &   0 &   0 &   2 \\ 
-  FALSEMulti &  85 &   5 &   3 &   0 &  53 &   0 &   0 &   0 \\ 
-  FALSENativeAm &  34 &   2 &   1 &   0 &  36 &   0 &   0 &   0 \\ 
-  FALSEOther &  57 &   3 &   6 &   0 &  44 &   0 &   0 &   0 \\ 
-  FALSEPacific &  15 &   0 &   2 &   0 &  17 &   0 &   2 &   0 \\ 
-  TRUEAfAm &  20 &   0 &   1 &   0 &  13 &   0 &   0 &   0 \\ 
-  TRUEAsian &   5 &   0 &   0 &   0 &   1 &   0 &   0 &   0 \\ 
-  TRUEMulti &  12 &   0 &   1 &   0 &   8 &   0 &   0 &   0 \\ 
-  TRUENativeAm &  29 &   0 &   0 &   0 &   8 &   0 &   0 &   0 \\ 
-  TRUEOther &  62 &   1 &   5 &   0 &  30 &   0 &   0 &   0 \\ 
-  TRUEPacific &   1 &   1 &   0 &   0 &   2 &   0 &   0 &   0 \\ 
-  TRUEWt & 830 &  33 &  26 &   0 & 552 &   0 &   1 &   0 \\ 
-   \hline
-\end{tabular}
-\caption{Water Service by Race and Ethnicity} 
-\label{tab:Water}
-\end{table}
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:40 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrrrr}
-  \hline
- & NG & LPG & Oil & Kerosene & Elec & Wood & Solar & District & Other \\ 
-  \hline
-FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\ 
-  FALSEAfAm & 674 &  29 &  60 &   6 & 640 &  10 &   0 &   5 &   0 \\ 
-  FALSEAsian & 249 &   1 &  21 &   0 & 122 &   1 &   0 &   2 &   0 \\ 
-  FALSEMulti &  80 &   6 &   7 &   0 &  41 &   7 &   0 &   0 &   1 \\ 
-  FALSENativeAm &  34 &   3 &   1 &   0 &  33 &   2 &   0 &   0 &   0 \\ 
-  FALSEOther &  59 &   1 &   9 &   0 &  36 &   3 &   0 &   0 &   0 \\ 
-  FALSEPacific &  16 &   0 &   2 &   0 &   5 &   1 &   0 &   0 &   0 \\ 
-  TRUEAfAm &  21 &   0 &   1 &   1 &   9 &   0 &   0 &   0 &   0 \\ 
-  TRUEAsian &   4 &   0 &   0 &   0 &   1 &   0 &   0 &   0 &   0 \\ 
-  TRUEMulti &  11 &   0 &   4 &   0 &   4 &   1 &   0 &   0 &   0 \\ 
-  TRUENativeAm &  26 &   1 &   2 &   0 &   7 &   0 &   0 &   0 &   0 \\ 
-  TRUEOther &  53 &   0 &   8 &   1 &  32 &   0 &   0 &   2 &   0 \\ 
-  TRUEPacific &   1 &   0 &   0 &   0 &   2 &   0 &   0 &   0 &   0 \\ 
-  TRUEWt & 604 &  25 &  51 &   2 & 540 &  18 &   0 &   3 &   1 \\ 
-   \hline
-\end{tabular}
-\caption{Heating Fuel by Race and Ethnicity} 
-\label{tab:HeatFuel}
-\end{table}
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:40 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrr}
-  \hline
- & VColdCold & HotDryMixedDry & HotHumid & MixedHumid & Marine \\ 
-  \hline
-FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\ 
-  FALSEAfAm & 299 & 131 & 383 & 611 &  31 \\ 
-  FALSEAsian &  95 & 128 &  60 &  77 &  85 \\ 
-  FALSEMulti &  51 &  27 &  13 &  40 &  15 \\ 
-  FALSENativeAm &  23 &  10 &   7 &  28 &   5 \\ 
-  FALSEOther &  29 &  16 &  24 &  37 &   5 \\ 
-  FALSEPacific &   4 &   6 &  13 &   4 &   9 \\ 
-  TRUEAfAm &  16 &   5 &   4 &   9 &   0 \\ 
-  TRUEAsian &   2 &   2 &   1 &   0 &   1 \\ 
-  TRUEMulti &  12 &   6 &   1 &   0 &   2 \\ 
-  TRUENativeAm &   9 &  14 &   1 &   8 &   5 \\ 
-  TRUEOther &  35 &  19 &  10 &  28 &   7 \\ 
-  TRUEPacific &   2 &   0 &   2 &   0 &   0 \\ 
-  TRUEWt & 237 & 481 & 406 & 237 &  87 \\ 
-   \hline
-\end{tabular}
-\caption{Climate by Race and Ethnicity} 
-\label{tab:Climate}
-\end{table}
+% 
+% <<echo=false, results=tex>>=
+% # library(xtable)
+% # xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+% @
+
+There are many choices that are frequently thought of as exogenous in conditional demand models that could account for differences electricity consumption by race and ethnicity.  One of the most obvious is the location of the residence.  At the most basic level, choosing to locate a household drives energy consumptions.  
+
+Figure 
+\ref{fig:UrbanRural}
+shows the one of the most basic locational choices, residing in an urban or rural area.  Race is represented by the collums and the two rows, labled FALSE and TRUE, indicate if the household self identifies as Hispanic, TRUE, or not.  The bars reprsent the fraction of each race and ethnicity combination that reside in rural and urban areas.
+
+\begin{figure}
+\begin{center}
+\caption{Urban vs Rural by Race and Ethnicity}
+\label{fig:UrbanRural}
+\includegraphics{DraftEdwardsWoods-006}
+\end{center}
+\end{figure}
+
+Note that non-Hispanic Caucasian and Native households are more likely to reside in a rural area while those that identifiy as Hispanic are in each category almost always more likely to live in urban areas than those that don't self identify as Hispanic.  The connection to energy consumption is through the correlation between rural households having larger residences that are more likely to be single family detached houses. 
+
+
+
+\begin{figure}
+\begin{center}
+\caption{Water Service by Race and Ethnicity}
+\label{fig:WaterService}
+\includegraphics{DraftEdwardsWoods-007}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Heating Fuel by Race and Ethnicity}
+\label{fig:HeatFuel}
+\includegraphics{DraftEdwardsWoods-008}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\caption{Climate Type by Race and Ethnicity}
+\label{fig:HeatFuel}
+\includegraphics{DraftEdwardsWoods-009}
+\end{center}
+\end{figure}
+
+
+
+
 \begin{figure}
 \begin{center}
 \caption{Age of Structure by Rent/Own and Race/Ethnicity}
 \label{fig:AgebyOwnRace}
-\includegraphics{DraftEdwardsWoods-011}
+\includegraphics{DraftEdwardsWoods-010}
 \end{center}
 \end{figure}
+
 
 
 \subsection{Differences in Reported Behavior}
@@ -363,39 +297,14 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
 
   \end{itemize}
   
-  
-% latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrr}
-  \hline
- & Never & ThreeDay & TwoDay & OneDay & FewWeek & OneWeek & LessWeek \\ 
-  \hline
-FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\ 
-  FALSEAfAm &  11 & 156 & 351 & 341 & 448 &  80 &  68 \\ 
-  FALSEAsian &   4 &  63 & 111 & 148 &  91 &  13 &  15 \\ 
-  FALSEMulti &   2 &  14 &  45 &  40 &  36 &   7 &   2 \\ 
-  FALSENativeAm &   0 &   7 &  22 &  27 &  11 &   3 &   3 \\ 
-  FALSEOther &   2 &  10 &  25 &  21 &  43 &   3 &   7 \\ 
-  FALSEPacific &   0 &   3 &   9 &  10 &  11 &   0 &   3 \\ 
-  TRUEAfAm &   1 &   4 &   7 &  13 &   9 &   0 &   0 \\ 
-  TRUEAsian &   0 &   0 &   1 &   3 &   2 &   0 &   0 \\ 
-  TRUEMulti &   0 &   2 &   1 &  11 &   5 &   2 &   0 \\ 
-  TRUENativeAm &   0 &   3 &  12 &  15 &   4 &   2 &   1 \\ 
-  TRUEOther &   0 &  20 &  28 &  31 &  14 &   3 &   3 \\ 
-  TRUEPacific &   0 &   3 &   0 &   1 &   0 &   0 &   0 \\ 
-  TRUEWt &  22 & 208 & 453 & 435 & 226 &  42 &  62 \\ 
-   \hline
-\end{tabular}
-\caption{Weekly Meals Cooked by Race and Ethnicity} 
-\label{tab:Cooking}
-\end{table}
-\begin{Schunk}
-\begin{Sinput}
-> # qplot(NUMMEAL,data=RECS)+geom_bar(stat="identity")+facet_grid(Hispanic~Householder_Race)
-\end{Sinput}
-\end{Schunk}
+
+\begin{figure}
+\begin{center}
+\caption{Meals Cooked by Race and Ethnicity}
+\label{fig:Meals}
+\includegraphics{DraftEdwardsWoods-011}
+\end{center}
+\end{figure}
 
 
 
@@ -403,16 +312,17 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Daytime Temp and Race/Ethnicity (Winter)}
 \label{fig:TempHomeRace}
-\includegraphics{DraftEdwardsWoods-014}
-
+\includegraphics{DraftEdwardsWoods-012}
 \end{center}
 \end{figure}
+
+
 
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
 \label{fig:DayAwayRace}
-\includegraphics{DraftEdwardsWoods-015}
+\includegraphics{DraftEdwardsWoods-013}
 \end{center}
 \end{figure}
 
@@ -421,7 +331,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Nighttime Temp and Race/Ethnicity (Winter)}
 \label{fig:NightRace}
-\includegraphics{DraftEdwardsWoods-016}
+\includegraphics{DraftEdwardsWoods-014}
 \end{center}
 \end{figure}
 
@@ -431,7 +341,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
 \label{fig:HomeRaceS}
-\includegraphics{DraftEdwardsWoods-017}
+\includegraphics{DraftEdwardsWoods-015}
 \end{center}
 \end{figure}
 
@@ -440,7 +350,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Day Temp Away by Race/Ethnicity (Summer)}
 \label{fig:AwayRaceS}
-\includegraphics{DraftEdwardsWoods-018}
+\includegraphics{DraftEdwardsWoods-016}
 \end{center}
 \end{figure}
 
@@ -449,7 +359,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
 \begin{center}
 \caption{Nighttime Temp and Race/Ethnicity (Summer)}
 \label{fig:NightRaceS}
-\includegraphics{DraftEdwardsWoods-019}
+\includegraphics{DraftEdwardsWoods-017}
 \end{center}
 \end{figure}
   
@@ -463,7 +373,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   \end{itemize}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:50 2015
+% Fri Apr  3 21:07:34 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{llr}
@@ -573,7 +483,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:50 2015
+% Fri Apr  3 21:07:35 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -708,7 +618,7 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separatly and the effects of the other endogenous variables, structre and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:52 2015
+% Fri Apr  3 21:07:36 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
@@ -738,7 +648,7 @@ shows similarites with the results from the orthodox electrity model.  Non-Hispa
 , but the statistically significant deviations from non-Hispanic caucasions for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant paremeter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:52 2015
+% Fri Apr  3 21:07:36 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
@@ -796,7 +706,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:52 2015
+% Fri Apr  3 21:07:36 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -899,7 +809,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:52 2015
+% Fri Apr  3 21:07:36 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -946,7 +856,7 @@ As well, the location of a structure type to needs such as: employment, school d
 \end{longtable}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Fri Apr  3 16:52:52 2015
+% Fri Apr  3 21:07:36 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 

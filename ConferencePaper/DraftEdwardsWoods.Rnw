@@ -489,38 +489,99 @@ qplot(KWH, data = RECS, xlim=c(0,30000), geom = "density" )+facet_grid(Hispanic+
 
 
   
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EnergyStarWall")
+% <<echo=false, results=tex>>=
+% # xtable(table(RECS$EthRace,RECS$ESWWAC),caption="EnergyStar Wall AC by Race and Ethnicity", label="tab:EnergyStarWall")
+% 
+% @
 
+% 
+% \begin{figure}
+% \begin{center}
+% \caption{EnergyStar Wall AC by Race and Ethnicity}
+% \label{fig:EnergyStarWall}
+% <<echo=false, fig=TRUE>>=
+% # library(ggplot2)
+% # ggplot(RECS,aes(ESWWAC))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) 
+% @
+% \end{center}
+% \end{figure}
+
+% 
+% <<echo=false, results=tex>>=
+% # library(xtable)
+% # xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+% @
+
+There are many choices that are frequently thought of as exogenous in conditional demand models that could account for differences electricity consumption by race and ethnicity.  One of the most obvious is the location of the residence.  At the most basic level, choosing to locate a household drives energy consumptions.  
+
+Figure 
+\ref{fig:UrbanRural}
+shows the one of the most basic locational choices, residing in an urban or rural area.  Race is represented by the collums and the two rows, labled FALSE and TRUE, indicate if the household self identifies as Hispanic, TRUE, or not.  The bars reprsent the fraction of each race and ethnicity combination that reside in rural and urban areas.
+
+\begin{figure}
+\begin{center}
+\caption{Urban vs Rural by Race and Ethnicity}
+\label{fig:UrbanRural}
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(UR))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race)+ylab("Fraction") +xlab("Urban vs Rural")
 @
+\end{center}
+\end{figure}
+
+Note that non-Hispanic Caucasian and Native households are more likely to reside in a rural area while those that identifiy as Hispanic are in each category almost always more likely to live in urban areas than those that don't self identify as Hispanic.  The connection to energy consumption is through the correlation between rural households having larger residences that are more likely to be single family detached houses. 
 
 
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$UR),caption="Race by Urban/Rural", label="tab:UrbRural")
+
+\begin{figure}
+\begin{center}
+\caption{Water Service by Race and Ethnicity}
+\label{fig:WaterService}
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(FUELH2O))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) +coord_flip()+xlab("Water Service Fuel")+ylab("Fraction")
 @
+\end{center}
+\end{figure}
 
 
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$FUELH2O),caption="Water Service by Race and Ethnicity", label="tab:Water")
+\begin{figure}
+\begin{center}
+\caption{Heating Fuel by Race and Ethnicity}
+\label{fig:HeatFuel}
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(FUELHEAT))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) +coord_flip()+xlab("Heating Fuel")+ylab("Fraction")
 @
+\end{center}
+\end{figure}
 
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$FUELHEAT),caption="Heating Fuel by Race and Ethnicity", label="tab:HeatFuel")
-@
 
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$Climate_Region_Pub),caption="Climate by Race and Ethnicity", label="tab:Climate")
+\begin{figure}
+\begin{center}
+\caption{Climate Type by Race and Ethnicity}
+\label{fig:HeatFuel}
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(Climate_Region_Pub))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) +coord_flip()+xlab("Climate Type")+ylab("Fraction")
 @
+\end{center}
+\end{figure}
+
+
+
 
 \begin{figure}
 \begin{center}
 \caption{Age of Structure by Rent/Own and Race/Ethnicity}
 \label{fig:AgebyOwnRace}
-<<echo=false,fig=TRUE>>=
-qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(YEARMADE))+geom_density()+facet_grid(Householder_Race~Hispanic+UR) +xlab("Year Built")+ylab("Fraction")
 @
 \end{center}
 \end{figure}
+
 
 
 \subsection{Differences in Reported Behavior}
@@ -533,14 +594,17 @@ qplot(YEARMADE,data=RECS,facets =KOWNRENT~EthRace, geom = "density",)
 
   \end{itemize}
   
-  
-<<echo=false, results=tex>>=
-xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and Ethnicity", label="tab:Cooking")
-@
 
-<<>>=
-# qplot(NUMMEAL,data=RECS)+geom_bar(stat="identity")+facet_grid(Hispanic~Householder_Race)
+\begin{figure}
+\begin{center}
+\caption{Meals Cooked by Race and Ethnicity}
+\label{fig:Meals}
+<<echo=false, fig=TRUE>>=
+library(ggplot2)
+ggplot(RECS,aes(NUMMEAL))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..]))+facet_grid(Hispanic~Householder_Race) +coord_flip()+xlab("Climate Type")+ylab("Fraction")
 @
+\end{center}
+\end{figure}
 
 
 
@@ -549,19 +613,19 @@ xtable(table(RECS$EthRace,RECS$NUMMEAL),caption="Weekly Meals Cooked by Race and
 \caption{Daytime Temp and Race/Ethnicity (Winter)}
 \label{fig:TempHomeRace}
 <<echo=false,fig=TRUE>>=
-qplot(factor(Householder_Race),TEMPHOME, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,85))
-
+qplot(factor(Householder_Race),TEMPHOME, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
-
 \end{center}
 \end{figure}
+
+
 
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
 \label{fig:DayAwayRace}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPGONE, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
 \end{center}
 \end{figure}
@@ -572,7 +636,7 @@ boxplot(TEMPGONE~EthRace, notch=TRUE,data=RECS)
 \caption{Nighttime Temp and Race/Ethnicity (Winter)}
 \label{fig:NightRace}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPNITE, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
 \end{center}
 \end{figure}
@@ -584,7 +648,7 @@ boxplot(TEMPNITE~EthRace, notch=TRUE,data=RECS)
 \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
 \label{fig:HomeRaceS}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPHOMEAC, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
 \end{center}
 \end{figure}
@@ -595,7 +659,7 @@ boxplot(TEMPHOMEAC~EthRace, notch=TRUE,data=RECS)
 \caption{Day Temp Away by Race/Ethnicity (Summer)}
 \label{fig:AwayRaceS}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPGONEAC, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
 \end{center}
 \end{figure}
@@ -606,7 +670,7 @@ boxplot(TEMPGONEAC~EthRace, notch=TRUE,data=RECS)
 \caption{Nighttime Temp and Race/Ethnicity (Summer)}
 \label{fig:NightRaceS}
 <<echo=false,fig=TRUE>>=
-boxplot(TEMPNITEAC~EthRace, notch=TRUE,data=RECS)
+qplot(factor(Householder_Race),TEMPNITEAC, geom="boxplot",data=RECS)+geom_boxplot(notch=TRUE)+xlab("Race")+facet_grid(Hispanic~.)+ylab("Temp (F)")+ylim(c(60,80))
 @
 \end{center}
 \end{figure}
@@ -625,8 +689,6 @@ library(xtable)
 HUD<-read.csv("HUD.csv")
 HUDCut<-HUD[c("state","pop","reporttot")]
 names(HUDCut)<-c("State","Population","Reports (per 100,000)")
-
-
 print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE)
 rm(HUD)
 @
