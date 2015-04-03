@@ -36,6 +36,7 @@ The effect of home ownership and structure choice may have implications for futu
 
 Households choice of structure type, payment method, and location are often very difficult to change based on the history of a household (Darrah 2014).  Households that have tended towards renting have difficulty, or at least choose not to, buy in the future.  Community attitudes and behaviors in relation to housing are often sticky in changing, and this is of importance as related to the outcomes of children; often mirroring the characteristics of their parents.  
 
+
 This paper explores the relationship between the household characteristics and the choice of housing structure, and suggests that there is reason in particular of choosing housing structures based on wealth and needs as a proxy for utility, which not only has immediate effects but those that have persistent effects on the legacy of households.  While the utility of a particular domicile cannot be measured directly, it is assumed that the choice of structure is indicative of the value that the household places on one choice over another.  
 
 
@@ -69,6 +70,11 @@ This paper explores the relationship between the household characteristics and t
 \end{itemize}
 
 Variable and Data Description: 
+Residential Energy Consumption Survey national data 2009 (RECS) was utilitized for this portion of the project. 12083 observations are included in the data, of which 11395 are included in the structure-tenure model. Weights provided in the data set were utilized to account from sample stratification.
+  Combining dwelling type (dwltype) and the binary response variable ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, and mobile home. Mobile homes are notable for having considerably fewer observations than other categories and were ultimately dropped from the model. 
+  The model is based on the following variables: income, resident ages, education, rental assistence, and ethnicity and a variable for HUD complaints by state.  Householder race was interacted with income and  HUD complaints.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college, Associate’s, Bachelor’s, Master;s, Professional, and Doctorate degree.  The ethnicity variable is from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, other, and more than one race.  
+  Over twice as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in single family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
+	With respect to respondent education attainment, percentages of each category (see appendix) do differ from what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.   	
 
 
 RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent,Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household #2 is ignored.
@@ -81,8 +87,9 @@ Lastly, one of our variables, actually two, are count variables that account for
 
 
 
+
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:55:45 2015
+% Thu Apr  2 18:57:34 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -109,7 +116,7 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \label{tab:RaceVStruct}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:55:45 2015
+% Thu Apr  2 18:57:34 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -169,7 +176,7 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:20 2015
+% Thu Apr  2 18:57:50 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -197,7 +204,7 @@ FALSEWt & 7606 & 384 \\
 \end{table}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:20 2015
+% Thu Apr  2 18:57:50 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -225,7 +232,7 @@ FALSEWt & 1937 & 6053 \\
 \end{table}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:20 2015
+% Thu Apr  2 18:57:50 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrr}
@@ -252,7 +259,7 @@ FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\
 \label{tab:Water}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:20 2015
+% Thu Apr  2 18:57:50 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -279,7 +286,7 @@ FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\
 \label{tab:HeatFuel}
 \end{table}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:20 2015
+% Thu Apr  2 18:57:50 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -317,7 +324,8 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
 \subsection{Differences in Reported Behavior}
   
   \begin{itemize}
-    \item Differences in thermostat settings
+    \item Differnces in thermostat settings x
+
     \item difference in cooking behavior x
     \item difference in reported AC use
 
@@ -325,7 +333,7 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
   
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:29 2015
+% Thu Apr  2 18:57:54 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrr}
@@ -414,7 +422,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   \end{itemize}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:30 2015
+% Thu Apr  2 18:57:54 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -524,7 +532,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:31 2015
+% Thu Apr  2 18:57:55 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -645,110 +653,111 @@ Second, we did not censor non-positive square footage forecasts.  The square foo
 Finally, only 400 bootstrap replicates were evaluated.  This is usually enough to produce adequate estimates of the standard deviations of the parameter estimates in the electricity model but insufficient for BCa, percentile, or even basic bootstrap confidence intervals. 
 
 % \begin{itemize}
-%   \item results are bootstrapped 400 times for standard 
-***NEED TEXT TO EXPLAIN HERE*** 
-
-\section{Summary and Conclusions}
-
-
-Conclusion/Further Avenues of Study:
-  
+%   \item results are bootstrapped 400 times for standard deviation estimates.  More can be done.
+%   \item probablities of structure type rather than forecast were used.
+%   \item no censoring for square footage less than zero.
+%   \item boot strap samples were restricted to samples that allowed for all parameters to be estimated.
+% \end{itemize}
 
 
 
 
-
-
-The model set out to provide some explanation of housing choices based on relevant variables.  In doing so it is apparent that income places a significant role in the formation of house choices both to own/rent and what type of structure is chosen.  Further education played a less significant role than anticipated, thought it could be said that the role of education is actually channeled through income.  As such its placement in the model is suspect in its current form.
-The race variable appears to suggest that whites tend towards ownership of their homes, and that whites are more likely to live in mobile homes than other races.  Further examination of race within this model framework would be an interesting and possibly useful endeavor. 
-The model would likely benefit by an expansion of the explanatory variables in an effort to provide a better fit.  It is relevant to point out that this is a model in progress whose ultimate goal is that of modeling household characteristics on energy consumption.
-
-
-As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
-
-
-
-\nocite{*}
-\bibliographystyle{plain} 
-\bibliography{FullBib}
-
-% \appendix
-\section{Orthodox Results}\label{OrthResults}
-
-
- & 268.3058 & 3.4645 & ** \\ 
-  WELLPUMPTRUE & 1182.7020 & 300.5331 & 3.9353 & ** \\ 
-  ElecWaterSmall & 4283.1501 & 307.1885 & 13.9431 & *** \\ 
-  ElecWaterMed & 4381.2889 & 201.2909 & 21.7660 & *** \\ 
-  ElecWaterLrg & 5695.3238 & 300.4903 & 18.9534 & *** \\ 
-  ElecWaterTankless & 3171.8175 & 981.4629 & 3.2317 & * \\ 
-  SWIMPOOLTRUE & 3603.9817 & 373.1464 & 9.6584 & *** \\ 
-  ElecPoolTRUE & 5374.6889 & 1639.6680 & 3.2779 & * \\ 
-  RECBATHTRUE & 1865.3790 & 679.7961 & 2.7440 & * \\ 
-  ElecTubTRUE & 285.6194 & 837.6762 & 0.3410 &   \\ 
-  NHSLDMEM & 729.8552 & 122.3334 & 5.9661 & *** \\ 
-  Income & -0.0041 & 0.0051 & -0.8119 &   \\ 
-  TVONWD1LessHour:TVTYPE1Standard & -2947.9784 & 1670.0620 & -1.7652 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Standard & -2737.2962 & 1647.3265 & -1.6617 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -2247.1394 & 1644.9601 & -1.3661 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1636.5569 & 1631.4463 & -1.0031 &   \\ 
-  TVONWD1Gr10:TVTYPE1Standard & -1264.7108 & 1695.0911 & -0.7461 &   \\ 
-  TVONWD1LessHour:TVTYPE1LCD & -2621.5762 & 1669.7693 & -1.5700 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LCD & -1954.0084 & 1665.3302 & -1.1733 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1610.0720 & 1655.8743 & -0.9723 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LCD & -1408.2089 & 1669.2281 & -0.8436 &   \\ 
-  TVONWD1Gr10:TVTYPE1LCD & -203.9791 & 1659.1510 & -0.1229 &   \\ 
-  TVONWD1LessHour:TVTYPE1Plasma & -676.0979 & 2140.4093 & -0.3159 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -1233.2818 & 1733.7213 & -0.7113 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -1844.3686 & 1686.0443 & -1.0939 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -879.7077 & 1721.9584 & -0.5109 &   \\ 
-  TVONWD1Gr10:TVTYPE1Plasma & 554.6818 & 1802.5056 & 0.3077 &   \\ 
-  TVONWD1LessHour:TVTYPE1Projection & -904.5303 & 1882.4580 & -0.4805 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1684.0750 & 1658.0657 & -1.0157 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -1765.5157 & 1690.0189 & -1.0447 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Projection & -439.8397 & 1733.8849 & -0.2537 &   \\ 
-  TVONWD1Gr10:TVTYPE1Projection & 1590.1129 & 1862.2353 & 0.8539 &   \\ 
-  TVONWD1LessHour:TVTYPE1LED & -5170.4567 & 2364.0640 & -2.1871 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LED & -1215.2448 & 1872.4922 & -0.6490 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -1562.8906 & 1770.5880 & -0.8827 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LED & -3383.2738 & 2128.9419 & -1.5892 &   \\ 
+% latex table generated in R 3.0.1 by xtable 1.7-4 package
+% Thu Apr  2 18:57:56 2015
+\begin{longtable}{rrrrl}
+  \hline
+ & Estimate & Std. Error & t value & Sig \\ 
+  \hline
+(Intercept) & -547.7160 & 1505.7185 & -0.3638 &   \\ 
+  ElecMealsThreeDay & 1375.6512 & 440.4367 & 3.1234 & * \\ 
+  ElecMealsTwoDay & 1600.5524 & 212.9011 & 7.5178 & *** \\ 
+  ElecMealsOneDay & 1686.5705 & 175.7809 & 9.5947 & *** \\ 
+  ElecMealsFewWeek & 1470.9015 & 204.6759 & 7.1865 & *** \\ 
+  ElecMealsOneWeek & 1702.6234 & 412.2076 & 4.1305 & *** \\ 
+  ElecMealsLessWeek & 1040.6175 & 383.9259 & 2.7105 & * \\ 
+  NUMFRIG & 2041.4460 & 167.4981 & 12.1879 & *** \\ 
+  AgeFridge2to4Years & 2.9750 & 216.7455 & 0.0137 &   \\ 
+  AgeFridge5to9Years & 193.7201 & 211.8752 & 0.9143 &   \\ 
+  AgeFridge20PlusYears & 248.7269 & 479.4517 & 0.5188 &   \\ 
+  AgeFridge10to14Years & 358.7208 & 241.2085 & 1.4872 &   \\ 
+  AgeFridge15to19Years & -117.8308 & 320.5402 & -0.3676 &   \\ 
+  NUMPC & 418.1593 & 72.6452 & 5.7562 & *** \\ 
+  TIMEON1OneTo3Hrs & -69.0487 & 183.3079 & -0.3767 &   \\ 
+  TIMEON1ThreeTo6Hrs & -13.1604 & 200.3356 & -0.0657 &   \\ 
+  TIMEON1SixTo10Hrs & 233.6172 & 289.5477 & 0.8068 &   \\ 
+  TIMEON1Gr10 & 889.8391 & 292.0892 & 3.0465 & * \\ 
+  WELLPUMPTRUE & 1411.7137 & 279.3720 & 5.0532 & *** \\ 
+  ElecWaterSmall & 4275.4234 & 278.7125 & 15.3399 & *** \\ 
+  ElecWaterMed & 4404.4543 & 180.8300 & 24.3569 & *** \\ 
+  ElecWaterLrg & 5779.6329 & 300.7620 & 19.2166 & *** \\ 
+  ElecWaterTankless & 3020.2905 & 995.0797 & 3.0352 & * \\ 
+  SWIMPOOLTRUE & 3627.7895 & 364.5886 & 9.9504 & *** \\ 
+  ElecPoolTRUE & 5201.5011 & 1709.7956 & 3.0422 & * \\ 
+  RECBATHTRUE & 1882.7243 & 691.6599 & 2.7220 & * \\ 
+  ElecTubTRUE & 310.9469 & 794.7220 & 0.3913 &   \\ 
+  NHSLDMEM & 1014.0356 & 56.8306 & 17.8431 & *** \\ 
+  Income & -0.0021 & 0.0032 & -0.6434 &   \\ 
+  TVONWD1LessHour:TVTYPE1Standard & -2571.5913 & 1483.2943 & -1.7337 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Standard & -2304.5338 & 1463.4167 & -1.5748 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -1804.8250 & 1469.5580 & -1.2281 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1136.4160 & 1452.3312 & -0.7825 &   \\ 
+  TVONWD1Gr10:TVTYPE1Standard & -739.2962 & 1482.9861 & -0.4985 &   \\ 
+  TVONWD1LessHour:TVTYPE1LCD & -2139.9144 & 1487.6184 & -1.4385 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LCD & -1526.1157 & 1472.2723 & -1.0366 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1183.2819 & 1456.8798 & -0.8122 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LCD & -944.2670 & 1440.7984 & -0.6554 &   \\ 
+  TVONWD1Gr10:TVTYPE1LCD & 211.0419 & 1479.7559 & 0.1426 &   \\ 
+  TVONWD1LessHour:TVTYPE1Plasma & -387.6774 & 1879.4130 & -0.2063 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -766.5487 & 1583.4746 & -0.4841 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -1352.4175 & 1499.5147 & -0.9019 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -402.8629 & 1514.6445 & -0.2660 &   \\ 
+  TVONWD1Gr10:TVTYPE1Plasma & 889.3760 & 1569.4195 & 0.5667 &   \\ 
+  TVONWD1LessHour:TVTYPE1Projection & -699.8204 & 1637.1732 & -0.4275 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1218.5567 & 1534.0730 & -0.7943 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -1319.9761 & 1490.3811 & -0.8857 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Projection & -52.4928 & 1558.1229 & -0.0337 &   \\ 
+  TVONWD1Gr10:TVTYPE1Projection & 2109.5856 & 1775.7924 & 1.1880 &   \\ 
+  TVONWD1LessHour:TVTYPE1LED & -4069.8485 & 2205.6129 & -1.8452 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LED & -1017.3486 & 1706.4396 & -0.5962 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -1379.6589 & 1638.8949 & -0.8418 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LED & -2980.6241 & 2057.1315 & -1.4489 &   \\ 
   TVONWD1Gr10:TVTYPE1LED &  &  &  &  \\ 
-  PSQFT:TYPEGLASSSinglePane & 1.1013 & 0.3369 & 3.2685 & * \\ 
-  PSQFT:TYPEGLASSDoublePane & 1.2790 & 0.3266 & 3.9161 & ** \\ 
-  PSQFT:TYPEGLASSTriplePane & 1.6324 & 0.3966 & 4.1163 & *** \\ 
-  Income:EthRaceFALSEAfAm & -0.0015 & 0.0038 & -0.3974 &   \\ 
-  Income:EthRaceFALSEAsian & -0.0218 & 0.0047 & -4.5984 & *** \\ 
-  Income:EthRaceFALSEMulti & -0.0143 & 0.0071 & -2.0102 &   \\ 
-  Income:EthRaceFALSENativeAm & 0.0075 & 0.0244 & 0.3065 &   \\ 
-  Income:EthRaceFALSEOther & -0.0180 & 0.0088 & -2.0539 &   \\ 
-  Income:EthRaceFALSEPacific & -0.0160 & 0.0244 & -0.6564 &   \\ 
-  Income:EthRaceTRUEAfAm & -0.0096 & 0.0158 & -0.6088 &   \\ 
-  Income:EthRaceTRUEAsian & -0.0339 & 0.0446 & -0.7606 &   \\ 
-  Income:EthRaceTRUEMulti & -0.0376 & 0.0224 & -1.6760 &   \\ 
-  Income:EthRaceTRUENativeAm & -0.0133 & 0.0123 & -1.0784 &   \\ 
-  Income:EthRaceTRUEOther & -0.0338 & 0.0094 & -3.5969 & ** \\ 
-  Income:EthRaceTRUEPacific & 0.0266 & 0.4360 & 0.0609 &   \\ 
-  Income:EthRaceTRUEWt & -0.0211 & 0.0045 & -4.6937 & *** \\ 
-  PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.1986 & *** \\ 
-  PSQFT:HDD65:OwnLgApartment & -0.0002 & 0.0003 & -0.6559 &   \\ 
-  PSQFT:HDD65:OwnMobile & 0.0014 & 0.0005 & 2.9064 & * \\ 
-  PSQFT:HDD65:OwnSFAttached & -0.0003 & 0.0005 & -0.5888 &   \\ 
-  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0008 & 0.0627 &   \\ 
-  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0002 & -0.4282 &   \\ 
-  PSQFT:HDD65:RentMobile & 0.0000 & 0.0012 & 0.0271 &   \\ 
-  PSQFT:HDD65:RentSFAttached & -0.0005 & 0.0007 & -0.7073 &   \\ 
-  PSQFT:HDD65:RentSFDetached & 0.0002 & 0.0004 & 0.5372 &   \\ 
-  PSQFT:HDD65:RentSmApartment & 0.0004 & 0.0004 & 0.8865 &   \\ 
-  PSQFT:OwnSFDetached:CDD65 & 0.0008 & 0.0001 & 11.2647 & *** \\ 
-  PSQFT:OwnLgApartment:CDD65 & -0.0037 & 0.0014 & -2.6051 & . \\ 
-  PSQFT:OwnMobile:CDD65 & 0.0028 & 0.0015 & 1.8577 &   \\ 
-  PSQFT:OwnSFAttached:CDD65 & -0.0010 & 0.0019 & -0.5166 &   \\ 
-  PSQFT:OwnSmApartment:CDD65 & -0.0045 & 0.0031 & -1.4527 &   \\ 
-  PSQFT:RentLgApartment:CDD65 & 0.0021 & 0.0007 & 3.0796 & * \\ 
-  PSQFT:RentMobile:CDD65 & 0.0024 & 0.0039 & 0.6158 &   \\ 
-  PSQFT:RentSFAttached:CDD65 & 0.0056 & 0.0041 & 1.3650 &   \\ 
-  PSQFT:RentSFDetached:CDD65 & 0.0012 & 0.0013 & 0.8861 &   \\ 
-  PSQFT:RentSmApartment:CDD65 & -0.0002 & 0.0014 & -0.1819 &   \\ 
+  PSQFT:TYPEGLASSSinglePane & 0.5481 & 0.2887 & 1.8987 &   \\ 
+  PSQFT:TYPEGLASSDoublePane & 0.7501 & 0.2804 & 2.6746 & * \\ 
+  PSQFT:TYPEGLASSTriplePane & 1.1070 & 0.3696 & 2.9950 & * \\ 
+  Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\ 
+  Income:EthRaceFALSEAsian & -0.0230 & 0.0035 & -6.4831 & *** \\ 
+  Income:EthRaceFALSEMulti & -0.0157 & 0.0057 & -2.7584 & * \\ 
+  Income:EthRaceFALSENativeAm & 0.0092 & 0.0211 & 0.4382 &   \\ 
+  Income:EthRaceFALSEOther & -0.0237 & 0.0082 & -2.9038 & * \\ 
+  Income:EthRaceFALSEPacific & -0.0129 & 0.0230 & -0.5625 &   \\ 
+  Income:EthRaceTRUEAfAm & -0.0173 & 0.0139 & -1.2454 &   \\ 
+  Income:EthRaceTRUEAsian & -0.0375 & 0.0101 & -3.7155 & ** \\ 
+  Income:EthRaceTRUEMulti & -0.0331 & 0.0192 & -1.7208 &   \\ 
+  Income:EthRaceTRUENativeAm & -0.0163 & 0.0107 & -1.5276 &   \\ 
+  Income:EthRaceTRUEOther & -0.0274 & 0.0080 & -3.4318 & ** \\ 
+  Income:EthRaceTRUEPacific & -0.0240 & 0.0659 & -0.3647 &   \\ 
+  Income:EthRaceTRUEWt & -0.0185 & 0.0033 & -5.5782 & *** \\ 
+  PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\ 
+  PSQFT:HDD65:OwnLgApartment & 0.0000 & 0.0001 & 0.8450 &   \\ 
+  PSQFT:HDD65:OwnMobile & 0.0004 & 0.0001 & 4.6205 & *** \\ 
+  PSQFT:HDD65:OwnSFAttached & 0.0000 & 0.0000 & 1.3603 &   \\ 
+  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0000 & 1.1709 &   \\ 
+  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0000 & -1.3292 &   \\ 
+  PSQFT:HDD65:RentMobile & 0.0005 & 0.0003 & 2.0238 &   \\ 
+  PSQFT:HDD65:RentSFAttached & 0.0001 & 0.0001 & 1.0923 &   \\ 
+  PSQFT:HDD65:RentSFDetached & 0.0001 & 0.0000 & 1.7233 &   \\ 
+  PSQFT:HDD65:RentSmApartment & -0.0000 & 0.0000 & -0.2465 &   \\ 
+  PSQFT:OwnSFDetached:CDD65 & 0.0007 & 0.0000 & 16.3870 & *** \\ 
+  PSQFT:OwnLgApartment:CDD65 & 0.0000 & 0.0002 & 0.2207 &   \\ 
+  PSQFT:OwnMobile:CDD65 & 0.0011 & 0.0002 & 6.7660 & *** \\ 
+  PSQFT:OwnSFAttached:CDD65 & 0.0005 & 0.0001 & 5.3085 & *** \\ 
+  PSQFT:OwnSmApartment:CDD65 & 0.0003 & 0.0002 & 1.8671 &   \\ 
+  PSQFT:RentLgApartment:CDD65 & 0.0003 & 0.0001 & 2.5551 & . \\ 
+  PSQFT:RentMobile:CDD65 & 0.0020 & 0.0009 & 2.2066 &   \\ 
+  PSQFT:RentSFAttached:CDD65 & 0.0009 & 0.0002 & 4.9470 & *** \\ 
+  PSQFT:RentSFDetached:CDD65 & 0.0008 & 0.0001 & 8.8123 & *** \\ 
+  PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
    \hline
 \hline
 \caption{System Estimation of kWh Model} 
@@ -779,7 +788,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:34 2015
+% Thu Apr  2 18:57:56 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -882,7 +891,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Mar 31 23:56:34 2015
+% Thu Apr  2 18:57:56 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
