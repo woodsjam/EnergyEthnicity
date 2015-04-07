@@ -56,12 +56,12 @@ This paper explores the relationship between the household characteristics and t
 
 \section{RECS}
 
-The 2009 Residential Energy Consumption Survey (RECS) was the main source of data. 12083 observations are included in the data, of which 11905 are used for most of the models. Because of the complex sampling scheme, which involves both cluster sampling and over sampling of odd cells, weights are used in all analysis.  The reason that the majority of the observations were dropped was because the households were living on premiss for free, neighter owning or renting the property.  We also dropped a few observations because they were undersampled and the post-stratification weights  were so large to as not be credible.
+The 2009 Residential Energy Consumption Survey (RECS) was the main source of data. 12083 observations are included in the data, of which 11905 are used for most of the models. Because of the complex sampling scheme, which involves both cluster sampling and over sampling of odd cells, weights are used in all analysis.  The reason that the majority of the observations were dropped was because the households were living on premises for free, neither owning or renting the property.  We also dropped a few observations because they were under-sampled and the post-stratification weights  were so large to as not be credible.
 
 
-The RECS data set contains information on both the dwelling structure type,  and an indicator if they own the property.  The dwelling types are divided into the six common categories: single family detached house, single family attached (including duplexs and row house, small apartment complexs, large apartment complexs, and mobile homes. 
+The RECS data set contains information on both the dwelling structure type,  and an indicator if they own the property.  The dwelling types are divided into the six common categories: single family detached house, single family attached (including duplexes and row house, small apartment complexes, large apartment complexes, and mobile homes. 
 
-The RECS survey contains an enormous number of variables, 931, for each household including: income, resident ages, education, rental assistence, appliance and building characteristics, thermostat setpoints, householder ethnicity and race.  Income was recorded in categories but midpoints of the categories were used for most analysis. 
+The RECS survey contains an enormous number of variables, 931, for each household including: income, resident ages, education, rental assistance, appliance and building characteristics, thermostat set-points, householder ethnicity and race.  Income was recorded in categories but midpoints of the categories were used for most analysis. 
 % 
 % Over twice as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in single family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
 % 
@@ -82,10 +82,10 @@ The RECS survey contains an enormous number of variables, 931, for each househol
 
 Table 
  \ref{tab:RaceVStruct}
-shows the count of observations by Race/Ethnicty and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratefied sampling scheme used to collect the data.
+shows the count of observations by Race/Ethnicity and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratified sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:18:51 2015
+% Tue Apr  7 17:03:11 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Race and Structure Type} 
@@ -113,16 +113,16 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \end{tabular}
 }
 \end{table}
-Many of the structure type/ race and ethnicity combinations are relatively rare, e.g., Hispanic Asians living in mobile homes.  We have not collapsed any of these  categories.  Future research will look at collapsing some of the rare cells so that there are a more managable number of both structure types and race/ethnicity combinations.
+Many of the structure type/ race and ethnicity combinations are relatively rare, e.g., Hispanic Asians living in mobile homes.  We have not collapsed any of these  categories.  Future research will look at collapsing some of the rare cells so that there are a more manageable number of both structure types and race/ethnicity combinations.
 
 
 Table
 \ref{tab:RegionVStruct}
-gives a further description of the data is distributed around the country.  Please note that both the Western and North Eastern area have a larger fraction of large apartment buldings, LgApartment in the table, than the other two regions. 
+gives a further description of the data is distributed around the country.  Please note that both the Western and North Eastern area have a larger fraction of large apartment buildings, LgApartment in the table, than the other two regions. 
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:18:51 2015
+% Tue Apr  7 17:03:11 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Region and Structure Type} 
@@ -141,13 +141,13 @@ Mobile &  47 &  92 & 245 & 137 \\
 \end{tabular}
 }
 \end{table}
-The table shows the range of climate zones and houseing law covered by the survey.  It also shows the reasonablness of our hypotheses that location and structure type choices are endogenous.
+The table shows the range of climate zones and housing law covered by the survey.  It also shows the reasonableness of our hypotheses that location and structure type choices are endogenous.
 
 Figure
 \ref{fig:kWhbyOwnRace}
 shows a smooth approximation of the distribution of annual household electricity use in kWh per year.  The columns indicates the various self-identified race and the columns indicate if the the household self identifies as Hispanic and if the home is owned or rented. The blank cells indicate that there are too few observations to generate a reliable smooth approximation of electricity consumption.
 
-Please note that households that rent tend to have lower annual electricity consumption and a smaller variance in that consumption.  This is normal given that rented apartments which are typically smaller and of more uniform size than single family dewellings.  
+Please note that households that rent tend to have lower annual electricity consumption and a smaller variance in that consumption.  This is normal given that rented apartments which are typically smaller and of more uniform size than single family dwellings.  
 
 \begin{figure}[htbp]
 \begin{center}
@@ -160,11 +160,11 @@ Please note that households that rent tend to have lower annual electricity cons
 
   \subsection{Race and Ethnicity Differences in Equipment and Structure}
 
-There are many choices that are frequently thought of as exogenous in conditional demand models that could account for differences electricity consumption by race and ethnicity.  One of the most obvious is the location of the residence.  At the most basic level, choosing to locate a household drives energy consumptions.  
+There are many choices that are frequently thought of as exogenous in conditional demand models that could account for differences electricity consumption by race and ethnicity.  One of the most obvious is the location of the residence.  At the most basic level, choosing to locate a household drives energy consumption.  
 
 Figure 
 \ref{fig:UrbanRural}
-shows the one of the most basic locational choices, residing in an urban or rural area.  Race is represented by the collums and the two rows, labled FALSE and TRUE, indicate if the household self identifies as Hispanic, TRUE, or not.  The bars reprsent the fraction of each race and ethnicity combination that reside in rural and urban areas.
+shows the one of the most basic locational choices, residing in an urban or rural area.  Race is represented by the columns and the two rows, labeled FALSE and TRUE, indicate if the household self identifies as Hispanic, TRUE, or not.  The bars represent the fraction of each race and ethnicity combination that reside in rural and urban areas.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -174,13 +174,13 @@ shows the one of the most basic locational choices, residing in an urban or rura
 \end{center}
 \end{figure}
 
-Non-Hispanic Caucasian and Native American households are more likely to reside in a rural area while those that identifiy as Hispanic are, in each category, almost always more likely to live in urban areas than those that don't self-identify as Hispanic.  The connection to energy consumption is through the correlation between rural households having larger residences that are more likely to be single family detached houses. 
+Non-Hispanic Caucasian and Native American households are more likely to reside in a rural area while those that identify as Hispanic are, in each category, almost always more likely to live in urban areas than those that don't self-identify as Hispanic.  The connection to energy consumption is through the correlation between rural households having larger residences that are more likely to be single family detached houses. 
 
-Some of the large differences in those self-identifed hispanic categories are because of bery sparce cells.  There are only four Hispanic Pacific Islanders in the survey.
+Some of the large differences in those self-identified Hispanic categories are because of very sparse cells.  There are only four Hispanic Pacific Islanders in the survey.
 
-Both the water and space heating fuel show significant differences across race and ethnicity combinations.  The fuel choice something controled by the owner of the structure.  For households that rent this choice more likely to be electric heating and water service.  While electric heat and water service is often very expenseive on a month-to-month basis, the installation costs are typically quite low.  The installation cost is what is faced by the landlord.  The month-to-month cost is faced by the lessee.
+Both the water and space heating fuel show significant differences across race and ethnicity combinations.  The fuel choice something controlled by the owner of the structure.  For households that rent this choice more likely to be electric heating and water service.  While electric heat and water service is often very expensive on a month-to-month basis, the installation costs are typically quite low.  The installation cost is what is faced by the landlord.  The month-to-month cost is faced by the lessee.
 
-Figure \ref{fig:HeatFuel} shows the distribution of heating fuel by race and ethnicity.  It is very clear that Natural Gas is the most common fuel for hot water service but there are some differences based on race and ethnicity.  Excluding the less common self-identified Hispanic categories, native americans and pacific islanders are more likely to have electric hot water service than non-Hispanic caucasions and households with a head of household that identifies as multi-racial is less likely to have electric hot water service.  
+Figure \ref{fig:HeatFuel} shows the distribution of heating fuel by race and ethnicity.  It is very clear that Natural Gas is the most common fuel for hot water service but there are some differences based on race and ethnicity.  Excluding the less common self-identified Hispanic categories, native Americans and pacific islanders are more likely to have electric hot water service than non-Hispanic Caucasians and households with a head of household that identifies as multi-racial is less likely to have electric hot water service.  
 
 \begin{figure}[htbp]
 \begin{center}
@@ -190,7 +190,7 @@ Figure \ref{fig:HeatFuel} shows the distribution of heating fuel by race and eth
 \end{center}
 \end{figure}
 
-Again, electric hot water service is more common in extream rural areas and rental housing.  Figure \ref{fig:HeatFuel} shows a similar figure for heating fuel.  Non-Hispanic African Americans and Native Americans are more likely to have electric heat than non-Hispanic caucasians, while Asian and Pacific Islanders have a large, ``Not applicable'', response category.   Again, Hispanic Caucasians are more likely to have electricity as their heating fuel than non-Hispanic Caucasians.
+Again, electric hot water service is more common in extreme rural areas and rental housing.  Figure \ref{fig:HeatFuel} shows a similar figure for heating fuel.  Non-Hispanic African Americans and Native Americans are more likely to have electric heat than non-Hispanic Caucasians, while Asian and Pacific Islanders have a large, ``Not applicable'', response category.   Again, Hispanic Caucasians are more likely to have electricity as their heating fuel than non-Hispanic Caucasians.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -201,7 +201,7 @@ Again, electric hot water service is more common in extream rural areas and rent
 \end{figure}
 
 
-Many of these different fuel choices can be partially explained by the locational choice made by the households.  Figure \ref{fig:HeatFuel} shows the climate type by race and ethnicity.  Non-Hispanic pacific islanders are more likely than non-hispanic caucaians to be in hot humid and marine environments and may explain the large number of not applicable responses for heating fuel.  Hispanic caucasions are also more likely to live in hot dry/mixed dry or hot humid climes that the other groups.  While these climate types will still have some heating load, heating behavior and heating fuel is less likely to be a strong determinant of total electricity use.  Heating is just less an issue than cooling. 
+Many of these different fuel choices can be partially explained by the locational choice made by the households.  Figure \ref{fig:HeatFuel} shows the climate type by race and ethnicity.  Non-Hispanic pacific islanders are more likely than non-Hispanic Caucasians to be in hot humid and marine environments and may explain the large number of not applicable responses for heating fuel.  Hispanic Caucasians are also more likely to live in hot dry/mixed dry or hot humid climes that the other groups.  While these climate types will still have some heating load, heating behavior and heating fuel is less likely to be a strong determinant of total electricity use.  Heating is just less an issue than cooling. 
 
 \begin{figure}[htbp]
 \begin{center}
@@ -211,7 +211,7 @@ Many of these different fuel choices can be partially explained by the locationa
 \end{center}
 \end{figure}
 
-There are also differences in the age of structure depending on both the race and ethnicity reported and if the household lives in an urban or rural area.  Figure \ref{fig:AgebyOwnRace} shows the distribution of the year the housing unit was built.  Columns indicate urban and rural households with the two left, $FALSE$, columns breaking out the non-Hispanic households and the right two, $TRUE$, showing the Hispanic households.  Rows are indicating the self-idendified race.  There are several blank cells, where a smooth histogram is not possible because of the small number of observations.
+There are also differences in the age of structure depending on both the race and ethnicity reported and if the household lives in an urban or rural area.  Figure \ref{fig:AgebyOwnRace} shows the distribution of the year the housing unit was built.  Columns indicate urban and rural households with the two left, $FALSE$, columns breaking out the non-Hispanic households and the right two, $TRUE$, showing the Hispanic households.  Rows are indicating the self-identified race.  There are several blank cells, where a smooth histogram is not possible because of the small number of observations.
 
 
 \begin{figure}[htbp]
@@ -222,20 +222,23 @@ There are also differences in the age of structure depending on both the race an
 \end{center}
 \end{figure}
 
-What should be most apparant is that rural houseing tends to be newer than urban househousing.  Urban households have a modal construction date in the 1980s while the rural areas are more likely to have a model construction date in the 2000s.
+What should be most apparent is that rural housing tends to be newer than urban housing.  Urban households have a modal construction date in the 1980s while the rural areas are more likely to have a model construction date in the 2000s.
 
 These diagrams should lead one to the conclusion that important variables, such as location and fuel choice differ significantly across race and ethnicity and should not be treated, without great consideration, as exogenous.
 
 \subsection{Differences in Reported Behavior}
-  
-  \begin{itemize}
-    \item Differnces in thermostat settings x
+%   
+%   \begin{itemize}
+%     \item Differnces in thermostat settings x
+%     \item difference in cooking behavior x
+%     \item difference in reported AC use
+% 
+%   \end{itemize}
+%   
+In spite of the evidence above that locational choice, tenure, and structure type decisions drive a great deal of energy use, there are still decisions, made after these choices that can be thought of as cultural differences.  Some of these may be regional preferences, for example the North East preference for higher winter indoor air temperatures, but there may be some true differences in behavior by race and ethnicity.
 
-    \item difference in cooking behavior x
-    \item difference in reported AC use
+Consider figure \ref{fig:Meals} which shows the number of meals cooked in the home by race and ethnicity.  Non-Hispanic Caucasian household report a strong mode of one meal cooked in the house per day.  Non-Hispanic African Americans have a mode of one meal per week and Hispanic Caucasians have a mode of two a day.  Many of these differences can be attributed to differences in income across groups, but functional kitchens are virtually universal.
 
-  \end{itemize}
-  
 
 \begin{figure}
 \begin{center}
@@ -246,6 +249,9 @@ These diagrams should lead one to the conclusion that important variables, such 
 \end{figure}
 
 
+The choice of thermostat setting is also made after the fact. The price of electricity, naturual gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
+
+Figure \ref{fig:TempHomeRace} shows box and wisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypothese that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
 
 \begin{figure}
 \begin{center}
@@ -255,54 +261,23 @@ These diagrams should lead one to the conclusion that important variables, such 
 \end{center}
 \end{figure}
 
+The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American housholds more energy intensive in this end-use.
 
+The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller resdences, but it represents a different preference.
 
-\begin{figure}
-\begin{center}
-\caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
-\label{fig:DayAwayRace}
-\includegraphics{DraftEdwardsWoods-013}
-\end{center}
-\end{figure}
-
-
-\begin{figure}
-\begin{center}
-\caption{Nighttime Temp and Race/Ethnicity (Winter)}
-\label{fig:NightRace}
-\includegraphics{DraftEdwardsWoods-014}
-\end{center}
-\end{figure}
-
-
+This difference in winter thermostat behavior follows through in summer thermostat preferences.  Figure \ref{fig:HomeRaceS} shows a summary for similar summer thermostat settings.  Note that non-Hispanic African Americans, Asian Americans and Native Americans all report lower summer thermostat settings than non-Hispanic and Hispanic Caucasian households.
 
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
 \label{fig:HomeRaceS}
-\includegraphics{DraftEdwardsWoods-015}
+\includegraphics{DraftEdwardsWoods-013}
 \end{center}
 \end{figure}
 
 
-\begin{figure}
-\begin{center}
-\caption{Day Temp Away by Race/Ethnicity (Summer)}
-\label{fig:AwayRaceS}
-\includegraphics{DraftEdwardsWoods-016}
-\end{center}
-\end{figure}
 
-
-\begin{figure}
-\begin{center}
-\caption{Nighttime Temp and Race/Ethnicity (Summer)}
-\label{fig:NightRaceS}
-\includegraphics{DraftEdwardsWoods-017}
-\end{center}
-\end{figure}
-  
-  \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
+\subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
   
   \begin{itemize}
     \item trouble finding a good statewide index of housing discrimination
@@ -312,7 +287,7 @@ These diagrams should lead one to the conclusion that important variables, such 
   \end{itemize}
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:08 2015
+% Tue Apr  7 17:03:48 2015
 \begin{table}[ht]
 \centering
 \caption{HUD Complaints per 100,000 Population} 
@@ -424,7 +399,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:09 2015
+% Tue Apr  7 17:03:48 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -542,7 +517,7 @@ It is unclear how this can be accomplished in a full information, so we chose a 
 
 This should produce consistent results but the variance of the parameter estimates are biased.  It is unclear how to make the usual corrections to the variance of the parameter estimates given that the structure and tenure model is estimated as a multinomial logit.  The best alternative is to bootstrap the system.  There are a few caveats.
 
-First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare endogenouse cells, rented mobile homes being the most restricted, and exogenous variables, e.g., Hispanic Pacific Islanders.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
+First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare endogenous cells, rented mobile homes being the most restricted, and exogenous variables, e.g., Hispanic Pacific Islanders.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
 
 Second, we did not censor non-positive square footage forecasts.  The square footage model is weaker than expected and it was quite possible to have negative forecasts.  Alternative models, such as Tobit, would not be effective, but we are considering transformations of square footage as we move forward.  
 
@@ -558,10 +533,10 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 
 
 
-The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separatly and the effects of the other endogenous variables, structre and tenure and square footage.
+The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separately and the effects of the other endogenous variables, structure and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:11 2015
+% Tue Apr  7 17:03:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
@@ -588,12 +563,12 @@ Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\
 }
 Table 
 % \ref{tab:SystemKWHEthnicity}
-shows similarites with the results from the orthodox electrity model.  Non-Hispanic Asians, and Hispanic Caucasians and Hispanic heads of households that identify as some other race all show lower electricity use per dollar of income.   This is consistent in sign with the parameter estimates in table 
+shows similarities with the results from the orthodox electricity model.  Non-Hispanic Asians, and Hispanic Caucasians and Hispanic heads of households that identify as some other race all show lower electricity use per dollar of income.   This is consistent in sign with the parameter estimates in table 
 % \ref{tab:ParOrthKWH}
-, but the statistically significant deviations from non-Hispanic caucasions for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant paremeter estimates are also roughly the same magnitude but attenuated towards zero.
+, but the statistically significant deviations from non-Hispanic Caucasians for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant parameter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:11 2015
+% Tue Apr  7 17:03:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Square Footage} \\ 
@@ -627,9 +602,9 @@ PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\
 }
 Table 
 % \ref{tab:SystemKWHSQFT}
-shows the relationship between heating and cooling degree days per square foot on electricity use for each of the tenure and structure type combinations.  These results are particularly troublesome because heating and cooling degree days, in conjunction with square footage, are one of the most reliable explanatory variables for electricity use.  Space heating and cooling are two major end-uses in most households.  The parameter estimates show that these reliable explanatory variables are only significant in a few rare cases.  There is a strong relationship heating and cooling degree days for owned single family detached structures, but only rented mobile homes show statistically significant reations to heating loads and only large appartments, owned or rented, for cooling loads.
+shows the relationship between heating and cooling degree days per square foot on electricity use for each of the tenure and structure type combinations.  These results are particularly troublesome because heating and cooling degree days, in conjunction with square footage, are one of the most reliable explanatory variables for electricity use.  Space heating and cooling are two major end-uses in most households.  The parameter estimates show that these reliable explanatory variables are only significant in a few rare cases.  There is a strong relationship heating and cooling degree days for owned single family detached structures, but only rented mobile homes show statistically significant reactions to heating loads and only large apartments, owned or rented, for cooling loads.
 
-This is very strong evidence that our square footage choice model needs improvement if it will be used as part of this electricity consumsption system. 
+This is very strong evidence that our square footage choice model needs improvement if it will be used as part of this electricity consumption system. 
 
 \section{Summary and Conclusions}
 
@@ -653,7 +628,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:11 2015
+% Tue Apr  7 17:03:49 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -755,7 +730,7 @@ As well, the location of a structure type to needs such as: employment, school d
 \end{longtable}
 }
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:11 2015
+% Tue Apr  7 17:03:49 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox Square Foot Model} \\ 
@@ -805,7 +780,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 \subsection{System Estimation Results}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Sat Apr  4 20:20:11 2015
+% Tue Apr  7 17:03:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model} \\ 
