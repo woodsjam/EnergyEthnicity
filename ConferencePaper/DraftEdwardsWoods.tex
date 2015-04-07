@@ -85,7 +85,7 @@ Table
 shows the count of observations by Race/Ethnicity and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratified sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:11 2015
+% Tue Apr  7 18:17:42 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Race and Structure Type} 
@@ -122,7 +122,7 @@ gives a further description of the data is distributed around the country.  Plea
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:11 2015
+% Tue Apr  7 18:17:42 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Region and Structure Type} 
@@ -249,9 +249,9 @@ Consider figure \ref{fig:Meals} which shows the number of meals cooked in the ho
 \end{figure}
 
 
-The choice of thermostat setting is also made after the fact. The price of electricity, naturual gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
+The choice of thermostat setting is also made after the fact. The price of electricity, natural gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
 
-Figure \ref{fig:TempHomeRace} shows box and wisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypothese that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
+Figure \ref{fig:TempHomeRace} shows box and whisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypotheses that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
 
 \begin{figure}
 \begin{center}
@@ -261,9 +261,9 @@ Figure \ref{fig:TempHomeRace} shows box and wisker plots with notches for self-r
 \end{center}
 \end{figure}
 
-The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American housholds more energy intensive in this end-use.
+The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American households more energy intensive in this end-use.
 
-The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller resdences, but it represents a different preference.
+The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller residences, but it represents a different preference.
 
 This difference in winter thermostat behavior follows through in summer thermostat preferences.  Figure \ref{fig:HomeRaceS} shows a summary for similar summer thermostat settings.  Note that non-Hispanic African Americans, Asian Americans and Native Americans all report lower summer thermostat settings than non-Hispanic and Hispanic Caucasian households.
 
@@ -275,20 +275,30 @@ This difference in winter thermostat behavior follows through in summer thermost
 \end{center}
 \end{figure}
 
-
+*** TRANSITION TEXT NEEDED ***
 
 \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
+
+Part of our hypothesis is that housing market discrimination is forcing some race and ethnicity groups into rental, older and poorer quality housing and that discrimination is leading to differences in electricity consumption that is currently being captured and interpreted as cultural differences.  Finding a state level index of housing market discrimination not easy.  While there are plenty of studies that show experimentally that housing market discrimination exists, an index that shows the extent of the discrimination is unavailable.
+
+Until we construct a better index we are using a simple measure of the number of discrimination complaints filed with the U.S. Department of Housing and Urban Development as reported in their annual fair housing report \cite{HUD}.  There are problems with using complaints as an index of discrimination.
+
+Complaints are only investigated if are reported to an agency that participates in the Federal Fair Housing Assistance program.  That program has a requirement that they enforce housing rights similar to the Fair Housing Act \cite[p. 17]{HUD}.  The data is accumulated in the Title Eight Automated Paperless Office Tracking System (TEAPOTS) system.  The majority of the complaints were because of disabilities but race is a close second in the number of complaints recorded \cite[p. 20]{HUD} with the most common violations being, ``Discriminatory Terms, Conditions, Privileges, Services, and Facilities in the Rental or Sale of Property''.
+
+We treat complaints as evidence that there is housing market discrimination but it could be thought of as a compound event.  A complaint has as a prerequisite, an agency that enforces laws similar to the Fair Housing Act and the belief that a complaint will be acted upon.  You can have a low number of complaints if there is no discrimination but also because no one believes that a complaint is effective.  Until we construct a better index, which includes local law, field experiments similar to ***CITE*** this is as close as we can get to a statewide measure of housing market discrimination.
   
-  \begin{itemize}
-    \item trouble finding a good statewide index of housing discrimination
-    \item the HUD complaint measure
-    \item may be endogenous and be indicative of reduced discrimination
+%   \begin{itemize}
+%     \item trouble finding a good statewide index of housing discrimination
+%     \item the HUD complaint measure
+%     \item may be endogenous and be indicative of reduced discrimination
+%   \end{itemize}
   
-  \end{itemize}
+  
+Table \ref{tab:HUDComplaints} shows the number of HUD complaints per 100,000 population by state.  States are aggregated the same way that location is reported in the RECS data set.  This means that, for example, states in the North East, Vermont, Rhode Island, New Hampshire, Connecticut and Maine share the same 20.50 complaints per 100,000, the highest reported complaint rate.  Other nearby states have a much lower rate, e.g., Pennsylvania with only 1.87 complaints per 100,000 population.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:48 2015
-\begin{table}[ht]
+% Tue Apr  7 18:18:18 2015
+\begin{table}[htbp]
 \centering
 \caption{HUD Complaints per 100,000 Population} 
 \label{tab:HUDComplaints}
@@ -352,6 +362,8 @@ Alabama & 4,677,464 & 7.50 \\
 \end{tabular}
 }
 \end{table}
+The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
+
 \section{Conditional Demand Estimation}
 
   \subsection{Orthodox Results}
@@ -399,7 +411,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:48 2015
+% Tue Apr  7 18:18:19 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -536,7 +548,7 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separately and the effects of the other endogenous variables, structure and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:49 2015
+% Tue Apr  7 18:18:20 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
@@ -568,7 +580,7 @@ shows similarities with the results from the orthodox electricity model.  Non-Hi
 , but the statistically significant deviations from non-Hispanic Caucasians for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant parameter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:49 2015
+% Tue Apr  7 18:18:20 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Square Footage} \\ 
@@ -628,7 +640,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:49 2015
+% Tue Apr  7 18:18:20 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -730,7 +742,7 @@ As well, the location of a structure type to needs such as: employment, school d
 \end{longtable}
 }
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:49 2015
+% Tue Apr  7 18:18:20 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox Square Foot Model} \\ 
@@ -780,7 +792,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 \subsection{System Estimation Results}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 17:03:49 2015
+% Tue Apr  7 18:18:20 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model} \\ 

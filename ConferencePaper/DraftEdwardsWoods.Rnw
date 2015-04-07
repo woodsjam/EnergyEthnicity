@@ -545,9 +545,9 @@ ggplot(RECS,aes(NUMMEAL))+geom_bar(aes(y = (..count..)/tapply(..count..,..PANEL.
 \end{figure}
 
 
-The choice of thermostat setting is also made after the fact. The price of electricity, naturual gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
+The choice of thermostat setting is also made after the fact. The price of electricity, natural gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
 
-Figure \ref{fig:TempHomeRace} shows box and wisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypothese that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
+Figure \ref{fig:TempHomeRace} shows box and whisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypotheses that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
 
 \begin{figure}
 \begin{center}
@@ -559,9 +559,9 @@ qplot(factor(Householder_Race),TEMPHOME, geom="boxplot",data=RECS)+geom_boxplot(
 \end{center}
 \end{figure}
 
-The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American housholds more energy intensive in this end-use.
+The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American households more energy intensive in this end-use.
 
-The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller resdences, but it represents a different preference.
+The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller residences, but it represents a different preference.
 
 This difference in winter thermostat behavior follows through in summer thermostat preferences.  Figure \ref{fig:HomeRaceS} shows a summary for similar summer thermostat settings.  Note that non-Hispanic African Americans, Asian Americans and Native Americans all report lower summer thermostat settings than non-Hispanic and Hispanic Caucasian households.
 
@@ -575,25 +575,37 @@ qplot(factor(Householder_Race),TEMPHOMEAC, geom="boxplot",data=RECS)+geom_boxplo
 \end{center}
 \end{figure}
 
-
+*** TRANSITION TEXT NEEDED ***
 
 \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
+
+Part of our hypothesis is that housing market discrimination is forcing some race and ethnicity groups into rental, older and poorer quality housing and that discrimination is leading to differences in electricity consumption that is currently being captured and interpreted as cultural differences.  Finding a state level index of housing market discrimination not easy.  While there are plenty of studies that show experimentally that housing market discrimination exists, an index that shows the extent of the discrimination is unavailable.
+
+Until we construct a better index we are using a simple measure of the number of discrimination complaints filed with the U.S. Department of Housing and Urban Development as reported in their annual fair housing report \cite{HUD}.  There are problems with using complaints as an index of discrimination.
+
+Complaints are only investigated if are reported to an agency that participates in the Federal Fair Housing Assistance program.  That program has a requirement that they enforce housing rights similar to the Fair Housing Act \cite[p. 17]{HUD}.  The data is accumulated in the Title Eight Automated Paperless Office Tracking System (TEAPOTS) system.  The majority of the complaints were because of disabilities but race is a close second in the number of complaints recorded \cite[p. 20]{HUD} with the most common violations being, ``Discriminatory Terms, Conditions, Privileges, Services, and Facilities in the Rental or Sale of Property''.
+
+We treat complaints as evidence that there is housing market discrimination but it could be thought of as a compound event.  A complaint has as a prerequisite, an agency that enforces laws similar to the Fair Housing Act and the belief that a complaint will be acted upon.  You can have a low number of complaints if there is no discrimination but also because no one believes that a complaint is effective.  Until we construct a better index, which includes local law, field experiments similar to ***CITE*** this is as close as we can get to a statewide measure of housing market discrimination.
   
-  \begin{itemize}
-    \item trouble finding a good statewide index of housing discrimination
-    \item the HUD complaint measure
-    \item may be endogenous and be indicative of reduced discrimination
+%   \begin{itemize}
+%     \item trouble finding a good statewide index of housing discrimination
+%     \item the HUD complaint measure
+%     \item may be endogenous and be indicative of reduced discrimination
+%   \end{itemize}
   
-  \end{itemize}
+  
+Table \ref{tab:HUDComplaints} shows the number of HUD complaints per 100,000 population by state.  States are aggregated the same way that location is reported in the RECS data set.  This means that, for example, states in the North East, Vermont, Rhode Island, New Hampshire, Connecticut and Maine share the same 20.50 complaints per 100,000, the highest reported complaint rate.  Other nearby states have a much lower rate, e.g., Pennsylvania with only 1.87 complaints per 100,000 population.
 
 <<echo=false,results=tex>>=
 library(xtable)
 HUD<-read.csv("HUD.csv")
 HUDCut<-HUD[c("state","pop","reporttot")]
 names(HUDCut)<-c("State","Population","Reports (per 100,000)")
-print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE,caption.placement="top",size="small",latex.environments="center")
+print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:HUDComplaints"), include.rownames=FALSE,caption.placement="top",size="small",latex.environments="center",table.placement="htbp")
 rm(HUD)
 @
+
+The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
 
 \section{Conditional Demand Estimation}
 
