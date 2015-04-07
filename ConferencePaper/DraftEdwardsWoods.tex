@@ -85,7 +85,7 @@ Table
 shows the count of observations by Race/Ethnicity and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratified sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:17:42 2015
+% Tue Apr  7 22:21:40 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Race and Structure Type} 
@@ -122,7 +122,7 @@ gives a further description of the data is distributed around the country.  Plea
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:17:42 2015
+% Tue Apr  7 22:21:40 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Region and Structure Type} 
@@ -297,7 +297,7 @@ We treat complaints as evidence that there is housing market discrimination but 
 Table \ref{tab:HUDComplaints} shows the number of HUD complaints per 100,000 population by state.  States are aggregated the same way that location is reported in the RECS data set.  This means that, for example, states in the North East, Vermont, Rhode Island, New Hampshire, Connecticut and Maine share the same 20.50 complaints per 100,000, the highest reported complaint rate.  Other nearby states have a much lower rate, e.g., Pennsylvania with only 1.87 complaints per 100,000 population.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:18 2015
+% Tue Apr  7 22:22:20 2015
 \begin{table}[htbp]
 \centering
 \caption{HUD Complaints per 100,000 Population} 
@@ -365,17 +365,6 @@ Alabama & 4,677,464 & 7.50 \\
 The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
 
 \section{Conditional Demand Estimation}
-
-  \subsection{Orthodox Results}
-  
-  \begin{itemize}
-    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
-    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
-    \item Major end-uses are included but relatively unsophisticated.
-    \item discuss the orthodox results.
-  \end{itemize}
-  
-  
   
 Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimates, survey responses and analyst best estimates to produce energy end-use estimates.  For example, survey respondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analyst will assign a likely efficiency for the furnace based on the average of the age ranges and then estimate hours used based on set points, weather, and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model than what is normally regarded as a conditional demand model outside of the energy community.
 
@@ -411,7 +400,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:19 2015
+% Tue Apr  7 22:22:20 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -548,7 +537,7 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separately and the effects of the other endogenous variables, structure and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:20 2015
+% Tue Apr  7 22:22:21 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
@@ -580,7 +569,7 @@ shows similarities with the results from the orthodox electricity model.  Non-Hi
 , but the statistically significant deviations from non-Hispanic Caucasians for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant parameter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:20 2015
+% Tue Apr  7 22:22:21 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Square Footage} \\ 
@@ -640,7 +629,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:20 2015
+% Tue Apr  7 22:22:21 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -742,7 +731,7 @@ As well, the location of a structure type to needs such as: employment, school d
 \end{longtable}
 }
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:20 2015
+% Tue Apr  7 22:22:21 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox Square Foot Model} \\ 
@@ -792,7 +781,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 \subsection{System Estimation Results}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 18:18:20 2015
+% Tue Apr  7 22:22:21 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model} \\ 

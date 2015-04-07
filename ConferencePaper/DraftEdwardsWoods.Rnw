@@ -608,17 +608,6 @@ rm(HUD)
 The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
 
 \section{Conditional Demand Estimation}
-
-  \subsection{Orthodox Results}
-  
-  \begin{itemize}
-    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
-    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
-    \item Major end-uses are included but relatively unsophisticated.
-    \item discuss the orthodox results.
-  \end{itemize}
-  
-  
   
 Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimates, survey responses and analyst best estimates to produce energy end-use estimates.  For example, survey respondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analyst will assign a likely efficiency for the furnace based on the average of the age ranges and then estimate hours used based on set points, weather, and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model than what is normally regarded as a conditional demand model outside of the energy community.
 
