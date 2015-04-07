@@ -73,7 +73,9 @@ This paper explores the relationship between the household characteristics and t
 \end{itemize}
 
 Variable and Data Description: 
-Residential Energy Consumption Survey national data 2009 (RECS) was utilitized for this portion of the project. 12083 observations are included in the data, of which 11395 are included in the structure-tenure model. Combining dwelling type (dwltype) and the binary response variable ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, and mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, rental assistence, and ethnicity and a variable for HUD complaints by state.  Householder race was interacted with income and  HUD complaints.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college, Associate’s, Bachelor’s, Master;s, Professional, and Doctorate degree.  The ethnicity variable is from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, other, and more than one race.  
+Residential Energy Consumption Survey national data 2009 (RECS) was utilitized for this portion of the project. 12083 observations are included in the data, of which 11395 are included in the structure-tenure model. Weights provided in the data set were utilized to account from sample stratification.
+  Combining dwelling type (dwltype) and the binary response variable ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, and mobile home. Mobile homes are notable for having considerably fewer observations than other categories and were ultimately dropped from the model. 
+NA
   Over twice as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in single family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
 	With respect to respondent education attainment, percentages of each category (see appendix) do differ from what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.   	
 
@@ -84,7 +86,7 @@ RECS data set is the 2009 publication.  12083 observations are included in the d
 
 	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
   
-	With respect to respondent education attainment, it can be noted that the percentages of each category (see appendix) do differ from that of what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.  Comparing to a cursory internet search for example, more respondents hold graduate degrees and bachelor’s degrees, and less high school diplomas and below than that percentage constructed for the state of California (PPIC).  It is also of minor interest to note the seventy-nine respondents who claim to live in mobile homes and hold graduate degrees.  While that combination of characteristics is plausible enough without further examination, it does bring into question the honesty of respondent’s self-reported information.  But, by constructing a variable equal to the number of housemates over the age of 65 and tabulating it against just mobile homes within the dwelling type variable, we note that the majority of respondents state that 1346 seniors live in mobile homes compared to 643 mobile homes without senior citizens, which is a considerably different trend than homes largely without seniors in the other dwelling type categories particularly detached houses, bearing in mind that this is relatively and the majority of seniors recorded in the data do not live in mobile homes. This may suggests that seniors are utilizing mobile homes as retirement homes, possibly within retirement communities and that would help to explain the minor perceived discrepancy in the education variable.  It is also commonly held that seniors may be more likely to respond to surveys, much like voting, and this would suggest why there are more respondents in mobile homes than in every other category of dwelling aside from home ownership and small complex ownership.  It can be noted from the RASS survey that, in fact, mobile homes had the highest response rate (RASS).
+NA
 	
 Lastly, one of our variables, actually two, are count variables that account for the number of children under the age of five and between six and eighteen respectively.  This variable was constructed with the intention of finding whether larger structures, in general, such as houses and townhouses, are chosen more often by individuals requiring more room or who are exhibiting more permanent nesting behavior, as in choosing to purchase a home with the intention of residing there for a long period of time and becoming well established.
 >>>>>>> e6d97aa014adc48c0054c0608b702df1d6ec3cba
@@ -92,7 +94,7 @@ Lastly, one of our variables, actually two, are count variables that account for
 
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:53 2015
+% Tue Apr 07 16:39:36 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -119,7 +121,7 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
 \label{tab:RaceVStruct}
 \end{table}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:53 2015
+% Tue Apr 07 16:39:36 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -179,7 +181,7 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 
   
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:59 2015
+% Tue Apr 07 16:39:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -207,7 +209,7 @@ FALSEWt & 7606 & 384 \\
 \end{table}
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:59 2015
+% Tue Apr 07 16:39:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -235,7 +237,7 @@ FALSEWt & 1937 & 6053 \\
 \end{table}
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:59 2015
+% Tue Apr 07 16:39:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrr}
@@ -262,7 +264,7 @@ FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\
 \label{tab:Water}
 \end{table}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:59 2015
+% Tue Apr 07 16:39:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -289,7 +291,7 @@ FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\
 \label{tab:HeatFuel}
 \end{table}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:05:59 2015
+% Tue Apr 07 16:39:45 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrr}
@@ -335,7 +337,7 @@ FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\
   
   
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:01 2015
+% Tue Apr 07 16:39:48 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrr}
@@ -424,7 +426,7 @@ FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\
   \end{itemize}
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:01 2015
+% Tue Apr 07 16:39:49 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rllr}
@@ -538,7 +540,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:02 2015
+% Tue Apr 07 16:39:50 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -669,7 +671,7 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:03 2015
+% Tue Apr 07 16:39:51 2015
 \begin{longtable}{rrrrl}
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
@@ -794,7 +796,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:03 2015
+% Tue Apr 07 16:39:51 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
@@ -897,7 +899,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Mar 31 23:06:03 2015
+% Tue Apr 07 16:39:51 2015
 \begin{longtable}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
