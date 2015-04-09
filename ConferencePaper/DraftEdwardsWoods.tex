@@ -85,7 +85,7 @@ Table
 shows the count of observations by Race/Ethnicity and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratified sampling scheme used to collect the data.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:21:40 2015
+% Thu Apr  9 18:38:10 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Race and Structure Type} 
@@ -122,7 +122,7 @@ gives a further description of the data is distributed around the country.  Plea
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:21:40 2015
+% Thu Apr  9 18:38:10 2015
 \begin{table}[ht]
 \centering
 \caption{Count of Observations by Region and Structure Type} 
@@ -297,7 +297,7 @@ We treat complaints as evidence that there is housing market discrimination but 
 Table \ref{tab:HUDComplaints} shows the number of HUD complaints per 100,000 population by state.  States are aggregated the same way that location is reported in the RECS data set.  This means that, for example, states in the North East, Vermont, Rhode Island, New Hampshire, Connecticut and Maine share the same 20.50 complaints per 100,000, the highest reported complaint rate.  Other nearby states have a much lower rate, e.g., Pennsylvania with only 1.87 complaints per 100,000 population.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:20 2015
+% Thu Apr  9 18:38:47 2015
 \begin{table}[htbp]
 \centering
 \caption{HUD Complaints per 100,000 Population} 
@@ -362,7 +362,11 @@ Alabama & 4,677,464 & 7.50 \\
 \end{tabular}
 }
 \end{table}
-The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
+The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate, highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.  The pre-condition for a HUD complaint investigation does not exist.
+
+There is also the possibility that housing market discrimination may not be equally applied within the state to each to each of the race and ethnicity combinations.  It may be that one state has a lot of housing market discrimination against Hispanic Caucasians but none for African Americans.  Another state could have the reverse situation.  We may also have the circumstance where some ethnic groups have given up on HUD complaints and does not use that mechanism within that state.
+
+In either case, HUD complaints by state is our current best measure of housing market discrimination.
 
 \section{Conditional Demand Estimation}
   
@@ -400,7 +404,7 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:20 2015
+% Thu Apr  9 18:38:48 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -537,7 +541,7 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separately and the effects of the other endogenous variables, structure and tenure and square footage.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:21 2015
+% Thu Apr  9 18:38:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
@@ -569,7 +573,7 @@ shows similarities with the results from the orthodox electricity model.  Non-Hi
 , but the statistically significant deviations from non-Hispanic Caucasians for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant parameter estimates are also roughly the same magnitude but attenuated towards zero.
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:21 2015
+% Thu Apr  9 18:38:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model: Square Footage} \\ 
@@ -629,7 +633,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:21 2015
+% Thu Apr  9 18:38:49 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox kWh Model} \\ 
@@ -731,7 +735,7 @@ As well, the location of a structure type to needs such as: employment, school d
 \end{longtable}
 }
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:21 2015
+% Thu Apr  9 18:38:49 2015
 {\small
 \begin{longtable}{rrrrr}
 \caption{Orthodox Square Foot Model} \\ 
@@ -781,7 +785,7 @@ As well, the location of a structure type to needs such as: employment, school d
 
 \subsection{System Estimation Results}
 % latex table generated in R 3.0.1 by xtable 1.7-4 package
-% Tue Apr  7 22:22:21 2015
+% Thu Apr  9 18:38:49 2015
 {\small
 \begin{longtable}{rrrrl}
 \caption{System Estimation of kWh Model} \\ 

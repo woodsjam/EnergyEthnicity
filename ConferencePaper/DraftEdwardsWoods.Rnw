@@ -605,7 +605,11 @@ print(xtable(HUDCut,caption="HUD Complaints per 100,000 Population", label="tab:
 rm(HUD)
 @
 
-The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
+The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate, highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.  The pre-condition for a HUD complaint investigation does not exist.
+
+There is also the possibility that housing market discrimination may not be equally applied within the state to each to each of the race and ethnicity combinations.  It may be that one state has a lot of housing market discrimination against Hispanic Caucasians but none for African Americans.  Another state could have the reverse situation.  We may also have the circumstance where some ethnic groups have given up on HUD complaints and does not use that mechanism within that state.
+
+In either case, HUD complaints by state is our current best measure of housing market discrimination.
 
 \section{Conditional Demand Estimation}
   
