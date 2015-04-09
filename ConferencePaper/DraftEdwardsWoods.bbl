@@ -1,0 +1,122 @@
+\begin{thebibliography}{10}
+
+\bibitem{burgett2015using}
+Joseph~M Burgett and Abdol~R Chini.
+\newblock Using building and occupant characteristics to predict residential
+  residual miscellaneous electrical loads: a comparison between an asset label
+  and an occupant-based operational model for homes in florida.
+\newblock {\em Journal of Building Performance Simulation},
+  (ahead-of-print):1--17, 2015.
+
+\bibitem{boot}
+Angelo Canty and Brian Ripley.
+\newblock {\em boot: Bootstrap R (S-Plus) Functions. R package version 1.3-9.}
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2013.
+
+\bibitem{xtable}
+David~B. Dahl.
+\newblock {\em xtable: Export tables to LaTeX or HTML}, 2014.
+\newblock R package version 1.7-4.
+
+\bibitem{davis2011evaluating}
+Lucas~W Davis.
+\newblock Evaluating the slow adoption of energy efficient investments: are
+  renters less likely to have energy efficient appliances?
+\newblock In {\em The Design and Implementation of US Climate Policy}, pages
+  301--316. University of Chicago Press, 2011.
+
+\bibitem{eia2008residential}
+DOE EIA.
+\newblock Residential energy consumption survey (recs), 2008.
+
+\bibitem{estiri201221}
+Hossein Estiri.
+\newblock 21 percent: The role of socioeconomics and housing characteristics on
+  co2 emissions from the us residential sector.
+\newblock {\em Available at SSRN 2196984}, 2012.
+
+\bibitem{estiri2014building}
+Hossein Estiri.
+\newblock Building and household x-factors and energy consumption at the
+  residential sector: A structural equation analysis of the effects of
+  household and building characteristics on the annual energy consumption of us
+  residential buildings.
+\newblock {\em Energy Economics}, 43:178--184, 2014.
+
+\bibitem{estiri2015structural}
+Hossein Estiri.
+\newblock A structural equation model of energy consumption in the united
+  states: Untangling the complexity of per-capita residential energy use.
+\newblock {\em Energy Research \& Social Science}, 6:109--120, 2015.
+
+\bibitem{estiri2013different}
+Hossein Estiri, Ryan Gabriel, Eric Howard, and Li~Wang.
+\newblock Different regions, differences in energy consumption: Do regions
+  account for the variability in household energy consumption?
+\newblock {\em Differences in Energy Consumption: Do Regions Account for the
+  Variability in Household Energy Consumption}, 2013.
+
+\bibitem{li2014home}
+Chao Li.
+\newblock {\em HOME ENERGY CONSUMPTION ESTIMATION BY END USE AND ENERGY
+  EFFICIENCY UPGRADE RECOMMENDATIONS}.
+\newblock PhD thesis, Duke University, 2014.
+
+\bibitem{miller2014empirical}
+Kelly~Hellman Miller, Francesca Colantuoni, and Christine~Lasco Crago.
+\newblock An empirical analysis of residential energy efficiency adoption by
+  housing types and occupancy.
+\newblock 2014.
+
+\bibitem{HUD}
+U.S.~Department of~Houseing and DC~Urban~Develpment, Washington.
+\newblock Annual report of fair housing, fy 2010, 2010.
+
+\bibitem{pivo2014unequal}
+Gary Pivo.
+\newblock Unequal access to energy efficiency in us multifamily rental housing:
+  opportunities to improve.
+\newblock {\em Building Research \& Information}, 42(5):551--573, 2014.
+
+\bibitem{RBase}
+{R Core Team}.
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2013.
+
+\bibitem{sanquist2012lifestyle}
+Thomas~F Sanquist, Heather Orr, Bin Shui, and Alvah~C Bittner.
+\newblock Lifestyle factors in us residential electricity consumption.
+\newblock {\em Energy Policy}, 42:354--364, 2012.
+
+\bibitem{RECSSurvey}
+DC~U.S. Energy Information~Administration, Washington.
+\newblock Residential energy consumption survey, doe/eia- forms eia 457a-g,
+  2009.
+
+\bibitem{nnet}
+W.~N. Venables and B.~D. Ripley.
+\newblock {\em Modern Applied Statistics with S}.
+\newblock Springer, New York, fourth edition, 2002.
+\newblock ISBN 0-387-95457-0.
+
+\bibitem{gtools}
+Gregory~R. Warnes, Ben Bolker, and Thomas Lumley.
+\newblock {\em gtools: Various R programming tools}, 2014.
+\newblock R package version 3.4.1.
+
+\bibitem{ggplot2}
+Hadley Wickham.
+\newblock {\em ggplot2: elegant graphics for data analysis}.
+\newblock Springer New York, 2009.
+
+\bibitem{plyr}
+Hadley Wickham.
+\newblock The split-apply-combine strategy for data analysis.
+\newblock {\em Journal of Statistical Software}, 40(1):1--29, 2011.
+
+\bibitem{stringr}
+Hadley Wickham.
+\newblock {\em stringr: Make it easier to work with strings.}, 2012.
+\newblock R package version 0.6.2.
+
+\end{thebibliography}

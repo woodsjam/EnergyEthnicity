@@ -1,8 +1,5 @@
 \documentclass{article}
-\usepackage{draftwatermark}
 \usepackage{longtable}
-\SetWatermarkText{DRAFT}
-\SetWatermarkScale{1}
 
 \author{Michael Edwards\\ 
   James Woods}
@@ -21,24 +18,16 @@ When socio-demographic factors are considered in any kind of analysis of househo
 
 \section{Introduction}
 
-*******Observed differences evident between different households can at least be partially explained by race and ethnicity composition.  That is, there 
-
-Introduction/Literature Review:
-
-
 The choice of housing, differentiated between renters and owners: owners and those households making payments towards ownership are treated as the same.  Homes are categorized by structure type.   
 
 Housing choices may be linked to fundamental characteristics of the heads of households as a dependent variable that has implications as to utility, and in this respect it is assumed that owning a detached home is of greatest use.  The choice of homes is considered cardinal, where a house is of greatest value and the mobile home is treated as the least appealing choice.  A townhome, row house, in a desirable location such as an urban area, may be a highly desirable good, in general that is not treated as the norm. Structures other than detached houses may be considerably more perishable.  This assumption is made regardless of variations within the desirability of particular detached houses. The choice of purchasing or renting a home is relevant within the structure types.  An individual may choose to forego ownership of a townhouse in favor of renting a house, or forego owning a mobile home in favor of renting an apartment.  Here, both from a utilitarian perspective of the need for one domicile over another is considered as well as prestige that comes from both the structure type as well as what utility may derive from ownership.
 
-	The value of structure type may have implications as to future wealth.  Homeowners tend towards greater wealth over time, related to home ownership itself(Di 2007).  Homeowners have the opportunity to use their wealth for investment or paying off higher interest debts, such as credit cards, by using home equity.  Homeowners have access to a safety net in terms of debt, and they also have the opportunity of reducing the lifetime costs of debts.  Homeowners may also choose to liquidate their homes, or pass on wealth at at or near the end of their lives.  One source found homeowners held more wealth compared to their contemporary counterparts.  The growth of wealth was also appreciably higher(Di 2007). 
-<<<<<<< HEAD
-The effect of home ownership and structure choice may have implications for future outcomes of the children of the suggested households.  In that respect, it can be said that there is evidence of children having better outcomes, in terms of education and income, than their peers in households that choose to rent (Boehm 2014).  Households choice of structure type, payment method, and location are often very difficult to change based on the history of a household (Darrah 2014).  Households that have tended towards renting have difficulty, or at least choose not to, buy in the future.  Community attitudes and behaviors in relation to housing are often sticky in changing, and this is of importance as related to the outcomes of children; often mirroring the characteristics of their parents.  
-=======
+The value of structure type may have implications as to future wealth.  Homeowners tend towards greater wealth over time, related to home ownership itself(Di 2007).  Homeowners have the opportunity to use their wealth for investment or paying off higher interest debts, such as credit cards, by using home equity.  Homeowners have access to a safety net in terms of debt, and they also have the opportunity of reducing the lifetime costs of debts.  Homeowners may also choose to liquidate their homes, or pass on wealth at at or near the end of their lives.  One source found homeowners held more wealth compared to their contemporary counterparts.  The growth of wealth was also appreciably higher(Di 2007). 
   
 The effect of home ownership and structure choice may have implications for future outcomes of the children of the suggested households.  In that respect, it can be said that there is evidence of children having better outcomes, in terms of education and income, than their peers in households that choose to rent (Boehm 2014).  It is plausible that the outcome benefits are coming from a causal relationship with parental characteristics rather than that of the housing choice, and are co-variables, rather than having an internal causal relationship.  While it is beyond the scope of this paper, it is also plausible that housing choice is indicative of neighborhood choice, though it should be stated that there is no assertion on this statement to be found here.
 
 Households choice of structure type, payment method, and location are often very difficult to change based on the history of a household (Darrah 2014).  Households that have tended towards renting have difficulty, or at least choose not to, buy in the future.  Community attitudes and behaviors in relation to housing are often sticky in changing, and this is of importance as related to the outcomes of children; often mirroring the characteristics of their parents.  
->>>>>>> e6d97aa014adc48c0054c0608b702df1d6ec3cba
+
 
 This paper explores the relationship between the household characteristics and the choice of housing structure, and suggests that there is reason in particular of choosing housing structures based on wealth and needs as a proxy for utility, which not only has immediate effects but those that have persistent effects on the legacy of households.  While the utility of a particular domicile cannot be measured directly, it is assumed that the choice of structure is indicative of the value that the household places on one choice over another.  
 
@@ -64,39 +53,41 @@ This paper explores the relationship between the household characteristics and t
 
 \section{RECS}
 
-
-\begin{itemize}
-  \item Description on RECS data size number of observations sampling method etc.
-  \item Scope of data  
-  \item Weighting to account for stratified sampling
-  \item We need more tables and graphics here.
-\end{itemize}
-
-Variable and Data Description: 
-Residential Energy Consumption Survey national data 2009 (RECS) was utilitized for this portion of the project. 12083 observations are included in the data, of which 11395 are included in the structure-tenure model. Weights provided in the data set were utilized to account from sample stratification.
-  Combining dwelling type (dwltype) and the binary response variable ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, and mobile home. Mobile homes are notable for having considerably fewer observations than other categories and were ultimately dropped from the model. 
-NA
-  Over twice as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in single family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
-	With respect to respondent education attainment, percentages of each category (see appendix) do differ from what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.   	
+The 2009 Residential Energy Consumption Survey (RECS) was the main source of data. 12083 observations are included in the data, of which 11905 are used for most of the models. Because of the complex sampling scheme, which involves both cluster sampling and over sampling of odd cells, weights are used in all analysis.  The reason that the majority of the observations were dropped was because the households were living on premises for free, neither owning or renting the property.  We also dropped a few observations because they were under-sampled and the post-stratification weights  were so large to as not be credible.
 
 
-<<<<<<< HEAD
-=======
-RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent,Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household #2 is ignored.
+The RECS data set contains information on both the dwelling structure type,  and an indicator if they own the property.  The dwelling types are divided into the six common categories: single family detached house, single family attached (including duplexes and row house, small apartment complexes, large apartment complexes, and mobile homes. 
 
-	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
+The RECS survey contains an enormous number of variables, 931, for each household including: income, resident ages, education, rental assistance, appliance and building characteristics, thermostat set-points, householder ethnicity and race.  Income was recorded in categories but midpoints of the categories were used for most analysis. 
+% 
+% Over twice as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in single family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
+% 
+% With respect to respondent education attainment, percentages of each category (see appendix) do differ from what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.   	
+
+
+% RECS data set is the 2009 publication.  12083 observations are included in the data, of which 11395 are included in the struture-tenure model. Combining dwelling type (dwltype) and the binary response variable Ownrent, Dwltype includes six categories as follows: single family detached house, townhouse (including duplex, or row house), small apartment complex, large apartment complex, mobile home. Mobile homes are notable for having considerably fewer observations than other categories. The model is based on the following variables: income, resident ages, education, and ethnicity.  Logged, midpoints, are used for income. Education is broken into six categories describing highest education level completed by the head of the household: elementary, some high school, high school. Some college/trade/vocational school, college graduate and post graduate degree.  The ethnicity variable is constructed from a composite of six dummy variables for head of households broken into head of households one and two.  The result is one variable for each where from one to six: Native American, Asian/Pacific Islander, Black/African American, Hispanic/Latino, White/Caucasian, and Other.  For our purposes head of household \#2 is ignored.
+
+% 	Approximately 2.7 times as many households choose to own their homes compared to renters.  As well we see that the majority of households, more than all other categories combined, live in singe family detached houses (See Appendix).  Behind single family houses, large apartment complexes were the most likely dwelling types chosen.  Notably, apartments in general, were more commonly rented than owned as compared to the opposite for each other dwelling type.
   
-NA
-	
-Lastly, one of our variables, actually two, are count variables that account for the number of children under the age of five and between six and eighteen respectively.  This variable was constructed with the intention of finding whether larger structures, in general, such as houses and townhouses, are chosen more often by individuals requiring more room or who are exhibiting more permanent nesting behavior, as in choosing to purchase a home with the intention of residing there for a long period of time and becoming well established.
->>>>>>> e6d97aa014adc48c0054c0608b702df1d6ec3cba
+% 	With respect to respondent education attainment, it can be noted that the percentages of each category (see appendix) do differ from that of what can be expected.  It is entirely likely that this is an example of the survey effect on selection of respondents, i.e. that individuals with higher education attainment are more likely to respond to mailed surveys.  Comparing to a cursory internet search for example, more respondents hold graduate degrees and bachelor’s degrees, and less high school diplomas and below than that percentage constructed for the state of California (PPIC).  It is also of minor interest to note the seventy-nine respondents who claim to live in mobile homes and hold graduate degrees.  While that combination of characteristics is plausible enough without further examination, it does bring into question the honesty of respondent’s self-reported information.  But, by constructing a variable equal to the number of housemates over the age of 65 and tabulating it against just mobile homes within the dwelling type variable, we note that the majority of respondents state that 1346 seniors live in mobile homes compared to 643 mobile homes without senior citizens, which is a considerably different trend than homes largely without seniors in the other dwelling type categories particularly detached houses, bearing in mind that this is relatively and the majority of seniors recorded in the data do not live in mobile homes. This may suggests that seniors are utilizing mobile homes as retirement homes, possibly within retirement communities and that would help to explain the minor perceived discrepancy in the education variable.  It is also commonly held that seniors may be more likely to respond to surveys, much like voting, and this would suggest why there are more respondents in mobile homes than in every other category of dwelling aside from home ownership and small complex ownership.  It can be noted from the RASS survey that, in fact, mobile homes had the highest response rate (RASS).
+% 	
+% Lastly, one of our variables, actually two, are count variables that account for the number of children under the age of five and between six and eighteen respectively.  This variable was constructed with the intention of finding whether larger structures, in general, such as houses and townhouses, are chosen more often by individuals requiring more room or who are exhibiting more permanent nesting behavior, as in choosing to purchase a home with the intention of residing there for a long period of time and becoming well established.
 
 
+
+% Adding in some basic descriptors
+
+Table 
+ \ref{tab:RaceVStruct}
+shows the count of observations by Race/Ethnicity and structure after the basic data handling described above.  Please note the dominance of single family detached homes, shown as SFDetached in the table and non-Hispanic Caucasians, shown as FALSEWt in the table.  These counts are unweighted and do not take into account the stratified sampling scheme used to collect the data.
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:36 2015
+% Tue Apr 07 17:46:38 2015
 \begin{table}[ht]
 \centering
+\caption{Count of Observations by Race and Structure Type} 
+\label{tab:RaceVStruct}
+{\small
 \begin{tabular}{rrrrrr}
   \hline
  & Mobile & SFDetached & SFAttached & SmApartment & LgApartment \\ 
@@ -117,27 +108,45 @@ FALSEWt & 371 & 5694 & 544 & 430 & 951 \\
   TRUEWt &  97 & 730 & 105 & 184 & 332 \\ 
    \hline
 \end{tabular}
-\caption{Count of Observations by Race and Structure Type} 
-\label{tab:RaceVStruct}
+}
 \end{table}
+Many of the structure type/ race and ethnicity combinations are relatively rare, e.g., Hispanic Asians living in mobile homes.  We have not collapsed any of these  categories.  Future research will look at collapsing some of the rare cells so that there are a more manageable number of both structure types and race/ethnicity combinations.
+
+
+Table
+\ref{tab:RegionVStruct}
+gives a further description of the data is distributed around the country.  Please note that both the Western and North Eastern area have a larger fraction of large apartment buildings, LgApartment in the table, than the other two regions. 
+
+
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:36 2015
+% Tue Apr 07 17:46:38 2015
 \begin{table}[ht]
 \centering
-\begin{tabular}{rrrrrr}
-  \hline
- & Mobile & SFDetached & SFAttached & SmApartment & LgApartment \\ 
-  \hline
-NE &  47 & 1173 & 218 & 326 & 470 \\ 
-  MidWest &  92 & 2080 & 162 & 145 & 323 \\ 
-  South & 245 & 2685 & 257 & 226 & 603 \\ 
-  West & 137 & 1757 & 241 & 209 & 509 \\ 
-   \hline
-\end{tabular}
 \caption{Count of Observations by Region and Structure Type} 
 \label{tab:RegionVStruct}
+{\small
+\begin{tabular}{rrrrr}
+  \hline
+ & NE & MidWest & South & West \\ 
+  \hline
+Mobile &  47 &  92 & 245 & 137 \\ 
+  SFDetached & 1173 & 2080 & 2685 & 1757 \\ 
+  SFAttached & 218 & 162 & 257 & 241 \\ 
+  SmApartment & 326 & 145 & 226 & 209 \\ 
+  LgApartment & 470 & 323 & 603 & 509 \\ 
+   \hline
+\end{tabular}
+}
 \end{table}
-\begin{figure}
+The table shows the range of climate zones and housing law covered by the survey.  It also shows the reasonableness of our hypotheses that location and structure type choices are endogenous.
+
+Figure
+\ref{fig:kWhbyOwnRace}
+shows a smooth approximation of the distribution of annual household electricity use in kWh per year.  The columns indicates the various self-identified race and the columns indicate if the the household self identifies as Hispanic and if the home is owned or rented. The blank cells indicate that there are too few observations to generate a reliable smooth approximation of electricity consumption.
+
+Please note that households that rent tend to have lower annual electricity consumption and a smaller variance in that consumption.  This is normal given that rented apartments which are typically smaller and of more uniform size than single family dwellings.  
+
+\begin{figure}[htbp]
 \begin{center}
 \caption{Annual kWh by Rent/Own and Race}
 \label{fig:kWhbyOwnRace}
@@ -146,361 +155,213 @@ NE &  47 & 1173 & 218 & 326 & 470 \\
 \end{figure}
 
 
+  \subsection{Race and Ethnicity Differences in Equipment and Structure}
 
-\begin{figure}
+There are many choices that are frequently thought of as exogenous in conditional demand models that could account for differences electricity consumption by race and ethnicity.  One of the most obvious is the location of the residence.  At the most basic level, choosing to locate a household drives energy consumption.  
+
+Figure 
+\ref{fig:UrbanRural}
+shows the one of the most basic locational choices, residing in an urban or rural area.  Race is represented by the columns and the two rows, labeled FALSE and TRUE, indicate if the household self identifies as Hispanic, TRUE, or not.  The bars represent the fraction of each race and ethnicity combination that reside in rural and urban areas.
+
+\begin{figure}[htbp]
 \begin{center}
-\caption{Annual kWh by Income}
-\label{fig:kWhbyIncome}
+\caption{Urban vs Rural by Race and Ethnicity}
+\label{fig:UrbanRural}
 \includegraphics{DraftEdwardsWoods-006}
 \end{center}
 \end{figure}
 
-\begin{figure}
-\begin{center}\label{fig:HHbyRace}
+Non-Hispanic Caucasian and Native American households are more likely to reside in a rural area while those that identify as Hispanic are, in each category, almost always more likely to live in urban areas than those that don't self-identify as Hispanic.  The connection to energy consumption is through the correlation between rural households having larger residences that are more likely to be single family detached houses. 
+
+Some of the large differences in those self-identified Hispanic categories are because of very sparse cells.  There are only four Hispanic Pacific Islanders in the survey.
+
+Both the water and space heating fuel show significant differences across race and ethnicity combinations.  The fuel choice something controlled by the owner of the structure.  For households that rent this choice more likely to be electric heating and water service.  While electric heat and water service is often very expensive on a month-to-month basis, the installation costs are typically quite low.  The installation cost is what is faced by the landlord.  The month-to-month cost is faced by the lessee.
+
+Figure \ref{fig:HeatFuel} shows the distribution of heating fuel by race and ethnicity.  It is very clear that Natural Gas is the most common fuel for hot water service but there are some differences based on race and ethnicity.  Excluding the less common self-identified Hispanic categories, native Americans and pacific islanders are more likely to have electric hot water service than non-Hispanic Caucasians and households with a head of household that identifies as multi-racial is less likely to have electric hot water service.  
+
+\begin{figure}[htbp]
+\begin{center}
+\caption{Water Service by Race and Ethnicity}
+\label{fig:WaterService}
 \includegraphics{DraftEdwardsWoods-007}
 \end{center}
 \end{figure}
 
+Again, electric hot water service is more common in extreme rural areas and rental housing.  Figure \ref{fig:HeatFuel} shows a similar figure for heating fuel.  Non-Hispanic African Americans and Native Americans are more likely to have electric heat than non-Hispanic Caucasians, while Asian and Pacific Islanders have a large, ``Not applicable'', response category.   Again, Hispanic Caucasians are more likely to have electricity as their heating fuel than non-Hispanic Caucasians.
 
-  \subsection{Race and Ethnicity Differences in Equipment and Structure}
-
-\begin{itemize}
-  \item differences in structure type x
-  \item difference in tenure x
-  \item differences in energy star controlling for own rent
-  \item general differences in own vs rent.  
-  \item explain with split incentives story
-  \item difference in age of structure x
-  \item differences in hot water fuel x
-  \item difference in heating fuel x
-    \item difference in climate/location x
-\end{itemize}
-  
-  
-
-
-  
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrr}
-  \hline
- & FALSE & TRUE \\ 
-  \hline
-FALSEWt & 7606 & 384 \\ 
-  FALSEAfAm & 1367 &  88 \\ 
-  FALSEAsian & 424 &  21 \\ 
-  FALSEMulti & 133 &  13 \\ 
-  FALSENativeAm &  68 &   5 \\ 
-  FALSEOther & 102 &   9 \\ 
-  FALSEPacific &  30 &   6 \\ 
-  TRUEAfAm &  31 &   3 \\ 
-  TRUEAsian &   4 &   2 \\ 
-  TRUEMulti &  19 &   2 \\ 
-  TRUENativeAm &  36 &   1 \\ 
-  TRUEOther &  88 &  11 \\ 
-  TRUEPacific &   4 &   0 \\ 
-  TRUEWt & 1330 & 118 \\ 
-   \hline
-\end{tabular}
-\caption{EnergyStar Wall AC by Race and Ethnicity} 
-\label{tab:EnergyStarWall}
-\end{table}
-
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrr}
-  \hline
- & Rural & Urban \\ 
-  \hline
-FALSEWt & 1937 & 6053 \\ 
-  FALSEAfAm & 192 & 1263 \\ 
-  FALSEAsian &  14 & 431 \\ 
-  FALSEMulti &  28 & 118 \\ 
-  FALSENativeAm &  25 &  48 \\ 
-  FALSEOther &  12 &  99 \\ 
-  FALSEPacific &   4 &  32 \\ 
-  TRUEAfAm &   6 &  28 \\ 
-  TRUEAsian &   0 &   6 \\ 
-  TRUEMulti &   1 &  20 \\ 
-  TRUENativeAm &   3 &  34 \\ 
-  TRUEOther &   5 &  94 \\ 
-  TRUEPacific &   2 &   2 \\ 
-  TRUEWt & 137 & 1311 \\ 
-   \hline
-\end{tabular}
-\caption{Race by Urban/Rural} 
-\label{tab:UrbRural}
-\end{table}
-
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrrr}
-  \hline
- & NG & LPG & Oil & Kerosene & Elec & Wood & Solar & Other \\ 
-  \hline
-FALSEWt & 4077 & 315 & 361 &   3 & 3190 &  11 &  12 &   7 \\ 
-  FALSEAfAm & 755 &  17 &  35 &   0 & 640 &   0 &   2 &   0 \\ 
-  FALSEAsian & 312 &   7 &  12 &   0 & 109 &   0 &   0 &   2 \\ 
-  FALSEMulti &  85 &   5 &   3 &   0 &  53 &   0 &   0 &   0 \\ 
-  FALSENativeAm &  34 &   2 &   1 &   0 &  36 &   0 &   0 &   0 \\ 
-  FALSEOther &  57 &   3 &   6 &   0 &  44 &   0 &   0 &   0 \\ 
-  FALSEPacific &  15 &   0 &   2 &   0 &  17 &   0 &   2 &   0 \\ 
-  TRUEAfAm &  20 &   0 &   1 &   0 &  13 &   0 &   0 &   0 \\ 
-  TRUEAsian &   5 &   0 &   0 &   0 &   1 &   0 &   0 &   0 \\ 
-  TRUEMulti &  12 &   0 &   1 &   0 &   8 &   0 &   0 &   0 \\ 
-  TRUENativeAm &  29 &   0 &   0 &   0 &   8 &   0 &   0 &   0 \\ 
-  TRUEOther &  62 &   1 &   5 &   0 &  30 &   0 &   0 &   0 \\ 
-  TRUEPacific &   1 &   1 &   0 &   0 &   2 &   0 &   0 &   0 \\ 
-  TRUEWt & 830 &  33 &  26 &   0 & 552 &   0 &   1 &   0 \\ 
-   \hline
-\end{tabular}
-\caption{Water Service by Race and Ethnicity} 
-\label{tab:Water}
-\end{table}
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrrrr}
-  \hline
- & NG & LPG & Oil & Kerosene & Elec & Wood & Solar & District & Other \\ 
-  \hline
-FALSEWt & 3987 & 400 & 642 &  40 & 2515 & 245 &   1 &  11 &  19 \\ 
-  FALSEAfAm & 674 &  29 &  60 &   6 & 640 &  10 &   0 &   5 &   0 \\ 
-  FALSEAsian & 249 &   1 &  21 &   0 & 122 &   1 &   0 &   2 &   0 \\ 
-  FALSEMulti &  80 &   6 &   7 &   0 &  41 &   7 &   0 &   0 &   1 \\ 
-  FALSENativeAm &  34 &   3 &   1 &   0 &  33 &   2 &   0 &   0 &   0 \\ 
-  FALSEOther &  59 &   1 &   9 &   0 &  36 &   3 &   0 &   0 &   0 \\ 
-  FALSEPacific &  16 &   0 &   2 &   0 &   5 &   1 &   0 &   0 &   0 \\ 
-  TRUEAfAm &  21 &   0 &   1 &   1 &   9 &   0 &   0 &   0 &   0 \\ 
-  TRUEAsian &   4 &   0 &   0 &   0 &   1 &   0 &   0 &   0 &   0 \\ 
-  TRUEMulti &  11 &   0 &   4 &   0 &   4 &   1 &   0 &   0 &   0 \\ 
-  TRUENativeAm &  26 &   1 &   2 &   0 &   7 &   0 &   0 &   0 &   0 \\ 
-  TRUEOther &  53 &   0 &   8 &   1 &  32 &   0 &   0 &   2 &   0 \\ 
-  TRUEPacific &   1 &   0 &   0 &   0 &   2 &   0 &   0 &   0 &   0 \\ 
-  TRUEWt & 604 &  25 &  51 &   2 & 540 &  18 &   0 &   3 &   1 \\ 
-   \hline
-\end{tabular}
-\caption{Heating Fuel by Race and Ethnicity} 
-\label{tab:HeatFuel}
-\end{table}
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:45 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrr}
-  \hline
- & VColdCold & HotDryMixedDry & HotHumid & MixedHumid & Marine \\ 
-  \hline
-FALSEWt & 3118 & 850 & 1216 & 2382 & 424 \\ 
-  FALSEAfAm & 299 & 131 & 383 & 611 &  31 \\ 
-  FALSEAsian &  95 & 128 &  60 &  77 &  85 \\ 
-  FALSEMulti &  51 &  27 &  13 &  40 &  15 \\ 
-  FALSENativeAm &  23 &  10 &   7 &  28 &   5 \\ 
-  FALSEOther &  29 &  16 &  24 &  37 &   5 \\ 
-  FALSEPacific &   4 &   6 &  13 &   4 &   9 \\ 
-  TRUEAfAm &  16 &   5 &   4 &   9 &   0 \\ 
-  TRUEAsian &   2 &   2 &   1 &   0 &   1 \\ 
-  TRUEMulti &  12 &   6 &   1 &   0 &   2 \\ 
-  TRUENativeAm &   9 &  14 &   1 &   8 &   5 \\ 
-  TRUEOther &  35 &  19 &  10 &  28 &   7 \\ 
-  TRUEPacific &   2 &   0 &   2 &   0 &   0 \\ 
-  TRUEWt & 237 & 481 & 406 & 237 &  87 \\ 
-   \hline
-\end{tabular}
-\caption{Climate by Race and Ethnicity} 
-\label{tab:Climate}
-\end{table}
-\begin{figure}
+\begin{figure}[htbp]
 \begin{center}
-\caption{Age of Structure by Rent/Own and Race/Ethnicity}
-\label{fig:AgebyOwnRace}
-\includegraphics{DraftEdwardsWoods-013}
+\caption{Heating Fuel by Race and Ethnicity}
+\label{fig:HeatFuel}
+\includegraphics{DraftEdwardsWoods-008}
 \end{center}
 \end{figure}
 
 
-\subsection{Differences in Reported Behavior}
-  
-  \begin{itemize}
-    \item Differences in thermostat settings
-    \item difference in cooking behavior x
-    \item difference in reported AC use
+Many of these different fuel choices can be partially explained by the locational choice made by the households.  Figure \ref{fig:HeatFuel} shows the climate type by race and ethnicity.  Non-Hispanic pacific islanders are more likely than non-Hispanic Caucasians to be in hot humid and marine environments and may explain the large number of not applicable responses for heating fuel.  Hispanic Caucasians are also more likely to live in hot dry/mixed dry or hot humid climes that the other groups.  While these climate types will still have some heating load, heating behavior and heating fuel is less likely to be a strong determinant of total electricity use.  Heating is just less an issue than cooling. 
 
-  \end{itemize}
-  
-  
-% latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:48 2015
-\begin{table}[ht]
-\centering
-\begin{tabular}{rrrrrrrr}
-  \hline
- & Never & ThreeDay & TwoDay & OneDay & FewWeek & OneWeek & LessWeek \\ 
-  \hline
-FALSEWt &  67 & 452 & 1814 & 3303 & 1825 & 254 & 275 \\ 
-  FALSEAfAm &  11 & 156 & 351 & 341 & 448 &  80 &  68 \\ 
-  FALSEAsian &   4 &  63 & 111 & 148 &  91 &  13 &  15 \\ 
-  FALSEMulti &   2 &  14 &  45 &  40 &  36 &   7 &   2 \\ 
-  FALSENativeAm &   0 &   7 &  22 &  27 &  11 &   3 &   3 \\ 
-  FALSEOther &   2 &  10 &  25 &  21 &  43 &   3 &   7 \\ 
-  FALSEPacific &   0 &   3 &   9 &  10 &  11 &   0 &   3 \\ 
-  TRUEAfAm &   1 &   4 &   7 &  13 &   9 &   0 &   0 \\ 
-  TRUEAsian &   0 &   0 &   1 &   3 &   2 &   0 &   0 \\ 
-  TRUEMulti &   0 &   2 &   1 &  11 &   5 &   2 &   0 \\ 
-  TRUENativeAm &   0 &   3 &  12 &  15 &   4 &   2 &   1 \\ 
-  TRUEOther &   0 &  20 &  28 &  31 &  14 &   3 &   3 \\ 
-  TRUEPacific &   0 &   3 &   0 &   1 &   0 &   0 &   0 \\ 
-  TRUEWt &  22 & 208 & 453 & 435 & 226 &  42 &  62 \\ 
-   \hline
-\end{tabular}
-\caption{Weekly Meals Cooked by Race and Ethnicity} 
-\label{tab:Cooking}
-\end{table}
+\begin{figure}[htbp]
+\begin{center}
+\caption{Climate Type by Race and Ethnicity}
+\label{fig:HeatFuel}
+\includegraphics{DraftEdwardsWoods-009}
+\end{center}
+\end{figure}
+
+There are also differences in the age of structure depending on both the race and ethnicity reported and if the household lives in an urban or rural area.  Figure \ref{fig:AgebyOwnRace} shows the distribution of the year the housing unit was built.  Columns indicate urban and rural households with the two left, $FALSE$, columns breaking out the non-Hispanic households and the right two, $TRUE$, showing the Hispanic households.  Rows are indicating the self-identified race.  There are several blank cells, where a smooth histogram is not possible because of the small number of observations.
+
+
+\begin{figure}[htbp]
+\begin{center}
+\caption{Age of Structure by Rent/Own and Race/Ethnicity}
+\label{fig:AgebyOwnRace}
+\includegraphics{DraftEdwardsWoods-010}
+\end{center}
+\end{figure}
+
+What should be most apparent is that rural housing tends to be newer than urban housing.  Urban households have a modal construction date in the 1980s while the rural areas are more likely to have a model construction date in the 2000s.
+
+These diagrams should lead one to the conclusion that important variables, such as location and fuel choice differ significantly across race and ethnicity and should not be treated, without great consideration, as exogenous.
+
+\subsection{Differences in Reported Behavior}
+%   
+%   \begin{itemize}
+%     \item Differnces in thermostat settings x
+%     \item difference in cooking behavior x
+%     \item difference in reported AC use
+% 
+%   \end{itemize}
+%   
+In spite of the evidence above that locational choice, tenure, and structure type decisions drive a great deal of energy use, there are still decisions, made after these choices that can be thought of as cultural differences.  Some of these may be regional preferences, for example the North East preference for higher winter indoor air temperatures, but there may be some true differences in behavior by race and ethnicity.
+
+Consider figure \ref{fig:Meals} which shows the number of meals cooked in the home by race and ethnicity.  Non-Hispanic Caucasian household report a strong mode of one meal cooked in the house per day.  Non-Hispanic African Americans have a mode of one meal per week and Hispanic Caucasians have a mode of two a day.  Many of these differences can be attributed to differences in income across groups, but functional kitchens are virtually universal.
+
+
+\begin{figure}
+\begin{center}
+\caption{Meals Cooked by Race and Ethnicity}
+\label{fig:Meals}
+\includegraphics{DraftEdwardsWoods-011}
+\end{center}
+\end{figure}
+
+
+The choice of thermostat setting is also made after the fact. The price of electricity, natural gas, square footage of the house, income, the presence of elderly residence can all have an effect on the choice of thermostat settings but these are all done after the equipment and location choices.  
+
+Figure \ref{fig:TempHomeRace} shows box and whisker plots with notches for self-reported daytime thermostat settings in winter when someone is home.  The boxes show the 25\%-75\% interquartile range.  The bold mark shows the median and the notches give a visual test of a difference in medians for the groups.  If the notches overlap, you can not reject the null hypotheses that the thermostat settings are the same.  Note that for some of the cells with few observations, Hispanic Asians, the notches are wider than the interquartile range.
+
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp and Race/Ethnicity (Winter)}
 \label{fig:TempHomeRace}
-\includegraphics{DraftEdwardsWoods-015}
+\includegraphics{DraftEdwardsWoods-012}
 \end{center}
 \end{figure}
 
-\begin{figure}
-\begin{center}
-\caption{Daytime Temp When Away and Race/Ethnicity (Winter)}
-\label{fig:DayAwayRace}
-\includegraphics{DraftEdwardsWoods-016}
-\end{center}
-\end{figure}
+The figure clearly shows that non-Hispanic African American households report a higher daytime winter thermostat setting than the other non-Hispanic groups.  This could be locational.  This could be cultural, but it is a behavioral difference that could make African American households more energy intensive in this end-use.
 
+The effects of this higher thermostat setting may be offset by less electricity use for plug loads or hot water service or by having smaller residences, but it represents a different preference.
 
-\begin{figure}
-\begin{center}
-\caption{Nighttime Temp and Race/Ethnicity (Winter)}
-\label{fig:NightRace}
-\includegraphics{DraftEdwardsWoods-017}
-\end{center}
-\end{figure}
-
-
+This difference in winter thermostat behavior follows through in summer thermostat preferences.  Figure \ref{fig:HomeRaceS} shows a summary for similar summer thermostat settings.  Note that non-Hispanic African Americans, Asian Americans and Native Americans all report lower summer thermostat settings than non-Hispanic and Hispanic Caucasian households.
 
 \begin{figure}
 \begin{center}
 \caption{Daytime Temp Home by Race/Ethnicity (Summer)}
 \label{fig:HomeRaceS}
-\includegraphics{DraftEdwardsWoods-018}
+\includegraphics{DraftEdwardsWoods-013}
 \end{center}
 \end{figure}
 
+*** TRANSITION TEXT NEEDED ***
 
-\begin{figure}
-\begin{center}
-\caption{Day Temp Away by Race/Ethnicity (Summer)}
-\label{fig:AwayRaceS}
-\includegraphics{DraftEdwardsWoods-019}
-\end{center}
-\end{figure}
+\subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
 
+Part of our hypothesis is that housing market discrimination is forcing some race and ethnicity groups into rental, older and poorer quality housing and that discrimination is leading to differences in electricity consumption that is currently being captured and interpreted as cultural differences.  Finding a state level index of housing market discrimination not easy.  While there are plenty of studies that show experimentally that housing market discrimination exists, an index that shows the extent of the discrimination is unavailable.
 
-\begin{figure}
-\begin{center}
-\caption{Nighttime Temp and Race/Ethnicity (Summer)}
-\label{fig:NightRaceS}
-\includegraphics{DraftEdwardsWoods-020}
-\end{center}
-\end{figure}
+Until we construct a better index we are using a simple measure of the number of discrimination complaints filed with the U.S. Department of Housing and Urban Development as reported in their annual fair housing report \cite{HUD}.  There are problems with using complaints as an index of discrimination.
+
+Complaints are only investigated if are reported to an agency that participates in the Federal Fair Housing Assistance program.  That program has a requirement that they enforce housing rights similar to the Fair Housing Act \cite[p. 17]{HUD}.  The data is accumulated in the Title Eight Automated Paperless Office Tracking System (TEAPOTS) system.  The majority of the complaints were because of disabilities but race is a close second in the number of complaints recorded \cite[p. 20]{HUD} with the most common violations being, ``Discriminatory Terms, Conditions, Privileges, Services, and Facilities in the Rental or Sale of Property''.
+
+We treat complaints as evidence that there is housing market discrimination but it could be thought of as a compound event.  A complaint has as a prerequisite, an agency that enforces laws similar to the Fair Housing Act and the belief that a complaint will be acted upon.  You can have a low number of complaints if there is no discrimination but also because no one believes that a complaint is effective.  Until we construct a better index, which includes local law, field experiments similar to ***CITE*** this is as close as we can get to a statewide measure of housing market discrimination.
   
-  \subsection{HUD Complaints as a Measure of Discrimination}\label{sec:WhyHUD}
+%   \begin{itemize}
+%     \item trouble finding a good statewide index of housing discrimination
+%     \item the HUD complaint measure
+%     \item may be endogenous and be indicative of reduced discrimination
+%   \end{itemize}
   
-  \begin{itemize}
-    \item trouble finding a good statewide index of housing discrimination
-    \item the HUD complaint measure
-    \item may be endogenous and be indicative of reduced discrimination
   
-  \end{itemize}
+Table \ref{tab:HUDComplaints} shows the number of HUD complaints per 100,000 population by state.  States are aggregated the same way that location is reported in the RECS data set.  This means that, for example, states in the North East, Vermont, Rhode Island, New Hampshire, Connecticut and Maine share the same 20.50 complaints per 100,000, the highest reported complaint rate.  Other nearby states have a much lower rate, e.g., Pennsylvania with only 1.87 complaints per 100,000 population.
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:49 2015
-\begin{table}[ht]
+% Tue Apr 07 17:47:00 2015
+\begin{table}[htbp]
 \centering
-\begin{tabular}{rllr}
-  \hline
- & State & Population & Reports (per 100,000) \\ 
-  \hline
-1 & Alabama & 4,677,464 & 7.50 \\ 
-  2 & Alaska & 688,125 & 13.01 \\ 
-  3 & Arizona & 6,499,377 & 3.68 \\ 
-  4 & Arkansas & 2,867,764 & 9.26 \\ 
-  5 & California & 36,580,371 & 3.03 \\ 
-  6 & Colorado & 4,935,213 & 1.97 \\ 
-  7 & Connecticut & 3,502,932 & 20.50 \\ 
-  8 & Delaware & 876,211 & 14.00 \\ 
-  9 & District of Columbia & 590,074 & 14.00 \\ 
-  10 & Florida & 18,423,878 & 3.93 \\ 
-  11 & Georgia & 9,697,838 & 2.06 \\ 
-  12 & Hawaii & 1,287,481 & 13.01 \\ 
-  13 & Idaho & 1,527,506 & 9.94 \\ 
-  14 & Illinois & 12,842,954 & 2.88 \\ 
-  15 & Indiana & 6,388,309 & 9.14 \\ 
-  16 & Iowa & 2,993,987 & 19.92 \\ 
-  17 & Kansas & 2,797,375 & 10.31 \\ 
-  18 & Kentucky & 4,287,931 & 7.50 \\ 
-  19 & Louisiana & 4,451,513 & 9.26 \\ 
-  20 & Maine & 1,319,691 & 20.50 \\ 
-  21 & Maryland & 5,658,655 & 14.00 \\ 
-  22 & Massachusetts & 6,543,595 & 4.51 \\ 
-  23 & Michigan & 10,002,486 & 4.97 \\ 
-  24 & Minnesota & 5,230,567 & 19.92 \\ 
-  25 & Mississippi & 2,940,212 & 7.50 \\ 
-  26 & Missouri & 5,956,335 & 4.99 \\ 
-  27 & Montana & 968,035 & 9.94 \\ 
-  28 & Nebraska & 1,781,949 & 10.31 \\ 
-  29 & Nevada & 2,615,772 & 5.08 \\ 
-  30 & New Hampshire & 1,321,872 & 20.50 \\ 
-  31 & New Jersey & 8,663,398 & 2.34 \\ 
-  32 & New Mexico & 1,986,763 & 5.08 \\ 
-  33 & New York & 19,467,789 & 4.60 \\ 
-  34 & North Carolina & 9,247,134 & 4.22 \\ 
-  35 & North Dakota & 641,421 & 19.92 \\ 
-  36 & Ohio & 11,528,072 & 9.14 \\ 
-  37 & Oklahoma & 3,644,025 & 9.26 \\ 
-  38 & Oregon & 3,782,991 & 13.01 \\ 
-  39 & Pennsylvania & 12,566,368 & 1.87 \\ 
-  40 & Rhode Island & 1,053,502 & 20.50 \\ 
-  41 & South Carolina & 4,503,280 & 4.22 \\ 
-  42 & South Dakota & 804,532 & 19.92 \\ 
-  43 & Tennessee & 6,240,456 & 2.61 \\ 
-  44 & Texas & 24,304,290 & 4.18 \\ 
-  45 & Utah & 2,727,343 & 9.94 \\ 
-  46 & Vermont & 621,049 & 20.50 \\ 
-  47 & Virginia & 7,795,424 & 2.03 \\ 
-  48 & Washington & 6,566,073 & 13.01 \\ 
-  49 & West Virginia & 1,814,873 & 14.00 \\ 
-  50 & Wisconsin & 5,627,610 & 1.81 \\ 
-  51 & Wyoming & 532,981 & 9.94 \\ 
-   \hline
-\end{tabular}
 \caption{HUD Complaints per 100,000 Population} 
 \label{tab:HUDComplaints}
+{\small
+\begin{tabular}{llr}
+  \hline
+State & Population & Reports (per 100,000) \\ 
+  \hline
+Alabama & 4,677,464 & 7.50 \\ 
+  Alaska & 688,125 & 13.01 \\ 
+  Arizona & 6,499,377 & 3.68 \\ 
+  Arkansas & 2,867,764 & 9.26 \\ 
+  California & 36,580,371 & 3.03 \\ 
+  Colorado & 4,935,213 & 1.97 \\ 
+  Connecticut & 3,502,932 & 20.50 \\ 
+  Delaware & 876,211 & 14.00 \\ 
+  District of Columbia & 590,074 & 14.00 \\ 
+  Florida & 18,423,878 & 3.93 \\ 
+  Georgia & 9,697,838 & 2.06 \\ 
+  Hawaii & 1,287,481 & 13.01 \\ 
+  Idaho & 1,527,506 & 9.94 \\ 
+  Illinois & 12,842,954 & 2.88 \\ 
+  Indiana & 6,388,309 & 9.14 \\ 
+  Iowa & 2,993,987 & 19.92 \\ 
+  Kansas & 2,797,375 & 10.31 \\ 
+  Kentucky & 4,287,931 & 7.50 \\ 
+  Louisiana & 4,451,513 & 9.26 \\ 
+  Maine & 1,319,691 & 20.50 \\ 
+  Maryland & 5,658,655 & 14.00 \\ 
+  Massachusetts & 6,543,595 & 4.51 \\ 
+  Michigan & 10,002,486 & 4.97 \\ 
+  Minnesota & 5,230,567 & 19.92 \\ 
+  Mississippi & 2,940,212 & 7.50 \\ 
+  Missouri & 5,956,335 & 4.99 \\ 
+  Montana & 968,035 & 9.94 \\ 
+  Nebraska & 1,781,949 & 10.31 \\ 
+  Nevada & 2,615,772 & 5.08 \\ 
+  New Hampshire & 1,321,872 & 20.50 \\ 
+  New Jersey & 8,663,398 & 2.34 \\ 
+  New Mexico & 1,986,763 & 5.08 \\ 
+  New York & 19,467,789 & 4.60 \\ 
+  North Carolina & 9,247,134 & 4.22 \\ 
+  North Dakota & 641,421 & 19.92 \\ 
+  Ohio & 11,528,072 & 9.14 \\ 
+  Oklahoma & 3,644,025 & 9.26 \\ 
+  Oregon & 3,782,991 & 13.01 \\ 
+  Pennsylvania & 12,566,368 & 1.87 \\ 
+  Rhode Island & 1,053,502 & 20.50 \\ 
+  South Carolina & 4,503,280 & 4.22 \\ 
+  South Dakota & 804,532 & 19.92 \\ 
+  Tennessee & 6,240,456 & 2.61 \\ 
+  Texas & 24,304,290 & 4.18 \\ 
+  Utah & 2,727,343 & 9.94 \\ 
+  Vermont & 621,049 & 20.50 \\ 
+  Virginia & 7,795,424 & 2.03 \\ 
+  Washington & 6,566,073 & 13.01 \\ 
+  West Virginia & 1,814,873 & 14.00 \\ 
+  Wisconsin & 5,627,610 & 1.81 \\ 
+  Wyoming & 532,981 & 9.94 \\ 
+   \hline
+\end{tabular}
+}
 \end{table}
-\section{Conditional Demand Estimation}
+The fact that some states with a historical reputation for discrimination on the basis of race, Georgia and Illinois for example, have a very low complaint rate.  This highlights some of the difficulty in using HUD complaints as a measure of housing market discrimination.
 
-  \subsection{Orthodox Results}
-  
-  \begin{itemize}
-    \item Emphasize that we are making better use of race and ethnicity as a control with income than is common.
-    \item We are not using the same estimation method as in RECS estimates of end use.  Our model is much simpler and does not use engineering estimates or significant non-linearity.
-    \item Major end-uses are included but relatively unsophisticated.
-    \item discuss the orthodox results.
-  \end{itemize}
-  
-  
+\section{Conditional Demand Estimation}
   
 Modern conditional demand models of the kind commonly created as part of the process of data collection of large residential appliance and use surveys such as RECS, include a mix of engineering estimates, survey responses and analyst best estimates to produce energy end-use estimates.  For example, survey respondents will give an age range on the furnace they have installed, the square footage of the residence, and some indication of heating set points.  The analyst will assign a likely efficiency for the furnace based on the average of the age ranges and then estimate hours used based on set points, weather, and the reported thermostat settings.  This produces estimates that are closer to a Statistically Adjusted Engineering (SAE) model than what is normally regarded as a conditional demand model outside of the energy community.
 
@@ -508,15 +369,11 @@ Our model is based more on the traditional conditional demand models, and includ
 
 
 Model: Multinomial logit
-<<<<<<< HEAD
- old info  
-=======
 
 As a point of clarity, surveys with questions not filled in were coded with 97, to differentiate between responses that were left blank and those where the value coded was not applicable.  For the purpose of this paper 97s were recoded to not and were dropped from the analysis.  
 
->>>>>>> e6d97aa014adc48c0054c0608b702df1d6ec3cba
-The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
-The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
+% The multinomial logit is first ran with owndwel as the dependent variable and the independent variables as follows: income, educ, race5, age_1, age_2.  The base chosen was that of house renters, represented here as the first category (see appendix).  Here, race5 represents whether the head of the household is white.  Running the multinomial logit with all raises included as independent variables proved problematic, and largely insignificant.  Ages of children were left separate in an attempt to model the difference between households with children of all ages and those with only young children.  Having only young children may represent households in starter homes who are not necessarily well established.  As well households with children over the age of eighteen are essentially ignored and treated as adults.  Another iteration of the model is also down removing the children variables and instead using resident count.
+% The pseudo r-squared for the first model specified is 0.0912, which low it is important to bear in mind the problematic nature of interpreting pseudo r-squared values.  
 
 Results:
 
@@ -528,7 +385,7 @@ The education variable is estimated, and is found to be statistically insignific
 
 Race, the dummy for being white, is statistically significant everywhere except in the rental of apartments in large small complexes.  Note that for mobile homes the dummy for race takes on a value of approximately 1 and 1.57 for renters and owners respectively.  This would suggest, while not realistic probabilities, that overwhelmingly whites have a higher probability of choosing mobile homes in comparison to non-self-reporting whites.  Notably, no results of interest were found regarding the stereotype of Native-Americans dwelling in mobile homes within the data.  Also race in this case appears to be linked to ownership of homes in each of the categories, within the bootstrapped version of the model it is statistically significant in each of the ownership owndwel categories.  
 
-Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
+% Age of children was found to be statistically significant in both variables largely.  The exceptions to the significance are in age_1, children under five for both large and small apartment complexes where households rent as well as the rental of mobile homes.  It is important to note that in each category the value of age_1 and age_2 coefficients is negative, which adds very little to our interpretations of the model.  Further, when we replace the children variables with that of resident count in the model we obtain a similar result where all coefficients are negative, and all statistically significant, in comparison to our base of house rental. 
 
 When the model as specified first, is ran using a multinomial logit vce bootstrapping the results are slightly different with regards to children.  Now, while in places not statistically significant (see appendix) there does appear to be a trend towards the results are the same.  Further examination is needed.
 
@@ -540,8 +397,10 @@ The parameter estimates of the full model can be found in appendix
 .
   
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:50 2015
+% Tue Apr 07 17:47:01 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox kWh Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -581,9 +440,9 @@ Income & 0.0086 & 0.0016 & 5.3662 & 0.0000 \\
   StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.8365 & 0.0046 \\ 
    \hline
 \hline
-\caption{Orthodox kWh Model} 
 \label{tab:OrthoKWHLimited}
 \end{longtable}
+}
 The top parameter, Income, shows the estimate for annual kWh per dollar of income for a household headed by a non-Hispanic Caucasian.  The remaining income related variables show the deviations from this case for Hispanic headed households, labeled TRUE in the table, and by the other self reported races.  Note that in all cases, with the exception of non-Hispanic Native Americans, the parameter estimates show less electricity used than non-Hispanic Caucasian households.  Only a few of these differences are statistically significant, non-Hispanic Asian and multi-ethnic households, as well as Hispanic Caucasian households and households that reported some other race.
 
 The remaining items shown in the table show the electricity use per square foot for each of the structure types, e.g., Single Family Detached, and tenure, i.e., Rent or Own, per annual heating and cooling degree days.  Aside from the negative and significant estimate for the heating load in large Rented apartments, the results are unremarkable. 
@@ -605,6 +464,8 @@ shows only the discrimination related results for our model of square footage.  
 
 The key discrimination variable, reporttot, is the count of complaints received by HUD per 100,000 people in the state where the household is located. We interacted this variable with race and ethnicity to allow for different effects  groups but we do not allow the discrimination to vary by state. Note that the effects of HUD reports on square footage are rarely significant, only strongly significant for Hispanic Caucasian households.  In this case incidences of HUD complaints per 100,000 of state population results in a reduction in the square footage for Caucasian Hispanics by 22.73 square feet.
 
+This model is in general not very good at explaining square footage; the adjusted $R^2$ is only $.3897$.  This weakness will plague us later when we jointly estimate this model with structure type, tenure and electricity use, but illustrates one of the ways we can endogenize the choices that lead to electricity consumption.
+
 
 % \begin{itemize}
 %   \item explain the logic behind the making both sqft and structure tenure endogenous.
@@ -615,12 +476,12 @@ The key discrimination variable, reporttot, is the count of complaints received 
 
 While the impact of housing market discrimination has some effect on the size of residences, the effects on the ownership and structure type decision is expected to be more dramatic.  Housing market discrimination can be expected to push some people away from owned property and into the rental market, which is rife with split incentives for conservation and energy efficiency investments.  
 
-Discrimination can also be a force pushing some households into structure types, where even when owned, that have significant split incentives for energy efficiency investments.  Take, for example, small and large apartment buildings.  While the householder may have control over some appliances, the building shell and some of the heating and cooling equipment decisions are made by others.  
+Discrimination can also push some households into structure types, where even when owned, that have significant split incentives for energy efficiency investments.  Take, for example, small and large apartment buildings.  While the householder may have control over some appliances, the building shell and some of the heating and cooling equipment decisions are made by others.  
 
-Our model of structure type and tenure includes categories for both owned and rented: Large Apartments, Small Apartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household receives rental assistance, Income, number of people in the household, education level of the head of household, the HUD reports per 100,000 in that state and whether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
+Our model of structure type and tenure includes categories for both owned and rented: Large Apartments, Small Apartments, Mobile Homes, Single Family Detached, and Single Family Attached.  We explain the joint tenure and structure type with: the square footage of the structure, if the household receives rental assistance, income, number of people in the household, education level of the head of household, the HUD reports per 100,000 in that state and whether the household is in a rural or urban location.  As in the square footage model, HUD reports are interacted with the race and ethnicity variables to allow for separate discrimination effects for each.
 
 
-All parameter estimates for the models are statistically significant at the 1\% level and are displayed in appendix 
+All parameter estimates for the models are statistically significant at the 1\% level, with the exception of the income variable which is highly correlated with the education variables, and are displayed in appendix. 
 % \ref{OrthResults}. 
 
 
@@ -650,11 +511,11 @@ shows the reaction to HUD complaints over the 1 to 21 complaint range.
 
 The single equation results discussed in section \ref{sec:SingleEq} show strong promise for endogenizing some of the decisions made about structure and equipment within the conditional demand model as well as the potential importance of housing market discrimination in structure choice.  In this section we treat square footage, tenure and structure type as endogenous and estimate estimate the electricity, structure/tenure, and square footage model as a system.
 
-It is unclear how this can be accomplished in a full information, so we chose a two-state least squares technique estimating first the square footage model, then using forecasted values to estimate tenure and structure type model.  Forecasts from that model were used to resestimate and produce a new round of forecasts for the square footage model.  Both the forecasts of the structure tenure model and square footage model were then used to estimate the conditional demand model.
+It is unclear how this can be accomplished in a full information, so we chose a two-stage least squares technique, estimating first the square footage model, then using forecasted values to estimate tenure and structure type model.  Forecasts from that model were used to resestimate and produce a new round of forecasts for the square footage model.  Both the forecasts of the structure tenure model and square footage model were then used to estimate the conditional demand model.
 
 This should produce consistent results but the variance of the parameter estimates are biased.  It is unclear how to make the usual corrections to the variance of the parameter estimates given that the structure and tenure model is estimated as a multinomial logit.  The best alternative is to bootstrap the system.  There are a few caveats.
 
-First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare endogenouse cells, rented mobile homes being the most restricted, and exogenous variables, e.g., Hispanic Pacific Islanders.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
+First, the bootstrap sampling is stratified so that all parameter estimates in all models can be estimated.  This is particularly important in the structure and tenure model.  We had to ensure enough observations of the rare endogenous cells, rented mobile homes being the most restricted, and exogenous variables, e.g., Hispanic Pacific Islanders.  This was accomplished by simple rejection sampling rather than assigning different probabilities of selection to each of the cells.
 
 Second, we did not censor non-positive square footage forecasts.  The square footage model is weaker than expected and it was quite possible to have negative forecasts.  Alternative models, such as Tobit, would not be effective, but we are considering transformations of square footage as we move forward.  
 
@@ -670,109 +531,78 @@ Finally, only 400 bootstrap replicates were evaluated.  This is usually enough t
 
 
 
+The full set of parameter estimates for the electricity model can be found in the appendix.  We will focus on a subset of the parameter estimates, focusing on the effects of race and ethnicity separately and the effects of the other endogenous variables, structure and tenure and square footage.
+
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:51 2015
+% Tue Apr 07 17:47:02 2015
+{\small
 \begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model: Race and Ethnicity} \\ 
   \hline
  & Estimate & Std. Error & t value & Sig \\ 
   \hline
-(Intercept) & -637.3566 & 1754.7664 & -0.3632 &   \\ 
-  ElecMealsThreeDay & 1265.5101 & 447.0979 & 2.8305 & * \\ 
-  ElecMealsTwoDay & 1548.2300 & 199.6619 & 7.7543 & *** \\ 
-  ElecMealsOneDay & 1607.3686 & 186.4168 & 8.6224 & *** \\ 
-  ElecMealsFewWeek & 1371.7940 & 201.0134 & 6.8244 & *** \\ 
-  ElecMealsOneWeek & 1613.9994 & 446.8554 & 3.6119 & ** \\ 
-  ElecMealsLessWeek & 1078.7643 & 420.7528 & 2.5639 & . \\ 
-  NUMFRIG & 2043.1588 & 162.1146 & 12.6032 & *** \\ 
-  AgeFridge2to4Years & -37.2321 & 219.9343 & -0.1693 &   \\ 
-  AgeFridge5to9Years & 189.4846 & 206.9121 & 0.9158 &   \\ 
-  AgeFridge20PlusYears & 289.0881 & 442.9034 & 0.6527 &   \\ 
-  AgeFridge10to14Years & 390.5240 & 258.1351 & 1.5129 &   \\ 
-  AgeFridge15to19Years & -109.7635 & 303.2599 & -0.3619 &   \\ 
-  NUMPC & 431.9238 & 75.4693 & 5.7232 & *** \\ 
-  TIMEON1OneTo3Hrs & 9.2777 & 182.6120 & 0.0508 &   \\ 
-  TIMEON1ThreeTo6Hrs & 35.3052 & 208.4801 & 0.1693 &   \\ 
-  TIMEON1SixTo10Hrs & 258.4370 & 294.7298 & 0.8769 &   \\ 
-  TIMEON1Gr10 & 929.5422 & 268.3058 & 3.4645 & ** \\ 
-  WELLPUMPTRUE & 1182.7020 & 300.5331 & 3.9353 & ** \\ 
-  ElecWaterSmall & 4283.1501 & 307.1885 & 13.9431 & *** \\ 
-  ElecWaterMed & 4381.2889 & 201.2909 & 21.7660 & *** \\ 
-  ElecWaterLrg & 5695.3238 & 300.4903 & 18.9534 & *** \\ 
-  ElecWaterTankless & 3171.8175 & 981.4629 & 3.2317 & * \\ 
-  SWIMPOOLTRUE & 3603.9817 & 373.1464 & 9.6584 & *** \\ 
-  ElecPoolTRUE & 5374.6889 & 1639.6680 & 3.2779 & * \\ 
-  RECBATHTRUE & 1865.3790 & 679.7961 & 2.7440 & * \\ 
-  ElecTubTRUE & 285.6194 & 837.6762 & 0.3410 &   \\ 
-  NHSLDMEM & 729.8552 & 122.3334 & 5.9661 & *** \\ 
-  Income & -0.0041 & 0.0051 & -0.8119 &   \\ 
-  TVONWD1LessHour:TVTYPE1Standard & -2947.9784 & 1670.0620 & -1.7652 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Standard & -2737.2962 & 1647.3265 & -1.6617 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -2247.1394 & 1644.9601 & -1.3661 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1636.5569 & 1631.4463 & -1.0031 &   \\ 
-  TVONWD1Gr10:TVTYPE1Standard & -1264.7108 & 1695.0911 & -0.7461 &   \\ 
-  TVONWD1LessHour:TVTYPE1LCD & -2621.5762 & 1669.7693 & -1.5700 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LCD & -1954.0084 & 1665.3302 & -1.1733 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1610.0720 & 1655.8743 & -0.9723 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LCD & -1408.2089 & 1669.2281 & -0.8436 &   \\ 
-  TVONWD1Gr10:TVTYPE1LCD & -203.9791 & 1659.1510 & -0.1229 &   \\ 
-  TVONWD1LessHour:TVTYPE1Plasma & -676.0979 & 2140.4093 & -0.3159 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -1233.2818 & 1733.7213 & -0.7113 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -1844.3686 & 1686.0443 & -1.0939 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -879.7077 & 1721.9584 & -0.5109 &   \\ 
-  TVONWD1Gr10:TVTYPE1Plasma & 554.6818 & 1802.5056 & 0.3077 &   \\ 
-  TVONWD1LessHour:TVTYPE1Projection & -904.5303 & 1882.4580 & -0.4805 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1684.0750 & 1658.0657 & -1.0157 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -1765.5157 & 1690.0189 & -1.0447 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1Projection & -439.8397 & 1733.8849 & -0.2537 &   \\ 
-  TVONWD1Gr10:TVTYPE1Projection & 1590.1129 & 1862.2353 & 0.8539 &   \\ 
-  TVONWD1LessHour:TVTYPE1LED & -5170.4567 & 2364.0640 & -2.1871 &   \\ 
-  TVONWD1OneTo3Hrs:TVTYPE1LED & -1215.2448 & 1872.4922 & -0.6490 &   \\ 
-  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -1562.8906 & 1770.5880 & -0.8827 &   \\ 
-  TVONWD1SixTo10Hrs:TVTYPE1LED & -3383.2738 & 2128.9419 & -1.5892 &   \\ 
-  TVONWD1Gr10:TVTYPE1LED &  &  &  &  \\ 
-  PSQFT:TYPEGLASSSinglePane & 1.1013 & 0.3369 & 3.2685 & * \\ 
-  PSQFT:TYPEGLASSDoublePane & 1.2790 & 0.3266 & 3.9161 & ** \\ 
-  PSQFT:TYPEGLASSTriplePane & 1.6324 & 0.3966 & 4.1163 & *** \\ 
-  Income:EthRaceFALSEAfAm & -0.0015 & 0.0038 & -0.3974 &   \\ 
-  Income:EthRaceFALSEAsian & -0.0218 & 0.0047 & -4.5984 & *** \\ 
-  Income:EthRaceFALSEMulti & -0.0143 & 0.0071 & -2.0102 &   \\ 
-  Income:EthRaceFALSENativeAm & 0.0075 & 0.0244 & 0.3065 &   \\ 
-  Income:EthRaceFALSEOther & -0.0180 & 0.0088 & -2.0539 &   \\ 
-  Income:EthRaceFALSEPacific & -0.0160 & 0.0244 & -0.6564 &   \\ 
-  Income:EthRaceTRUEAfAm & -0.0096 & 0.0158 & -0.6088 &   \\ 
-  Income:EthRaceTRUEAsian & -0.0339 & 0.0446 & -0.7606 &   \\ 
-  Income:EthRaceTRUEMulti & -0.0376 & 0.0224 & -1.6760 &   \\ 
-  Income:EthRaceTRUENativeAm & -0.0133 & 0.0123 & -1.0784 &   \\ 
-  Income:EthRaceTRUEOther & -0.0338 & 0.0094 & -3.5969 & ** \\ 
-  Income:EthRaceTRUEPacific & 0.0266 & 0.4360 & 0.0609 &   \\ 
-  Income:EthRaceTRUEWt & -0.0211 & 0.0045 & -4.6937 & *** \\ 
-  PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.1986 & *** \\ 
-  PSQFT:HDD65:OwnLgApartment & -0.0002 & 0.0003 & -0.6559 &   \\ 
-  PSQFT:HDD65:OwnMobile & 0.0014 & 0.0005 & 2.9064 & * \\ 
-  PSQFT:HDD65:OwnSFAttached & -0.0003 & 0.0005 & -0.5888 &   \\ 
-  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0008 & 0.0627 &   \\ 
-  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0002 & -0.4282 &   \\ 
-  PSQFT:HDD65:RentMobile & 0.0000 & 0.0012 & 0.0271 &   \\ 
-  PSQFT:HDD65:RentSFAttached & -0.0005 & 0.0007 & -0.7073 &   \\ 
-  PSQFT:HDD65:RentSFDetached & 0.0002 & 0.0004 & 0.5372 &   \\ 
-  PSQFT:HDD65:RentSmApartment & 0.0004 & 0.0004 & 0.8865 &   \\ 
-  PSQFT:OwnSFDetached:CDD65 & 0.0008 & 0.0001 & 11.2647 & *** \\ 
-  PSQFT:OwnLgApartment:CDD65 & -0.0037 & 0.0014 & -2.6051 & . \\ 
-  PSQFT:OwnMobile:CDD65 & 0.0028 & 0.0015 & 1.8577 &   \\ 
-  PSQFT:OwnSFAttached:CDD65 & -0.0010 & 0.0019 & -0.5166 &   \\ 
-  PSQFT:OwnSmApartment:CDD65 & -0.0045 & 0.0031 & -1.4527 &   \\ 
-  PSQFT:RentLgApartment:CDD65 & 0.0021 & 0.0007 & 3.0796 & * \\ 
-  PSQFT:RentMobile:CDD65 & 0.0024 & 0.0039 & 0.6158 &   \\ 
-  PSQFT:RentSFAttached:CDD65 & 0.0056 & 0.0041 & 1.3650 &   \\ 
-  PSQFT:RentSFDetached:CDD65 & 0.0012 & 0.0013 & 0.8861 &   \\ 
-  PSQFT:RentSmApartment:CDD65 & -0.0002 & 0.0014 & -0.1819 &   \\ 
+Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\ 
+  Income:EthRaceFALSEAsian & -0.0230 & 0.0035 & -6.4831 & *** \\ 
+  Income:EthRaceFALSEMulti & -0.0157 & 0.0057 & -2.7584 & * \\ 
+  Income:EthRaceFALSENativeAm & 0.0092 & 0.0211 & 0.4382 &   \\ 
+  Income:EthRaceFALSEOther & -0.0237 & 0.0082 & -2.9038 & * \\ 
+  Income:EthRaceFALSEPacific & -0.0129 & 0.0230 & -0.5625 &   \\ 
+  Income:EthRaceTRUEAfAm & -0.0173 & 0.0139 & -1.2454 &   \\ 
+  Income:EthRaceTRUEAsian & -0.0375 & 0.0101 & -3.7155 & ** \\ 
+  Income:EthRaceTRUEMulti & -0.0331 & 0.0192 & -1.7208 &   \\ 
+  Income:EthRaceTRUENativeAm & -0.0163 & 0.0107 & -1.5276 &   \\ 
+  Income:EthRaceTRUEOther & -0.0274 & 0.0080 & -3.4318 & ** \\ 
+  Income:EthRaceTRUEPacific & -0.0240 & 0.0659 & -0.3647 &   \\ 
+  Income:EthRaceTRUEWt & -0.0185 & 0.0033 & -5.5782 & *** \\ 
    \hline
 \hline
-\caption{System Estimation of kWh Model} 
-\label{tab:SystemKWH}
+\label{tab:SystemKWHEthnicity}
 \end{longtable}
+}
+Table 
+% \ref{tab:SystemKWHEthnicity}
+shows similarities with the results from the orthodox electricity model.  Non-Hispanic Asians, and Hispanic Caucasians and Hispanic heads of households that identify as some other race all show lower electricity use per dollar of income.   This is consistent in sign with the parameter estimates in table 
+% \ref{tab:ParOrthKWH}
+, but the statistically significant deviations from non-Hispanic Caucasians for non Hispanic multi-ethnic heads of household has vanished.  The scale of the significant parameter estimates are also roughly the same magnitude but attenuated towards zero.
 
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Tue Apr 07 17:47:02 2015
+{\small
+\begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model: Square Footage} \\ 
+  \hline
+ & Estimate & Std. Error & t value & Sig \\ 
+  \hline
+PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\ 
+  PSQFT:HDD65:OwnLgApartment & 0.0000 & 0.0001 & 0.8450 &   \\ 
+  PSQFT:HDD65:OwnMobile & 0.0004 & 0.0001 & 4.6205 & *** \\ 
+  PSQFT:HDD65:OwnSFAttached & 0.0000 & 0.0000 & 1.3603 &   \\ 
+  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0000 & 1.1709 &   \\ 
+  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0000 & -1.3292 &   \\ 
+  PSQFT:HDD65:RentMobile & 0.0005 & 0.0003 & 2.0238 &   \\ 
+  PSQFT:HDD65:RentSFAttached & 0.0001 & 0.0001 & 1.0923 &   \\ 
+  PSQFT:HDD65:RentSFDetached & 0.0001 & 0.0000 & 1.7233 &   \\ 
+  PSQFT:HDD65:RentSmApartment & -0.0000 & 0.0000 & -0.2465 &   \\ 
+  PSQFT:OwnSFDetached:CDD65 & 0.0007 & 0.0000 & 16.3870 & *** \\ 
+  PSQFT:OwnLgApartment:CDD65 & 0.0000 & 0.0002 & 0.2207 &   \\ 
+  PSQFT:OwnMobile:CDD65 & 0.0011 & 0.0002 & 6.7660 & *** \\ 
+  PSQFT:OwnSFAttached:CDD65 & 0.0005 & 0.0001 & 5.3085 & *** \\ 
+  PSQFT:OwnSmApartment:CDD65 & 0.0003 & 0.0002 & 1.8671 &   \\ 
+  PSQFT:RentLgApartment:CDD65 & 0.0003 & 0.0001 & 2.5551 & . \\ 
+  PSQFT:RentMobile:CDD65 & 0.0020 & 0.0009 & 2.2066 &   \\ 
+  PSQFT:RentSFAttached:CDD65 & 0.0009 & 0.0002 & 4.9470 & *** \\ 
+  PSQFT:RentSFDetached:CDD65 & 0.0008 & 0.0001 & 8.8123 & *** \\ 
+  PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
+   \hline
+\hline
+\label{tab:SystemKWHSQFT}
+\end{longtable}
+}
+Table 
+% \ref{tab:SystemKWHSQFT}
+shows the relationship between heating and cooling degree days per square foot on electricity use for each of the tenure and structure type combinations.  These results are particularly troublesome because heating and cooling degree days, in conjunction with square footage, are one of the most reliable explanatory variables for electricity use.  Space heating and cooling are two major end-uses in most households.  The parameter estimates show that these reliable explanatory variables are only significant in a few rare cases.  There is a strong relationship heating and cooling degree days for owned single family detached structures, but only rented mobile homes show statistically significant reactions to heating loads and only large apartments, owned or rented, for cooling loads.
 
+This is very strong evidence that our square footage choice model needs improvement if it will be used as part of this electricity consumption system. 
 
 \section{Summary and Conclusions}
 
@@ -786,18 +616,20 @@ The model would likely benefit by an expansion of the explanatory variables in a
 As well, the location of a structure type to needs such as: employment, school districts, entertainment, and public services etc., may play a role in choice of homes.  This last point is not considered within the scope of the model.  
 
 
-
+\cite{boot}
 \nocite{*}
 \bibliographystyle{plain} 
 \bibliography{FullBib}
 
-% \appendix
-\section{Orthodox Results}\label{OrthResults}
+\appendix
+\section{Full Regression Results}\label{OrthResults}
 
 
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:51 2015
+% Tue Apr 07 17:47:02 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox kWh Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -892,15 +724,14 @@ As well, the location of a structure type to needs such as: employment, school d
   StrTenureRentSmApartment:TOTSQFT\_EN:CDD65 & 0.0005 & 0.0002 & 2.84 & 0.0046 \\ 
    \hline
 \hline
-\caption{Orthodox kWh Model} 
 \label{tab:OrthoKWHFull}
 \end{longtable}
-
-
-
+}
 % latex table generated in R 3.1.3 by xtable 1.7-4 package
-% Tue Apr 07 16:39:51 2015
+% Tue Apr 07 17:47:02 2015
+{\small
 \begin{longtable}{rrrrr}
+\caption{Orthodox Square Foot Model} \\ 
   \hline
  & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
   \hline
@@ -941,8 +772,112 @@ As well, the location of a structure type to needs such as: employment, school d
   reporttot:EthRaceTRUEWt & -22.7295 & 5.5102 & -4.12 & 0.0000 \\ 
    \hline
 \hline
-\caption{Orthodox Square Foot Model} 
 \label{tab:OrthoSQFT}
 \end{longtable}
+}
 
+\subsection{System Estimation Results}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Tue Apr 07 17:47:02 2015
+{\small
+\begin{longtable}{rrrrl}
+\caption{System Estimation of kWh Model} \\ 
+  \hline
+ & Estimate & Std. Error & t value & Sig \\ 
+  \hline
+(Intercept) & -547.7160 & 1505.7185 & -0.3638 &   \\ 
+  ElecMealsThreeDay & 1375.6512 & 440.4367 & 3.1234 & * \\ 
+  ElecMealsTwoDay & 1600.5524 & 212.9011 & 7.5178 & *** \\ 
+  ElecMealsOneDay & 1686.5705 & 175.7809 & 9.5947 & *** \\ 
+  ElecMealsFewWeek & 1470.9015 & 204.6759 & 7.1865 & *** \\ 
+  ElecMealsOneWeek & 1702.6234 & 412.2076 & 4.1305 & *** \\ 
+  ElecMealsLessWeek & 1040.6175 & 383.9259 & 2.7105 & * \\ 
+  NUMFRIG & 2041.4460 & 167.4981 & 12.1879 & *** \\ 
+  AgeFridge2to4Years & 2.9750 & 216.7455 & 0.0137 &   \\ 
+  AgeFridge5to9Years & 193.7201 & 211.8752 & 0.9143 &   \\ 
+  AgeFridge20PlusYears & 248.7269 & 479.4517 & 0.5188 &   \\ 
+  AgeFridge10to14Years & 358.7208 & 241.2085 & 1.4872 &   \\ 
+  AgeFridge15to19Years & -117.8308 & 320.5402 & -0.3676 &   \\ 
+  NUMPC & 418.1593 & 72.6452 & 5.7562 & *** \\ 
+  TIMEON1OneTo3Hrs & -69.0487 & 183.3079 & -0.3767 &   \\ 
+  TIMEON1ThreeTo6Hrs & -13.1604 & 200.3356 & -0.0657 &   \\ 
+  TIMEON1SixTo10Hrs & 233.6172 & 289.5477 & 0.8068 &   \\ 
+  TIMEON1Gr10 & 889.8391 & 292.0892 & 3.0465 & * \\ 
+  WELLPUMPTRUE & 1411.7137 & 279.3720 & 5.0532 & *** \\ 
+  ElecWaterSmall & 4275.4234 & 278.7125 & 15.3399 & *** \\ 
+  ElecWaterMed & 4404.4543 & 180.8300 & 24.3569 & *** \\ 
+  ElecWaterLrg & 5779.6329 & 300.7620 & 19.2166 & *** \\ 
+  ElecWaterTankless & 3020.2905 & 995.0797 & 3.0352 & * \\ 
+  SWIMPOOLTRUE & 3627.7895 & 364.5886 & 9.9504 & *** \\ 
+  ElecPoolTRUE & 5201.5011 & 1709.7956 & 3.0422 & * \\ 
+  RECBATHTRUE & 1882.7243 & 691.6599 & 2.7220 & * \\ 
+  ElecTubTRUE & 310.9469 & 794.7220 & 0.3913 &   \\ 
+  NHSLDMEM & 1014.0356 & 56.8306 & 17.8431 & *** \\ 
+  Income & -0.0021 & 0.0032 & -0.6434 &   \\ 
+  TVONWD1LessHour:TVTYPE1Standard & -2571.5913 & 1483.2943 & -1.7337 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Standard & -2304.5338 & 1463.4167 & -1.5748 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Standard & -1804.8250 & 1469.5580 & -1.2281 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Standard & -1136.4160 & 1452.3312 & -0.7825 &   \\ 
+  TVONWD1Gr10:TVTYPE1Standard & -739.2962 & 1482.9861 & -0.4985 &   \\ 
+  TVONWD1LessHour:TVTYPE1LCD & -2139.9144 & 1487.6184 & -1.4385 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LCD & -1526.1157 & 1472.2723 & -1.0366 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LCD & -1183.2819 & 1456.8798 & -0.8122 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LCD & -944.2670 & 1440.7984 & -0.6554 &   \\ 
+  TVONWD1Gr10:TVTYPE1LCD & 211.0419 & 1479.7559 & 0.1426 &   \\ 
+  TVONWD1LessHour:TVTYPE1Plasma & -387.6774 & 1879.4130 & -0.2063 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Plasma & -766.5487 & 1583.4746 & -0.4841 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Plasma & -1352.4175 & 1499.5147 & -0.9019 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Plasma & -402.8629 & 1514.6445 & -0.2660 &   \\ 
+  TVONWD1Gr10:TVTYPE1Plasma & 889.3760 & 1569.4195 & 0.5667 &   \\ 
+  TVONWD1LessHour:TVTYPE1Projection & -699.8204 & 1637.1732 & -0.4275 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1Projection & -1218.5567 & 1534.0730 & -0.7943 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1Projection & -1319.9761 & 1490.3811 & -0.8857 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1Projection & -52.4928 & 1558.1229 & -0.0337 &   \\ 
+  TVONWD1Gr10:TVTYPE1Projection & 2109.5856 & 1775.7924 & 1.1880 &   \\ 
+  TVONWD1LessHour:TVTYPE1LED & -4069.8485 & 2205.6129 & -1.8452 &   \\ 
+  TVONWD1OneTo3Hrs:TVTYPE1LED & -1017.3486 & 1706.4396 & -0.5962 &   \\ 
+  TVONWD1ThreeTo6Hrs:TVTYPE1LED & -1379.6589 & 1638.8949 & -0.8418 &   \\ 
+  TVONWD1SixTo10Hrs:TVTYPE1LED & -2980.6241 & 2057.1315 & -1.4489 &   \\ 
+  TVONWD1Gr10:TVTYPE1LED &  &  &  &  \\ 
+  PSQFT:TYPEGLASSSinglePane & 0.5481 & 0.2887 & 1.8987 &   \\ 
+  PSQFT:TYPEGLASSDoublePane & 0.7501 & 0.2804 & 2.6746 & * \\ 
+  PSQFT:TYPEGLASSTriplePane & 1.1070 & 0.3696 & 2.9950 & * \\ 
+  Income:EthRaceFALSEAfAm & 0.0052 & 0.0029 & 1.7791 &   \\ 
+  Income:EthRaceFALSEAsian & -0.0230 & 0.0035 & -6.4831 & *** \\ 
+  Income:EthRaceFALSEMulti & -0.0157 & 0.0057 & -2.7584 & * \\ 
+  Income:EthRaceFALSENativeAm & 0.0092 & 0.0211 & 0.4382 &   \\ 
+  Income:EthRaceFALSEOther & -0.0237 & 0.0082 & -2.9038 & * \\ 
+  Income:EthRaceFALSEPacific & -0.0129 & 0.0230 & -0.5625 &   \\ 
+  Income:EthRaceTRUEAfAm & -0.0173 & 0.0139 & -1.2454 &   \\ 
+  Income:EthRaceTRUEAsian & -0.0375 & 0.0101 & -3.7155 & ** \\ 
+  Income:EthRaceTRUEMulti & -0.0331 & 0.0192 & -1.7208 &   \\ 
+  Income:EthRaceTRUENativeAm & -0.0163 & 0.0107 & -1.5276 &   \\ 
+  Income:EthRaceTRUEOther & -0.0274 & 0.0080 & -3.4318 & ** \\ 
+  Income:EthRaceTRUEPacific & -0.0240 & 0.0659 & -0.3647 &   \\ 
+  Income:EthRaceTRUEWt & -0.0185 & 0.0033 & -5.5782 & *** \\ 
+  PSQFT:OwnSFDetached:HDD65 & 0.0001 & 0.0000 & 4.4109 & *** \\ 
+  PSQFT:HDD65:OwnLgApartment & 0.0000 & 0.0001 & 0.8450 &   \\ 
+  PSQFT:HDD65:OwnMobile & 0.0004 & 0.0001 & 4.6205 & *** \\ 
+  PSQFT:HDD65:OwnSFAttached & 0.0000 & 0.0000 & 1.3603 &   \\ 
+  PSQFT:HDD65:OwnSmApartment & 0.0001 & 0.0000 & 1.1709 &   \\ 
+  PSQFT:HDD65:RentLgApartment & -0.0001 & 0.0000 & -1.3292 &   \\ 
+  PSQFT:HDD65:RentMobile & 0.0005 & 0.0003 & 2.0238 &   \\ 
+  PSQFT:HDD65:RentSFAttached & 0.0001 & 0.0001 & 1.0923 &   \\ 
+  PSQFT:HDD65:RentSFDetached & 0.0001 & 0.0000 & 1.7233 &   \\ 
+  PSQFT:HDD65:RentSmApartment & -0.0000 & 0.0000 & -0.2465 &   \\ 
+  PSQFT:OwnSFDetached:CDD65 & 0.0007 & 0.0000 & 16.3870 & *** \\ 
+  PSQFT:OwnLgApartment:CDD65 & 0.0000 & 0.0002 & 0.2207 &   \\ 
+  PSQFT:OwnMobile:CDD65 & 0.0011 & 0.0002 & 6.7660 & *** \\ 
+  PSQFT:OwnSFAttached:CDD65 & 0.0005 & 0.0001 & 5.3085 & *** \\ 
+  PSQFT:OwnSmApartment:CDD65 & 0.0003 & 0.0002 & 1.8671 &   \\ 
+  PSQFT:RentLgApartment:CDD65 & 0.0003 & 0.0001 & 2.5551 & . \\ 
+  PSQFT:RentMobile:CDD65 & 0.0020 & 0.0009 & 2.2066 &   \\ 
+  PSQFT:RentSFAttached:CDD65 & 0.0009 & 0.0002 & 4.9470 & *** \\ 
+  PSQFT:RentSFDetached:CDD65 & 0.0008 & 0.0001 & 8.8123 & *** \\ 
+  PSQFT:RentSmApartment:CDD65 & 0.0005 & 0.0001 & 3.5753 & ** \\ 
+   \hline
+\hline
+\label{tab:SystemKWH}
+\end{longtable}
+}
 \end{document}
