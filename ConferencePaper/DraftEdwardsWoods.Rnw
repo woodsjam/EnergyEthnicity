@@ -1,5 +1,8 @@
 \documentclass{article}
+\usepackage{draftwatermark}
 \usepackage{longtable}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{1}
 
 \author{Michael Edwards\\ 
   James Woods}
