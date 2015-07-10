@@ -1,0 +1,112 @@
+---
+title: "Multiyear RECS data handling"
+author: "James Woods"
+date: "07/10/2015"
+output: html_document
+---
+
+```{r}
+recs2009_public <- read.csv("~/Research/EnergyEthnicity/Data/2009/recs2009_public.csv")
+
+RECS05alldata <- read.csv("~/Research/EnergyEthnicity/Data/2005/RECS05alldata.csv")
+
+```
+Those two are simple but the 2001 data comes in many parts
+
+```{r}
+publicuse102001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse102001.csv", header=TRUE)  
+publicuse2001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse2001.csv", header=TRUE)   
+publicuse42001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse42001.csv", header=TRUE)  
+publicuse72001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse72001.csv", header=TRUE)
+publicuse112001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse112001.csv", header=TRUE)  
+publicuse22001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse22001.csv", header=TRUE)  
+publicuse52001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse52001.csv", header=TRUE)  
+publicuse82001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse82001.csv", header=TRUE)
+publicuse122001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse122001.csv", header=TRUE) 
+publicuse32001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse32001.csv", header=TRUE)
+publicuse62001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse62001.csv", header=TRUE)  
+publicuse92001<-read.csv("~/Research/EnergyEthnicity/Data/2001/publicuse92001.csv", header=TRUE)
+
+#DOEID is the merge key
+library(reshape)
+All2001<-merge_recurse(list(publicuse102001,publicuse112001,publicuse122001,publicuse2001,publicuse22001,publicuse32001,publicuse42001,publicuse52001,publicuse62001,publicuse72001,publicuse82001,publicuse92001))
+
+```
+
+Harmonizing these into a single dataframe will be hard.  Lets check the names in each file and find the commonalities in the names.
+
+```{r}
+intersect(intersect(names(All2001),names(RECS05alldata)),names(recs2009_public))
+
+```
+Plenty of common names.  Lets look at the union.
+
+```{r}
+union(union(names(All2001),names(RECS05alldata)),names(recs2009_public))
+
+```
+So, we have <400 common names out of ~1500 total.
+
+Step one.  Make sure we have a unique ID accross all years for the observations.
+
+```{r}
+
+All2001$ID<-paste(as.character(All2001$DOEID),"2001",sep="")
+RECS05alldata$ID<-paste(as.character(RECS05alldata$DOEID),"2005",sep="")
+recs2009_public$ID<-paste(as.character(recs2009_public$DOEID),"2009",sep="")
+```
+
+And give an indicator of survey year
+
+```{r}
+All2001$Year<-2001
+RECS05alldata$Year<-2005
+recs2009_public$Year<-2009
+```
+
+Now lets combine the columns that are common into one dataframe
+
+```{r}
+CommonCols<-intersect(intersect(names(All2001),names(RECS05alldata)),names(recs2009_public))
+RECS<-rbind(All2001[CommonCols],RECS05alldata[CommonCols],recs2009_public[CommonCols])
+```
+
+Check the number of observations.
+```{r}
+dim(All2001)
+dim(RECS05alldata)
+dim(recs2009_public)
+dim(RECS)
+```
+They all checkout.
+
+Now lets merge in the columns that are unique to each dataframe.
+```{r}
+#Need unique names plus ID only in the merge.
+
+outersect <- function(x, y) {
+  sort(c(setdiff(x, y),
+         setdiff(y, x)))
+}
+
+U2001<-c("ID",outersect(names(RECS),names(All2001)))
+U2005<-c("ID",outersect(names(RECS),names(RECS05alldata)))
+U2009<-c("ID",outersect(names(RECS),names(recs2009_public)))
+
+RECS<-merge(RECS,All2001[U2001],by="ID", all.x=TRUE)
+RECS<-merge(RECS,RECS05alldata[U2005],by="ID", all.x=TRUE)
+RECS<-merge(RECS,recs2009_public[U2009],by="ID", all.x=TRUE)
+```
+
+That should do it.
+
+```{r}
+summary(RECS)
+
+```
+
+
+
+
+
+
